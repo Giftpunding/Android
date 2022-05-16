@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 공용 -->
+    <dimen name="activity_vertical_dimens">28dp</dimen>
+    <dimen name="activity_horizontal_dimens">28dp</dimen>
+
+    <!--홈 화면-->
+    <dimen name="home_sub_title_size">16sp</dimen>
+    <dimen name="home_ranking_category_size">14sp</dimen>
+    <dimen name="home_gray_border_line_size">1dp</dimen>
+    <dimen name="home_gray_border_line_radius_size">20dp</dimen>
+    <dimen name="home_gift_box_text_size">12sp</dimen>
+    <dimen name="home_gift_box_padding">20dp</dimen>
+    <dimen name="home_gift_ranking_title_margin">24dp</dimen>
+</resources>
