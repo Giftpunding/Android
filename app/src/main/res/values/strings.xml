@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">osds</string>
+
+    <!-- 검색화면 -->
+    <string name="content_search"> 받고 싶은 선물을 찾아보세요!</string>
+    <string name="title_category"> 카테고리 </string>
+
 </resources>

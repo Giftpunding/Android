@@ -32,7 +32,7 @@ class Application: Application() {
     private fun initNetworkModule() {
         retrofit =
             Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl("http://3.39.236.149")
                 .client(OkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
