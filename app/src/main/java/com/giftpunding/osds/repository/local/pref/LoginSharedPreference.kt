@@ -7,10 +7,6 @@ import androidx.core.content.edit
 
 class LoginSharedPreference(private val context: Context) {
 
-    companion object{
-        private const val TAG: String = "LoginSharedPreference"
-    }
-
     private val loginSharedPreference: SharedPreferences =
         context.getSharedPreferences("login", Context.MODE_PRIVATE)
 
@@ -22,4 +18,7 @@ class LoginSharedPreference(private val context: Context) {
 
     fun getUserToken():String? = loginSharedPreference.getString("jwt", "")
 
+    companion object{
+        private const val TAG: String = "LoginSharedPreference"
+    }
 }
