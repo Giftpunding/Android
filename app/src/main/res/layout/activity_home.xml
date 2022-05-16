@@ -60,16 +60,18 @@
 
             <TextView
                 android:id="@+id/tv_home_no_add_gift_box"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:text="@string/content_no_add_gift_box"
                 android:textColor="@color/silver"
+                android:gravity="center"
+                app:layout_constraintDimensionRatio="3"
                 android:textSize="@dimen/home_gift_box_text_size"
+                app:layout_constraintVertical_bias="0.54"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.51" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_home_gift_box_list"
