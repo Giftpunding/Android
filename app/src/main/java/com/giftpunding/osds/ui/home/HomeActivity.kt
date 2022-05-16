@@ -5,8 +5,13 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
+import com.giftpunding.osds.data.response.home.HomeGiftBoxResponse
+import com.giftpunding.osds.data.response.home.HomeMerchandiseResponse
 import com.giftpunding.osds.databinding.ActivityHomeBinding
+import com.giftpunding.osds.ui.home.adapter.HomeGiftBoxAdapter
+import com.giftpunding.osds.ui.home.adapter.HomeMerchandiseAdapter
 
 class HomeActivity : AppCompatActivity() {
 
@@ -21,10 +26,32 @@ class HomeActivity : AppCompatActivity() {
         initEvent()
     }
 
+    /**
+     * 액티비티 실행 시 초기화 작업,
+     * 서버 작업 요구 됨
+     */
     private fun init() {
+        //서버 통신 작업 필요함, 임시로 어댑터 연결
+        binding.apply {
+            rvHomeGiftBoxList.layoutManager =
+                LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
+            rvHomeGiftBoxList.adapter =
+                HomeGiftBoxAdapter(this@HomeActivity, listOf(HomeGiftBoxResponse(test = "123123")))
 
+            rvHomeGiftMerchandise.layoutManager =
+                LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
+            rvHomeGiftMerchandise.adapter = HomeMerchandiseAdapter(
+                this@HomeActivity, listOf(
+                    HomeMerchandiseResponse(test = "123123123123123")
+                )
+            )
+        }
     }
 
+    /**
+     * 상황에 맞는 View 이벤트 등록,
+     * 현재는 글자 폰트만 변경됩니다.
+     */
     private fun initEvent() {
         binding.apply {
             tvHomeGiftRankingAll.setOnClickListener {
@@ -45,6 +72,10 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * 카테고리 클릭 시 발생하는 이벤트,
+     * 현재는 글자 폰트만 변경됩니다.
+     */
     private fun changeCategoryStyle(clickTextView: TextView) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.apply {
