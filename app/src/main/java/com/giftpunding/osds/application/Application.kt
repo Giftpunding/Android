@@ -26,7 +26,7 @@ class Application: Application() {
     private fun initNetworkModule() {
         retrofit =
             Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl(baseUrl)
                 .client(OkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

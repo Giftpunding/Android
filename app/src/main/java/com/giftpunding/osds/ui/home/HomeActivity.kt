@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
 import com.giftpunding.osds.data.response.home.HomeGiftBoxResponse
@@ -85,13 +86,13 @@ class HomeActivity : AppCompatActivity() {
                 tvHomeGiftRankingThreeToFour.setTextColor(resources.getColor(R.color.mischka, null))
                 tvHomeGiftRankingOverTen.setTextColor(resources.getColor(R.color.mischka, null))
 
-                tvHomeGiftRankingAll.typeface = Typeface.DEFAULT
-                tvHomeGiftRankingOneToTwo.typeface = Typeface.DEFAULT
-                tvHomeGiftRankingFiveToNine.typeface = Typeface.DEFAULT
-                tvHomeGiftRankingThreeToFour.typeface = Typeface.DEFAULT
-                tvHomeGiftRankingOverTen.typeface = Typeface.DEFAULT
+                tvHomeGiftRankingAll.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
+                tvHomeGiftRankingOneToTwo.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
+                tvHomeGiftRankingFiveToNine.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
+                tvHomeGiftRankingThreeToFour.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
+                tvHomeGiftRankingOverTen.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
             }
-            clickTextView.typeface = Typeface.DEFAULT_BOLD
+            clickTextView.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
             clickTextView.setTextColor(resources.getColor(R.color.black, null))
         }
     }
