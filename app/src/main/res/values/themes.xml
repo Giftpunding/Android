@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- TabLayout 텍스트 -->
+    <style name="home_gift_ranking_tab_text" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/home_ranking_category_size</item>
+        <item name="android:padding">0dp</item>
+    </style>
 </resources>
