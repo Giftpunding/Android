@@ -9,7 +9,9 @@
     <string name="category_three_to_four">3~4만원</string>
     <string name="category_five_to_nine">5~9만원</string>
     <string name="category_over_ten">10만원 이상</string>
-
     <string name="content_all_info">전체보기</string>
+    <string name="category_merchandise_info">상품 설명</string>
+    <string name="category_detail_info">상세 정보</string>
+    <string name="content_merchandise_add">선물에 추가하기</string>
 
 </resources>

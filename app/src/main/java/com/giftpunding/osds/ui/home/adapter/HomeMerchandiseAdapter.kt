@@ -32,7 +32,7 @@ class HomeMerchandiseAdapter(
         val holder = when (viewType) {
             FOOTER -> {
                 val view = ItemHomeMerchandiseFooterBinding.inflate(
-                    LayoutInflater.from(context),
+                    LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
@@ -40,7 +40,7 @@ class HomeMerchandiseAdapter(
             }
             else -> {
                 val view = ItemHomeMerchandiseListBinding.inflate(
-                    LayoutInflater.from(context),
+                    LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
