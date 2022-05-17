@@ -1,12 +1,14 @@
 package com.giftpunding.osds.ui.home.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.data.response.home.HomeMerchandiseResponse
 import com.giftpunding.osds.databinding.ItemHomeMerchandiseFooterBinding
 import com.giftpunding.osds.databinding.ItemHomeMerchandiseListBinding
+import com.giftpunding.osds.ui.merchandise.MerchandiseActivity
 
 const val FOOTER = 0
 const val ITEM = 1
@@ -56,6 +58,10 @@ class HomeMerchandiseAdapter(
         } else {
             with(holder as HomeMerchandiseHolder) {
                 //리스트에 데이터 연결
+                itemView.setOnClickListener {
+                    val intent = Intent(context, MerchandiseActivity::class.java)
+                    context.startActivity(intent)
+                }
             }
         }
     }
