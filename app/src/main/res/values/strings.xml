@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">osds</string>
 
+    <string name="title_gift_box">선물 장바구니</string>
+    <string name="content_no_add_gift_box">추가한 선물이 없습니다.</string>
+    <string name="title_gift_ranking">선물 랭킹</string>
+    <string name="category_all">전체</string>
+    <string name="category_price_one_to_two">1~2만원</string>
+    <string name="category_three_to_four">3~4만원</string>
+    <string name="category_five_to_nine">5~9만원</string>
+    <string name="category_over_ten">10만원 이상</string>
+
+    <string name="content_all_info">전체보기</string>
+
+
     <!-- 검색화면 -->
     <string name="content_search"> 받고 싶은 선물을 찾아보세요!</string>
     <string name="title_category"> 카테고리 </string>

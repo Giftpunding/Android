@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.ui.main.MainActivity
 import com.giftpunding.osds.R
 import com.giftpunding.osds.ui.bridge.adapter.BridgeAdapter
+import com.giftpunding.osds.ui.home.HomeActivity
 import com.giftpunding.osds.ui.login.LoginActivity
 import com.giftpunding.osds.ui.search.SearchActivity
 
@@ -34,6 +35,7 @@ class BridgeActivity: AppCompatActivity() {
             val mActivityList: ArrayList<Class<out Activity>> = arrayListOf(
                 MainActivity::class.java,
                 LoginActivity::class.java,
+                HomeActivity::class.java,
                 SearchActivity::class.java
             )
 
