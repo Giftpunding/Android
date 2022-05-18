@@ -7,12 +7,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.R
 import com.giftpunding.osds.ui.search.adapter.CategoryImageAdapter
-import com.giftpunding.osds.ui.search.adapter.CategoryImageAdapterDeco
-import com.giftpunding.osds.ui.search.adapter.GridSpacingItemDecoration
+import com.giftpunding.osds.ui.search.adapter.CategoryImageAdapterDecoration
 
-class SearchActivity: AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
 
-    lateinit var giftCategoryImageRecyclerView: RecyclerView
+    private lateinit var giftCategoryImageRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,9 +49,8 @@ class SearchActivity: AppCompatActivity() {
 
             adapter = categoryImageAdapter
             layoutManager = GridLayoutManager(this@SearchActivity, 3)
-            addItemDecoration(CategoryImageAdapterDeco())
+            addItemDecoration(CategoryImageAdapterDecoration())
             categoryImageAdapter.addItems(categoryImageList)
-
         }
     }
 
