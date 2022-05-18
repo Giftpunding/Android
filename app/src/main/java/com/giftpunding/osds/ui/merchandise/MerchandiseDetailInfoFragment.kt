@@ -19,4 +19,19 @@ class MerchandiseDetailInfoFragment : Fragment() {
         binding = FragmentMerchandiseDetailInfoBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        merchandiseDetailInfoFragment = null
+    }
+
+    companion object {
+        private var merchandiseDetailInfoFragment: Fragment? = null
+        //번들을 이용해서 데이터를 넘겨줘라.
+        //생성자를 통해 데이터를 넘겨받고 bundle로 처리
+        fun getFragmentInstance(): Fragment? {
+            merchandiseDetailInfoFragment = MerchandiseDetailInfoFragment()
+            return merchandiseDetailInfoFragment
+        }
+    }
 }
