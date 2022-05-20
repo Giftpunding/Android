@@ -27,7 +27,6 @@ class MerchandiseDetailInfoFragment : Fragment() {
 
     companion object {
         private var merchandiseDetailInfoFragment: Fragment? = null
-        //번들을 이용해서 데이터를 넘겨줘라.
         //생성자를 통해 데이터를 넘겨받고 bundle로 처리
         fun getFragmentInstance(): Fragment? {
             merchandiseDetailInfoFragment = MerchandiseDetailInfoFragment()

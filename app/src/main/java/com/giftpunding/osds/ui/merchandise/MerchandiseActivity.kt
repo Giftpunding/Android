@@ -24,8 +24,6 @@ class MerchandiseActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        //프래그먼트 각자를 인스턴스 1번만 사용하게 하는 방법이 존재함.
-        //이 방법을 사용해서 문제가 없을까?
         fragmentList.add(MerchandiseInfoFragment.getFragmentInstance()!!)
         fragmentList.add(MerchandiseDetailInfoFragment.getFragmentInstance()!!)
 
