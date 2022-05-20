@@ -1,9 +1,11 @@
 package com.giftpunding.osds.application
 
 import android.app.Application
+import com.giftpunding.osds.R
 import com.giftpunding.osds.repository.LoginRepository
 import com.giftpunding.osds.repository.local.pref.LoginSharedPreference
 import com.giftpunding.osds.repository.remote.datasource.LoginRemoteDataSource
+import com.kakao.sdk.common.KakaoSdk
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,6 +22,7 @@ class Application: Application() {
 
         initNetworkModule()
         initDependency()
+        KakaoSdk.init(this, getString(R.string.native_app_key))
 
     }
 
