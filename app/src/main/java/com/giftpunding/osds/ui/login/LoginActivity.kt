@@ -6,12 +6,12 @@ import com.giftpunding.osds.R
 
 class LoginActivity : AppCompatActivity() {
 
-    companion object{
-        private const val TAG: String = "LoginActivity..."
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+    }
+
+    companion object{
+        private const val TAG: String = "LoginActivity..."
     }
 }
