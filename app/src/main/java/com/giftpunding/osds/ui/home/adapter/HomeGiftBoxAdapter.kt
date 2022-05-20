@@ -13,7 +13,7 @@ class HomeGiftBoxAdapter(private val context: Context, private val giftBoxList: 
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeGiftBoxHolder {
-        val view = ItemHomeGiftBoxListBinding.inflate(LayoutInflater.from(context), parent, false)
+        val view = ItemHomeGiftBoxListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HomeGiftBoxHolder(view)
     }
 
