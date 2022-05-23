@@ -12,11 +12,11 @@
     <string name="content_all_info">전체보기</string>
     <string name="category_merchandise_info">상품 설명</string>
     <string name="category_detail_info">상세 정보</string>
-    <string name="content_merchandise_add">선물에 추가하기</string>
+    <string name="content_do_merchandise_add">선물에 추가하기</string>
 
-
-    <!-- 검색화면 -->
+    
     <string name="content_search"> 받고 싶은 선물을 찾아보세요!</string>
     <string name="title_category"> 카테고리 </string>
+    <string name="content_merchandise_add">선물에 추가</string>
 
 </resources>

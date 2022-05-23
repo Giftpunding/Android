@@ -1,6 +1,5 @@
 package com.giftpunding.osds.ui.home
 
-import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.widget.TextView
@@ -8,10 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
-import com.giftpunding.osds.data.response.home.HomeGiftBoxResponse
 import com.giftpunding.osds.data.response.home.HomeMerchandiseResponse
 import com.giftpunding.osds.databinding.ActivityHomeBinding
-import com.giftpunding.osds.ui.home.adapter.HomeGiftBoxAdapter
 import com.giftpunding.osds.ui.home.adapter.HomeMerchandiseAdapter
 
 class HomeActivity : AppCompatActivity() {
@@ -34,11 +31,6 @@ class HomeActivity : AppCompatActivity() {
     private fun init() {
         //서버 통신 작업 필요함, 임시로 어댑터 연결
         binding.apply {
-            rvHomeGiftBoxList.layoutManager =
-                LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
-            rvHomeGiftBoxList.adapter =
-                HomeGiftBoxAdapter(this@HomeActivity, listOf(HomeGiftBoxResponse(test = "123123")))
-
             rvHomeGiftMerchandise.layoutManager =
                 LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
             rvHomeGiftMerchandise.adapter = HomeMerchandiseAdapter(
@@ -86,13 +78,13 @@ class HomeActivity : AppCompatActivity() {
                 tvHomeGiftRankingThreeToFour.setTextColor(resources.getColor(R.color.mischka, null))
                 tvHomeGiftRankingOverTen.setTextColor(resources.getColor(R.color.mischka, null))
 
-                tvHomeGiftRankingAll.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
-                tvHomeGiftRankingOneToTwo.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
-                tvHomeGiftRankingFiveToNine.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
-                tvHomeGiftRankingThreeToFour.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
-                tvHomeGiftRankingOverTen.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
+                tvHomeGiftRankingAll.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helveticaneue_bold)
+                tvHomeGiftRankingOneToTwo.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helveticaneue_bold)
+                tvHomeGiftRankingFiveToNine.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helveticaneue_bold)
+                tvHomeGiftRankingThreeToFour.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helveticaneue_bold)
+                tvHomeGiftRankingOverTen.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helveticaneue_bold)
             }
-            clickTextView.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helvetica_neue_bold)
+            clickTextView.typeface = ResourcesCompat.getFont(this@HomeActivity,R.font.helveticaneue_bold)
             clickTextView.setTextColor(resources.getColor(R.color.black, null))
         }
     }
