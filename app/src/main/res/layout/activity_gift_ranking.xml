@@ -1,91 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.amar.library.ui.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    app:stickyHeader="@id/ly_home_appbar">
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ly_home_main"
+        android:id="@+id/ly_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <!-- appbar로 적용하면 해당 코드로 적용, 아니라면 LinearLayout으로 진행 -->
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/ly_home_appbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white">
-
-                <TextView
-                    android:id="@+id/tv_home_gift_box_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/bg_round_black"
-                    android:fontFamily="@font/helveticaneue_regular"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:text="0"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@id/btn_home_gift_box"
-                    app:layout_constraintEnd_toEndOf="@id/btn_home_gift_box" />
-
-                <ImageButton
-                    android:id="@+id/btn_home_gift_box"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="@dimen/activity_horizontal_dimens"
-                    android:layout_marginBottom="16dp"
-                    android:background="@color/trans100"
-                    android:src="@drawable/ic_gift_box"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <TextView
-            android:id="@+id/tv_home_gift_ranking_title"
+        <ImageView
+            android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="200dp"
-            android:fontFamily="@font/notosanskr_regular"
+            android:layout_marginStart="@dimen/activity_horizontal_dimens"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/notosanskr_bold"
             android:includeFontPadding="false"
             android:text="@string/title_gift_ranking"
-            android:textColor="@color/black"
-            android:textSize="@dimen/home_sub_title_size"
-            android:textStyle="bold"
+            android:textColor="@color/midnight_express"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ly_home_appbar" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ly_home_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="37dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+            android:paddingTop="21dp"
+            android:paddingBottom="21dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_gift_ranking_title">
+            app:layout_constraintTop_toBottomOf="@id/tv_title">
 
             <TextView
                 android:id="@+id/tv_home_gift_ranking_all"
@@ -161,53 +123,17 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_home_gift_merchandise"
+            android:id="@+id/rv_merchandise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="3dp"
             android:layout_marginEnd="@dimen/activity_horizontal_dimens"
-            android:nestedScrollingEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ly_home_category" />
 
-        <LinearLayout
-            android:id="@+id/ly_merchandise_more_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:background="@drawable/bg_rect_hawkes_blue_trans100_round8_stroke1"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="32dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="32dp"
-            android:paddingBottom="9dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_home_gift_merchandise">
-
-            <TextView
-                android:id="@+id/tv_merchandise_more_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosanskr_regular"
-                android:includeFontPadding="false"
-                android:text="@string/content_more_info"
-                android:textColor="@color/raven"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/ic_more_info_arrow" />
-        </LinearLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</com.amar.library.ui.StickyScrollView>
+</androidx.core.widget.NestedScrollView>

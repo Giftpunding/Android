@@ -1,4 +1,4 @@
-package com.giftpunding.osds.ui.home
+package com.giftpunding.osds.ui.home.ranking
 
 import android.content.Intent
 import android.os.Build
@@ -9,36 +9,26 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
 import com.giftpunding.osds.data.response.home.HomeMerchandiseResponse
-import com.giftpunding.osds.databinding.ActivityHomeBinding
+import com.giftpunding.osds.databinding.ActivityGiftRankingBinding
 import com.giftpunding.osds.ui.home.adapter.MerchandiseAdapter
-import com.giftpunding.osds.ui.home.ranking.RankingActivity
 
-class HomeActivity : AppCompatActivity() {
+class RankingActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityHomeBinding
+    private lateinit var binding: ActivityGiftRankingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding = ActivityGiftRankingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         init()
         initEvent()
     }
 
-    /**
-     * 액티비티 실행 시 초기화 작업,
-     * 서버 작업 요구 됨
-     */
     private fun init() {
-        //서버 통신 작업 필요함, 임시로 어댑터 연결
         binding.apply {
-            rvHomeGiftMerchandise.layoutManager =
-                LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
-
             /* 임시 더미 데이터 */
             val list = mutableListOf<HomeMerchandiseResponse>()
-            for (idx in 1..5) {
+            for (idx in 1..10) {
                 list.add(
                     HomeMerchandiseResponse(
                         brand = "브랜드${idx}",
@@ -48,21 +38,16 @@ class HomeActivity : AppCompatActivity() {
                     )
                 )
             }
+            val merchandiseAdapter = MerchandiseAdapter(this@RankingActivity)
 
-            val merchandiseAdapter = MerchandiseAdapter(this@HomeActivity)
-
-            rvHomeGiftMerchandise.layoutManager =
-                LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
-            rvHomeGiftMerchandise.adapter = merchandiseAdapter
+            rvMerchandise.layoutManager =
+                LinearLayoutManager(this@RankingActivity, LinearLayoutManager.VERTICAL, false)
+            rvMerchandise.adapter = merchandiseAdapter
 
             merchandiseAdapter.addItemList(list)
         }
     }
 
-    /**
-     * 상황에 맞는 View 이벤트 등록,
-     * 현재는 글자 폰트만 변경됩니다.
-     */
     private fun initEvent() {
         binding.apply {
             tvHomeGiftRankingAll.setOnClickListener {
@@ -79,9 +64,6 @@ class HomeActivity : AppCompatActivity() {
             }
             tvHomeGiftRankingOverTen.setOnClickListener {
                 changeCategoryStyle(it as TextView)
-            }
-            lyMerchandiseMoreInfo.setOnClickListener {
-                startActivity(Intent(this@HomeActivity, RankingActivity::class.java))
             }
         }
     }
@@ -100,18 +82,18 @@ class HomeActivity : AppCompatActivity() {
                 tvHomeGiftRankingOverTen.setTextColor(resources.getColor(R.color.mischka, null))
 
                 tvHomeGiftRankingAll.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
                 tvHomeGiftRankingOneToTwo.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
                 tvHomeGiftRankingFiveToNine.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
                 tvHomeGiftRankingThreeToFour.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
                 tvHomeGiftRankingOverTen.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
             }
             clickTextView.typeface =
-                ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
+                ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
             clickTextView.setTextColor(resources.getColor(R.color.black, null))
         }
     }

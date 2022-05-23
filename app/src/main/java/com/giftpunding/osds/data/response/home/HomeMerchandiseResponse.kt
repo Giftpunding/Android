@@ -1,5 +1,8 @@
 package com.giftpunding.osds.data.response.home
 
 data class HomeMerchandiseResponse(
-    val test: String
+    val brand: String,
+    val name: String,
+    val price: Int,
+    val img: String
 )
