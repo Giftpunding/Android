@@ -353,12 +353,12 @@
                 android:id="@+id/ly_sought_after_gift_page_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginEnd="26dp"
                 android:layout_marginStart="26dp"
+                android:layout_marginEnd="26dp"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/btn_sought_after_back"
                 app:layout_constraintEnd_toStartOf="@id/btn_sought_after_after"
+                app:layout_constraintStart_toEndOf="@id/btn_sought_after_back"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
@@ -404,6 +404,97 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_advertisement"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="@dimen/activity_horizontal_dimens"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ly_sought_after_gift_page" />
+
+
+        <TextView
+            android:id="@+id/tv_luxury_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_dimens"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="@string/title_luxury"
+            android:textColor="@color/black"
+            android:textSize="@dimen/home_sub_title_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vp_advertisement" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_luxury_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_luxury_title" />
+
+        <LinearLayout
+            android:id="@+id/ly_luxury_more_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_rect_hawkes_blue_trans100_round8_stroke1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="32dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_luxury_list">
+
+            <TextView
+                android:id="@+id/tv_luxury_more_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/content_more_info"
+                android:textColor="@color/raven"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_more_info_arrow" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_recommend_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ly_luxury_more_info" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recommend_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_recommend_banner" />
+        
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.amar.library.ui.StickyScrollView>
