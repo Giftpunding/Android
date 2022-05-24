@@ -234,7 +234,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ly_sought_after_gift"
+            android:id="@+id/ly_sought_after_gift_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
@@ -320,13 +320,88 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_sought_after_gift"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
             android:layout_marginTop="27dp"
             android:layout_marginEnd="@dimen/activity_horizontal_dimens"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_home_sought_after_gift" />
+            app:layout_constraintTop_toBottomOf="@id/ly_sought_after_gift_category" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ly_sought_after_gift_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vp_sought_after_gift">
+
+            <ImageButton
+                android:id="@+id/btn_sought_after_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/trans100"
+                android:src="@drawable/ic_back_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <LinearLayout
+                android:id="@+id/ly_sought_after_gift_page_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginEnd="26dp"
+                android:layout_marginStart="26dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_sought_after_back"
+                app:layout_constraintEnd_toStartOf="@id/btn_sought_after_after"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_sought_after_category_page_previous"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/helveticaneue_regular"
+                    android:text="1"
+                    android:textColor="@color/echo_blue"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_sought_after_category_page_div"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/helveticaneue_regular"
+                    android:text="/"
+                    android:textColor="@color/echo_blue"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_sought_after_category_page_after"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/helveticaneue_regular"
+                    android:text="1"
+                    android:textColor="@color/echo_blue"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btn_sought_after_after"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/trans100"
+                android:src="@drawable/ic_front_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

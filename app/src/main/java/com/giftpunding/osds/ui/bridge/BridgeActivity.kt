@@ -36,7 +36,7 @@ class BridgeActivity: AppCompatActivity() {
                 MainActivity::class.java,
                 LoginActivity::class.java,
                 HomeActivity::class.java,
-                SearchActivity::class.java
+                SearchActivity::class.java,
             )
 
             adapter = bridgeAdapter
