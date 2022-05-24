@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg.xml" value="0.1" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_asdf.xml" value="0.293" />
+        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_cir.xml" value="0.1" />
+        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_oval.xml" value="0.1" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_hawkes_blue_trans100_round8_stroke1.xml" value="0.293" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_solitude_trans100_round16_stroke1.xml" value="0.224" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_solitude_trans100_round20_stroke1.xml" value="0.224" />
@@ -22,6 +25,7 @@
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_home_merchandise_list.xml" value="0.33" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_merchandise_list.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_sought_after_gift.xml" value="0.33" />
+        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_sought_after_gift_category.xml" value="0.33" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/app/src/main/res/layout/activity_home.xml" value="0.3435185185185185" />
       </map>
     </option>
