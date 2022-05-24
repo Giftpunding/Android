@@ -37,7 +37,6 @@
                     android:background="@drawable/bg_round_black"
                     android:fontFamily="@font/helveticaneue_regular"
                     android:gravity="center_horizontal|center_vertical"
-                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@id/btn_home_gift_box"
@@ -108,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneue_bold"
                 android:includeFontPadding="false"
-                android:text="@string/category_price_one_to_two"
+                android:text="@string/category_one_to_two"
                 android:textColor="@color/mischka"
                 android:textSize="@dimen/home_ranking_category_size"
                 app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_all"
@@ -206,6 +205,128 @@
                 android:layout_marginStart="5dp"
                 android:src="@drawable/ic_more_info_arrow" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_home_sought_after_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_dimens"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="@string/title_sought_after_gift"
+            android:textColor="@color/black"
+            android:textSize="@dimen/home_sub_title_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ly_merchandise_more_info" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_sought_after_gift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_dimens"
+            android:layout_marginTop="42dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_sought_after_gift" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ly_sought_after_gift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_dimens"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_home_sought_after_gift">
+
+            <TextView
+                android:id="@+id/tv_sought_after_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneue_bold"
+                android:includeFontPadding="false"
+                android:text="@string/category_all"
+                android:textColor="@color/black"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_sought_after_five_to_nine"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_sought_after_five_to_nine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneue_bold"
+                android:includeFontPadding="false"
+                android:text="@string/category_five_to_nine"
+                android:textColor="@color/mischka"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="@id/tv_sought_after_all"
+                app:layout_constraintEnd_toStartOf="@id/tv_sought_after_ten"
+                app:layout_constraintStart_toEndOf="@id/tv_sought_after_all"
+                app:layout_constraintTop_toTopOf="@id/tv_sought_after_all" />
+
+            <TextView
+                android:id="@+id/tv_sought_after_ten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneue_bold"
+                android:includeFontPadding="false"
+                android:text="@string/category_around_ten"
+                android:textColor="@color/mischka"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="@id/tv_sought_after_five_to_nine"
+                app:layout_constraintEnd_toStartOf="@id/tv_sought_after_over_twenty"
+                app:layout_constraintStart_toEndOf="@id/tv_sought_after_five_to_nine"
+                app:layout_constraintTop_toTopOf="@id/tv_sought_after_five_to_nine" />
+
+            <TextView
+                android:id="@+id/tv_sought_after_over_twenty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneue_bold"
+                android:includeFontPadding="false"
+                android:text="@string/category_around_twenty"
+                android:textColor="@color/mischka"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="@id/tv_sought_after_ten"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_over_thirty"
+                app:layout_constraintStart_toEndOf="@id/tv_sought_after_ten"
+                app:layout_constraintTop_toTopOf="@id/tv_sought_after_ten" />
+
+            <TextView
+                android:id="@+id/tv_home_gift_ranking_over_thirty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneue_bold"
+                android:includeFontPadding="false"
+                android:text="@string/category_over_thirty"
+                android:textColor="@color/mischka"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="@id/tv_sought_after_over_twenty"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_sought_after_over_twenty"
+                app:layout_constraintTop_toTopOf="@id/tv_sought_after_over_twenty" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_sought_after_gift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_dimens"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_home_sought_after_gift" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

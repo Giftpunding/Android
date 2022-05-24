@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneue_bold"
                 android:includeFontPadding="false"
-                android:text="@string/category_price_one_to_two"
+                android:text="@string/category_one_to_two"
                 android:textColor="@color/mischka"
                 android:textSize="@dimen/home_ranking_category_size"
                 app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_all"
