@@ -3,6 +3,7 @@ package com.giftpunding.osds.ui.login
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.giftpunding.osds.R
+import com.giftpunding.osds.application.Application.Companion.loginRepository
 
 class LoginActivity : AppCompatActivity() {
 
