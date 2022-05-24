@@ -89,6 +89,86 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_home_gift_box_title" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ly_home_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_dimens"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_gift_ranking_title">
+
+            <TextView
+                android:id="@+id/tv_home_gift_ranking_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_bold"
+                android:text="@string/category_all"
+                android:textColor="@color/black"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_one_to_two"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_home_gift_ranking_one_to_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_bold"
+                android:text="@string/category_price_one_to_two"
+                android:textColor="@color/mischka"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_all"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_three_to_four"
+                app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_all"
+                app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_all" />
+
+            <TextView
+                android:id="@+id/tv_home_gift_ranking_three_to_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_bold"
+                android:text="@string/category_three_to_four"
+                android:textColor="@color/mischka"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_one_to_two"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_five_to_nine"
+                app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_one_to_two"
+                app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_one_to_two" />
+
+            <TextView
+                android:id="@+id/tv_home_gift_ranking_five_to_nine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_bold"
+                android:text="@string/category_five_to_nine"
+                android:textColor="@color/mischka"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_three_to_four"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_over_ten"
+                app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_three_to_four"
+                app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_three_to_four" />
+
+            <TextView
+                android:id="@+id/tv_home_gift_ranking_over_ten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helvetica_neue_bold"
+                android:text="@string/category_over_ten"
+                android:textColor="@color/mischka"
+                android:textSize="@dimen/home_ranking_category_size"
+                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_five_to_nine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_five_to_nine"
+                app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_five_to_nine" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <LinearLayout
             android:id="@+id/ly_recommend_keyword"
             android:layout_width="match_parent"
@@ -113,72 +193,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ly_recommend_keyword" />
 
-        <TextView
-            android:id="@+id/tv_home_gift_ranking_all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/helvetica_neue_bold"
-            android:text="@string/category_all"
-            android:textColor="@color/black"
-            android:textSize="@dimen/home_ranking_category_size"
-            app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_one_to_two"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_gift_ranking_title" />
-
-        <TextView
-            android:id="@+id/tv_home_gift_ranking_one_to_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/helvetica_neue_bold"
-            android:text="@string/category_price_one_to_two"
-            android:textColor="@color/mischka"
-            android:textSize="@dimen/home_ranking_category_size"
-            app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_all"
-            app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_three_to_four"
-            app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_all"
-            app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_all" />
-
-        <TextView
-            android:id="@+id/tv_home_gift_ranking_three_to_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/helvetica_neue_bold"
-            android:text="@string/category_three_to_four"
-            android:textColor="@color/mischka"
-            android:textSize="@dimen/home_ranking_category_size"
-            app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_one_to_two"
-            app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_five_to_nine"
-            app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_one_to_two"
-            app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_one_to_two" />
-
-        <TextView
-            android:id="@+id/tv_home_gift_ranking_five_to_nine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/helvetica_neue_bold"
-            android:text="@string/category_five_to_nine"
-            android:textColor="@color/mischka"
-            android:textSize="@dimen/home_ranking_category_size"
-            app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_three_to_four"
-            app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_over_ten"
-            app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_three_to_four"
-            app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_three_to_four" />
-
-        <TextView
-            android:id="@+id/tv_home_gift_ranking_over_ten"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/helvetica_neue_bold"
-            android:text="@string/category_over_ten"
-            android:textColor="@color/mischka"
-            android:textSize="@dimen/home_ranking_category_size"
-            app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_five_to_nine"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_five_to_nine"
-            app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_five_to_nine" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_home_gift_merchandise"
             android:layout_width="match_parent"
@@ -189,7 +203,7 @@
             android:nestedScrollingEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_gift_ranking_all" />
+            app:layout_constraintTop_toBottomOf="@id/ly_home_category" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
