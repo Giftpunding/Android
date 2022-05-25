@@ -22,4 +22,37 @@
         <item name="android:paddingBottom">17dp</item>
         <item name="android:paddingTop">17dp</item>
     </style>
+
+    <!--텍스트뷰 스타일 -->
+    <style name="noto_sans_kr_regular" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/notosanskr_regular</item>
+    </style>
+
+    <style name="noto_sans_kr_bold" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/notosanskr_bold</item>
+    </style>
+
+    <style name="noto_sans_kr_regular_12" parent="noto_sans_kr_regular">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="noto_sans_kr_regular_14" parent="noto_sans_kr_regular">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="noto_sans_kr_bold_18" parent="noto_sans_kr_bold">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="noto_sans_kr_regular_12_echo_blue" parent="noto_sans_kr_regular_12">
+        <item name="android:textColor">@color/echo_blue</item>
+    </style>
+
+    <style name="noto_sans_kr_regular_14_black" parent="noto_sans_kr_regular_14">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="noto_sans_kr_bold_18_black" parent="noto_sans_kr_bold_18">
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>
