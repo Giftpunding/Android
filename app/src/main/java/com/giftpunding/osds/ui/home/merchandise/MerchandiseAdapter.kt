@@ -1,12 +1,13 @@
-package com.giftpunding.osds.ui.home.adapter
+package com.giftpunding.osds.ui.home.merchandise
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.giftpunding.osds.data.response.home.HomeMerchandiseResponse
-import com.giftpunding.osds.databinding.ItemMerchandiseListBinding
+import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
+import com.giftpunding.osds.databinding.ItemMerchandiseHorizontalBinding
 import com.giftpunding.osds.util.addComma
 
 
@@ -14,14 +15,14 @@ class MerchandiseAdapter(
     private val context: Context,
 ) : RecyclerView.Adapter<MerchandiseAdapter.HomeMerchandiseHolder>() {
 
-    private val list = mutableListOf<HomeMerchandiseResponse>()
+    private val list = mutableListOf<MerchandiseResponse>()
 
-    inner class HomeMerchandiseHolder(val binding: ItemMerchandiseListBinding) :
+    inner class HomeMerchandiseHolder(val binding: ItemMerchandiseHorizontalBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeMerchandiseHolder {
-        val view = ItemMerchandiseListBinding.inflate(
+        val view = ItemMerchandiseHorizontalBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -46,13 +47,16 @@ class MerchandiseAdapter(
                 binding.btnMerchandiseAdd.setOnClickListener {
                     //선물 추가
                 }
+                itemView.setOnClickListener {
+                    context.startActivity(Intent(context,MerchandiseActivity::class.java))
+                }
             }
         }
     }
 
     override fun getItemCount() = list.size
 
-    fun addItemList(itemList: List<HomeMerchandiseResponse>) {
+    fun addItemList(itemList: List<MerchandiseResponse>) {
         list.addAll(itemList)
     }
 }

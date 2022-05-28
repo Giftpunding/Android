@@ -1,18 +1,18 @@
 package com.giftpunding.osds.ui.home.ranking
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
-import com.giftpunding.osds.data.response.home.HomeMerchandiseResponse
+import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.databinding.ActivityGiftRankingBinding
-import com.giftpunding.osds.ui.home.adapter.MerchandiseAdapter
+import com.giftpunding.osds.ui.home.merchandise.MerchandiseAdapter
 
-class RankingActivity : AppCompatActivity() {
+class RankingActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityGiftRankingBinding
 
@@ -27,10 +27,10 @@ class RankingActivity : AppCompatActivity() {
     private fun init() {
         binding.apply {
             /* 임시 더미 데이터 */
-            val list = mutableListOf<HomeMerchandiseResponse>()
+            val list = mutableListOf<MerchandiseResponse>()
             for (idx in 1..10) {
                 list.add(
-                    HomeMerchandiseResponse(
+                    MerchandiseResponse(
                         brand = "브랜드${idx}",
                         name = "상품 이름",
                         price = 10000,
@@ -50,21 +50,11 @@ class RankingActivity : AppCompatActivity() {
 
     private fun initEvent() {
         binding.apply {
-            tvHomeGiftRankingAll.setOnClickListener {
-                changeCategoryStyle(it as TextView)
-            }
-            tvHomeGiftRankingOneToTwo.setOnClickListener {
-                changeCategoryStyle(it as TextView)
-            }
-            tvHomeGiftRankingThreeToFour.setOnClickListener {
-                changeCategoryStyle(it as TextView)
-            }
-            tvHomeGiftRankingFiveToNine.setOnClickListener {
-                changeCategoryStyle(it as TextView)
-            }
-            tvHomeGiftRankingOverTen.setOnClickListener {
-                changeCategoryStyle(it as TextView)
-            }
+            tvHomeGiftAll.setOnClickListener(this@RankingActivity)
+            tvHomeGiftOneToTwo.setOnClickListener(this@RankingActivity)
+            tvHomeGiftThreeToFour.setOnClickListener(this@RankingActivity)
+            tvHomeGiftFiveToNine.setOnClickListener(this@RankingActivity)
+            tvHomeGiftOverTen.setOnClickListener(this@RankingActivity)
         }
     }
 
@@ -75,26 +65,46 @@ class RankingActivity : AppCompatActivity() {
     private fun changeCategoryStyle(clickTextView: TextView) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.apply {
-                tvHomeGiftRankingAll.setTextColor(resources.getColor(R.color.mischka, null))
-                tvHomeGiftRankingOneToTwo.setTextColor(resources.getColor(R.color.mischka, null))
-                tvHomeGiftRankingFiveToNine.setTextColor(resources.getColor(R.color.mischka, null))
-                tvHomeGiftRankingThreeToFour.setTextColor(resources.getColor(R.color.mischka, null))
-                tvHomeGiftRankingOverTen.setTextColor(resources.getColor(R.color.mischka, null))
+                tvHomeGiftAll.setTextColor(resources.getColor(R.color.mischka, null))
+                tvHomeGiftOneToTwo.setTextColor(resources.getColor(R.color.mischka, null))
+                tvHomeGiftThreeToFour.setTextColor(resources.getColor(R.color.mischka, null))
+                tvHomeGiftFiveToNine.setTextColor(resources.getColor(R.color.mischka, null))
+                tvHomeGiftOverTen.setTextColor(resources.getColor(R.color.mischka, null))
 
-                tvHomeGiftRankingAll.typeface =
+                tvHomeGiftAll.typeface =
                     ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
-                tvHomeGiftRankingOneToTwo.typeface =
+                tvHomeGiftOneToTwo.typeface =
                     ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
-                tvHomeGiftRankingFiveToNine.typeface =
+                tvHomeGiftThreeToFour.typeface =
                     ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
-                tvHomeGiftRankingThreeToFour.typeface =
+                tvHomeGiftFiveToNine.typeface =
                     ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
-                tvHomeGiftRankingOverTen.typeface =
+                tvHomeGiftOverTen.typeface =
                     ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
             }
             clickTextView.typeface =
                 ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
             clickTextView.setTextColor(resources.getColor(R.color.black, null))
+        }
+    }
+
+    override fun onClick(view: View?) {
+        when (view) {
+            binding.tvHomeGiftAll -> {
+                changeCategoryStyle(binding.tvHomeGiftAll)
+            }
+            binding.tvHomeGiftOneToTwo -> {
+                changeCategoryStyle(binding.tvHomeGiftOneToTwo)
+            }
+            binding.tvHomeGiftThreeToFour -> {
+                changeCategoryStyle(binding.tvHomeGiftThreeToFour)
+            }
+            binding.tvHomeGiftFiveToNine -> {
+                changeCategoryStyle(binding.tvHomeGiftFiveToNine)
+            }
+            binding.tvHomeGiftOverTen -> {
+                changeCategoryStyle(binding.tvHomeGiftOverTen)
+            }
         }
     }
 }

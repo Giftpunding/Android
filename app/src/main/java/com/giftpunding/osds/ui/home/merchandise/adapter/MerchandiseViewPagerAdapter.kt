@@ -1,4 +1,4 @@
-package com.giftpunding.osds.ui.merchandise.adapter
+package com.giftpunding.osds.ui.home.merchandise.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

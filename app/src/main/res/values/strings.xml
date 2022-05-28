@@ -26,4 +26,16 @@
     <string name="title_sought_after_gift">많이 찾는 선물</string>
     <string name="title_luxury">힘을 합치면 받을 수 있어!</string>
 
+    <string name="category_one_to_two_funding">1~2만원 펀딩</string>
+    <string name="category_three_to_four_funding">3~4만원 펀딩</string>
+    <string name="category_five_to_nine_funding">5~9만원 펀딩</string>
+    <string name="category_over_ten_funding">10만원 이상 펀딩</string>
+
+    <string name="category_sort_recommend">추천순</string>
+    <string name="category_sort_popular">인기순</string>
+    <string name="category_sort_funding">펀딩액순</string>
+    <string name="category_sort_time">마감임박순</string>
+    <string name="category_sort_new">최신순</string>
+    <string name="category_sort_participate">응원참여자순</string>
+
 </resources>

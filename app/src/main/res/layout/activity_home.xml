@@ -76,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@id/ly_home_appbar" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ly_home_category"
+            android:id="@+id/ly_gift_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
@@ -87,7 +87,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_home_gift_ranking_title">
 
             <TextView
-                android:id="@+id/tv_home_gift_ranking_all"
+                android:id="@+id/tv_home_gift_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneue_bold"
@@ -96,13 +96,13 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/home_ranking_category_size"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_one_to_two"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_one_to_two"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_home_gift_ranking_one_to_two"
+                android:id="@+id/tv_home_gift_one_to_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneue_bold"
@@ -110,13 +110,13 @@
                 android:text="@string/category_one_to_two"
                 android:textColor="@color/mischka"
                 android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_all"
-                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_three_to_four"
-                app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_all"
-                app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_all" />
+                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_all"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_three_to_four"
+                app:layout_constraintStart_toEndOf="@id/tv_home_gift_all"
+                app:layout_constraintTop_toTopOf="@id/tv_home_gift_all" />
 
             <TextView
-                android:id="@+id/tv_home_gift_ranking_three_to_four"
+                android:id="@+id/tv_home_gift_three_to_four"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneue_bold"
@@ -124,13 +124,13 @@
                 android:text="@string/category_three_to_four"
                 android:textColor="@color/mischka"
                 android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_one_to_two"
-                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_five_to_nine"
-                app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_one_to_two"
-                app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_one_to_two" />
+                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_one_to_two"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_five_to_nine"
+                app:layout_constraintStart_toEndOf="@id/tv_home_gift_one_to_two"
+                app:layout_constraintTop_toTopOf="@id/tv_home_gift_one_to_two" />
 
             <TextView
-                android:id="@+id/tv_home_gift_ranking_five_to_nine"
+                android:id="@+id/tv_home_gift_five_to_nine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneue_bold"
@@ -138,13 +138,13 @@
                 android:text="@string/category_five_to_nine"
                 android:textColor="@color/mischka"
                 android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_three_to_four"
-                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_over_ten"
-                app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_three_to_four"
-                app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_three_to_four" />
+                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_three_to_four"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_over_ten"
+                app:layout_constraintStart_toEndOf="@id/tv_home_gift_three_to_four"
+                app:layout_constraintTop_toTopOf="@id/tv_home_gift_three_to_four" />
 
             <TextView
-                android:id="@+id/tv_home_gift_ranking_over_ten"
+                android:id="@+id/tv_home_gift_over_ten"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneue_bold"
@@ -152,10 +152,10 @@
                 android:text="@string/category_over_ten"
                 android:textColor="@color/mischka"
                 android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_ranking_five_to_nine"
+                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_five_to_nine"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tv_home_gift_ranking_five_to_nine"
-                app:layout_constraintTop_toTopOf="@id/tv_home_gift_ranking_five_to_nine" />
+                app:layout_constraintStart_toEndOf="@id/tv_home_gift_five_to_nine"
+                app:layout_constraintTop_toTopOf="@id/tv_home_gift_five_to_nine" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -169,7 +169,7 @@
             android:nestedScrollingEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ly_home_category" />
+            app:layout_constraintTop_toBottomOf="@id/ly_gift_category" />
 
         <LinearLayout
             android:id="@+id/ly_merchandise_more_info"
@@ -320,7 +320,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_sought_after_gift"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
             android:layout_marginTop="27dp"
             android:layout_marginEnd="@dimen/activity_horizontal_dimens"
@@ -436,6 +436,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="42dp"
+            android:clipToPadding="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_luxury_title" />
@@ -485,7 +486,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ly_luxury_more_info" />
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_recommend_list"
             android:layout_width="match_parent"
@@ -494,7 +494,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_recommend_banner" />
-        
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.amar.library.ui.StickyScrollView>
