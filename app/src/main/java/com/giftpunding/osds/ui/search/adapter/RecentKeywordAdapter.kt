@@ -18,7 +18,7 @@ class RecentKeywordAdapter:
     }
 
     override fun onBindViewHolder(holder: RecentKeyWordViewHolder, position: Int) {
-        this.mKeywordItemList[position]?.let{holder.bind(it)}
+        this.mKeywordItemList[position].let{holder.bind(it)}
     }
 
     override fun getItemCount(): Int {
