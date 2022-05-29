@@ -30,7 +30,7 @@ class SoughtAfterGiftListAdapter(val context: Context) :
                 Glide.with(context)
                     .load(img)
                     .centerCrop()
-                    .into(binding.ivSoughtAferImg)
+                    .into(binding.ivSoughtAfterImg)
 
                 binding.tvSoughtAfterPrice.text = addComma(price)
                 binding.tvSoughtAfterMerchandiseName.text = name

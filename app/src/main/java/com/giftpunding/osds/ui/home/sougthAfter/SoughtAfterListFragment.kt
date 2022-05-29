@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterResponse
 import com.giftpunding.osds.databinding.FragmentSoughtAfterListBinding
 import com.giftpunding.osds.ui.home.sougthAfter.adapter.SoughtAfterGiftListAdapter
+import com.giftpunding.osds.util.GridRecyclerViewDeco
 import java.util.ArrayList
 
 class SoughtAfterListFragment : Fragment() {
@@ -28,6 +29,7 @@ class SoughtAfterListFragment : Fragment() {
             rvSoughtAfterGift.layoutManager = GridLayoutManager(requireContext(),2)
             val adapter = SoughtAfterGiftListAdapter(requireContext())
             rvSoughtAfterGift.adapter = adapter
+            rvSoughtAfterGift.addItemDecoration(GridRecyclerViewDeco(15))
 
             //번들로 받은 데이터 넣어주기기
            adapter.addItemList(list)

@@ -35,7 +35,7 @@ class RecommendAdapter(val context: Context) :
                 Glide.with(context)
                     .load(img)
                     .centerCrop()
-                    .into(binding.ivSoughtAferImg)
+                    .into(binding.ivSoughtAfterImg)
 
                 binding.tvSoughtAfeterBrand.text = brand
                 binding.tvSoughtAfterMerchandiseName.text = name

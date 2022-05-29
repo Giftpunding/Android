@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="23dp"
+    android:layout_marginTop="16dp"
     android:background="@color/white">
 
     <ImageView
-        android:id="@+id/iv_sought_afer_img"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:id="@+id/iv_sought_after_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_rect_hawkes_blue_solitude_radius0_stroke1"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         android:textColor="@color/link_water"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_sought_afer_img" />
+        app:layout_constraintTop_toBottomOf="@id/iv_sought_after_img" />
 
     <TextView
         android:id="@+id/tv_sought_after_merchandise_name"

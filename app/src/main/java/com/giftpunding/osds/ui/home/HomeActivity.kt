@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.giftpunding.osds.R
 import com.giftpunding.osds.data.response.home.luxury.LuxuryResponse
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
@@ -53,7 +54,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                     )
                 )
             }
-
             for (idx in 1..13) {
                 sList.add(
                     SoughtAfterResponse(
@@ -64,8 +64,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                     )
                 )
             }
-
-
             for (idx in 1..5) {
                 lList.add(
                     LuxuryResponse(
@@ -112,9 +110,21 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 adapter = recommendAdapter
                 recommendAdapter.addItemList(list)
             }
+
             val fragmentSize = ceil(mList.size.toDouble().div(4)).toInt()
-            vpSoughtAfterGift.adapter =
-                SoughtAfterPagerAdapter(this@HomeActivity, fragmentSize, sList)
+
+            vpSoughtAfterGift.apply {
+                adapter =
+                    SoughtAfterPagerAdapter(this@HomeActivity, fragmentSize, sList)
+
+                registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                    override fun onPageSelected(position: Int) {
+                        tvSoughtAfterCategoryPagePrevious.text = position.plus(1).toString()
+                    }
+                })
+            }
+
+            tvSoughtAfterCategoryPageAfter.text = fragmentSize.toString()
         }
     }
 
@@ -130,6 +140,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             tvHomeGiftFiveToNine.setOnClickListener(this@HomeActivity)
             tvHomeGiftOverTen.setOnClickListener(this@HomeActivity)
             lyMerchandiseMoreInfo.setOnClickListener(this@HomeActivity)
+            btnSoughtAfterBack.setOnClickListener(this@HomeActivity)
+            btnSoughtAfterAfter.setOnClickListener(this@HomeActivity)
         }
     }
 
@@ -182,6 +194,28 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             }
             binding.lyMerchandiseMoreInfo -> {
                 startActivity(Intent(this, RankingActivity::class.java))
+            }
+            binding.btnSoughtAfterAfter -> {
+                if (!binding.tvSoughtAfterCategoryPageAfter.text.equals(binding.vpSoughtAfterGift.currentItem + 1)) {
+                    binding.btnSoughtAfterAfter.isEnabled = true
+                    binding.vpSoughtAfterGift.currentItem =
+                        binding.vpSoughtAfterGift.currentItem.plus(1)
+                    binding.tvSoughtAfterCategoryPagePrevious.text =
+                        binding.vpSoughtAfterGift.currentItem.plus(1).toString()
+                } else {
+                    binding.btnSoughtAfterAfter.isEnabled = false
+                }
+            }
+            binding.btnSoughtAfterBack -> {
+                if (!binding.tvSoughtAfterCategoryPagePrevious.text.equals(binding.vpSoughtAfterGift.currentItem + 1)) {
+                    binding.btnSoughtAfterBack.isEnabled = true
+                    binding.vpSoughtAfterGift.currentItem =
+                        binding.vpSoughtAfterGift.currentItem.minus(1)
+                    binding.tvSoughtAfterCategoryPagePrevious.text =
+                        binding.vpSoughtAfterGift.currentItem.plus(1).toString()
+                } else {
+                    binding.btnSoughtAfterBack.isEnabled = false
+                }
             }
         }
     }
