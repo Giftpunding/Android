@@ -42,4 +42,9 @@
     <string name="content_do_merchandise_add">선물에 추가하기</string>
 
 
+    <string name="content_gift_together">함께 선물하기</string>
+    <string name="content_gift_balance">잔여 금액</string>
+    <string name="content_total">총</string>
+
+
 </resources>
