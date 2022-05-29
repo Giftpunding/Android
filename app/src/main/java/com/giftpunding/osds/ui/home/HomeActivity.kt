@@ -11,11 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
 import com.giftpunding.osds.data.response.home.luxury.LuxuryResponse
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
+import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterResponse
 import com.giftpunding.osds.databinding.ActivityHomeBinding
 import com.giftpunding.osds.ui.home.adpater.LuxuryAdapter
 import com.giftpunding.osds.ui.home.adpater.RecommendAdapter
 import com.giftpunding.osds.ui.home.merchandise.MerchandiseAdapter
 import com.giftpunding.osds.ui.home.ranking.RankingActivity
+import com.giftpunding.osds.ui.home.sougthAfter.adapter.SoughtAfterPagerAdapter
+import kotlin.math.ceil
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -37,43 +40,58 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     private fun init() {
         //서버 통신 작업 필요함, 임시로 어댑터 연결
         binding.apply {
+            val mList = mutableListOf<MerchandiseResponse>()
+            val lList = mutableListOf<LuxuryResponse>()
+            val sList = mutableListOf<SoughtAfterResponse>()
+            for (idx in 1..13) {
+                mList.add(
+                    MerchandiseResponse(
+                        brand = "브랜드${idx}",
+                        name = "상품 이름",
+                        price = 10000,
+                        img = "http://www.selphone.co.kr/homepage/img/team/3.jpg"
+                    )
+                )
+            }
+
+            for (idx in 1..13) {
+                sList.add(
+                    SoughtAfterResponse(
+                        brand = "브랜드${idx}",
+                        name = "상품 이름",
+                        price = 10000,
+                        img = "http://www.selphone.co.kr/homepage/img/team/3.jpg"
+                    )
+                )
+            }
+
+
+            for (idx in 1..5) {
+                lList.add(
+                    LuxuryResponse(
+                        brand = "브랜드${idx}",
+                        name = "상품 이름",
+                        price = 10000,
+                        img = "http://www.selphone.co.kr/homepage/img/team/3.jpg"
+                    )
+                )
+            }
+
             rvHomeGiftMerchandise.apply {
                 /* 임시 더미 데이터 */
-                val list = mutableListOf<MerchandiseResponse>()
-                for (idx in 1..5) {
-                    list.add(
-                        MerchandiseResponse(
-                            brand = "브랜드${idx}",
-                            name = "상품 이름",
-                            price = 10000,
-                            img = "http://www.selphone.co.kr/homepage/img/team/3.jpg"
-                        )
-                    )
-                }
                 val merchandiseAdapter = MerchandiseAdapter(this@HomeActivity)
                 layoutManager =
                     LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
                 adapter = merchandiseAdapter
-                merchandiseAdapter.addItemList(list)
+                merchandiseAdapter.addItemList(mList)
             }
             rvLuxuryList.apply {
                 /* 임시 더미 데이터 */
-                val list = mutableListOf<LuxuryResponse>()
-                for (idx in 1..5) {
-                    list.add(
-                        LuxuryResponse(
-                            brand = "브랜드${idx}",
-                            name = "상품 이름",
-                            price = 10000,
-                            img = "http://www.selphone.co.kr/homepage/img/team/3.jpg"
-                        )
-                    )
-                }
                 val luxuryAdapter = LuxuryAdapter(this@HomeActivity)
                 layoutManager =
                     LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
                 adapter = luxuryAdapter
-                luxuryAdapter.addItemList(list)
+                luxuryAdapter.addItemList(lList)
             }
             rvRecommendList.apply {
                 /* 임시 더미 데이터 */
@@ -94,6 +112,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 adapter = recommendAdapter
                 recommendAdapter.addItemList(list)
             }
+            val fragmentSize = ceil(mList.size.toDouble().div(4)).toInt()
+            vpSoughtAfterGift.adapter =
+                SoughtAfterPagerAdapter(this@HomeActivity, fragmentSize, sList)
         }
     }
 

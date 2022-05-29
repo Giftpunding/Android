@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
-import com.giftpunding.osds.databinding.FragmentMerchandiseInfoBinding
+import androidx.recyclerview.widget.GridLayoutManager
+import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterResponse
 import com.giftpunding.osds.databinding.FragmentSoughtAfterListBinding
-import com.giftpunding.osds.ui.home.merchandise.MerchandiseInfoFragment
+import com.giftpunding.osds.ui.home.sougthAfter.adapter.SoughtAfterGiftListAdapter
+import java.util.ArrayList
 
 class SoughtAfterListFragment : Fragment() {
 
@@ -19,7 +20,18 @@ class SoughtAfterListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        val list : ArrayList<SoughtAfterResponse>? =  arguments?.getParcelableArrayList("listData")
+
         binding = FragmentSoughtAfterListBinding.inflate(inflater, container, false)
+        binding.apply {
+            rvSoughtAfterGift.layoutManager = GridLayoutManager(requireContext(),2)
+            val adapter = SoughtAfterGiftListAdapter(requireContext())
+            rvSoughtAfterGift.adapter = adapter
+
+            //번들로 받은 데이터 넣어주기기
+           adapter.addItemList(list)
+        }
         return binding.root
     }
 
@@ -32,11 +44,8 @@ class SoughtAfterListFragment : Fragment() {
         private var soughtAfterListFragment: Fragment? = null
 
         //생성자를 통해 데이터를 넘겨받고 bundle로 처리
-        fun getFragmentInstance(getList: List<MerchandiseResponse>): Fragment? {
+        fun getFragmentInstance(): Fragment? {
             soughtAfterListFragment = SoughtAfterListFragment()
-            soughtAfterListFragment?.arguments = Bundle().apply {
-
-            }
             return soughtAfterListFragment
         }
     }
