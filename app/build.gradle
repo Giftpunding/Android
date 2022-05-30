@@ -1,13 +1,19 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
     compileSdkVersion 32
     buildToolsVersion "30.0.3"
 
-    viewBinding{
+    viewBinding {
+        enabled = true
+    }
+
+    dataBinding {
+        //noinspection DataBindingWithoutKapt
         enabled = true
     }
 

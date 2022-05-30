@@ -5,13 +5,43 @@
     android:layout_height="wrap_content"
     android:background="@color/white">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_sought_after_gift"
-        android:layout_width="match_parent"
+    <com.giftpunding.osds.component.VerticalGiftItem
+        android:id="@+id/item_first_gift"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/item_second_gift"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.giftpunding.osds.component.VerticalGiftItem
+        android:id="@+id/item_second_gift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_first_gift"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.giftpunding.osds.component.VerticalGiftItem
+        android:id="@+id/item_third_gift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/item_fourth_gift"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_first_gift" />
+
+    <com.giftpunding.osds.component.VerticalGiftItem
+        android:id="@+id/item_fourth_gift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_third_gift"
+        app:layout_constraintTop_toBottomOf="@id/item_second_gift" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

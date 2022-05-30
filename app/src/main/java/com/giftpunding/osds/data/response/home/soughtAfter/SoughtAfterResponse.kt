@@ -4,8 +4,8 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class SoughtAfterResponse(
-    val brand: String?,
-    val name: String?,
+    var brand: String?,
+    var name: String?,
     val price: Int,
     val img: String?
 ):Parcelable {
