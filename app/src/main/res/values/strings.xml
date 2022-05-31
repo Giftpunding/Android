@@ -25,4 +25,9 @@
     <!-- 검색화면 -->
     <string name="content_search"> 받고 싶은 선물을 찾아보세요!</string>
 
+    <!-- 배송지 입력화면 -->
+    <string name="content_address">선물을 배송 받을 주소를\n설정해주세요.</string>
+    <string name="content_input">지번, 도로명, 건물명으로 검색</string>
+    <string name="title_complete">완료</string>
+    <string name="title_done">확인</string>
 </resources>
