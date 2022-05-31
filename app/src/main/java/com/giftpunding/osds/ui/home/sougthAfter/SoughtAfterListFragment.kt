@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterResponse
 import com.giftpunding.osds.databinding.FragmentSoughtAfterListBinding
 import com.giftpunding.osds.util.GridRecyclerViewDeco
+import java.lang.IndexOutOfBoundsException
 import java.util.ArrayList
 
 class SoughtAfterListFragment : Fragment() {
@@ -30,6 +31,7 @@ class SoughtAfterListFragment : Fragment() {
 
         binding = FragmentSoughtAfterListBinding.inflate(inflater, container, false)
         binding.apply {
+
             if (list?.size != 0) {
                 itemFirstGift.apply {
                     try {
@@ -38,7 +40,7 @@ class SoughtAfterListFragment : Fragment() {
                         name = list?.get(0)?.name.toString()
                         brand = list?.get(0)?.brand.toString()
                         addGiftEvent = addGift
-                    } catch (error: Exception) {
+                    } catch (error: IndexOutOfBoundsException) {
                         itemSecondGift.visibility = View.INVISIBLE
                     }
                 }
@@ -49,7 +51,7 @@ class SoughtAfterListFragment : Fragment() {
                         name = list?.get(1)?.name.toString()
                         brand = list?.get(1)?.brand.toString()
                         addGiftEvent = addGift
-                    } catch (error: Exception) {
+                    } catch (error: IndexOutOfBoundsException) {
                         itemSecondGift.visibility = View.INVISIBLE
                     }
                 }
@@ -60,7 +62,7 @@ class SoughtAfterListFragment : Fragment() {
                         name = list?.get(2)?.name.toString()
                         brand = list?.get(2)?.brand.toString()
                         addGiftEvent = addGift
-                    } catch (error: Exception) {
+                    } catch (error: IndexOutOfBoundsException) {
                         itemThirdGift.visibility = View.INVISIBLE
                     }
                 }
@@ -71,7 +73,7 @@ class SoughtAfterListFragment : Fragment() {
                         name = list?.get(3)?.name.toString()
                         brand = list?.get(3)?.brand.toString()
                         addGiftEvent = addGift
-                    } catch (error: Exception) {
+                    } catch (error: IndexOutOfBoundsException) {
                         itemFourthGift.visibility = View.INVISIBLE
                     }
                 }

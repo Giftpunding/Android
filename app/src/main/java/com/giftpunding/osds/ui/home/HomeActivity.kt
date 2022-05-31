@@ -12,12 +12,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.giftpunding.osds.R
 import com.giftpunding.osds.data.response.home.luxury.LuxuryResponse
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
+import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterCategoryResponse
 import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterResponse
 import com.giftpunding.osds.databinding.ActivityHomeBinding
 import com.giftpunding.osds.ui.home.adpater.LuxuryAdapter
 import com.giftpunding.osds.ui.home.adpater.RecommendAdapter
 import com.giftpunding.osds.ui.home.merchandise.MerchandiseAdapter
 import com.giftpunding.osds.ui.home.ranking.RankingActivity
+import com.giftpunding.osds.ui.home.sougthAfter.adapter.SoughtAfterGiftCategoryAdapter
 import com.giftpunding.osds.ui.home.sougthAfter.adapter.SoughtAfterPagerAdapter
 import kotlin.math.ceil
 
@@ -41,9 +43,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     private fun init() {
         //서버 통신 작업 필요함, 임시로 어댑터 연결
         binding.apply {
+            /* 임시 더미 데이터 */
             val mList = mutableListOf<MerchandiseResponse>()
             val lList = mutableListOf<LuxuryResponse>()
             val sList = mutableListOf<SoughtAfterResponse>()
+            val cList = mutableListOf<SoughtAfterCategoryResponse>()
+
             for (idx in 1..13) {
                 mList.add(
                     MerchandiseResponse(
@@ -74,23 +79,45 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                     )
                 )
             }
+            for (idx in 1..15) {
+                cList.add(
+                    SoughtAfterCategoryResponse(
+                        img = "http://www.selphone.co.kr/homepage/img/team/3.jpg",
+                        category = "카테고리$idx",
+                        check = false
+                    )
+                )
+            }
 
+            //카테고리 연결
+            rvHomeSoughtAfterGiftCategory.apply {
+                val soughtAfterAdapter = SoughtAfterGiftCategoryAdapter(this@HomeActivity)
+                layoutManager =
+                    LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
+                adapter =
+                    soughtAfterAdapter
+                soughtAfterAdapter.addItemList(cList)
+            }
+
+            //상품 리스트 연결
             rvHomeGiftMerchandise.apply {
-                /* 임시 더미 데이터 */
                 val merchandiseAdapter = MerchandiseAdapter(this@HomeActivity)
                 layoutManager =
                     LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
                 adapter = merchandiseAdapter
                 merchandiseAdapter.addItemList(mList)
             }
+
+            //명품 연결
             rvLuxuryList.apply {
-                /* 임시 더미 데이터 */
                 val luxuryAdapter = LuxuryAdapter(this@HomeActivity)
                 layoutManager =
                     LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
                 adapter = luxuryAdapter
                 luxuryAdapter.addItemList(lList)
             }
+
+            //추천 리스트 연결
             rvRecommendList.apply {
                 /* 임시 더미 데이터 */
                 val list = mutableListOf<MerchandiseResponse>()
@@ -111,8 +138,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 recommendAdapter.addItemList(list)
             }
 
+            //많이 찾는 선물 페이지 크기
             val fragmentSize = ceil(mList.size.toDouble().div(4)).toInt()
 
+            //많이 찾는 선물 뷰페이저 연결
             vpSoughtAfterGift.apply {
                 adapter =
                     SoughtAfterPagerAdapter(this@HomeActivity, fragmentSize, sList)
@@ -123,7 +152,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 })
             }
-
             tvSoughtAfterCategoryPageAfter.text = fragmentSize.toString()
         }
     }
@@ -195,6 +223,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             binding.lyMerchandiseMoreInfo -> {
                 startActivity(Intent(this, RankingActivity::class.java))
             }
+            //페이지 버튼 이벤트
             binding.btnSoughtAfterAfter -> {
                 if (!binding.tvSoughtAfterCategoryPageAfter.text.equals(binding.vpSoughtAfterGift.currentItem + 1)) {
                     binding.btnSoughtAfterAfter.isEnabled = true

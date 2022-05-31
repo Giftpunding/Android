@@ -5,10 +5,8 @@ import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterResponse
 import com.giftpunding.osds.ui.home.sougthAfter.SoughtAfterListFragment
-import kotlin.math.ceil
 
 class SoughtAfterPagerAdapter(
     fragmentActivity: FragmentActivity,

@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/iv_sought_after_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:background="@drawable/bg_rect_hawkes_blue_solitude_radius0_stroke1"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"

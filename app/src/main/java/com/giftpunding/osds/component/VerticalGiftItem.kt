@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import com.giftpunding.osds.databinding.ItemMerchandiseVerticalBinding
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.giftpunding.osds.R

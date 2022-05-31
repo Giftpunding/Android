@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.giftpunding.osds.data.response.home.luxury.LuxuryResponse
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.databinding.ItemLuxuryListBinding
-import com.giftpunding.osds.databinding.ItemMerchandiseVerticalBinding
+import com.giftpunding.osds.databinding.ItemSmallLuxuryListBinding
 import com.giftpunding.osds.util.addComma
 
 class RecommendAdapter(val context: Context) :
@@ -21,7 +21,7 @@ class RecommendAdapter(val context: Context) :
         parent: ViewGroup,
         viewType: Int
     ): RecommendAdapter.RecommendHolder {
-        val view = ItemMerchandiseVerticalBinding.inflate(
+        val view = ItemSmallLuxuryListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -51,6 +51,6 @@ class RecommendAdapter(val context: Context) :
         list.addAll(getList)
     }
 
-    inner class RecommendHolder(val binding: ItemMerchandiseVerticalBinding) :
+    inner class RecommendHolder(val binding: ItemSmallLuxuryListBinding) :
         RecyclerView.ViewHolder(binding.root)
 }
