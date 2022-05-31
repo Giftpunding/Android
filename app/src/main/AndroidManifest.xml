@@ -30,6 +30,7 @@
         <activity android:name=".ui.merchandise.MerchandiseActivity" />
         <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.address.AddressActivity" />
+        <activity android:name=".ui.address.AddressSearchActivity" />
     </application>
 
 </manifest>
