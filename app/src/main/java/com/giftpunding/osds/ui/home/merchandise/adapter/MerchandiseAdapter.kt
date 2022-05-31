@@ -1,4 +1,4 @@
-package com.giftpunding.osds.ui.home.merchandise
+package com.giftpunding.osds.ui.home.merchandise.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.databinding.ItemMerchandiseHorizontalBinding
+import com.giftpunding.osds.ui.home.merchandise.MerchandiseActivity
+import com.giftpunding.osds.ui.home.ranking.RankingAdapter
 import com.giftpunding.osds.util.addComma
 
 
@@ -48,13 +50,16 @@ class MerchandiseAdapter(
                     //선물 추가
                 }
                 itemView.setOnClickListener {
-                    context.startActivity(Intent(context,MerchandiseActivity::class.java))
+                    context.startActivity(Intent(context, MerchandiseActivity::class.java))
                 }
             }
         }
     }
 
-    override fun getItemCount() = list.size
+    override fun getItemCount():Int{
+        return if(list.size > 5) 5
+        else list.size
+    }
 
     fun addItemList(itemList: List<MerchandiseResponse>) {
         list.addAll(itemList)

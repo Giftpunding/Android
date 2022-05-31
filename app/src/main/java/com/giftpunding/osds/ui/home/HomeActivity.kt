@@ -17,7 +17,8 @@ import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterResponse
 import com.giftpunding.osds.databinding.ActivityHomeBinding
 import com.giftpunding.osds.ui.home.adpater.LuxuryAdapter
 import com.giftpunding.osds.ui.home.adpater.RecommendAdapter
-import com.giftpunding.osds.ui.home.merchandise.MerchandiseAdapter
+import com.giftpunding.osds.ui.home.merchandise.adapter.MerchandiseAdapter
+import com.giftpunding.osds.ui.home.ranking.RankingAdapter
 import com.giftpunding.osds.ui.home.ranking.RankingActivity
 import com.giftpunding.osds.ui.home.sougthAfter.adapter.SoughtAfterGiftCategoryAdapter
 import com.giftpunding.osds.ui.home.sougthAfter.adapter.SoughtAfterPagerAdapter

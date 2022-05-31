@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.databinding.ActivityGiftRankingBinding
-import com.giftpunding.osds.ui.home.merchandise.MerchandiseAdapter
 
 class RankingActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -38,7 +37,7 @@ class RankingActivity : AppCompatActivity(), View.OnClickListener {
                     )
                 )
             }
-            val merchandiseAdapter = MerchandiseAdapter(this@RankingActivity)
+            val merchandiseAdapter = RankingAdapter(this@RankingActivity)
 
             rvMerchandise.layoutManager =
                 LinearLayoutManager(this@RankingActivity, LinearLayoutManager.VERTICAL, false)
