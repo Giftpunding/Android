@@ -1,5 +1,6 @@
 package com.giftpunding.osds.repository.local.pref
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
@@ -114,7 +115,7 @@ class KeywordSharedPreferenceImpl(context: Context) : KeywordSharedPreference {
     }
 
     companion object {
-        private const val TAG: String = "KeywordSharedPreference..."
+        private const val TAG: String = "KeywordSharedPreference"
         private const val firstItem: Int = 0
         private const val maxRecentKeywordSize: Int = 5
     }

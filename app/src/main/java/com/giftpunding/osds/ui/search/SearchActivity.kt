@@ -147,9 +147,6 @@ class SearchActivity : AppCompatActivity(),
 
     override fun complete(recentKeywordList: ArrayList<String>) {
         Log.d(TAG, "save Keyword SharedPreference")
-        for (i in 0 until recentKeywordList.size) {
-            Log.d(TAG, recentKeywordList.get(i))
-        }
         recentKeywordAdapter.addItems(recentKeywordList)
     }
 
