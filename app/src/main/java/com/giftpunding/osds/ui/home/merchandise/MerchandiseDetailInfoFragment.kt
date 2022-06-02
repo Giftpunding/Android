@@ -1,4 +1,4 @@
-package com.giftpunding.osds.ui.merchandise
+package com.giftpunding.osds.ui.home.merchandise
 
 import android.os.Bundle
 import android.view.LayoutInflater
