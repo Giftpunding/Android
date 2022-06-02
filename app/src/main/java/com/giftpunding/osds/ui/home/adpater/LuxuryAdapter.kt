@@ -1,18 +1,17 @@
 package com.giftpunding.osds.ui.home.adpater
 
 import android.content.Context
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.giftpunding.osds.data.response.home.luxury.LuxuryResponse
+import com.giftpunding.osds.data.response.home.luxuryGift.LuxuryGiftResponse
 import com.giftpunding.osds.databinding.ItemLuxuryListBinding
 import com.giftpunding.osds.util.addComma
 
 class LuxuryAdapter(val context: Context) : RecyclerView.Adapter<LuxuryAdapter.LuxuryHolder>() {
 
-    private val list = mutableListOf<LuxuryResponse>()
+    private val list = mutableListOf<LuxuryGiftResponse>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LuxuryHolder {
         val view = ItemLuxuryListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -41,7 +40,7 @@ class LuxuryAdapter(val context: Context) : RecyclerView.Adapter<LuxuryAdapter.L
     override fun getItemCount() = list.size
 
 
-    fun addItemList(getList: List<LuxuryResponse>) {
+    fun addItemList(getList: List<LuxuryGiftResponse>) {
         list.addAll(getList)
     }
 

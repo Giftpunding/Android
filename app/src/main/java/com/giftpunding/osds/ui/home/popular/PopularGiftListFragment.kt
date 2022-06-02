@@ -1,21 +1,18 @@
-package com.giftpunding.osds.ui.home.sougthAfter
+package com.giftpunding.osds.ui.home.popular
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterResponse
-import com.giftpunding.osds.databinding.FragmentSoughtAfterListBinding
-import com.giftpunding.osds.util.GridRecyclerViewDeco
+import com.giftpunding.osds.data.response.home.popualrGift.PopularGiftResponse
+import com.giftpunding.osds.databinding.FragmentPopularGiftListBinding
 import java.lang.IndexOutOfBoundsException
 import java.util.ArrayList
 
-class SoughtAfterListFragment : Fragment() {
+class PopularGiftListFragment : Fragment() {
 
-    private lateinit var binding: FragmentSoughtAfterListBinding
+    private lateinit var binding: FragmentPopularGiftListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,15 +20,14 @@ class SoughtAfterListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val list: ArrayList<SoughtAfterResponse>? = arguments?.getParcelableArrayList("listData")
+        val list: ArrayList<PopularGiftResponse>? = arguments?.getParcelableArrayList("listData")
 
         val addGift = {
             //선물 추가 이벤트
         }
 
-        binding = FragmentSoughtAfterListBinding.inflate(inflater, container, false)
+        binding = FragmentPopularGiftListBinding.inflate(inflater, container, false)
         binding.apply {
-
             if (list?.size != 0) {
                 itemFirstGift.apply {
                     try {
@@ -92,7 +88,7 @@ class SoughtAfterListFragment : Fragment() {
 
         //생성자를 통해 데이터를 넘겨받고 bundle로 처리
         fun getFragmentInstance(): Fragment? {
-            soughtAfterListFragment = SoughtAfterListFragment()
+            soughtAfterListFragment = PopularGiftListFragment()
             return soughtAfterListFragment
         }
     }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.databinding.ItemMerchandiseHorizontalBinding
-import com.giftpunding.osds.ui.home.merchandise.MerchandiseActivity
+import com.giftpunding.osds.ui.merchandise.MerchandiseActivity
 import com.giftpunding.osds.util.addComma
 
 

@@ -10,18 +10,17 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftpunding.osds.R
-import com.giftpunding.osds.data.response.home.luxury.LuxuryResponse
+import com.giftpunding.osds.data.response.home.luxuryGift.LuxuryGiftResponse
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
-import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterCategoryResponse
-import com.giftpunding.osds.data.response.home.soughtAfter.SoughtAfterResponse
+import com.giftpunding.osds.data.response.home.popualrGift.PopularGiftCategoryResponse
+import com.giftpunding.osds.data.response.home.popualrGift.PopularGiftResponse
 import com.giftpunding.osds.databinding.ActivityHomeBinding
 import com.giftpunding.osds.ui.home.adpater.LuxuryAdapter
 import com.giftpunding.osds.ui.home.adpater.RecommendAdapter
-import com.giftpunding.osds.ui.home.merchandise.adapter.MerchandiseAdapter
-import com.giftpunding.osds.ui.home.ranking.RankingAdapter
+import com.giftpunding.osds.ui.merchandise.adapter.MerchandiseAdapter
 import com.giftpunding.osds.ui.home.ranking.RankingActivity
-import com.giftpunding.osds.ui.home.sougthAfter.adapter.SoughtAfterGiftCategoryAdapter
-import com.giftpunding.osds.ui.home.sougthAfter.adapter.SoughtAfterPagerAdapter
+import com.giftpunding.osds.ui.home.popular.adapter.PopularGiftCategoryAdapter
+import com.giftpunding.osds.ui.home.popular.adapter.PopularGiftPagerAdapter
 import kotlin.math.ceil
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -46,9 +45,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         binding.apply {
             /* 임시 더미 데이터 */
             val mList = mutableListOf<MerchandiseResponse>()
-            val lList = mutableListOf<LuxuryResponse>()
-            val sList = mutableListOf<SoughtAfterResponse>()
-            val cList = mutableListOf<SoughtAfterCategoryResponse>()
+            val lList = mutableListOf<LuxuryGiftResponse>()
+            val sList = mutableListOf<PopularGiftResponse>()
+            val cList = mutableListOf<PopularGiftCategoryResponse>()
 
             for (idx in 1..13) {
                 mList.add(
@@ -62,7 +61,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             }
             for (idx in 1..13) {
                 sList.add(
-                    SoughtAfterResponse(
+                    PopularGiftResponse(
                         brand = "브랜드${idx}",
                         name = "상품 이름",
                         price = 10000,
@@ -72,7 +71,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             }
             for (idx in 1..5) {
                 lList.add(
-                    LuxuryResponse(
+                    LuxuryGiftResponse(
                         brand = "브랜드${idx}",
                         name = "상품 이름",
                         price = 10000,
@@ -82,7 +81,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             }
             for (idx in 1..15) {
                 cList.add(
-                    SoughtAfterCategoryResponse(
+                    PopularGiftCategoryResponse(
                         img = "http://www.selphone.co.kr/homepage/img/team/3.jpg",
                         category = "카테고리$idx",
                         check = false
@@ -92,7 +91,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
             //카테고리 연결
             rvHomeSoughtAfterGiftCategory.apply {
-                val soughtAfterAdapter = SoughtAfterGiftCategoryAdapter(this@HomeActivity)
+                val soughtAfterAdapter = PopularGiftCategoryAdapter(this@HomeActivity)
                 layoutManager =
                     LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
                 adapter =
@@ -145,7 +144,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             //많이 찾는 선물 뷰페이저 연결
             vpSoughtAfterGift.apply {
                 adapter =
-                    SoughtAfterPagerAdapter(this@HomeActivity, fragmentSize, sList)
+                    PopularGiftPagerAdapter(this@HomeActivity, fragmentSize, sList)
 
                 registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                     override fun onPageSelected(position: Int) {

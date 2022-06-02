@@ -1,9 +1,9 @@
-package com.giftpunding.osds.data.response.home.soughtAfter
+package com.giftpunding.osds.data.response.home.popualrGift
 
 import android.os.Parcel
 import android.os.Parcelable
 
-data class SoughtAfterResponse(
+data class PopularGiftResponse(
     var brand: String?,
     var name: String?,
     val price: Int,
@@ -27,12 +27,12 @@ data class SoughtAfterResponse(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<SoughtAfterResponse> {
-        override fun createFromParcel(parcel: Parcel): SoughtAfterResponse {
-            return SoughtAfterResponse(parcel)
+    companion object CREATOR : Parcelable.Creator<PopularGiftResponse> {
+        override fun createFromParcel(parcel: Parcel): PopularGiftResponse {
+            return PopularGiftResponse(parcel)
         }
 
-        override fun newArray(size: Int): Array<SoughtAfterResponse?> {
+        override fun newArray(size: Int): Array<PopularGiftResponse?> {
             return arrayOfNulls(size)
         }
     }

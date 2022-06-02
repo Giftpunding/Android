@@ -1,10 +1,10 @@
-package com.giftpunding.osds.ui.home.merchandise
+package com.giftpunding.osds.ui.merchandise
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.giftpunding.osds.databinding.ActivityMerchandiseInfoBinding
-import com.giftpunding.osds.ui.home.merchandise.adapter.MerchandiseViewPagerAdapter
+import com.giftpunding.osds.ui.merchandise.adapter.MerchandiseViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
