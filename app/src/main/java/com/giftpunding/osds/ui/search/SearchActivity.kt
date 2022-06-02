@@ -30,7 +30,7 @@ class SearchActivity : AppCompatActivity() {
         initialized()
         initRecyclerView()
 
-        searchEditText.setOnFocusChangeListener { _, focus ->
+        searchEditText.setOnFocusChangeListener { view, focus ->
             if (focus) {
                 cancelTextView.visibility = View.VISIBLE
                 searchLayout.visibility = View.GONE

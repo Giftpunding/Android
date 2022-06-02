@@ -1,10 +1,11 @@
-package com.giftpunding.osds.ui.home.merchandise
+package com.giftpunding.osds.ui.merchandise
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.giftpunding.osds.databinding.ActivityMerchandiseInfoBinding
 import com.giftpunding.osds.databinding.FragmentMerchandiseInfoBinding
 
 class MerchandiseInfoFragment : Fragment() {

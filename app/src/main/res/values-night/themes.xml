@@ -21,6 +21,5 @@
         <item name="android:fontFamily">@font/notosanskr_bold</item>
         <item name="android:paddingBottom">17dp</item>
         <item name="android:paddingTop">17dp</item>
-        <item name="android:includeFontPadding">false</item>
     </style>
 </resources>

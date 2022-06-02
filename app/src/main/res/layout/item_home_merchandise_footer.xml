@@ -6,16 +6,14 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/tv_home_gift_box_item"
+        android:id="@+id/tv_home_gift_ranking_all_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:background="@drawable/bg_rect_solitude_trans100_round20_stroke1"
+        android:text="@string/content_all_info"
+        android:textColor="@color/black"
         android:gravity="center"
         android:padding="20dp"
-        android:text="@string/content_merchandise_add"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

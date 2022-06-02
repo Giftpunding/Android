@@ -110,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_dimens"
-                android:fontFamily="@font/helveticaneue_bold"
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:text="100,000"
                 android:textColor="@color/black"
                 android:textSize="26sp"
@@ -150,8 +150,8 @@
                 app:layout_constraintTop_toBottomOf="@id/div_merchandise"
                 app:tabIndicatorColor="@color/black"
                 app:tabIndicatorFullWidth="false"
-                app:tabTextAppearance="@style/merchandise_tab_text_appearance"
                 app:tabIndicatorHeight="4dp"
+                app:tabTextAppearance="@style/merchandise_tab_text_appearance"
                 app:tabTextColor="@color/black">
 
                 <com.google.android.material.tabs.TabItem
@@ -180,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/night_rider"
                 android:fontFamily="@font/notosanskr_bold"
-                android:text="@string/content_do_merchandise_add"
+                android:text="@string/content_merchandise_add"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:backgroundTint="@color/night_rider"
