@@ -28,7 +28,12 @@
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.home.HomeActivity" />
+<<<<<<< HEAD
         <activity android:name=".ui.merchandise.MerchandiseActivity"/>
+=======
+        <activity android:name="com.giftpunding.osds.ui.merchandise.MerchandiseActivity"/>
+        <activity android:name=".ui.home.ranking.RankingActivity"/>
+>>>>>>> Feature/#1-홈화면
 
         <activity android:name=".ui.search.SearchActivity">
         </activity>
