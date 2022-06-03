@@ -1,7 +1,10 @@
 package com.giftpunding.osds.ui.search
 
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,18 +13,26 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.R
+import com.giftpunding.osds.application.Application.Companion.searchRepository
+import com.giftpunding.osds.repository.local.pref.KeywordSharedPreference
 import com.giftpunding.osds.ui.search.adapter.*
 
-class SearchActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity(),
+    TextView.OnEditorActionListener,
+    OnItemClickListener,
+    KeywordSharedPreference.Listener {
 
     private lateinit var giftCategoryImageRecyclerView: RecyclerView
     private lateinit var recentKeywordRecyclerView: RecyclerView
+    private val recentKeywordAdapter = RecentKeywordAdapter()
+
     private lateinit var popularityKeywordRecyclerView: RecyclerView
 
     private lateinit var searchEditText: EditText
     private lateinit var cancelTextView: TextView
     private lateinit var searchLayout: View
     private lateinit var searchKeyWordLayout: View
+    private lateinit var clearRecentKeywordTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +41,9 @@ class SearchActivity : AppCompatActivity() {
         initialized()
         initRecyclerView()
 
-        searchEditText.setOnFocusChangeListener { _, focus ->
+        searchRepository.init(this)
+
+        searchEditText.setOnFocusChangeListener { view, focus ->
             if (focus) {
                 cancelTextView.visibility = View.VISIBLE
                 searchLayout.visibility = View.GONE
@@ -44,10 +57,16 @@ class SearchActivity : AppCompatActivity() {
             searchLayout.visibility = View.VISIBLE
             searchKeyWordLayout.visibility = View.GONE
         }
+
+        clearRecentKeywordTextView.setOnClickListener {
+            searchRepository.deleteAllRecentKeyword()
+        }
     }
 
     private fun initialized() {
         searchEditText = findViewById(R.id.edit_search)
+        searchEditText.setOnEditorActionListener(this)
+
         cancelTextView = findViewById(R.id.tv_cancel)
         giftCategoryImageRecyclerView = findViewById(R.id.rv_category)
 
@@ -56,6 +75,8 @@ class SearchActivity : AppCompatActivity() {
 
         recentKeywordRecyclerView = findViewById(R.id.rv_recently_keyword)
         popularityKeywordRecyclerView = findViewById(R.id.rv_popular_keyword)
+
+        clearRecentKeywordTextView = findViewById(R.id.tv_all_delete)
     }
 
     private fun initRecyclerView() {
@@ -87,18 +108,10 @@ class SearchActivity : AppCompatActivity() {
         }
 
         recentKeywordRecyclerView.apply {
-            val recentKeywordAdapter = RecentKeywordAdapter()
-            val recentKeywordList = arrayListOf(
-                "test",
-                "test1",
-                "test2",
-                "test3",
-                "test4"
-            )
-
             adapter = recentKeywordAdapter
             layoutManager = LinearLayoutManager(this@SearchActivity)
-            recentKeywordAdapter.addItems(recentKeywordList)
+            recentKeywordAdapter.setOnclickListener(this@SearchActivity)
+            recentKeywordAdapter.addItems(searchRepository.getRecentKeyword())
         }
 
         popularityKeywordRecyclerView.apply {
@@ -116,5 +129,28 @@ class SearchActivity : AppCompatActivity() {
             popularityKeywordAdapter.addItems(popularityKeywordList)
             addItemDecoration(PopularityKeywordAdapterDecoration())
         }
+    }
+
+    override fun onEditorAction(p0: TextView?, p1: Int, p2: KeyEvent?): Boolean {
+        if (p1 == EditorInfo.IME_ACTION_SEARCH) {
+            if (p0 != null) {
+                searchRepository.addRecentKeyword(p0.text.toString())
+            }
+        }
+        return true
+    }
+
+    override fun onClickItem(adapterPosition: Int) {
+        Log.d(TAG, "delete recent keyword")
+        searchRepository.deleteRecentKeyword(adapterPosition)
+    }
+
+    override fun complete(recentKeywordList: ArrayList<String>) {
+        Log.d(TAG, "save Keyword SharedPreference")
+        recentKeywordAdapter.addItems(recentKeywordList)
+    }
+
+    private companion object {
+        private const val TAG: String = "SearchActivity..."
     }
 }
