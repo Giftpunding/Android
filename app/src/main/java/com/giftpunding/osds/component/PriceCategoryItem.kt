@@ -34,10 +34,12 @@ class PriceCategoryItem @JvmOverloads constructor(
         addView(binding.root)
     }
 
+    //카테고리 이름 지정
     fun setCategoryName(name: String) {
         binding.tvPriceCategory.text = name
     }
 
+    //첫 아이템을 지정
     fun setFirstSelectItem() {
         binding.tvPriceCategory.apply {
             setTextColor(
@@ -51,6 +53,8 @@ class PriceCategoryItem @JvmOverloads constructor(
         }
     }
 
+    //카테고리 클릭
+    //마지막 매개변수가 클릭되는 아이템
     fun clickCategory(
         firstLeftItem: PriceCategoryItem,
         secondLeftItem: PriceCategoryItem,
