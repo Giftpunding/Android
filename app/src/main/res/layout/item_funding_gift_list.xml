@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="32dp"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/div_gift_list"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/solitude_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_merchandise_img"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_rect_hawkes_blue_solitude_radius0_stroke1"
+        app:layout_constraintBottom_toBottomOf="@id/btn_gift_together"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/div_gift_list" />
+
+    <TextView
+        android:id="@+id/tv_merchandise_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:text="브랜드"
+        android:textColor="@color/link_water"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/iv_merchandise_img"
+        app:layout_constraintTop_toTopOf="@id/iv_merchandise_img" />
+
+    <TextView
+        android:id="@+id/tv_merchandise_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:text="레저렉션 아로마"
+        android:textColor="@color/midnight_express"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/iv_merchandise_img"
+        app:layout_constraintTop_toBottomOf="@id/tv_merchandise_brand" />
+
+    <TextView
+        android:id="@+id/tv_merchandise_possible_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/helveticaneue_bold"
+        android:includeFontPadding="false"
+        android:text="13,000"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@id/iv_merchandise_img"
+        app:layout_constraintTop_toBottomOf="@id/tv_merchandise_name" />
+
+    <TextView
+        android:id="@+id/tv_merchandise_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:text="@string/content_gift_funding_balance"
+        android:textColor="@color/eucalyptus"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_merchandise_possible_price"
+        app:layout_constraintStart_toEndOf="@id/tv_merchandise_possible_price"
+        app:layout_constraintTop_toTopOf="@id/tv_merchandise_possible_price" />
+
+    <android.widget.Button
+        android:id="@+id/btn_gift_together"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/bg_rect_trans100_eucalyptus_radius8_stroke0"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="9dp"
+        android:text="@string/content_gift_together"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_merchandise_img"
+        app:layout_constraintTop_toBottomOf="@id/tv_merchandise_possible_price" />
+
+    <TextView
+        android:id="@+id/tv_funding_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/helveticanene_medium"
+        android:text="50%"
+        android:textColor="@color/midnight_express"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_merchandise_img" />
+
+    <TextView
+        android:id="@+id/tv_current_funding_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/helveticanene_medium"
+        android:text="40,000"
+        android:textColor="@color/echo_blue_2"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_funding_percentage"
+        app:layout_constraintStart_toEndOf="@id/tv_funding_percentage"
+        app:layout_constraintTop_toTopOf="@id/tv_funding_percentage" />
+
+    <TextView
+        android:id="@+id/tv_total_funding_price_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:text="@string/content_total"
+        android:textColor="@color/echo_blue_2"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_funding_percentage"
+        app:layout_constraintEnd_toStartOf="@id/tv_total_funding_price"
+        app:layout_constraintTop_toTopOf="@id/tv_funding_percentage" />
+
+    <TextView
+        android:id="@+id/tv_total_funding_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/helveticanene_medium"
+        android:text="63,000"
+        android:textColor="@color/echo_blue_2"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_total_funding_price_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_total_funding_price_title" />
+
+    <ProgressBar
+        android:id="@+id/pg_funding"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="3dp"
+        android:progress="30"
+        android:progressTint="@color/midnight_express"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_funding_percentage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

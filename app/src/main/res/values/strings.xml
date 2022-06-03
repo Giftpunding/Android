@@ -43,8 +43,9 @@
 
 
     <string name="content_gift_together">함께 선물하기</string>
-    <string name="content_gift_balance">잔여 금액</string>
+    <string name="content_gift_funding_balance">펀딩 가능 금액</string>
     <string name="content_total">총</string>
+    <string name="title_gift_list">선물 리스트</string>
 
 
 </resources>
