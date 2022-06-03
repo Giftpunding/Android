@@ -84,76 +84,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_home_gift_ranking_title">
 
-            <TextView
-                android:id="@+id/tv_home_gift_all"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_gift_ranking_category_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_all"
-                android:textColor="@color/black"
-                android:textSize="@dimen/home_ranking_category_size"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_one_to_two"
+                app:layout_constraintEnd_toStartOf="@id/item_gift_ranking_category_one_to_two"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_home_gift_one_to_two"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_gift_ranking_category_one_to_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_one_to_two"
-                android:textColor="@color/mischka"
-                android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_all"
-                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_three_to_four"
-                app:layout_constraintStart_toEndOf="@id/tv_home_gift_all"
-                app:layout_constraintTop_toTopOf="@id/tv_home_gift_all" />
+                app:layout_constraintBottom_toBottomOf="@id/item_gift_ranking_category_all"
+                app:layout_constraintEnd_toStartOf="@id/item_gift_ranking_category_three_to_four"
+                app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_all"
+                app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_all" />
 
-            <TextView
-                android:id="@+id/tv_home_gift_three_to_four"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_gift_ranking_category_three_to_four"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_three_to_four"
-                android:textColor="@color/mischka"
-                android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_one_to_two"
-                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_five_to_nine"
-                app:layout_constraintStart_toEndOf="@id/tv_home_gift_one_to_two"
-                app:layout_constraintTop_toTopOf="@id/tv_home_gift_one_to_two" />
+                app:layout_constraintBottom_toBottomOf="@id/item_gift_ranking_category_one_to_two"
+                app:layout_constraintEnd_toStartOf="@id/item_gift_ranking_category_five_to_nine"
+                app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_one_to_two"
+                app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_one_to_two" />
 
-            <TextView
-                android:id="@+id/tv_home_gift_five_to_nine"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_gift_ranking_category_five_to_nine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_five_to_nine"
-                android:textColor="@color/mischka"
-                android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_three_to_four"
-                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_over_ten"
-                app:layout_constraintStart_toEndOf="@id/tv_home_gift_three_to_four"
-                app:layout_constraintTop_toTopOf="@id/tv_home_gift_three_to_four" />
+                app:layout_constraintBottom_toBottomOf="@id/item_gift_ranking_category_three_to_four"
+                app:layout_constraintEnd_toStartOf="@id/item_gift_ranking_category_over_ten"
+                app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_three_to_four"
+                app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_three_to_four" />
 
-            <TextView
-                android:id="@+id/tv_home_gift_over_ten"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_gift_ranking_category_over_ten"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_over_ten"
-                android:textColor="@color/mischka"
-                android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_home_gift_five_to_nine"
+                app:layout_constraintBottom_toBottomOf="@id/item_gift_ranking_category_five_to_nine"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tv_home_gift_five_to_nine"
-                app:layout_constraintTop_toTopOf="@id/tv_home_gift_five_to_nine" />
+                app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_five_to_nine"
+                app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_five_to_nine" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -243,76 +218,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_home_sought_after_gift_category">
 
-            <TextView
-                android:id="@+id/tv_sought_after_all"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_popular_gift_category_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_all"
-                android:textColor="@color/black"
-                android:textSize="@dimen/home_ranking_category_size"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tv_sought_after_five_to_nine"
+                app:layout_constraintEnd_toStartOf="@id/item_popular_gift_category_five_to_nine"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_sought_after_five_to_nine"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_popular_gift_category_five_to_nine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_five_to_nine"
-                android:textColor="@color/mischka"
-                android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_sought_after_all"
-                app:layout_constraintEnd_toStartOf="@id/tv_sought_after_ten"
-                app:layout_constraintStart_toEndOf="@id/tv_sought_after_all"
-                app:layout_constraintTop_toTopOf="@id/tv_sought_after_all" />
+                app:layout_constraintBottom_toBottomOf="@id/item_popular_gift_category_all"
+                app:layout_constraintEnd_toStartOf="@id/item_popular_gift_category_around_ten"
+                app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_all"
+                app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_all" />
 
-            <TextView
-                android:id="@+id/tv_sought_after_ten"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_popular_gift_category_around_ten"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_around_ten"
-                android:textColor="@color/mischka"
-                android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_sought_after_five_to_nine"
-                app:layout_constraintEnd_toStartOf="@id/tv_sought_after_over_twenty"
-                app:layout_constraintStart_toEndOf="@id/tv_sought_after_five_to_nine"
-                app:layout_constraintTop_toTopOf="@id/tv_sought_after_five_to_nine" />
+                app:layout_constraintBottom_toBottomOf="@id/item_popular_gift_category_five_to_nine"
+                app:layout_constraintEnd_toStartOf="@id/item_popular_gift_category_around_twenty"
+                app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_five_to_nine"
+                app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_five_to_nine" />
 
-            <TextView
-                android:id="@+id/tv_sought_after_over_twenty"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_popular_gift_category_around_twenty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_around_twenty"
-                android:textColor="@color/mischka"
-                android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_sought_after_ten"
-                app:layout_constraintEnd_toStartOf="@id/tv_home_gift_ranking_over_thirty"
-                app:layout_constraintStart_toEndOf="@id/tv_sought_after_ten"
-                app:layout_constraintTop_toTopOf="@id/tv_sought_after_ten" />
+                app:layout_constraintBottom_toBottomOf="@id/item_popular_gift_category_around_ten"
+                app:layout_constraintEnd_toStartOf="@id/item_popular_gift_category_over_thirty"
+                app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_around_ten"
+                app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_around_ten" />
 
-            <TextView
-                android:id="@+id/tv_home_gift_ranking_over_thirty"
+            <com.giftpunding.osds.component.PriceCategoryItem
+                android:id="@+id/item_popular_gift_category_over_thirty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/helveticaneue_bold"
-                android:includeFontPadding="false"
-                android:text="@string/category_over_thirty"
-                android:textColor="@color/mischka"
-                android:textSize="@dimen/home_ranking_category_size"
-                app:layout_constraintBottom_toBottomOf="@id/tv_sought_after_over_twenty"
+                app:layout_constraintBottom_toBottomOf="@id/item_popular_gift_category_around_twenty"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tv_sought_after_over_twenty"
-                app:layout_constraintTop_toTopOf="@id/tv_sought_after_over_twenty" />
+                app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_around_twenty"
+                app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_around_twenty" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -490,8 +440,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="29dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_recommend_banner" />
