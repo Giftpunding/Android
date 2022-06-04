@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="88dp">
+
+    <TextView
+        android:id="@+id/tv_search_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:text="검색어 영역입니다."
+        android:textColor="@color/midnight_express"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_address_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_address_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_rect_solitude2_trans100_round4"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="2dp"
+        android:text="도로명"
+        android:textColor="@color/echo_blue_2"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@id/div_search_result"
+        app:layout_constraintStart_toStartOf="@id/tv_search_result"
+        app:layout_constraintTop_toBottomOf="@id/tv_search_result" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="도로명 주소 영역입니다"
+        android:textColor="@color/echo_blue_2"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_address_type"
+        app:layout_constraintStart_toEndOf="@id/tv_address_type"
+        app:layout_constraintTop_toTopOf="@id/tv_address_type" />
+
+    <View
+        android:id="@+id/div_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/solitude_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
