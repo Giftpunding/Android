@@ -10,15 +10,18 @@
     <color name="grey">#808080</color>
     <color name="trans100">#00FFFFFF</color>
     <color name="solitude">#E6E7EB</color>
-    <color name="solitude2">#F0F1F4</color>
+    <color name="solitude_2">#F0F1F4</color>
     <color name="mischka">#A6A8B1</color>
     <color name="silver">#C4C4C4</color>
     <color name="echo_blue">#B6B8BE</color>
-    <color name="echo_blue2">#AFB4C1</color>
+    <color name="echo_blue_2">#AFB4C1</color>
     <color name="night_rider">#333030</color>
-    <color name="midnight_express">#272D3F</color>
     <color name="link_water">#C5C8D0</color>
+    <color name="midnight_express">#272D3F</color>
     <color name="hawkes_blue">#D6D8DE</color>
     <color name="raven">#646A7E</color>
+    <color name="whisper">#E5E5E5</color>
+    <color name="white_smoke">#F6F6F6</color>
+    <color name="eucalyptus">#27AE60</color>
 
 </resources>
