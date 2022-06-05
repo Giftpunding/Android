@@ -29,7 +29,7 @@ class AddressSearchResultAdapter(private val addressSearchResultResponseList: Li
 
         fun onBind(item: AddressSearchResultResponse) {
             binding.apply {
-                tvSearchResult.text = item.searchResult
+                tvSearchKeyword.text = item.searchResult
                 tvAddressType.text = item.addressType
                 tvAddress.text = item.address
             }

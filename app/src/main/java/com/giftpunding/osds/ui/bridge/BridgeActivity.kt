@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.ui.main.MainActivity
 import com.giftpunding.osds.R
 import com.giftpunding.osds.ui.address.AddressActivity
+import com.giftpunding.osds.ui.address.AddressDetailActivity
 import com.giftpunding.osds.ui.address.AddressSearchActivity
 import com.giftpunding.osds.ui.bridge.adapter.BridgeAdapter
 import com.giftpunding.osds.ui.home.HomeActivity
@@ -40,7 +41,8 @@ class BridgeActivity: AppCompatActivity() {
                 HomeActivity::class.java,
                 SearchActivity::class.java,
                 AddressActivity::class.java,
-                AddressSearchActivity::class.java
+                AddressSearchActivity::class.java,
+                AddressDetailActivity::class.java
             )
 
             adapter = bridgeAdapter
