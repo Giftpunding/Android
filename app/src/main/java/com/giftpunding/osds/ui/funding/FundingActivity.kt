@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.giftpunding.osds.R
 import com.giftpunding.osds.data.response.funding.FundingResponse
 import com.giftpunding.osds.databinding.ActivityFundingListBinding
 import com.giftpunding.osds.ui.funding.adapter.FundingAdapter
@@ -42,6 +43,73 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener {
                 LinearLayoutManager(this@FundingActivity, LinearLayoutManager.VERTICAL, false)
             rvGiftList.adapter = fundingAdapter
             fundingAdapter.addItemList(fList)
+
+
+            itemGiftListCategoryAll.apply {
+                setCategoryName(context.getString(R.string.category_all))
+                setFirstSelectItem()
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftListCategoryOneToTwo,
+                        itemGiftListCategoryFiveToNine,
+                        itemGiftListCategoryThreeToFour,
+                        itemGiftListCategoryOverTen,
+                        itemGiftListCategoryAll
+                    )
+                }
+            }
+
+            itemGiftListCategoryOneToTwo.apply {
+                setCategoryName(context.getString(R.string.category_one_to_two_funding))
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftListCategoryAll,
+                        itemGiftListCategoryFiveToNine,
+                        itemGiftListCategoryThreeToFour,
+                        itemGiftListCategoryOverTen,
+                        itemGiftListCategoryOneToTwo
+                    )
+                }
+            }
+
+            itemGiftListCategoryThreeToFour.apply {
+                setCategoryName(context.getString(R.string.category_three_to_four_funding))
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftListCategoryOneToTwo,
+                        itemGiftListCategoryFiveToNine,
+                        itemGiftListCategoryAll,
+                        itemGiftListCategoryOverTen,
+                        itemGiftListCategoryThreeToFour
+                    )
+                }
+            }
+
+            itemGiftListCategoryFiveToNine.apply {
+                setCategoryName(context.getString(R.string.category_five_to_nine_funding))
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftListCategoryOneToTwo,
+                        itemGiftListCategoryAll,
+                        itemGiftListCategoryThreeToFour,
+                        itemGiftListCategoryOverTen,
+                        itemGiftListCategoryFiveToNine
+                    )
+                }
+            }
+
+            itemGiftListCategoryOverTen.apply {
+                setCategoryName(context.getString(R.string.category_over_ten_funding))
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftListCategoryOneToTwo,
+                        itemGiftListCategoryFiveToNine,
+                        itemGiftListCategoryThreeToFour,
+                        itemGiftListCategoryAll,
+                        itemGiftListCategoryOverTen
+                    )
+                }
+            }
         }
     }
 

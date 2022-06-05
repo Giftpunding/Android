@@ -52,60 +52,34 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/tv_gift_all_funding"
+                    <com.giftpunding.osds.component.PriceCategoryItem
+                        android:id="@+id/item_gift_list_category_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="18dp"
-                        android:fontFamily="@font/helveticaneue_bold"
-                        android:includeFontPadding="false"
-                        android:text="@string/category_all"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/home_ranking_category_size" />
+                        android:layout_marginEnd="18dp" />
 
-                    <TextView
-                        android:id="@+id/tv_gift_one_to_two_funding"
+                    <com.giftpunding.osds.component.PriceCategoryItem
+                        android:id="@+id/item_gift_list_category_one_to_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="18dp"
-                        android:fontFamily="@font/helveticaneue_bold"
-                        android:includeFontPadding="false"
-                        android:text="@string/category_one_to_two_funding"
-                        android:textColor="@color/mischka"
-                        android:textSize="@dimen/home_ranking_category_size" />
+                        android:layout_marginEnd="18dp" />
 
-                    <TextView
-                        android:id="@+id/tv_gift_three_to_four_funding"
+                    <com.giftpunding.osds.component.PriceCategoryItem
+                        android:id="@+id/item_gift_list_category_three_to_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="18dp"
-                        android:fontFamily="@font/helveticaneue_bold"
-                        android:includeFontPadding="false"
-                        android:text="@string/category_three_to_four_funding"
-                        android:textColor="@color/mischka"
-                        android:textSize="@dimen/home_ranking_category_size" />
+                        android:layout_marginEnd="18dp" />
 
-                    <TextView
-                        android:id="@+id/tv_gift_five_to_nine_funding"
+                    <com.giftpunding.osds.component.PriceCategoryItem
+                        android:id="@+id/item_gift_list_category_five_to_nine"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="18dp"
-                        android:fontFamily="@font/helveticaneue_bold"
-                        android:includeFontPadding="false"
-                        android:text="@string/category_five_to_nine_funding"
-                        android:textColor="@color/mischka"
-                        android:textSize="@dimen/home_ranking_category_size" />
+                        android:layout_marginEnd="18dp" />
 
-                    <TextView
-                        android:id="@+id/tv_gift_over_ten_funding"
+                    <com.giftpunding.osds.component.PriceCategoryItem
+                        android:id="@+id/item_gift_list_category_over_ten"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/helveticaneue_bold"
-                        android:includeFontPadding="false"
-                        android:text="@string/category_over_ten_funding"
-                        android:textColor="@color/mischka"
-                        android:textSize="@dimen/home_ranking_category_size" />
-
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </HorizontalScrollView>
 
