@@ -13,9 +13,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <!-- TODO 뒤로가기 버튼 추가 -->
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,6 +20,12 @@
             android:text="텍스트"
             android:textColor="@color/midnight_express"
             android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@color/trans100"
+            android:src="@drawable/ic_back" />
 
     </androidx.appcompat.widget.Toolbar>
 
