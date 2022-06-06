@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftpunding.osds.databinding.ActivityAddressSearchBinding
@@ -24,7 +25,15 @@ class AddressSearchActivity : AppCompatActivity() {
         binding = ActivityAddressSearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        init()
         onBindView()
+
+    }
+
+    fun init() {
+        binding.editAddressSearch.requestFocus()
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(binding.editAddressSearch, InputMethodManager.SHOW_IMPLICIT)
     }
 
     private fun onBindView() {

@@ -40,9 +40,7 @@ class BridgeActivity: AppCompatActivity() {
                 LoginActivity::class.java,
                 HomeActivity::class.java,
                 SearchActivity::class.java,
-                AddressActivity::class.java,
-                AddressSearchActivity::class.java,
-                AddressDetailActivity::class.java
+                AddressActivity::class.java
             )
 
             adapter = bridgeAdapter

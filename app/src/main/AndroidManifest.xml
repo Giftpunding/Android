@@ -31,9 +31,14 @@
         <activity android:name=".ui.merchandise.MerchandiseActivity" />
         <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.address.AddressActivity" />
-        <activity android:name=".ui.address.AddressSearchActivity" />
+        <activity
+            android:name=".ui.address.AddressSearchActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".ui.address.AddressDetailActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity android:name=".ui.home.ranking.RankingActivity" />
-        <activity android:name=".ui.address.AddressDetailActivity" />
+
     </application>
 
 </manifest>
