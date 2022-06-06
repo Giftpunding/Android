@@ -71,6 +71,8 @@
         android:layout_marginTop="26dp"
         android:background="@drawable/bg_sc_rect_solitude2_trans100_round16_stroke2"
         android:hint="@string/content_address_detail_hint"
+        android:inputType="text"
+        android:maxLines="1"
         android:paddingStart="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -2,6 +2,8 @@ package com.giftpunding.osds.ui.address
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.EditorInfo
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftpunding.osds.databinding.ActivityAddressSearchBinding
@@ -26,10 +28,24 @@ class AddressSearchActivity : AppCompatActivity() {
     }
 
     private fun onBindView() {
+        binding.editAddressSearch.setOnEditorActionListener { textView, i, keyEvent ->
+            if (i == EditorInfo.IME_ACTION_SEARCH) {
+                // TODO 주소 검색 API 호출
+
+                binding.viewAddressSearchGuide.root.visibility = View.GONE
+                binding.viewAddressSearchResult.root.visibility = View.VISIBLE
+            }
+            false
+        }
+
         binding.viewAddressSearchResult.rvAddressSearchResult.apply {
-            adapter = AddressSearchResultAdapter(mList)
+            adapter = AddressSearchResultAdapter(this@AddressSearchActivity, mList)
             layoutManager =
                 LinearLayoutManager(this@AddressSearchActivity, LinearLayoutManager.VERTICAL, false)
+        }
+
+        binding.btnAddressSearchClose.setOnClickListener {
+            finish()
         }
     }
 }
