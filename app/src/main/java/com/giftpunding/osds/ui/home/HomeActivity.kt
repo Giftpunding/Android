@@ -10,6 +10,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftpunding.osds.R
+import com.giftpunding.osds.component.PriceCategoryItem
 import com.giftpunding.osds.data.response.home.luxuryGift.LuxuryGiftResponse
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.data.response.home.popualrGift.PopularGiftCategoryResponse
@@ -89,6 +90,134 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 )
             }
 
+            itemGiftRankingCategoryAll.apply {
+                setCategoryName(resources.getString(R.string.category_all))
+                setFirstSelectItem()
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftRankingCategoryOneToTwo,
+                        itemGiftRankingCategoryFiveToNine,
+                        itemGiftRankingCategoryThreeToFour,
+                        itemGiftRankingCategoryOverTen,
+                        itemGiftRankingCategoryAll
+                    )
+                }
+            }
+
+            itemGiftRankingCategoryOneToTwo.apply {
+                setCategoryName(context.getString(R.string.category_one_to_two))
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftRankingCategoryAll,
+                        itemGiftRankingCategoryFiveToNine,
+                        itemGiftRankingCategoryThreeToFour,
+                        itemGiftRankingCategoryOverTen,
+                        itemGiftRankingCategoryOneToTwo
+                    )
+                }
+            }
+
+            itemGiftRankingCategoryThreeToFour.apply {
+                setCategoryName(context.getString(R.string.category_three_to_four))
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftRankingCategoryAll,
+                        itemGiftRankingCategoryOneToTwo,
+                        itemGiftRankingCategoryFiveToNine,
+                        itemGiftRankingCategoryOverTen,
+                        itemGiftRankingCategoryThreeToFour
+                    )
+                }
+            }
+
+            itemGiftRankingCategoryFiveToNine.apply {
+                setCategoryName(context.getString(R.string.category_five_to_nine))
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftRankingCategoryAll,
+                        itemGiftRankingCategoryOneToTwo,
+                        itemGiftRankingCategoryThreeToFour,
+                        itemGiftRankingCategoryOverTen,
+                        itemGiftRankingCategoryFiveToNine
+                    )
+                }
+            }
+
+            itemGiftRankingCategoryOverTen.apply {
+                setCategoryName(context.getString(R.string.category_over_ten))
+                setOnClickListener {
+                    clickCategory(
+                        itemGiftRankingCategoryAll,
+                        itemGiftRankingCategoryOneToTwo,
+                        itemGiftRankingCategoryThreeToFour,
+                        itemGiftRankingCategoryFiveToNine,
+                        itemGiftRankingCategoryOverTen
+                    )
+                }
+            }
+
+            itemPopularGiftCategoryAll.apply {
+                setCategoryName(context.getString(R.string.category_all))
+                setFirstSelectItem()
+                setOnClickListener {
+                    clickCategory(
+                        itemPopularGiftCategoryFiveToNine,
+                        itemPopularGiftCategoryAroundTen,
+                        itemPopularGiftCategoryAroundTwenty,
+                        itemPopularGiftCategoryOverThirty,
+                        itemPopularGiftCategoryAll
+                    )
+                }
+            }
+            itemPopularGiftCategoryFiveToNine.apply {
+                setCategoryName(context.getString(R.string.category_five_to_nine))
+                setOnClickListener {
+                    clickCategory(
+                        itemPopularGiftCategoryAll,
+                        itemPopularGiftCategoryAroundTen,
+                        itemPopularGiftCategoryAroundTwenty,
+                        itemPopularGiftCategoryOverThirty,
+                        itemPopularGiftCategoryFiveToNine
+                    )
+                }
+            }
+            itemPopularGiftCategoryAroundTen.apply {
+                setCategoryName(context.getString(R.string.category_around_ten))
+                setOnClickListener {
+                    clickCategory(
+                        itemPopularGiftCategoryFiveToNine,
+                        itemPopularGiftCategoryAll,
+                        itemPopularGiftCategoryAroundTwenty,
+                        itemPopularGiftCategoryOverThirty,
+                        itemPopularGiftCategoryAroundTen
+                    )
+                }
+            }
+            itemPopularGiftCategoryAroundTwenty.apply {
+                setCategoryName(context.getString(R.string.category_around_twenty))
+                setOnClickListener {
+                    clickCategory(
+                        itemPopularGiftCategoryFiveToNine,
+                        itemPopularGiftCategoryAroundTen,
+                        itemPopularGiftCategoryAll,
+                        itemPopularGiftCategoryOverThirty,
+                        itemPopularGiftCategoryAroundTwenty
+                    )
+                }
+            }
+            itemPopularGiftCategoryOverThirty.apply {
+                setCategoryName(context.getString(R.string.category_over_thirty))
+                setOnClickListener {
+                    clickCategory(
+                        itemPopularGiftCategoryFiveToNine,
+                        itemPopularGiftCategoryAroundTen,
+                        itemPopularGiftCategoryAroundTwenty,
+                        itemPopularGiftCategoryAll,
+                        itemPopularGiftCategoryOverThirty
+                    )
+                }
+            }
+
             //카테고리 연결
             rvHomeSoughtAfterGiftCategory.apply {
                 val soughtAfterAdapter = PopularGiftCategoryAdapter(this@HomeActivity)
@@ -162,64 +291,14 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun initEvent() {
         binding.apply {
-            tvHomeGiftAll.setOnClickListener(this@HomeActivity)
-            tvHomeGiftOneToTwo.setOnClickListener(this@HomeActivity)
-            tvHomeGiftThreeToFour.setOnClickListener(this@HomeActivity)
-            tvHomeGiftFiveToNine.setOnClickListener(this@HomeActivity)
-            tvHomeGiftOverTen.setOnClickListener(this@HomeActivity)
             lyMerchandiseMoreInfo.setOnClickListener(this@HomeActivity)
             btnSoughtAfterBack.setOnClickListener(this@HomeActivity)
             btnSoughtAfterAfter.setOnClickListener(this@HomeActivity)
         }
     }
 
-    /**
-     * 카테고리 클릭 시 발생하는 이벤트,
-     * 현재는 글자 폰트만 변경됩니다.
-     */
-    private fun changeCategoryStyle(clickTextView: TextView) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            binding.apply {
-                tvHomeGiftAll.setTextColor(resources.getColor(R.color.mischka, null))
-                tvHomeGiftOneToTwo.setTextColor(resources.getColor(R.color.mischka, null))
-                tvHomeGiftThreeToFour.setTextColor(resources.getColor(R.color.mischka, null))
-                tvHomeGiftFiveToNine.setTextColor(resources.getColor(R.color.mischka, null))
-                tvHomeGiftOverTen.setTextColor(resources.getColor(R.color.mischka, null))
-
-                tvHomeGiftAll.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
-                tvHomeGiftOneToTwo.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
-                tvHomeGiftThreeToFour.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
-                tvHomeGiftFiveToNine.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
-                tvHomeGiftOverTen.typeface =
-                    ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
-            }
-            clickTextView.typeface =
-                ResourcesCompat.getFont(this@HomeActivity, R.font.helveticaneue_bold)
-            clickTextView.setTextColor(resources.getColor(R.color.black, null))
-        }
-    }
-
     override fun onClick(view: View?) {
         when (view) {
-            binding.tvHomeGiftAll -> {
-                changeCategoryStyle(binding.tvHomeGiftAll)
-            }
-            binding.tvHomeGiftOneToTwo -> {
-                changeCategoryStyle(binding.tvHomeGiftOneToTwo)
-            }
-            binding.tvHomeGiftThreeToFour -> {
-                changeCategoryStyle(binding.tvHomeGiftThreeToFour)
-            }
-            binding.tvHomeGiftFiveToNine -> {
-                changeCategoryStyle(binding.tvHomeGiftFiveToNine)
-            }
-            binding.tvHomeGiftOverTen -> {
-                changeCategoryStyle(binding.tvHomeGiftOverTen)
-            }
             binding.lyMerchandiseMoreInfo -> {
                 startActivity(Intent(this, RankingActivity::class.java))
             }
