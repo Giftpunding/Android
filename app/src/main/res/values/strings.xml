@@ -61,4 +61,5 @@
     <string name="content_building_name">· 건물명, 아파트명</string>
     <string name="content_building_name_example">예) 동신아파트</string>
     <string name="content_address_detail_hint">상세 주소를 입력해주세요.</string>
+    <string name="content_no_result">검색 결과가 없습니다.\n도로명, 지번, 건물명, 아파트 명으로\n재 검색해주세요.</string>
 </resources>

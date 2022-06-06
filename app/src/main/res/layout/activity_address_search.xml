@@ -79,4 +79,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/div_address_search" />
 
+    <include
+        android:id="@+id/view_address_search_no_result"
+        layout="@layout/content_address_search_no_result"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/div_address_search" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
