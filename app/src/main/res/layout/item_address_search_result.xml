@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/bg_rect_solitude2_trans100_round4"
+        android:background="@drawable/bg_rect_trans100_solitude2_radius4"
         android:paddingHorizontal="4dp"
         android:paddingVertical="2dp"
         android:text="도로명"

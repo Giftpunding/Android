@@ -25,12 +25,12 @@ class AddressSearchResultAdapter(
         )
 
     override fun onBindViewHolder(holder: AddressSearchResultViewHolder, position: Int) {
+        val addressIntent = Intent(context, AddressDetailActivity::class.java)
+        addressIntent.putExtra("AddressData", addressSearchResultResponseList[position])
+
         holder.onBind(addressSearchResultResponseList[position])
-        holder.itemView.setOnClickListener {
-            val addressIntent = Intent(context, AddressDetailActivity::class.java)
-            addressIntent.putExtra("AddressData", addressSearchResultResponseList[position])
-            context.startActivity(addressIntent)
-        }
+        holder.itemView.setOnClickListener { context.startActivity(addressIntent) }
+
     }
 
     override fun getItemCount(): Int = addressSearchResultResponseList.size

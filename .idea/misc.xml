@@ -3,23 +3,47 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_midnight_express_white_radius16_stroke2.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_oval_trans100_white_radius360_stroke0.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_oval_trans100_white_smoke_radius360_stroke0.xml" value="0.1" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_echoblue2_trans100_round12.xml" value="0.121" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_echoblue_trans100_round12.xml" value="0.134" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_hawkes_blue_solitude_radius0_stroke1.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_hawkes_blue_trans100_round4_stoke1.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_hawkes_blue_trans100_round8_stroke1.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_hawkes_blue_white_radius22_stroke1.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_midnight_express_midnight_express_radius22_stroke1.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_midnight_express_solitude2_radius16_stroke2.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_midnight_express_white_radius16_stroke2.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_solitude2_trans100_round16.xml" value="0.1" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_solitude2_trans100_round16_stroke2.xml" value="0.134" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_solitude2_trans100_round4.xml" value="0.1355" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_solitude_trans100_round16.xml" value="0.1335" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_solitude_trans100_round16_stroke1.xml" value="0.1335" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_solitude_trans100_round20_stroke1.xml" value="0.134" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_trans100_solitude2_radius16.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_trans100_solitude2_radius4.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_trans100_solitude2_round16.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_trans100_solitude2_round4.xml" value="0.1" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_round_black.xml" value="0.149" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_sc_rect_echoblue2_trans100_radius4.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_sc_rect_echoblue2_trans100_round4.xml" value="0.1" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_sc_rect_solitude2_trans100_round16_stroke2.xml" value="0.142" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_sc_rect_trans100_solitude2_radius16_stroke2.xml" value="0.1" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_back.xml" value="0.1355" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_back_arrow.xml" value="0.1" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_back_button.xml" value="0.1355" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_cancel.xml" value="0.134" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_close.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_exclude.xml" value="0.1" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_front_button.xml" value="0.1" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_gift_box.xml" value="0.149" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.149" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_more_info_arrow.xml" value="0.1" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_search.xml" value="0.149" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_sort_arrow.xml" value="0.1" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address.xml" value="0.2" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address_detail.xml" value="0.2" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address_detail.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address_search.xml" value="0.176" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_bridge.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_home.xml" value="0.20555555555555555" />

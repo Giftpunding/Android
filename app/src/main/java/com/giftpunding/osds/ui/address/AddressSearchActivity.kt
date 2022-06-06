@@ -2,10 +2,14 @@ package com.giftpunding.osds.ui.address
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.giftpunding.osds.R
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftpunding.osds.databinding.ActivityAddressSearchBinding
 import com.giftpunding.osds.ui.address.adapter.AddressSearchResultAdapter
@@ -26,7 +30,7 @@ class AddressSearchActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         init()
-        onBindView()
+        setEvent()
 
     }
 
@@ -36,7 +40,20 @@ class AddressSearchActivity : AppCompatActivity() {
         imm.showSoftInput(binding.editAddressSearch, InputMethodManager.SHOW_IMPLICIT)
     }
 
-    private fun onBindView() {
+    private fun setEvent() {
+        searchButtonEvent()
+        textChangeListener()
+
+        binding.btnAddressSearchClose.setOnClickListener {
+            finish()
+        }
+
+        binding.btnTextDelete.setOnClickListener {
+            binding.editAddressSearch.text = null
+        }
+    }
+
+    private fun searchButtonEvent() {
         binding.editAddressSearch.setOnEditorActionListener { textView, i, keyEvent ->
             if (i == EditorInfo.IME_ACTION_SEARCH) {
                 // TODO 주소 검색 API 호출
@@ -52,9 +69,31 @@ class AddressSearchActivity : AppCompatActivity() {
             layoutManager =
                 LinearLayoutManager(this@AddressSearchActivity, LinearLayoutManager.VERTICAL, false)
         }
+    }
 
-        binding.btnAddressSearchClose.setOnClickListener {
-            finish()
+    private fun textChangeListener() {
+        binding.apply {
+            editAddressSearch.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    if (p0.isNullOrEmpty()) {
+                        btnTextDelete.visibility = View.GONE
+                        editAddressSearch.background = AppCompatResources.getDrawable(
+                            this@AddressSearchActivity,
+                            R.drawable.bg_rect_midnight_express_solitude2_radius16_stroke2
+                        )
+                    } else {
+                        btnTextDelete.visibility = View.VISIBLE
+                        editAddressSearch.background = AppCompatResources.getDrawable(
+                            this@AddressSearchActivity,
+                            R.drawable.bg_rect_midnight_express_white_radius16_stroke2
+                        )
+                    }
+                }
+
+                override fun afterTextChanged(p0: Editable?) {}
+            })
         }
     }
 }
