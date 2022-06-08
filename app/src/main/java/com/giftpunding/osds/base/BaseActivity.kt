@@ -1,44 +1,94 @@
 package com.giftpunding.osds.base
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
-import android.widget.Toolbar
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.giftpunding.osds.R
-import com.giftpunding.osds.ui.TestActivity
-import com.google.android.material.appbar.MaterialToolbar
+import com.giftpunding.osds.enum.BackButton
+import com.giftpunding.osds.enum.ToolbarType
+import com.giftpunding.osds.enum.VisibleState
 
 abstract class BaseActivity: AppCompatActivity() {
 
     @LayoutRes
     protected abstract fun layoutRes(): Int
-    private lateinit var toolbar: MaterialToolbar
+    private lateinit var backButton: ImageView
+    private lateinit var activityTitle: TextView
+    private lateinit var closeButton: ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutRes())
-        Log.d(TAG, "BaseActivity..")
-
-        setToolbar()
     }
 
-    private fun setToolbar(){
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+    protected fun setToolbarType(type: ToolbarType){
+        when(type){
+            ToolbarType.NORMAL -> {
+                normalToolbarType()
+            }
 
-        toolbar.apply {
-            isTitleCentered = true
+            ToolbarType.GIFT ->{
+                giftToolbarType()
+            }
         }
     }
 
-    @SuppressLint("ResourceAsColor")
-    fun setToolbarTitle(title: String){
-        Log.d(TAG, "BaseActivity.. $title")
-        this.toolbar.title = title
+    private fun normalToolbarType(){
+        backButton = findViewById(R.id.iv_back)
+        activityTitle = findViewById(R.id.tv_toolbar_title)
+        closeButton = findViewById(R.id.iv_close)
+    }
+
+    private fun giftToolbarType(){
+
+    }
+
+
+    protected fun setBackButton(type: BackButton){
+        when(type){
+            BackButton.ARROW_BACK -> backButton.setImageResource(R.drawable.ic_arrow_back)
+            BackButton.BACK -> backButton.setImageResource(R.drawable.ic_back)
+        }
+    }
+
+    protected fun setBackButtonVisible(state: VisibleState){
+        when(state){
+            VisibleState.VISIBLE ->{
+                backButton.apply {
+                    visibility = View.VISIBLE
+                }
+            }
+
+            VisibleState.INVISIBLE -> {
+                backButton.apply {
+                    visibility = View.INVISIBLE
+                }
+            }
+        }
+    }
+
+    protected fun setTitle(title: String){
+        activityTitle.text = title
+    }
+
+    protected fun setCloseButton(state: VisibleState){
+        when(state){
+            VisibleState.VISIBLE -> {
+                closeButton.apply {
+                    visibility = View.VISIBLE
+                }
+            }
+
+            VisibleState.INVISIBLE -> {
+                closeButton.apply {
+                    visibility = View.INVISIBLE
+                }
+            }
+        }
     }
 
     private companion object{
