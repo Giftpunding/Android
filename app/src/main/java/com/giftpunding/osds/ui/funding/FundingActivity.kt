@@ -14,8 +14,6 @@ import androidx.core.content.res.ResourcesCompat
 import com.giftpunding.osds.R
 import com.giftpunding.osds.databinding.ActivityFundingBinding
 import com.giftpunding.osds.util.addComma
-import com.giftpunding.osds.util.hideKeyboard
-import com.giftpunding.osds.util.revealKeyboard
 
 class FundingActivity : AppCompatActivity(), View.OnClickListener,
     RadioGroup.OnCheckedChangeListener, View.OnFocusChangeListener,
@@ -23,7 +21,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
 
     private lateinit var binding: ActivityFundingBinding
     private lateinit var messageTextWatcher: TextWatcher
-    private lateinit var directPriceTextWatcher: TextWatcher
+    private lateinit var inputPriceTextWatcher: TextWatcher
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +61,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
         }
 
         //직접 가격 입력하는 EditText
-        directPriceTextWatcher = object : TextWatcher {
+        inputPriceTextWatcher = object : TextWatcher {
             override fun beforeTextChanged(
                 p0: CharSequence?,
                 nowTextSize: Int,
@@ -99,11 +97,11 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
         binding.apply {
             btnPurchase.setOnClickListener(this@FundingActivity)
             editMessage.addTextChangedListener(messageTextWatcher)
-            editInputPrice.addTextChangedListener(directPriceTextWatcher)
+            editInputPrice.addTextChangedListener(inputPriceTextWatcher)
             editInputPrice.onFocusChangeListener = this@FundingActivity
             editInputPrice.setOnEditorActionListener(this@FundingActivity)
-            rgPaymentType.setOnCheckedChangeListener(this@FundingActivity)
-            rgPriceType.setOnCheckedChangeListener(this@FundingActivity)
+            paymentType.setOnCheckedChangeListener(this@FundingActivity)
+            priceType.setOnCheckedChangeListener(this@FundingActivity)
         }
     }
 
@@ -114,7 +112,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
             }
             binding.editInputPrice -> {
                 //가격 직접 입력
-                binding.rgPriceType.clearCheck()
+                binding.priceType.clearCheck()
 
             }
         }
@@ -123,7 +121,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
     override fun onCheckedChanged(view: RadioGroup?, viewId: Int) {
         when (view) {
             //각 버튼을 누르면 EditText는 초기화
-            binding.rgPriceType -> {
+            binding.priceType -> {
                 when (viewId) {
                     R.id.rb_price_all_balance -> {
                         hideKeyboard(this, binding.editInputPrice)
@@ -143,7 +141,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
             }
 
             //결제 방식
-            binding.rgPaymentType -> {
+            binding.paymentType -> {
                 when (viewId) {
                     R.id.rb_payment_card -> {
 
@@ -162,7 +160,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
                 //포커스 됨
                 if (check) {
                     //라디오 버튼 해제
-                    binding.rgPriceType.clearCheck()
+                    binding.priceType.clearCheck()
                     binding.editInputPrice.requestFocus()
                     revealKeyboard(this, binding.editInputPrice)
                     changeInputPrice(true)

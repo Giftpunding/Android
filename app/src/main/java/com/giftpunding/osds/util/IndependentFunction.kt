@@ -37,13 +37,3 @@ fun addComma(number: Int): String = if (number >= 0) {
 } else {
     "- "
 }
-
-fun hideKeyboard(context: Context, view: View) {
-    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(view.windowToken, 0)
-}
-
-fun revealKeyboard(context: Context, view: View) {
-    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.showSoftInput(view, 0)
-}

@@ -154,7 +154,7 @@
                 android:orientation="horizontal">
 
                 <RadioGroup
-                    android:id="@+id/rg_price_type"
+                    android:id="@+id/price_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -422,7 +422,7 @@
             app:layout_constraintTop_toBottomOf="@id/div_input_info" />
 
         <RadioGroup
-            android:id="@+id/rg_payment_type"
+            android:id="@+id/payment_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
@@ -482,7 +482,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rg_payment_type" />
+            app:layout_constraintTop_toBottomOf="@id/payment_type" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
