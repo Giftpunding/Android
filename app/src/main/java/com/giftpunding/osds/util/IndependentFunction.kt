@@ -2,13 +2,48 @@ package com.giftpunding.osds.util
 
 import android.content.Context
 import android.util.TypedValue
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import com.giftpunding.osds.R
 
 fun dpToPx(context: Context, dp: Float) =
     TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics)
         .toInt()
 
+fun pxToDp(context: Context, px: Float): Int {
+    var density = context.resources.displayMetrics.density
+    when (density) {
+        1.0f -> {
+            density *= 4.0f
+        }
+        1.5f -> {
+            density *= (8f / 3f)
+        }
+        2.0f -> {
+            density *= 2.0f
+        }
+        3.0f -> {
+            density *= (8f / 5f)
+        }
+        else -> {
+            density *= 8f / 6f
+        }
+    }
+    return (px / density).toInt()
+}
+
 fun addComma(number: Int): String = if (number >= 0) {
     "%,d".format(number)
 } else {
     "- "
+}
+
+fun hideKeyboard(context: Context, view: View) {
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun revealKeyboard(context: Context, view: View) {
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.showSoftInput(view, 0)
 }
