@@ -17,7 +17,8 @@ import com.giftpunding.osds.enum.VisibleState
 abstract class BaseViewBindingActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :
     AppCompatActivity() {
 
-    protected lateinit var binding: B
+    private var _binding: B? = null
+    protected val binding get() = _binding!!
 
     private lateinit var normalToolbarBinding: ContentToolbarBinding
     private lateinit var giftToolbarBinding: ContentGiftToolbarBinding
@@ -29,8 +30,13 @@ abstract class BaseViewBindingActivity<B : ViewBinding>(private val inflate: (La
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = inflate(layoutInflater)
+        _binding = inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
     protected fun setToolbarType(type: ToolbarType) {

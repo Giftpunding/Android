@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Osds"
         tools:targetApi="n">
 
-        <activity android:name=".ui.TestViewBindingActivity"
+        <activity android:name=".ui.bridge.BridgeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
