@@ -40,7 +40,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
 
             }
 
-            override fun onTextChanged(text: CharSequence?, nowTextSize: Int, p2: Int, p3: Int) {
+            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, nowTextSize: Int) {
                 binding.tvMessageCount.text = "$nowTextSize/100"
                 //텍스트 크기가 0이면 안보이게
                 if (nowTextSize > 0) {
