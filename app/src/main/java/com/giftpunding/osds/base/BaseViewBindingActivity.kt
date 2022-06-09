@@ -109,6 +109,6 @@ abstract class BaseViewBindingActivity<B : ViewBinding>(private val inflate: (La
     }
 
     private companion object {
-        private val TAG: String = "1111111..."
+        private val TAG: String = "BaseViewBindingActivity..."
     }
 }
