@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.ui.main.MainActivity
 import com.giftpunding.osds.R
+import com.giftpunding.osds.ui.TestActivity
 import com.giftpunding.osds.ui.bridge.adapter.BridgeAdapter
 import com.giftpunding.osds.ui.funding.FundingListActivity
 import com.giftpunding.osds.ui.home.HomeActivity
@@ -39,6 +40,8 @@ class BridgeActivity: AppCompatActivity() {
                 HomeActivity::class.java,
                 SearchActivity::class.java,
                 FundingListActivity::class.java
+                TestActivity::class.java
+
             )
 
             adapter = bridgeAdapter
