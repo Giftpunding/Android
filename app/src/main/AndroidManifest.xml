@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Osds"
         tools:targetApi="n">
 
-        <activity android:name=".ui.bridge.BridgeActivity"
+        <activity android:name=".ui.TestViewBindingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,10 +34,6 @@
         <activity android:name=".ui.search.SearchActivity">
         </activity>
         <activity android:name=".ui.TestActivity"/>
-        <activity android:name=".ui.funding.FundingListActivity" />
-        <activity
-            android:name=".ui.funding.FundingActivity"
-            android:windowSoftInputMode="adjustResize" />
 
     </application>
 
