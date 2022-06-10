@@ -34,6 +34,10 @@
         <activity android:name=".ui.search.SearchActivity">
         </activity>
         <activity android:name=".ui.TestActivity"/>
+        <activity android:name=".ui.funding.FundingListActivity" />
+        <activity
+            android:name=".ui.funding.FundingActivity"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 
