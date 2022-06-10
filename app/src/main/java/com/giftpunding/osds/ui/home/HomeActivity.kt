@@ -1,16 +1,13 @@
 package com.giftpunding.osds.ui.home
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftpunding.osds.R
-import com.giftpunding.osds.component.PriceCategoryItem
+import com.giftpunding.osds.base.BaseViewBindingActivity
 import com.giftpunding.osds.data.response.home.luxuryGift.LuxuryGiftResponse
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.data.response.home.popualrGift.PopularGiftCategoryResponse
@@ -19,20 +16,15 @@ import com.giftpunding.osds.databinding.ActivityHomeBinding
 import com.giftpunding.osds.ui.home.adpater.LuxuryAdapter
 import com.giftpunding.osds.ui.home.adpater.RecommendAdapter
 import com.giftpunding.osds.ui.merchandise.adapter.MerchandiseAdapter
-import com.giftpunding.osds.ui.home.ranking.RankingActivity
+import com.giftpunding.osds.ui.home.giftRanking.GiftRankingActivity
 import com.giftpunding.osds.ui.home.popular.adapter.PopularGiftCategoryAdapter
 import com.giftpunding.osds.ui.home.popular.adapter.PopularGiftPagerAdapter
 import kotlin.math.ceil
 
-class HomeActivity : AppCompatActivity(), View.OnClickListener {
-
-    private lateinit var binding: ActivityHomeBinding
+class HomeActivity : BaseViewBindingActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         init()
         initEvent()
     }
@@ -300,7 +292,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.lyMerchandiseMoreInfo -> {
-                startActivity(Intent(this, RankingActivity::class.java))
+                startActivity(Intent(this, GiftRankingActivity::class.java))
             }
             //페이지 버튼 이벤트
             binding.btnSoughtAfterAfter -> {

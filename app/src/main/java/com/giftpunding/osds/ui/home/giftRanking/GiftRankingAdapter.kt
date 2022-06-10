@@ -1,4 +1,4 @@
-package com.giftpunding.osds.ui.home.ranking
+package com.giftpunding.osds.ui.home.giftRanking
 
 import android.content.Context
 import android.content.Intent
@@ -12,9 +12,9 @@ import com.giftpunding.osds.ui.merchandise.MerchandiseActivity
 import com.giftpunding.osds.util.addComma
 
 
-class RankingAdapter(
+class GiftRankingAdapter(
     private val context: Context,
-) : RecyclerView.Adapter<RankingAdapter.RankingHolder>() {
+) : RecyclerView.Adapter<GiftRankingAdapter.RankingHolder>() {
 
     private val list = mutableListOf<MerchandiseResponse>()
 

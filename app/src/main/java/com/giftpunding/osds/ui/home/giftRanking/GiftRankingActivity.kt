@@ -1,24 +1,22 @@
-package com.giftpunding.osds.ui.home.ranking
+package com.giftpunding.osds.ui.home.giftRanking
 
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
+import com.giftpunding.osds.base.BaseActivity
+import com.giftpunding.osds.base.BaseViewBindingActivity
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.databinding.ActivityGiftRankingBinding
 
-class RankingActivity : AppCompatActivity(), View.OnClickListener {
+class GiftRankingActivity : BaseViewBindingActivity<ActivityGiftRankingBinding>(ActivityGiftRankingBinding::inflate), View.OnClickListener {
 
-    private lateinit var binding: ActivityGiftRankingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityGiftRankingBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         init()
         initEvent()
     }
@@ -37,10 +35,10 @@ class RankingActivity : AppCompatActivity(), View.OnClickListener {
                     )
                 )
             }
-            val merchandiseAdapter = RankingAdapter(this@RankingActivity)
+            val merchandiseAdapter = GiftRankingAdapter(this@GiftRankingActivity)
 
             rvMerchandise.layoutManager =
-                LinearLayoutManager(this@RankingActivity, LinearLayoutManager.VERTICAL, false)
+                LinearLayoutManager(this@GiftRankingActivity, LinearLayoutManager.VERTICAL, false)
             rvMerchandise.adapter = merchandiseAdapter
 
             merchandiseAdapter.addItemList(list)
@@ -49,11 +47,11 @@ class RankingActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initEvent() {
         binding.apply {
-            tvHomeGiftAll.setOnClickListener(this@RankingActivity)
-            tvHomeGiftOneToTwo.setOnClickListener(this@RankingActivity)
-            tvHomeGiftThreeToFour.setOnClickListener(this@RankingActivity)
-            tvHomeGiftFiveToNine.setOnClickListener(this@RankingActivity)
-            tvHomeGiftOverTen.setOnClickListener(this@RankingActivity)
+            tvHomeGiftAll.setOnClickListener(this@GiftRankingActivity)
+            tvHomeGiftOneToTwo.setOnClickListener(this@GiftRankingActivity)
+            tvHomeGiftThreeToFour.setOnClickListener(this@GiftRankingActivity)
+            tvHomeGiftFiveToNine.setOnClickListener(this@GiftRankingActivity)
+            tvHomeGiftOverTen.setOnClickListener(this@GiftRankingActivity)
         }
     }
 
@@ -71,18 +69,18 @@ class RankingActivity : AppCompatActivity(), View.OnClickListener {
                 tvHomeGiftOverTen.setTextColor(resources.getColor(R.color.mischka, null))
 
                 tvHomeGiftAll.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@GiftRankingActivity, R.font.helveticaneue_bold)
                 tvHomeGiftOneToTwo.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@GiftRankingActivity, R.font.helveticaneue_bold)
                 tvHomeGiftThreeToFour.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@GiftRankingActivity, R.font.helveticaneue_bold)
                 tvHomeGiftFiveToNine.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@GiftRankingActivity, R.font.helveticaneue_bold)
                 tvHomeGiftOverTen.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@GiftRankingActivity, R.font.helveticaneue_bold)
             }
             clickTextView.typeface =
-                ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                ResourcesCompat.getFont(this@GiftRankingActivity, R.font.helveticaneue_bold)
             clickTextView.setTextColor(resources.getColor(R.color.black, null))
         }
     }

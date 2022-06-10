@@ -12,21 +12,19 @@ import androidx.annotation.Dimension
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.giftpunding.osds.R
+import com.giftpunding.osds.base.BaseViewBindingActivity
 import com.giftpunding.osds.databinding.ActivityFundingBinding
 import com.giftpunding.osds.util.addComma
 
-class FundingActivity : AppCompatActivity(), View.OnClickListener,
+class FundingActivity : BaseViewBindingActivity<ActivityFundingBinding>(ActivityFundingBinding::inflate), View.OnClickListener,
     RadioGroup.OnCheckedChangeListener, View.OnFocusChangeListener,
     TextView.OnEditorActionListener {
 
-    private lateinit var binding: ActivityFundingBinding
     private lateinit var messageTextWatcher: TextWatcher
     private lateinit var inputPriceTextWatcher: TextWatcher
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFundingBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         init()
         initEvent()
     }
@@ -124,15 +122,15 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
             binding.priceType -> {
                 when (viewId) {
                     R.id.rb_price_all_balance -> {
-                        hideKeyboard(this, binding.editInputPrice)
+                        hideKeyboard(binding.editInputPrice)
                         binding.editInputPrice.clearFocus()
                     }
                     R.id.rb_price_ten_thousand -> {
-                        hideKeyboard(this, binding.editInputPrice)
+                        hideKeyboard(binding.editInputPrice)
                         binding.editInputPrice.clearFocus()
                     }
                     R.id.rb_price_five_thousand -> {
-                        hideKeyboard(this, binding.editInputPrice)
+                        hideKeyboard(binding.editInputPrice)
                         binding.editInputPrice.clearFocus()
                     }
                 }
@@ -162,7 +160,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
                     //라디오 버튼 해제
                     binding.priceType.clearCheck()
                     binding.editInputPrice.requestFocus()
-                    revealKeyboard(this, binding.editInputPrice)
+                    revealKeyboard(binding.editInputPrice)
                     changeInputPrice(true)
                 }
                 //포커스 해제
@@ -211,7 +209,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
         if (imeOption == EditorInfo.IME_ACTION_DONE && binding.editInputPrice.text.toString() != "") {
             //숫자가 있는 경우
             changeInputPrice(true)
-            hideKeyboard(this, binding.editInputPrice)
+            hideKeyboard(binding.editInputPrice)
             binding.editInputPrice.clearFocus()
         }
         return true

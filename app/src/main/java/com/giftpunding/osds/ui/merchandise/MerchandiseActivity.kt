@@ -3,21 +3,19 @@ package com.giftpunding.osds.ui.merchandise
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.giftpunding.osds.base.BaseViewBindingActivity
 import com.giftpunding.osds.databinding.ActivityMerchandiseInfoBinding
 import com.giftpunding.osds.ui.merchandise.adapter.MerchandiseViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class MerchandiseActivity : AppCompatActivity() {
+class MerchandiseActivity : BaseViewBindingActivity<ActivityMerchandiseInfoBinding>(ActivityMerchandiseInfoBinding::inflate) {
 
-    private lateinit var binding: ActivityMerchandiseInfoBinding
     private val fragmentList: MutableList<Fragment> = mutableListOf()
     private val tabLayoutText = arrayOf("상품 설명", "상세 정보")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMerchandiseInfoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         init()
         initEvent()
     }

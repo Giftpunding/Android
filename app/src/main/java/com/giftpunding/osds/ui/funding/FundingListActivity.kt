@@ -5,18 +5,15 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
+import com.giftpunding.osds.base.BaseViewBindingActivity
 import com.giftpunding.osds.data.response.funding.FundingResponse
 import com.giftpunding.osds.databinding.ActivityFundingListBinding
 import com.giftpunding.osds.ui.funding.adapter.FundingAdapter
 
-class FundingListActivity : AppCompatActivity(), View.OnClickListener {
-
-    private lateinit var binding: ActivityFundingListBinding
+class FundingListActivity : BaseViewBindingActivity<ActivityFundingListBinding>(ActivityFundingListBinding::inflate), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFundingListBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         init()
         initEvent()
     }

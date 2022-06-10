@@ -1,8 +1,10 @@
 package com.giftpunding.osds.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -110,5 +112,14 @@ abstract class BaseViewBindingActivity<B : ViewBinding>(private val inflate: (La
 
     private companion object {
         private val TAG: String = "BaseViewBindingActivity..."
+    }
+    fun hideKeyboard(view: View) {
+        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    fun revealKeyboard(view: View) {
+        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(view, 0)
     }
 }
