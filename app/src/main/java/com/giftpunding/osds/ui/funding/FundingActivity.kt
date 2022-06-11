@@ -1,5 +1,6 @@
 package com.giftpunding.osds.ui.funding
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -25,6 +26,8 @@ class FundingActivity : BaseActivity<ActivityFundingBinding>(ActivityFundingBind
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        init()
+        initEvent()
     }
 
 
@@ -99,6 +102,7 @@ class FundingActivity : BaseActivity<ActivityFundingBinding>(ActivityFundingBind
             editInputPrice.setOnEditorActionListener(this@FundingActivity)
             paymentType.setOnCheckedChangeListener(this@FundingActivity)
             priceType.setOnCheckedChangeListener(this@FundingActivity)
+            btnPurchase.setOnClickListener(this@FundingActivity)
         }
     }
 
@@ -106,6 +110,7 @@ class FundingActivity : BaseActivity<ActivityFundingBinding>(ActivityFundingBind
         when (view) {
             binding.btnPurchase -> {
                 //구매
+                startActivity(Intent(this,FundingCompleteActivity::class.java))
             }
             binding.editInputPrice -> {
                 //가격 직접 입력

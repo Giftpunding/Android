@@ -3,14 +3,14 @@ package com.giftpunding.osds.ui.funding
 import android.os.Bundle
 import android.view.View
 import com.giftpunding.osds.R
-import com.giftpunding.osds.base.BaseViewBindingActivity
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityFundingCompleteBinding
 import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
 
 class FundingCompleteActivity :
-    BaseViewBindingActivity<ActivityFundingCompleteBinding>(ActivityFundingCompleteBinding::inflate),
+    BaseActivity<ActivityFundingCompleteBinding>(ActivityFundingCompleteBinding::inflate),
     View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +22,11 @@ class FundingCompleteActivity :
         initEvent()
     }
 
-    fun init() {
+    override fun init() {
 
     }
 
-    private fun initEvent() {
+    override fun initEvent() {
         binding.apply {
             btnConfirm.setOnClickListener(this@FundingCompleteActivity)
             btnGiftSendList.setOnClickListener(this@FundingCompleteActivity)
