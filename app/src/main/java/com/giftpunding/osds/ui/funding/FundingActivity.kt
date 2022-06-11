@@ -1,6 +1,5 @@
 package com.giftpunding.osds.ui.funding
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,13 +9,14 @@ import android.view.inputmethod.EditorInfo
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.annotation.Dimension
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.giftpunding.osds.R
-import com.giftpunding.osds.base.BaseViewBindingActivity
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityFundingBinding
 import com.giftpunding.osds.util.addComma
 
-class FundingActivity : BaseViewBindingActivity<ActivityFundingBinding>(ActivityFundingBinding::inflate), View.OnClickListener,
+class FundingActivity : BaseActivity<ActivityFundingBinding>(ActivityFundingBinding::inflate), View.OnClickListener,
     RadioGroup.OnCheckedChangeListener, View.OnFocusChangeListener,
     TextView.OnEditorActionListener {
 
@@ -25,32 +25,31 @@ class FundingActivity : BaseViewBindingActivity<ActivityFundingBinding>(Activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        init()
-        initEvent()
     }
 
-    private fun init() {
+
+    override fun init() {
         //메시지 텍스트 개수 감지
         messageTextWatcher = object : TextWatcher {
-            override fun beforeTextChanged(text: CharSequence?, start: Int, count: Int, after: Int) {
-                binding.tvMessageCount.text = "${count}/100"
+            override fun beforeTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, nowTextSize: Int) {
+                binding.tvMessageCount.text = "$nowTextSize/100"
                 //텍스트 크기가 0이면 안보이게
-                if (after > 0 || text?.toString() != "") {
+                if (nowTextSize > 0) {
                     binding.tvMessageCount.visibility = View.VISIBLE
                 } else {
                     binding.tvMessageCount.visibility = View.INVISIBLE
                 }
 
                 //100자 넘어감
-                if (after > 100) {
+                if (nowTextSize > 100) {
 
                 } else {
 
                 }
-            }
-
-            override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
-
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -91,7 +90,7 @@ class FundingActivity : BaseViewBindingActivity<ActivityFundingBinding>(Activity
         }
     }
 
-    private fun initEvent() {
+    override fun initEvent() {
         binding.apply {
             btnPurchase.setOnClickListener(this@FundingActivity)
             editMessage.addTextChangedListener(messageTextWatcher)
@@ -107,7 +106,6 @@ class FundingActivity : BaseViewBindingActivity<ActivityFundingBinding>(Activity
         when (view) {
             binding.btnPurchase -> {
                 //구매
-                startActivity(Intent(this, FundingCompleteActivity::class.java))
             }
             binding.editInputPrice -> {
                 //가격 직접 입력

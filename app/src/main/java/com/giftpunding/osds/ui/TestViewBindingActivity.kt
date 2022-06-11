@@ -1,15 +1,14 @@
 package com.giftpunding.osds.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import com.giftpunding.osds.base.BaseViewBindingActivity
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityTestBinding
 import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
 
 class TestViewBindingActivity :
-    BaseViewBindingActivity<ActivityTestBinding>(ActivityTestBinding::inflate) {
+    BaseActivity<ActivityTestBinding>(ActivityTestBinding::inflate) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,5 +17,13 @@ class TestViewBindingActivity :
         setBackButtonVisible(VisibleState.VISIBLE)
         setTitle("테스트입니다")
         setCloseButton(VisibleState.VISIBLE)
+    }
+
+    override fun init() {
+
+    }
+
+    override fun initEvent() {
+
     }
 }

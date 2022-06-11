@@ -5,23 +5,20 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.data.response.funding.FundingResponse
 import com.giftpunding.osds.databinding.ActivityFundingListBinding
 import com.giftpunding.osds.ui.funding.adapter.FundingAdapter
 
-class FundingListActivity : AppCompatActivity(), View.OnClickListener {
-
-    private lateinit var binding: ActivityFundingListBinding
+class FundingListActivity : BaseActivity<ActivityFundingListBinding>(ActivityFundingListBinding::inflate), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFundingListBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         init()
         initEvent()
     }
 
-    private fun init() {
+    override fun init() {
         /* 임시 더미데티어, 추후에 서버에서 받아올 예정 */
         val fList = mutableListOf<FundingResponse>()
         for (idx in 0 until 10) {
@@ -113,11 +110,11 @@ class FundingListActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun initEvent() {
+    override fun initEvent() {
 
     }
 
     override fun onClick(view: View?) {
-        TODO("Not yet implemented")
+
     }
 }
