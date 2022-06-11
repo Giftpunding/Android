@@ -3,12 +3,12 @@ package com.giftpunding.osds.ui
 import android.os.Bundle
 import android.util.Log
 import com.giftpunding.osds.R
-import com.giftpunding.osds.base.BaseActivity
+import com.giftpunding.osds.base.DemoActivity
 import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
 
-class TestActivity: BaseActivity(){
+class TestActivity: DemoActivity(){
     override fun layoutRes(): Int = R.layout.activity_test
 
     override fun onCreate(savedInstanceState: Bundle?) {

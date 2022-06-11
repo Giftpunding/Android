@@ -2,84 +2,69 @@ package com.giftpunding.osds.base
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewbinding.ViewBinding
 import com.giftpunding.osds.R
-import com.giftpunding.osds.databinding.ContentGiftToolbarBinding
-import com.giftpunding.osds.databinding.ContentToolbarBinding
 import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
 
-abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :
-    AppCompatActivity(){
+abstract class DemoActivity: AppCompatActivity() {
 
-    private var _binding: B? = null
-    protected val binding get() = _binding!!
-
-    private lateinit var normalToolbarBinding: ContentToolbarBinding
-    private lateinit var giftToolbarBinding: ContentGiftToolbarBinding
-
-    protected lateinit var backButton: ImageView
-    protected lateinit var activityTitle: TextView
-    protected lateinit var closeButton: ImageView
-
-    abstract fun init()
-    abstract fun initEvent()
+    //생성자로 받는게 좋은 방법이 아니여서 해둔 건가?
+    @LayoutRes
+    protected abstract fun layoutRes(): Int
+    private lateinit var backButton: ImageView
+    private lateinit var activityTitle: TextView
+    private lateinit var closeButton: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(layoutRes())
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
-    protected fun setToolbarType(type: ToolbarType) {
-        when (type) {
+    //툴바가 선물인지 평범한 것인지 정함
+    protected fun setToolbarType(type: ToolbarType){
+        when(type){
             ToolbarType.NORMAL -> {
                 normalToolbarType()
             }
 
-            ToolbarType.GIFT -> {
+            ToolbarType.GIFT ->{
                 giftToolbarType()
             }
         }
     }
 
-    private fun normalToolbarType() {
-        normalToolbarBinding = ContentToolbarBinding.bind(binding.root)
-
-        backButton = normalToolbarBinding.ivBack
-        activityTitle = normalToolbarBinding.tvToolbarTitle
-        closeButton = normalToolbarBinding.ivClose
+    //평범한 툴바 초기화 부분?
+    private fun normalToolbarType(){
+        backButton = findViewById(R.id.iv_back)
+        activityTitle = findViewById(R.id.tv_toolbar_title)
+        closeButton = findViewById(R.id.iv_close)
     }
 
-    private fun giftToolbarType() {
-        giftToolbarBinding = ContentGiftToolbarBinding.bind(binding.root)
-        //input view
+    //선물 툴바 초기화 부분
+    private fun giftToolbarType(){
+
     }
 
-
-    protected fun setBackButton(type: BackButton) {
-        when (type) {
+    //backButton 달아주기
+    protected fun setBackButton(type: BackButton){
+        when(type){
             BackButton.ARROW_BACK -> backButton.setImageResource(R.drawable.ic_arrow_back)
             BackButton.BACK -> backButton.setImageResource(R.drawable.ic_back)
         }
     }
 
-    protected fun setBackButtonVisible(state: VisibleState) {
-        when (state) {
-            VisibleState.VISIBLE -> {
+    //backButton Visibility
+    protected fun setBackButtonVisible(state: VisibleState){
+        when(state){
+            VisibleState.VISIBLE ->{
                 backButton.apply {
                     visibility = View.VISIBLE
                 }
@@ -93,12 +78,14 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         }
     }
 
-    protected fun setTitle(title: String) {
+    //타이틀 정하기
+    protected fun setTitle(title: String){
         activityTitle.text = title
     }
 
-    protected fun setCloseButton(state: VisibleState) {
-        when (state) {
+    //닫기 버튼 Visibility
+    protected fun setCloseButton(state: VisibleState){
+        when(state){
             VisibleState.VISIBLE -> {
                 closeButton.apply {
                     visibility = View.VISIBLE
@@ -113,6 +100,9 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         }
     }
 
+    private companion object{
+        private val TAG: String = "1111111..."
+    }
 
     fun hideKeyboard(view: View) {
         val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -124,7 +114,4 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         imm.showSoftInput(view, 0)
     }
 
-    private companion object {
-        private val TAG: String = "BaseViewBindingActivity..."
-    }
 }
