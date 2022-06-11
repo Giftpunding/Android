@@ -40,7 +40,6 @@ class BridgeActivity: AppCompatActivity() {
                 HomeActivity::class.java,
                 SearchActivity::class.java,
                 FundingListActivity::class.java
-                TestActivity::class.java
 
             )
 

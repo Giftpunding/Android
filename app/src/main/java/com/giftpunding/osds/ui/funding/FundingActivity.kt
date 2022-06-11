@@ -1,5 +1,6 @@
 package com.giftpunding.osds.ui.funding
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,24 +10,21 @@ import android.view.inputmethod.EditorInfo
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.annotation.Dimension
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.giftpunding.osds.R
+import com.giftpunding.osds.base.BaseViewBindingActivity
 import com.giftpunding.osds.databinding.ActivityFundingBinding
 import com.giftpunding.osds.util.addComma
 
-class FundingActivity : AppCompatActivity(), View.OnClickListener,
+class FundingActivity : BaseViewBindingActivity<ActivityFundingBinding>(ActivityFundingBinding::inflate), View.OnClickListener,
     RadioGroup.OnCheckedChangeListener, View.OnFocusChangeListener,
     TextView.OnEditorActionListener {
 
-    private lateinit var binding: ActivityFundingBinding
     private lateinit var messageTextWatcher: TextWatcher
     private lateinit var inputPriceTextWatcher: TextWatcher
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFundingBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         init()
         initEvent()
     }
@@ -34,25 +32,25 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
     private fun init() {
         //메시지 텍스트 개수 감지
         messageTextWatcher = object : TextWatcher {
-            override fun beforeTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, nowTextSize: Int) {
-                binding.tvMessageCount.text = "$nowTextSize/100"
+            override fun beforeTextChanged(text: CharSequence?, start: Int, count: Int, after: Int) {
+                binding.tvMessageCount.text = "${count}/100"
                 //텍스트 크기가 0이면 안보이게
-                if (nowTextSize > 0) {
+                if (after > 0 || text?.toString() != "") {
                     binding.tvMessageCount.visibility = View.VISIBLE
                 } else {
                     binding.tvMessageCount.visibility = View.INVISIBLE
                 }
 
                 //100자 넘어감
-                if (nowTextSize > 100) {
+                if (after > 100) {
 
                 } else {
 
                 }
+            }
+
+            override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
+
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -109,6 +107,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
         when (view) {
             binding.btnPurchase -> {
                 //구매
+                startActivity(Intent(this, FundingCompleteActivity::class.java))
             }
             binding.editInputPrice -> {
                 //가격 직접 입력
@@ -124,15 +123,15 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
             binding.priceType -> {
                 when (viewId) {
                     R.id.rb_price_all_balance -> {
-                        hideKeyboard(this, binding.editInputPrice)
+                        hideKeyboard(binding.editInputPrice)
                         binding.editInputPrice.clearFocus()
                     }
                     R.id.rb_price_ten_thousand -> {
-                        hideKeyboard(this, binding.editInputPrice)
+                        hideKeyboard(binding.editInputPrice)
                         binding.editInputPrice.clearFocus()
                     }
                     R.id.rb_price_five_thousand -> {
-                        hideKeyboard(this, binding.editInputPrice)
+                        hideKeyboard(binding.editInputPrice)
                         binding.editInputPrice.clearFocus()
                     }
                 }
@@ -162,7 +161,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
                     //라디오 버튼 해제
                     binding.priceType.clearCheck()
                     binding.editInputPrice.requestFocus()
-                    revealKeyboard(this, binding.editInputPrice)
+                    revealKeyboard(binding.editInputPrice)
                     changeInputPrice(true)
                 }
                 //포커스 해제
@@ -211,7 +210,7 @@ class FundingActivity : AppCompatActivity(), View.OnClickListener,
         if (imeOption == EditorInfo.IME_ACTION_DONE && binding.editInputPrice.text.toString() != "") {
             //숫자가 있는 경우
             changeInputPrice(true)
-            hideKeyboard(this, binding.editInputPrice)
+            hideKeyboard(binding.editInputPrice)
             binding.editInputPrice.clearFocus()
         }
         return true
