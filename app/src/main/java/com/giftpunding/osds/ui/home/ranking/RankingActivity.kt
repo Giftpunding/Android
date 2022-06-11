@@ -8,22 +8,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftpunding.osds.databinding.ActivityGiftRankingBinding
 
-class RankingActivity : AppCompatActivity(), View.OnClickListener {
-
-    private lateinit var binding: ActivityGiftRankingBinding
+class RankingActivity : BaseActivity<ActivityGiftRankingBinding>(ActivityGiftRankingBinding::inflate), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityGiftRankingBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         init()
         initEvent()
     }
 
-    private fun init() {
+    override fun init() {
         binding.apply {
             /* 임시 더미 데이터 */
             val list = mutableListOf<MerchandiseResponse>()
@@ -47,7 +44,7 @@ class RankingActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun initEvent() {
+    override fun initEvent() {
         binding.apply {
             tvHomeGiftAll.setOnClickListener(this@RankingActivity)
             tvHomeGiftOneToTwo.setOnClickListener(this@RankingActivity)

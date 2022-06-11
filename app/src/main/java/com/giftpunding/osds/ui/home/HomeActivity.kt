@@ -10,6 +10,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftpunding.osds.R
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.component.PriceCategoryItem
 import com.giftpunding.osds.data.response.home.luxuryGift.LuxuryGiftResponse
 import com.giftpunding.osds.data.response.home.merchandise.MerchandiseResponse
@@ -24,15 +25,11 @@ import com.giftpunding.osds.ui.home.popular.adapter.PopularGiftCategoryAdapter
 import com.giftpunding.osds.ui.home.popular.adapter.PopularGiftPagerAdapter
 import kotlin.math.ceil
 
-class HomeActivity : AppCompatActivity(), View.OnClickListener {
+class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate), View.OnClickListener {
 
-    private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         init()
         initEvent()
     }
@@ -41,7 +38,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
      * 액티비티 실행 시 초기화 작업,
      * 서버 작업 요구 됨
      */
-    private fun init() {
+    override fun init() {
         //서버 통신 작업 필요함, 임시로 어댑터 연결
         binding.apply {
             /* 임시 더미 데이터 */
@@ -289,7 +286,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
      * 상황에 맞는 View 이벤트 등록,
      * 현재는 글자 폰트만 변경됩니다.
      */
-    private fun initEvent() {
+    override fun initEvent() {
         binding.apply {
             lyMerchandiseMoreInfo.setOnClickListener(this@HomeActivity)
             btnSoughtAfterBack.setOnClickListener(this@HomeActivity)
