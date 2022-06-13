@@ -17,6 +17,7 @@
     <string name="title_message">메시지</string>
     <string name="title_payment_type">결제 수단</string>
     <string name="title_gift_list">선물 리스트</string>
+    <string name="title_gift_complete">선물완료</string>
 
     <string name="category_all">전체</string>
     <string name="category_one_to_two">1~2만원</string>
@@ -62,6 +63,10 @@
     <string name="content_possible_funding_price">펀딩 가능 금액</string>
     <string name="content_total">총</string>
     <string name="content_sender_hint">홍길동</string>
+    <string name="content_gift_funding">의 선물 펀딩을</string>
+    <string name="content_gift_funding_complete">완료하였습니다.</string>
+    <string name="content_gift_history">선물 내역</string>
+    <string name="content_confirm">확인</string>
 
 
 </resources>
