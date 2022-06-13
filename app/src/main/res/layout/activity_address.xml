@@ -6,30 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.address.AddressActivity">
 
-    <androidx.appcompat.widget.Toolbar
+    <include
         android:id="@+id/tb_address"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tv_toolbar_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="텍스트"
-            android:textColor="@color/midnight_express"
-            android:textSize="16sp" />
-
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:background="@color/trans100"
-            android:src="@drawable/ic_back" />
-
-    </androidx.appcompat.widget.Toolbar>
+        layout="@layout/content_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_address_content"

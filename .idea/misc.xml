@@ -57,6 +57,7 @@
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_address_search_result.xml" value="0.2484375" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_search.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_search_keyword.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_toolbar.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/fragment_merchandise_detail_info.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/fragment_merchandise_info.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/fragment_popular_gift_list.xml" value="0.24947916666666667" />
@@ -65,49 +66,17 @@
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/item_merchandise_horizontal.xml" value="0.19537037037037036" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/item_recently_keyword.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_home.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_1.xml" value="0.1925" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_2.xml" value="0.1925" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_oval_trans100_white_smoke_radius360_stroke0.xml" value="0.1925" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect.xml" value="0.203" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_.xml" value="0.203" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_hawkes_blue_solitude_2_radius0_stroke1.xml" value="0.203" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_hawkes_blue_white_radius22_stroke1.xml" value="0.1925" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_link_water_hawkes_blue_radius6_stroke1.xml" value="0.1925" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_midnight_express_midnight_express_radius22_stroke1.xml" value="0.1925" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_midnight_express_midnight_express_radius6_stroke0.xml" value="0.1925" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_midnight_express_midnight_express_radius8_stroke0.xml" value="0.1925" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_midnight_express_solitude_2_radius8_stork2.xml" value="0.1925" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_link_water_hawkes_blue_radius4_stroke1.xml" value="0.129" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_trans100_eucalyptus_radius8_stroke0.xml" value="0.203" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/bg_rect_trans_100_midnight_express_radius4_stroke0.xml" value="0.1" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/ic_back.xml" value="0.193" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/ic_back_button.xml" value="0.193" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/drawable/ic_black_cancel.xml" value="0.193" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_funding_complete.xml" value="0.22" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_funding_list.xml" value="0.2390625" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_gift_ranking.xml" value="0.24375" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_home.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_main.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_merchandise_info.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_search.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_test.xml" value="0.1953125" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/content_search.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/content_search_keyword.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/content_toolbar.xml" value="0.14351851851851852" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/fragment_merchandise_detail_info.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/fragment_merchandise_info.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/fragment_popular_gift_list.xml" value="0.221875" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/fragment_sought_after_list.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_funding_gift_list.xml" value="0.33" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_merchandise_horizontal.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_popular_gift.xml" value="0.221875" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_popular_gift_category.xml" value="0.221875" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_popularity_keyword.xml" value="0.221875" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_price_category.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_small_luxury_list.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_sought_after_gift.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_sought_after_gift_category.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1925" />
       </map>
     </option>
   </component>

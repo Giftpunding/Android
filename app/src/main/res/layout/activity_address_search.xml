@@ -6,31 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.address.AddressSearchActivity">
 
-    <androidx.appcompat.widget.Toolbar
+    <include
         android:id="@+id/tb_address_search"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        layout="@layout/content_toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tv_address_search_toolbar_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="주소검색"
-            android:textColor="@color/midnight_express"
-            android:textSize="16sp" />
-
-        <ImageButton
-            android:id="@+id/btn_address_search_close"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_gravity="end"
-            android:layout_marginEnd="13dp"
-            android:background="@color/trans100"
-            android:src="@drawable/ic_close" />
-    </androidx.appcompat.widget.Toolbar>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_address_search"

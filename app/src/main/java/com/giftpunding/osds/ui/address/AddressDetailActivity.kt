@@ -1,40 +1,44 @@
 package com.giftpunding.osds.ui.address
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.content.res.AppCompatResources
 import com.giftpunding.osds.R
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftpunding.osds.databinding.ActivityAddressDetailBinding
+import com.giftpunding.osds.enum.BackButton
+import com.giftpunding.osds.enum.ToolbarType
+import com.giftpunding.osds.enum.VisibleState
 
-class AddressDetailActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityAddressDetailBinding
+class AddressDetailActivity :
+    BaseActivity<ActivityAddressDetailBinding>(ActivityAddressDetailBinding::inflate) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddressDetailBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         init()
-        setEvent()
+        initEvent()
     }
 
-    private fun init() {
+    override fun init() {
+        setToolbarType(ToolbarType.NORMAL)
+        setBackButtonVisible(VisibleState.VISIBLE)
+        setBackButton(BackButton.ARROW_BACK)
+        setTitle(getString(R.string.title_address_detail))
+        setCloseButton(VisibleState.VISIBLE)
+
         val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultResponse
         binding.tvSearchKeyword.text = addressData.searchKeyword
         binding.tvAddress.text = addressData.address
 
         binding.editAddressDetail.requestFocus()
-        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(binding.editAddressDetail, InputMethodManager.SHOW_IMPLICIT)
+        revealKeyboard(binding.editAddressDetail)
     }
 
-    private fun setEvent() {
+    override fun initEvent() {
         textChangeListener()
 
         binding.btnComplete.setOnClickListener {

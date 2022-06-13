@@ -1,6 +1,5 @@
 package com.giftpunding.osds.ui.address
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,13 +9,14 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftpunding.osds.databinding.ActivityAddressSearchBinding
+import com.giftpunding.osds.enum.ToolbarType
+import com.giftpunding.osds.enum.VisibleState
 import com.giftpunding.osds.ui.address.adapter.AddressSearchResultAdapter
 
-class AddressSearchActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityAddressSearchBinding
+class AddressSearchActivity : BaseActivity<ActivityAddressSearchBinding>(ActivityAddressSearchBinding::inflate) {
 
     // 더미데이터
     private val mList = arrayListOf(
@@ -26,27 +26,26 @@ class AddressSearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddressSearchBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         init()
-        setEvent()
+        initEvent()
 
     }
 
-    fun init() {
+    override fun init() {
+        setToolbarType(ToolbarType.NORMAL)
+        setBackButtonVisible(VisibleState.INVISIBLE)
+        setTitle(getString(R.string.title_address_search))
+        setCloseButton(VisibleState.VISIBLE)
+
         binding.editAddressSearch.requestFocus()
-        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(binding.editAddressSearch, InputMethodManager.SHOW_IMPLICIT)
+        revealKeyboard(binding.editAddressSearch)
     }
 
-    private fun setEvent() {
+
+    override fun initEvent() {
         searchButtonEvent()
         textChangeListener()
-
-        binding.btnAddressSearchClose.setOnClickListener {
-            finish()
-        }
 
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressSearch.text = null
@@ -83,12 +82,14 @@ class AddressSearchActivity : AppCompatActivity() {
                             this@AddressSearchActivity,
                             R.drawable.bg_rect_midnight_express_solitude2_radius16_stroke2
                         )
+                        editAddressSearch.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_search,0,0,0)
                     } else {
                         btnTextDelete.visibility = View.VISIBLE
                         editAddressSearch.background = AppCompatResources.getDrawable(
                             this@AddressSearchActivity,
                             R.drawable.bg_rect_midnight_express_white_radius16_stroke2
                         )
+                        editAddressSearch.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0)
                     }
                 }
 
