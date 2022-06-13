@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftpunding.osds.databinding.ItemAddressSearchResultBinding
 import com.giftpunding.osds.ui.address.AddressDetailActivity
+import com.giftpunding.osds.ui.address.AddressSearchActivity
 
 class AddressSearchResultAdapter(
     private val context: Context,
@@ -29,8 +30,9 @@ class AddressSearchResultAdapter(
         addressIntent.putExtra("AddressData", addressSearchResultResponseList[position])
 
         holder.onBind(addressSearchResultResponseList[position])
-        holder.itemView.setOnClickListener { context.startActivity(addressIntent) }
-
+        holder.itemView.setOnClickListener {
+            (context as AddressSearchActivity).useActivityResultLauncher(addressIntent)
+        }
     }
 
     override fun getItemCount(): Int = addressSearchResultResponseList.size

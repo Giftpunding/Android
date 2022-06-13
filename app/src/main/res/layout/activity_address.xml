@@ -52,7 +52,7 @@
         android:background="@drawable/bg_sc_rect_trans100_echo_blue2_radius4_rect_trans100_midnight_express_radius4"
         android:enabled="false"
         android:gravity="center"
-        android:text="@string/title_done"
+        android:text="@string/content_confirm"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

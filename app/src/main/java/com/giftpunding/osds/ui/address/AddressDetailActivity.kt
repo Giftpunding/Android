@@ -1,5 +1,7 @@
 package com.giftpunding.osds.ui.address
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,6 +15,7 @@ import com.giftpunding.osds.databinding.ActivityAddressDetailBinding
 import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
+import com.giftpunding.osds.ui.home.HomeActivity
 
 class AddressDetailActivity :
     BaseActivity<ActivityAddressDetailBinding>(ActivityAddressDetailBinding::inflate) {
@@ -31,30 +34,40 @@ class AddressDetailActivity :
         setTitle(getString(R.string.title_address_detail))
         setCloseButton(VisibleState.VISIBLE)
 
-        // 이전 액티비티에서 넘겨받은 주소 설정
         val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultResponse
         binding.tvSearchKeyword.text = addressData.searchKeyword
         binding.tvAddress.text = addressData.address
 
-        // 자동으로 키보드 띄우기
         binding.editAddressDetail.requestFocus()
         revealKeyboard(binding.editAddressDetail)
     }
 
     override fun initEvent() {
-        textChangeListener()
-
         binding.btnComplete.setOnClickListener {
-            // TODO 상세주소 입력 완료
+            // TODO 회원가입 완료(주소 저장) API 호출
+            finishAffinity()
+            startActivity(Intent(this, HomeActivity::class.java))
         }
 
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressDetail.text = null
         }
+
+        backButton.setOnClickListener {
+            finish()
+        }
+
+        closeButton.setOnClickListener {
+            setResult(Activity.RESULT_OK)
+            finish()
+        }
+
+        textChangeListener()
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         hideKeyboard(currentFocus!!)
+
         return super.dispatchTouchEvent(ev)
     }
 

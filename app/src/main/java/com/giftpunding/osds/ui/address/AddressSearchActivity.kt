@@ -1,12 +1,14 @@
 package com.giftpunding.osds.ui.address
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
@@ -17,12 +19,13 @@ import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
 import com.giftpunding.osds.ui.address.adapter.AddressSearchResultAdapter
 
-class AddressSearchActivity : BaseActivity<ActivityAddressSearchBinding>(ActivityAddressSearchBinding::inflate) {
+class AddressSearchActivity :
+    BaseActivity<ActivityAddressSearchBinding>(ActivityAddressSearchBinding::inflate) {
 
     // 더미데이터
     private val mList = arrayListOf(
-        AddressSearchResultResponse("우성아파트", "도로명", "우성123-4"),
-        AddressSearchResultResponse("현광아파트", "지번", "현광동 12-17")
+        AddressSearchResultResponse("삼성아파트", "도로명", "삼성동 123-4"),
+        AddressSearchResultResponse("현대아파트", "지번", "현대동 12-17")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +45,6 @@ class AddressSearchActivity : BaseActivity<ActivityAddressSearchBinding>(Activit
         binding.editAddressSearch.requestFocus()
         revealKeyboard(binding.editAddressSearch)
     }
-
 
     override fun initEvent() {
         searchButtonEvent()
@@ -88,19 +90,39 @@ class AddressSearchActivity : BaseActivity<ActivityAddressSearchBinding>(Activit
                             this@AddressSearchActivity,
                             R.drawable.bg_rect_midnight_express_solitude2_radius16_stroke2
                         )
-                        editAddressSearch.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_search,0,0,0)
+                        editAddressSearch.setCompoundDrawablesWithIntrinsicBounds(
+                            R.drawable.ic_search,
+                            0,
+                            0,
+                            0
+                        )
                     } else {
                         btnTextDelete.visibility = View.VISIBLE
                         editAddressSearch.background = AppCompatResources.getDrawable(
                             this@AddressSearchActivity,
                             R.drawable.bg_rect_midnight_express_white_radius16_stroke2
                         )
-                        editAddressSearch.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0)
+                        editAddressSearch.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
                     }
                 }
 
                 override fun afterTextChanged(p0: Editable?) {}
             })
         }
+    }
+
+    /**
+     * AddressDetailActivity에서 close 버튼 이벤트 발생시
+     * 현재 액티비티를 종료하고 AddressActivity로 이동
+     */
+    private val startActivityForResult: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                finish()
+            }
+        }
+
+    fun useActivityResultLauncher(intent: Intent) {
+        startActivityForResult.launch(intent)
     }
 }

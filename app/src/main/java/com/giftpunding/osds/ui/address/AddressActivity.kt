@@ -31,5 +31,7 @@ class AddressActivity : BaseActivity<ActivityAddressBinding>(ActivityAddressBind
         binding.btnAddressSearch.setOnClickListener {
             startActivity(Intent(this, AddressSearchActivity::class.java))
         }
+
+        backButton.setOnClickListener { finish() }
     }
 }
