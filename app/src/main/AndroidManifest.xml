@@ -45,6 +45,7 @@
             android:name=".ui.funding.FundingActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.TestViewBindingActivity" />
+        <activity android:name=".ui.funding.FundingCompleteActivity"/>
 
     </application>
 
