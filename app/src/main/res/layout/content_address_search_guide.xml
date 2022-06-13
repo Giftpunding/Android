@@ -17,15 +17,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/iv_road_name_bullet_point"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_marginStart="28dp"
+        android:src="@drawable/ic_bullet_point"
+        app:layout_constraintBottom_toBottomOf="@id/tv_road_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_road_name" />
+
     <TextView
         android:id="@+id/tv_road_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="18dp"
         android:text="@string/content_road_name"
         android:textColor="@color/raven"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/tv_guide_title"
+        app:layout_constraintStart_toEndOf="@id/iv_road_name_bullet_point"
         app:layout_constraintTop_toBottomOf="@id/tv_guide_title" />
 
     <TextView
@@ -40,15 +51,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_road_name" />
 
+    <ImageView
+        android:id="@+id/iv_land_lot_number_bullet_point"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:src="@drawable/ic_bullet_point"
+        app:layout_constraintBottom_toBottomOf="@id/tv_land_lot_number"
+        app:layout_constraintStart_toStartOf="@id/iv_road_name_bullet_point"
+        app:layout_constraintTop_toTopOf="@id/tv_land_lot_number" />
+
     <TextView
         android:id="@+id/tv_land_lot_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="18dp"
         android:text="@string/content_land_lot_number"
         android:textColor="@color/raven"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/tv_road_name"
+        app:layout_constraintStart_toEndOf="@id/iv_land_lot_number_bullet_point"
         app:layout_constraintTop_toBottomOf="@id/tv_road_name_example" />
 
     <TextView
@@ -62,6 +83,15 @@
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_land_lot_number" />
+
+    <ImageView
+        android:id="@+id/iv_building_name_bullet_point"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:src="@drawable/ic_bullet_point"
+        app:layout_constraintBottom_toBottomOf="@id/tv_building_name"
+        app:layout_constraintStart_toStartOf="@id/iv_land_lot_number_bullet_point"
+        app:layout_constraintTop_toTopOf="@id/tv_building_name" />
 
     <TextView
         android:id="@+id/tv_building_name"
