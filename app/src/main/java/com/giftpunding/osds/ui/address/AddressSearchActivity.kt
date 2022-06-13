@@ -3,6 +3,7 @@ package com.giftpunding.osds.ui.address
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -50,6 +51,11 @@ class AddressSearchActivity : BaseActivity<ActivityAddressSearchBinding>(Activit
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressSearch.text = null
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        hideKeyboard(currentFocus!!)
+        return super.dispatchTouchEvent(ev)
     }
 
     private fun searchButtonEvent() {

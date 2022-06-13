@@ -3,6 +3,7 @@ package com.giftpunding.osds.ui.address
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import com.giftpunding.osds.R
@@ -30,10 +31,12 @@ class AddressDetailActivity :
         setTitle(getString(R.string.title_address_detail))
         setCloseButton(VisibleState.VISIBLE)
 
+        // 이전 액티비티에서 넘겨받은 주소 설정
         val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultResponse
         binding.tvSearchKeyword.text = addressData.searchKeyword
         binding.tvAddress.text = addressData.address
 
+        // 자동으로 키보드 띄우기
         binding.editAddressDetail.requestFocus()
         revealKeyboard(binding.editAddressDetail)
     }
@@ -48,6 +51,11 @@ class AddressDetailActivity :
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressDetail.text = null
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        hideKeyboard(currentFocus!!)
+        return super.dispatchTouchEvent(ev)
     }
 
     private fun textChangeListener() {
