@@ -47,12 +47,14 @@ class AddressSearchActivity :
     }
 
     override fun initEvent() {
-        searchButtonEvent()
-        textChangeListener()
-
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressSearch.text = null
         }
+
+        closeButton.setOnClickListener { finish() }
+
+        searchButtonEvent()
+        textChangeListener()
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
