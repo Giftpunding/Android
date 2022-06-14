@@ -7,13 +7,12 @@
 
     <TextView
         android:id="@+id/tv_guide_title"
+        style="@style/noto_sans_kr_medium_16_midnight_express_padding0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="36dp"
         android:text="@string/title_search_guide"
-        android:textColor="@color/midnight_express"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,25 +28,23 @@
 
     <TextView
         android:id="@+id/tv_road_name"
+        style="@style/noto_sans_kr_medium_14_raven_padding0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:layout_marginTop="18dp"
         android:text="@string/content_road_name"
-        android:textColor="@color/raven"
-        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/iv_road_name_bullet_point"
         app:layout_constraintTop_toBottomOf="@id/tv_guide_title" />
 
     <TextView
         android:id="@+id/tv_road_name_example"
+        style="@style/noto_sans_kr_medium_13_link_water_padding0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
         android:layout_marginTop="1dp"
         android:text="@string/content_road_name_example"
-        android:textColor="@color/link_water"
-        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_road_name" />
 
@@ -62,25 +59,23 @@
 
     <TextView
         android:id="@+id/tv_land_lot_number"
+        style="@style/noto_sans_kr_medium_14_raven_padding0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:layout_marginTop="18dp"
         android:text="@string/content_land_lot_number"
-        android:textColor="@color/raven"
-        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/iv_land_lot_number_bullet_point"
         app:layout_constraintTop_toBottomOf="@id/tv_road_name_example" />
 
     <TextView
         android:id="@+id/tv_land_lot_number_example"
+        style="@style/noto_sans_kr_medium_13_link_water_padding0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
         android:layout_marginTop="1dp"
         android:text="@string/content_land_lot_number_example"
-        android:textColor="@color/link_water"
-        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_land_lot_number" />
 
@@ -95,24 +90,22 @@
 
     <TextView
         android:id="@+id/tv_building_name"
+        style="@style/noto_sans_kr_medium_14_raven_padding0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:text="@string/content_building_name"
-        android:textColor="@color/raven"
-        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/tv_road_name"
         app:layout_constraintTop_toBottomOf="@id/tv_land_lot_number_example" />
 
     <TextView
         android:id="@+id/tv_building_name_example"
+        style="@style/noto_sans_kr_medium_13_link_water_padding0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
         android:layout_marginTop="1dp"
         android:text="@string/content_building_name_example"
-        android:textColor="@color/link_water"
-        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_building_name" />
 
