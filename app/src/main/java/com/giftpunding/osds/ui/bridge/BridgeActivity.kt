@@ -11,6 +11,7 @@ import com.giftpunding.osds.databinding.ActivityBridgeBinding
 import com.giftpunding.osds.ui.address.AddressActivity
 import com.giftpunding.osds.ui.TestActivity
 import com.giftpunding.osds.ui.TestViewBindingActivity
+import com.giftpunding.osds.ui.address.AddressDetailActivity
 import com.giftpunding.osds.ui.bridge.adapter.BridgeAdapter
 import com.giftpunding.osds.ui.funding.FundingListActivity
 import com.giftpunding.osds.ui.home.HomeActivity

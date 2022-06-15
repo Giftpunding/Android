@@ -1,14 +1,19 @@
 package com.giftpunding.osds.ui.address
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.content.res.AppCompatResources
-import com.giftpunding.osds.R
+import com.giftpunding.osds.*
 import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftpunding.osds.databinding.ActivityAddressDetailBinding
@@ -16,6 +21,7 @@ import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
 import com.giftpunding.osds.ui.home.HomeActivity
+
 
 class AddressDetailActivity :
     BaseActivity<ActivityAddressDetailBinding>(ActivityAddressDetailBinding::inflate) {
@@ -62,13 +68,11 @@ class AddressDetailActivity :
             finish()
         }
 
+        binding.viewKeyboardHideTouchArea.setOnClickListener {
+            hideKeyboard(binding.editAddressDetail)
+        }
+
         textChangeListener()
-    }
-
-    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        hideKeyboard(currentFocus!!)
-
-        return super.dispatchTouchEvent(ev)
     }
 
     private fun textChangeListener() {

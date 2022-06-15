@@ -53,13 +53,12 @@ class AddressSearchActivity :
 
         closeButton.setOnClickListener { finish() }
 
+        binding.viewKeyboardHideTouchArea.setOnClickListener {
+            hideKeyboard(binding.editAddressSearch)
+        }
+
         searchButtonEvent()
         textChangeListener()
-    }
-
-    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        hideKeyboard(currentFocus!!)
-        return super.dispatchTouchEvent(ev)
     }
 
     private fun searchButtonEvent() {
