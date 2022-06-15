@@ -9,7 +9,7 @@
         android:id="@+id/iv_category"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="@drawable/bg_oval_solitude_2_hawkes_blue_radius360_stroke1"
+        android:background="@drawable/bg_oval_hawkes_blue_solitude_2_radius360_stroke1"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintEnd_toEndOf="parent"
