@@ -69,4 +69,11 @@
     <string name="content_confirm">확인</string>
 
 
+    <!-- 로그인 이벤트 선택 -->
+    <string name="category_birthday">&#127874; 생일</string>
+    <string name="category_pregnancy">&#129328; 임신 / 출산</string>
+    <string name="category_housewarming">&#127968; 이사 / 집들이</string>
+    <string name="category_wedding">&#128141; 결혼</string>
+    <string name="category_user_input">직접 입력</string>
+
 </resources>
