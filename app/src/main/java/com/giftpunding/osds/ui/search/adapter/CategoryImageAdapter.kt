@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.giftpunding.osds.R
 
 class CategoryImageAdapter:
@@ -32,9 +34,13 @@ class CategoryImageAdapter:
 
     class CategoryImageViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private lateinit var categoryImage: ImageView
+        private lateinit var categoryTitle: TextView
         fun bind(image: Drawable) {
             categoryImage = itemView.findViewById(R.id.iv_category)
-            categoryImage.setImageDrawable(image)
+            Glide.with(categoryImage.context).load(image).
+            circleCrop().
+            centerInside().
+            into(categoryImage)
         }
     }
 }
