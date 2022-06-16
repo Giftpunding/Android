@@ -11,7 +11,7 @@ import com.giftpunding.osds.databinding.ItemFundingGiftListBinding
 import com.giftpunding.osds.ui.funding.FundingActivity
 import com.giftpunding.osds.util.addComma
 
-class FundingAdapter(val context: Context) : RecyclerView.Adapter<FundingAdapter.FundingHolder>() {
+class FundingListAdapter(val context: Context) : RecyclerView.Adapter<FundingListAdapter.FundingHolder>() {
 
     private val list = mutableListOf<FundingResponse>()
 

@@ -20,6 +20,8 @@
     <string name="title_gift_complete">선물완료</string>
     <string name="title_payment_info">결제 정보</string>
     <string name="title_input_info">입력 정보</string>
+    <string name="title_funding_list">펀딩내역</string>
+    <string name="title_payment_failure">결제 실패</string>
 
     <string name="category_all">전체</string>
     <string name="category_one_to_two">1~2만원</string>

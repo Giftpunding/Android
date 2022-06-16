@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/iv_merchandise_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
         android:src="@drawable/ic_launcher_background"
@@ -102,7 +102,7 @@
         android:id="@+id/div_info"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="23dp"
         android:background="@color/solitude_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

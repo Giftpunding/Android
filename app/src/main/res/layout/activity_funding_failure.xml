@@ -18,7 +18,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/bg_rect_hawkes_blue_solitude_2_radius0_stroke1"
-        app:layout_constraintBottom_toTopOf="@+id/btn_gift_send_list"
+        app:layout_constraintBottom_toTopOf="@+id/btn_retry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tb_normal_toolbar"
@@ -54,7 +54,7 @@
 
 
     <android.widget.Button
-        android:id="@+id/btn_gift_send_list"
+        android:id="@+id/btn_retry"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_dimens"
@@ -93,6 +93,6 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_gift_send_list" />
+        app:layout_constraintStart_toEndOf="@id/btn_retry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,13 +34,15 @@
 
         <activity android:name=".ui.search.SearchActivity"></activity>
         <activity android:name=".ui.TestActivity" />
-        <activity android:name=".ui.funding.FundingListActivity" />
+        <activity android:name=".ui.funding.FundingGiftListActivity" />
         <activity
             android:name=".ui.funding.FundingActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.TestViewBindingActivity" />
-        <activity android:name=".ui.funding.FundingCompleteActivity"/>
-
+        <activity android:name=".ui.funding.FundingCompleteActivity" />
+        <activity android:name=".ui.funding.FundingFailActivity" />
+        <activity android:name=".ui.funding.FundingMyListInfoActivity" />
+        <activity android:name=".ui.funding.FundingResultActivity" />
     </application>
 
 </manifest>
