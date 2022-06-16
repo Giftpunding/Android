@@ -71,6 +71,8 @@
     <string name="content_gift_history">선물 내역</string>
     <string name="content_confirm">확인</string>
     <string name="content_funding">펀딩</string>
-
+    <string name="content_funding_failure">결제 실패하였습니다.</string>
+    <string name="content_payment_check">결제 수단을 확인한 후, 재시도 요청드립니다.</string>
+    <string name="content_retry">다시 선물하기</string>
 
 </resources>
