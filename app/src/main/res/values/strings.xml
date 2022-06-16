@@ -12,12 +12,14 @@
     <string name="title_luxury">힘을 합치면 받을 수 있어!</string>
     <string name="title_do_funding">선물하기</string>
     <string name="title_funding_item">선물 항목</string>
-    <string name="title_input_info">정보 입력</string>
+    <string name="title_info_input">정보 입력</string>
     <string name="title_sender_name">보내는 분 이름</string>
     <string name="title_message">메시지</string>
     <string name="title_payment_type">결제 수단</string>
     <string name="title_gift_list">선물 리스트</string>
     <string name="title_gift_complete">선물완료</string>
+    <string name="title_payment_info">결제 정보</string>
+    <string name="title_input_info">입력 정보</string>
 
     <string name="category_all">전체</string>
     <string name="category_one_to_two">1~2만원</string>

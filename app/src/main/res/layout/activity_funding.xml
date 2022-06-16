@@ -265,7 +265,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/notosanskr_bold"
             android:includeFontPadding="false"
-            android:text="@string/title_input_info"
+            android:text="@string/title_info_input"
             android:textColor="@color/midnight_express"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
