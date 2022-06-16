@@ -57,6 +57,7 @@
     <string name="content_do_merchandise_add">선물에 추가하기</string>
     <string name="content_essential">필수</string>
     <string name="content_optional">선택</string>
+    <string name="content_funding_list">펀딩 내역</string>
 
 
     <string name="content_gift_together">함께 선물하기</string>
@@ -67,6 +68,7 @@
     <string name="content_gift_funding_complete">완료하였습니다.</string>
     <string name="content_gift_history">선물 내역</string>
     <string name="content_confirm">확인</string>
+    <string name="content_funding">펀딩</string>
 
 
 </resources>

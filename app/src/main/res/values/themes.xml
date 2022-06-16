@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name= "toolbar_theme" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+    <style name="toolbar_theme" parent="Widget.MaterialComponents.AppBarLayout.Primary">
         <item name="android:backgroundTint">?attr/colorOnPrimary</item>
         <item name="android:elevation">0dp</item>
     </style>
@@ -58,6 +58,10 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="noto_sans_kr_medium_12" parent="noto_sans_kr_medium">
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="noto_sans_kr_regular_12_echo_blue" parent="noto_sans_kr_regular_12">
         <item name="android:textColor">@color/echo_blue</item>
     </style>
@@ -74,9 +78,21 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="noto_sans_kr_medium_12_echo_blue_2" parent="noto_sans_kr_medium_12">
+        <item name="android:textColor">@color/echo_blue_2</item>
+    </style>
+
     <!-- 버튼 디자인 -->
     <style name="btn_gift_together_style" parent="android:Widget.Button">
         <item name="fontFamily">@font/notosanskr_regular</item>
     </style>
+
+    <!-- 바텀 네비게이션 폰트 디자인 -->
+    <style name="funding_list_bottom_navi_text" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/echo_blue_2</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
 
 </resources>
