@@ -76,4 +76,19 @@
     <string name="category_wedding">&#128141; 결혼</string>
     <string name="category_user_input">직접 입력</string>
 
+    <!-- 배송지 입력화면 -->
+    <string name="content_address">선물을 배송 받을 주소를\n설정해주세요.</string>
+    <string name="content_input">지번, 도로명, 건물명으로 검색</string>
+    <string name="title_complete">완료</string>
+    <string name="title_search_guide">이렇게 검색해 보세요.</string>
+    <string name="title_address_detail">주소 상세입력</string>
+    <string name="title_address_search">주소 검색</string>
+    <string name="content_road_name">도로명 + 건물번호</string>
+    <string name="content_road_name_example">예) 강남대로 94길</string>
+    <string name="content_land_lot_number">지역명 + 번지</string>
+    <string name="content_land_lot_number_example">예) 역상동 111&#8211;1</string>
+    <string name="content_building_name">건물명, 아파트명</string>
+    <string name="content_building_name_example">예) 동신아파트</string>
+    <string name="content_address_detail_hint">상세 주소를 입력해주세요.</string>
+    <string name="content_no_address_result">검색 결과가 없습니다.\n도로명, 지번, 건물명, 아파트 명으로\n재 검색해주세요.</string>
 </resources>

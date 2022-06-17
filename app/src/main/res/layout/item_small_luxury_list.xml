@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:background="@drawable/bg_rect_hawkes_blue_trans100_round4_stoke1"
+        android:background="@drawable/bg_rect_hawkes_blue_trans100_radius4_stoke1"
         android:fontFamily="@font/helveticaneue_regular"
         android:minWidth="0dp"
         android:minHeight="0dp"

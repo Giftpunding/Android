@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/solitude_2">
+
+    <TextView
+        android:id="@+id/tv_guide_title"
+        style="@style/noto_sans_kr_medium_16_midnight_express_padding0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/title_search_guide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_road_name_bullet_point"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_marginStart="28dp"
+        android:src="@drawable/ic_bullet_point"
+        app:layout_constraintBottom_toBottomOf="@id/tv_road_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_road_name" />
+
+    <TextView
+        android:id="@+id/tv_road_name"
+        style="@style/noto_sans_kr_medium_14_raven_padding0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/content_road_name"
+        app:layout_constraintStart_toEndOf="@id/iv_road_name_bullet_point"
+        app:layout_constraintTop_toBottomOf="@id/tv_guide_title" />
+
+    <TextView
+        android:id="@+id/tv_road_name_example"
+        style="@style/noto_sans_kr_medium_13_link_water_padding0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="1dp"
+        android:text="@string/content_road_name_example"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_road_name" />
+
+    <ImageView
+        android:id="@+id/iv_land_lot_number_bullet_point"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:src="@drawable/ic_bullet_point"
+        app:layout_constraintBottom_toBottomOf="@id/tv_land_lot_number"
+        app:layout_constraintStart_toStartOf="@id/iv_road_name_bullet_point"
+        app:layout_constraintTop_toTopOf="@id/tv_land_lot_number" />
+
+    <TextView
+        android:id="@+id/tv_land_lot_number"
+        style="@style/noto_sans_kr_medium_14_raven_padding0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/content_land_lot_number"
+        app:layout_constraintStart_toEndOf="@id/iv_land_lot_number_bullet_point"
+        app:layout_constraintTop_toBottomOf="@id/tv_road_name_example" />
+
+    <TextView
+        android:id="@+id/tv_land_lot_number_example"
+        style="@style/noto_sans_kr_medium_13_link_water_padding0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="1dp"
+        android:text="@string/content_land_lot_number_example"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_land_lot_number" />
+
+    <ImageView
+        android:id="@+id/iv_building_name_bullet_point"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:src="@drawable/ic_bullet_point"
+        app:layout_constraintBottom_toBottomOf="@id/tv_building_name"
+        app:layout_constraintStart_toStartOf="@id/iv_land_lot_number_bullet_point"
+        app:layout_constraintTop_toTopOf="@id/tv_building_name" />
+
+    <TextView
+        android:id="@+id/tv_building_name"
+        style="@style/noto_sans_kr_medium_14_raven_padding0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/content_building_name"
+        app:layout_constraintStart_toStartOf="@id/tv_road_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_land_lot_number_example" />
+
+    <TextView
+        android:id="@+id/tv_building_name_example"
+        style="@style/noto_sans_kr_medium_13_link_water_padding0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="1dp"
+        android:text="@string/content_building_name_example"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_building_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

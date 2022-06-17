@@ -8,7 +8,9 @@ import com.giftpunding.osds.ui.main.MainActivity
 import com.giftpunding.osds.R
 import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityBridgeBinding
+import com.giftpunding.osds.ui.TestActivity
 import com.giftpunding.osds.ui.TestViewBindingActivity
+import com.giftpunding.osds.ui.address.AddressActivity
 import com.giftpunding.osds.ui.bridge.adapter.BridgeAdapter
 import com.giftpunding.osds.ui.funding.FundingListActivity
 import com.giftpunding.osds.ui.home.HomeActivity
@@ -49,7 +51,10 @@ class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding:
                 SearchActivity::class.java,
                 FundingListActivity::class.java,
                 TestViewBindingActivity::class.java,
-                LoginEventSelectActivity::class.java
+                LoginEventSelectActivity::class.java,
+                TestViewBindingActivity::class.java,
+                TestActivity::class.java,
+                AddressActivity::class.java
             )
 
             adapter = bridgeAdapter
