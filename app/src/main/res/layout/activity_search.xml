@@ -13,7 +13,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="52dp"
         app:layout_goneMarginRight="28dp"
-        android:background="@drawable/bg_rect_solitude_trans100_round16_stroke1"
+        android:background="@drawable/bg_rect_solitude_trans100_radius16_stroke1"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="14dp"
         android:hint="@string/content_search"
