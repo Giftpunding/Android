@@ -3,26 +3,24 @@ package com.giftpunding.osds.ui.merchandise
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityMerchandiseInfoBinding
 import com.giftpunding.osds.ui.merchandise.adapter.MerchandiseViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class MerchandiseActivity : AppCompatActivity() {
+class MerchandiseActivity : BaseActivity<ActivityMerchandiseInfoBinding>(ActivityMerchandiseInfoBinding::inflate) {
 
-    private lateinit var binding: ActivityMerchandiseInfoBinding
     private val fragmentList: MutableList<Fragment> = mutableListOf()
     private val tabLayoutText = arrayOf("상품 설명", "상세 정보")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMerchandiseInfoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         init()
         initEvent()
     }
 
-    private fun init() {
+    override fun init() {
         fragmentList.add(MerchandiseInfoFragment.getFragmentInstance()!!)
         fragmentList.add(MerchandiseDetailInfoFragment.getFragmentInstance()!!)
 
@@ -32,7 +30,7 @@ class MerchandiseActivity : AppCompatActivity() {
         }.attach()
     }
 
-    private fun initEvent() {
+    override fun initEvent() {
         binding.lyMerchandiseTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val tabPosition = tab?.position

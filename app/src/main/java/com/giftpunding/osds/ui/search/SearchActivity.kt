@@ -14,14 +14,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.R
 import com.giftpunding.osds.application.Application.Companion.searchRepository
+import com.giftpunding.osds.base.DemoActivity
 import com.giftpunding.osds.repository.local.pref.KeywordSharedPreference
 import com.giftpunding.osds.ui.search.adapter.*
 import com.giftpunding.osds.util.GridRecyclerViewDeco
 
-class SearchActivity : AppCompatActivity(),
+class SearchActivity : DemoActivity(),
     TextView.OnEditorActionListener,
     OnItemClickListener,
     KeywordSharedPreference.Listener {
+
+    override fun layoutRes() = R.layout.activity_search
 
     private lateinit var giftCategoryImageRecyclerView: RecyclerView
     private lateinit var recentKeywordRecyclerView: RecyclerView
@@ -35,10 +38,9 @@ class SearchActivity : AppCompatActivity(),
     private lateinit var searchKeyWordLayout: View
     private lateinit var clearRecentKeywordTextView: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
-
         initialized()
         initRecyclerView()
 
