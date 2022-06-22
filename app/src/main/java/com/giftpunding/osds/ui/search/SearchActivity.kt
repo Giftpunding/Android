@@ -17,6 +17,7 @@ import com.giftpunding.osds.application.Application.Companion.searchRepository
 import com.giftpunding.osds.base.DemoActivity
 import com.giftpunding.osds.repository.local.pref.KeywordSharedPreference
 import com.giftpunding.osds.ui.search.adapter.*
+import com.giftpunding.osds.util.GridRecyclerViewDeco
 
 class SearchActivity : DemoActivity(),
     TextView.OnEditorActionListener,
@@ -86,26 +87,26 @@ class SearchActivity : DemoActivity(),
             val categoryImageAdapter = CategoryImageAdapter()
 
             val categoryImageList = arrayListOf(
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_background, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
             )
 
             adapter = categoryImageAdapter
-            layoutManager = GridLayoutManager(this@SearchActivity, 3)
-            addItemDecoration(CategoryImageAdapterDecoration())
+            layoutManager = GridLayoutManager(this@SearchActivity, 4)
+            addItemDecoration(GridRecyclerViewDeco(10, 40))
             categoryImageAdapter.addItems(categoryImageList)
         }
 
