@@ -15,6 +15,7 @@
 
     <TextView
         android:id="@+id/tv_recipient"
+        style="@style/noto_sans_kr_bold_20_midnight_express"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"

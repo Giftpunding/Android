@@ -13,8 +13,22 @@ import com.giftpunding.osds.util.addComma
 
 class FundingListMyItemAdapter(val context: Context, val list: List<FundingCompleteResponse>) :
     RecyclerView.Adapter<FundingListMyItemAdapter.FundingListInfoHolder>() {
-    inner class FundingListInfoHolder(val binding: ItemFundingListBinding) :
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FundingListInfoHolder {
+        val view =
+            ItemFundingListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return FundingListInfoHolder(view, context)
+    }
+
+    override fun onBindViewHolder(holder: FundingListInfoHolder, position: Int) {
+        holder.bind(list[position])
+    }
+
+    override fun getItemCount() = list.size
+
+    class FundingListInfoHolder(val binding: ItemFundingListBinding, val context: Context) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(data: FundingCompleteResponse) {
             binding.apply {
                 tvFundingPrice.text = addComma(data.fundingPrice)
@@ -27,23 +41,9 @@ class FundingListMyItemAdapter(val context: Context, val list: List<FundingCompl
                     .into(ivMerchandiseImg)
 
                 btnDetailInfo.setOnClickListener {
-                    context.startActivity(Intent(context,FundingResultActivity::class.java))
+                    context.startActivity(Intent(context, FundingResultActivity::class.java))
                 }
             }
         }
     }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FundingListInfoHolder {
-        val view =
-            ItemFundingListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return FundingListInfoHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: FundingListInfoHolder, position: Int) {
-        holder.bind(list[position])
-    }
-
-    override fun getItemCount() = list.size
-
-
 }

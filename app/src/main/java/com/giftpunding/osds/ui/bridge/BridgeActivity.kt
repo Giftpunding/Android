@@ -4,7 +4,6 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.giftpunding.osds.ui.main.MainActivity
 import com.giftpunding.osds.R
 import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityBridgeBinding
@@ -13,7 +12,9 @@ import com.giftpunding.osds.ui.bridge.adapter.BridgeAdapter
 import com.giftpunding.osds.ui.funding.FundingGiftListActivity
 import com.giftpunding.osds.ui.home.HomeActivity
 import com.giftpunding.osds.ui.login.LoginActivity
+import com.giftpunding.osds.ui.main.MainActivity
 import com.giftpunding.osds.ui.search.SearchActivity
+
 
 class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding::inflate) {
 
