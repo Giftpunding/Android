@@ -7,7 +7,7 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class GridRecyclerViewDeco(var spacing: Int) :
+class GridRecyclerViewDeco(var horizontalSpacing: Int, var verticalSpacing: Int) :
     RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
@@ -18,10 +18,10 @@ class GridRecyclerViewDeco(var spacing: Int) :
     ) {
         super.getItemOffsets(outRect, view, parent, state)
         with(outRect) {
-            top = spacing
-            bottom = spacing
-            left = spacing
-            right = spacing
+            top = verticalSpacing
+            bottom = verticalSpacing
+            left = horizontalSpacing
+            right = horizontalSpacing
         }
     }
 }

@@ -50,8 +50,24 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="noto_sans_kr_medium_11" parent="noto_sans_kr_medium">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_13" parent="noto_sans_kr_medium">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_14" parent="noto_sans_kr_medium">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="noto_sans_kr_medium_16" parent="noto_sans_kr_medium">
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_20" parent="noto_sans_kr_medium">
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="noto_sans_kr_bold_18" parent="noto_sans_kr_bold">
@@ -60,10 +76,6 @@
 
     <style name="noto_sans_kr_bold_20" parent="noto_sans_kr_bold">
         <item name="android:textSize">20sp</item>
-    </style>
-
-    <style name="noto_sans_kr_medium_12" parent="noto_sans_kr_medium">
-        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="noto_sans_kr_regular_12_echo_blue" parent="noto_sans_kr_regular_12">
@@ -82,26 +94,89 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="noto_sans_kr_bold_20_midnight_express" parent="noto_sans_kr_bold_20">
+    <style name="noto_sans_kr_bold_18_midnight_express" parent="noto_sans_kr_bold_18">
         <item name="android:textColor">@color/midnight_express</item>
     </style>
 
-    <style name="noto_sans_kr_medium_12_echo_blue_2" parent="noto_sans_kr_medium_12">
+    <style name="noto_sans_kr_bold_18_midnight_express_padding0" parent="noto_sans_kr_bold_18_midnight_express">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_11_echo_blue_2" parent="noto_sans_kr_medium_11">
         <item name="android:textColor">@color/echo_blue_2</item>
     </style>
 
+    <style name="noto_sans_kr_medium_11_echo_blue_2_padding0" parent="noto_sans_kr_medium_11_echo_blue_2">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_13_link_water" parent="noto_sans_kr_medium_13">
+        <item name="android:textColor">@color/link_water</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_13_link_water_padding0" parent="noto_sans_kr_medium_13_link_water">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_14_echo_blue_2" parent="noto_sans_kr_medium_14">
+        <item name="android:textColor">@color/echo_blue_2</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_14_echo_blue_2_padding0" parent="noto_sans_kr_medium_14_echo_blue_2">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_14_raven" parent="noto_sans_kr_medium_14">
+        <item name="android:textColor">@color/raven</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_14_raven_padding0" parent="noto_sans_kr_medium_14_raven">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_16_link_water" parent="noto_sans_kr_medium_16">
+        <item name="android:textColor">@color/link_water</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_16_link_water_padding0" parent="noto_sans_kr_medium_16_link_water">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_16_midnight_express" parent="noto_sans_kr_medium_16">
+        <item name="android:textColor">@color/midnight_express</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_16_midnight_express_padding0" parent="noto_sans_kr_medium_16_midnight_express">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_16_echo_blue_2" parent="noto_sans_kr_medium_16">
+        <item name="android:textColor">@color/echo_blue_2</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_16_echo_blue_2_padding0" parent="noto_sans_kr_medium_16_echo_blue_2">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_16_white" parent="noto_sans_kr_medium_16">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_16_white_padding0" parent="noto_sans_kr_medium_16_white">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_20_black" parent="noto_sans_kr_medium_20">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_20_black_padding0" parent="noto_sans_kr_medium_20_black">
+        <item name="android:includeFontPadding">false</item>
+    </style>
 
     <!-- 버튼 디자인 -->
     <style name="btn_gift_together_style" parent="android:Widget.Button">
         <item name="fontFamily">@font/notosanskr_regular</item>
     </style>
-
-    <!-- 바텀 네비게이션 폰트 디자인 -->
-    <style name="funding_list_bottom_navi_text" parent="@style/TextAppearance.AppCompat.Caption">
-        <item name="android:textColor">@color/echo_blue_2</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:includeFontPadding">false</item>
-    </style>
-
 
 </resources>

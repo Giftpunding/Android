@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:background="@drawable/bg_rect_solitude_trans100_round20_stroke1"
+        android:background="@drawable/bg_rect_solitude_trans100_radius20_stroke1"
         android:gravity="center"
         android:padding="20dp"
         android:text="@string/content_do_merchandise_add"
