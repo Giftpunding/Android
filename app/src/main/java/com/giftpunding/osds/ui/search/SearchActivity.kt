@@ -1,5 +1,6 @@
 package com.giftpunding.osds.ui.search
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -19,10 +20,13 @@ import com.giftpunding.osds.util.GridRecyclerViewDeco
 
 class SearchActivity : BaseActivity<ActivitySearchBinding>(ActivitySearchBinding::inflate),
     TextView.OnEditorActionListener,
-    OnItemClickListener,
     KeywordSharedPreference.Listener {
 
-    private val recentKeywordAdapter = RecentKeywordAdapter()
+    private val recentKeywordAdapter = RecentKeywordAdapter { position ->
+        Log.d(TAG, "delete recent keyword")
+        searchRepository.deleteRecentKeyword(position)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -40,14 +44,14 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(ActivitySearchBinding
 
     override fun initEvent() {
         binding.editSearch.setOnEditorActionListener(this)
-        binding.editSearch.setOnFocusChangeListener { view, focus ->
-            if (focus) {
-                showKeywordLayout()
-            }
+
+        binding.editSearch.setOnFocusChangeListener { _, focus ->
+            changeLayout(focus)
+            changeSearchIconVisibleState(focus)
         }
 
         binding.tvCancel.setOnClickListener {
-            showCategoryLayout()
+            binding.editSearch.clearFocus()
             binding.editSearch.text = null
         }
 
@@ -57,88 +61,96 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(ActivitySearchBinding
     }
 
     private fun initGiftCategoryImageRecyclerView() {
-        binding.lContentSearch.rvCategory.apply {
-            val categoryImageAdapter = CategoryImageAdapter()
 
-            val categoryImageList = arrayListOf(
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null),
+        val drawable = ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+        var categoryImages = ArrayList<Drawable>()
+        drawable?.let {
+            categoryImages = arrayListOf(
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable,
+                drawable
             )
-
-            adapter = categoryImageAdapter
-            layoutManager = GridLayoutManager(this@SearchActivity, 4)
-            addItemDecoration(GridRecyclerViewDeco(10, 40))
-            categoryImageAdapter.addItems(categoryImageList)
         }
+
+        val categoryImageAdapter = CategoryImageAdapter()
+        binding.lContentSearch.rvCategory.apply {
+            adapter = categoryImageAdapter
+            layoutManager = GridLayoutManager(this@SearchActivity, GRID_COLUMN_SIZE)
+            addItemDecoration(GridRecyclerViewDeco(HORIZONTAL_SPACING, VERTICAL_SPACING))
+        }
+        categoryImageAdapter.addItems(categoryImages)
     }
 
     private fun initRecentKeywordRecyclerView() {
         binding.lContentSearchKeyword.rvRecentlyKeyword.apply {
             adapter = recentKeywordAdapter
             layoutManager = LinearLayoutManager(this@SearchActivity)
-            recentKeywordAdapter.setOnclickListener(this@SearchActivity)
-            recentKeywordAdapter.addItems(searchRepository.getRecentKeyword())
         }
+        recentKeywordAdapter.addItems(searchRepository.getRecentKeyword())
     }
 
     private fun initPopularityKeywordRecyclerView() {
-        binding.lContentSearchKeyword.rvPopularKeyword.apply {
-            val popularityKeywordAdapter = PopularityKeywordAdapter()
-            val popularityKeywordList = arrayListOf(
-                "test0",
-                "test1",
-                "test2",
-                "test3",
-                "test4"
-            )
+        val popularityKeywordList = arrayListOf(
+            "test0",
+            "test1",
+            "test2",
+            "test3",
+            "test4"
+        )
 
+        val popularityKeywordAdapter = PopularityKeywordAdapter()
+        binding.lContentSearchKeyword.rvPopularKeyword.apply {
             adapter = popularityKeywordAdapter
             layoutManager = LinearLayoutManager(this@SearchActivity)
-            popularityKeywordAdapter.addItems(popularityKeywordList)
             addItemDecoration(PopularityKeywordAdapterDecoration())
+        }
+        popularityKeywordAdapter.addItems(popularityKeywordList)
+    }
+
+    private fun changeLayout(focus: Boolean) {
+        // focus가 없으면 카테고리 레이아웃, 있으면 키워드 레이아웃
+        binding.tvCancel.visibility = if (focus) View.VISIBLE else View.GONE
+        binding.lContentSearch.root.visibility = if (focus) View.GONE else View.VISIBLE
+        binding.lContentSearchKeyword.root.visibility = if (focus) View.VISIBLE else View.GONE
+    }
+
+    private fun changeSearchIconVisibleState(focus: Boolean) {
+        if (focus) {
+            binding.editSearch.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                null,
+                null,
+                null
+            )
+        } else {
+            binding.editSearch.setCompoundDrawablesWithIntrinsicBounds(
+                R.drawable.ic_search,
+                0,
+                0,
+                0
+            )
         }
     }
 
-    private fun showCategoryLayout() {
-        binding.tvCancel.visibility = View.GONE
-        binding.editSearch.clearFocus()
-        binding.editSearch.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_search,0,0,0)
-        binding.lContentSearch.root.visibility = View.VISIBLE
-        binding.lContentSearchKeyword.root.visibility = View.GONE
-    }
-
-    private fun showKeywordLayout() {
-        binding.tvCancel.visibility = View.VISIBLE
-        binding.editSearch.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null)
-        binding.lContentSearch.root.visibility = View.GONE
-        binding.lContentSearchKeyword.root.visibility = View.VISIBLE
-    }
-
-    override fun onEditorAction(p0: TextView?, p1: Int, p2: KeyEvent?): Boolean {
-        if (p1 == EditorInfo.IME_ACTION_SEARCH) {
-            if (p0 != null) {
-                searchRepository.addRecentKeyword(p0.text.toString())
+    override fun onEditorAction(view: TextView?, viewId: Int, p2: KeyEvent?): Boolean {
+        if (viewId == EditorInfo.IME_ACTION_SEARCH) {
+            view?.let {
+                searchRepository.addRecentKeyword(it.text.toString())
             }
         }
         return true
-    }
-
-    override fun onClickItem(adapterPosition: Int) {
-        Log.d(TAG, "delete recent keyword")
-        searchRepository.deleteRecentKeyword(adapterPosition)
     }
 
     override fun complete(recentKeywordList: ArrayList<String>) {
@@ -148,5 +160,8 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(ActivitySearchBinding
 
     private companion object {
         private const val TAG: String = "SearchActivity..."
+        private const val GRID_COLUMN_SIZE: Int = 4
+        private const val HORIZONTAL_SPACING: Int = 10
+        private const val VERTICAL_SPACING: Int = 40
     }
 }
