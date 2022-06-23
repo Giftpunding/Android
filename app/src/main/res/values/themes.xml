@@ -179,4 +179,11 @@
         <item name="fontFamily">@font/notosanskr_regular</item>
     </style>
 
+    <!-- 바텀 네비게이션 폰트 디자인 -->
+    <style name="funding_list_bottom_navi_text" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/echo_blue_2</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
 </resources>
