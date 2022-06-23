@@ -42,6 +42,10 @@
         <item name="android:fontFamily">@font/notosanskr_bold</item>
     </style>
 
+    <style name="helvetica_neue_bold" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/helveticaneue_bold</item>
+    </style>
+
     <style name="noto_sans_kr_regular_12" parent="noto_sans_kr_regular">
         <item name="android:textSize">12sp</item>
     </style>
@@ -134,6 +138,10 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="noto_sans_kr_regular_14_black_padding0" parent="noto_sans_kr_regular_14_black">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="noto_sans_kr_medium_16_link_water" parent="noto_sans_kr_medium_16">
         <item name="android:textColor">@color/link_water</item>
     </style>
@@ -171,6 +179,19 @@
     </style>
 
     <style name="noto_sans_kr_medium_20_black_padding0" parent="noto_sans_kr_medium_20_black">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    
+    <!-- helvetica_neue font -->
+    <style name="helvetica_neue_bold_16" parent="helvetica_neue_bold">
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="helvetica_neue_bold_16_black" parent="helvetica_neue_bold_16">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="helvetica_neue_bold_16_black_padding0" parent="helvetica_neue_bold_16_black">
         <item name="android:includeFontPadding">false</item>
     </style>
 
