@@ -48,6 +48,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(ActivitySearchBinding
 
         binding.tvCancel.setOnClickListener {
             showCategoryLayout()
+            binding.editSearch.text = null
         }
 
         binding.lContentSearchKeyword.tvAllDelete.setOnClickListener {
@@ -114,12 +115,14 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(ActivitySearchBinding
     private fun showCategoryLayout() {
         binding.tvCancel.visibility = View.GONE
         binding.editSearch.clearFocus()
+        binding.editSearch.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_search,0,0,0)
         binding.lContentSearch.root.visibility = View.VISIBLE
         binding.lContentSearchKeyword.root.visibility = View.GONE
     }
 
     private fun showKeywordLayout() {
         binding.tvCancel.visibility = View.VISIBLE
+        binding.editSearch.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null)
         binding.lContentSearch.root.visibility = View.GONE
         binding.lContentSearchKeyword.root.visibility = View.VISIBLE
     }
