@@ -17,7 +17,7 @@ class FundingListMyItemAdapter(val context: Context, val list: List<FundingCompl
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FundingListInfoHolder {
         val view =
             ItemFundingListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return FundingListInfoHolder(view, context)
+        return FundingListInfoHolder(view)
     }
 
     override fun onBindViewHolder(holder: FundingListInfoHolder, position: Int) {
@@ -26,7 +26,7 @@ class FundingListMyItemAdapter(val context: Context, val list: List<FundingCompl
 
     override fun getItemCount() = list.size
 
-    class FundingListInfoHolder(val binding: ItemFundingListBinding, val context: Context) :
+    class FundingListInfoHolder(val binding: ItemFundingListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: FundingCompleteResponse) {
@@ -35,13 +35,13 @@ class FundingListMyItemAdapter(val context: Context, val list: List<FundingCompl
                 tvMerchandiseBrand.text = data.brand
                 tvMerchandiseName.text = data.name
 
-                Glide.with(context)
+                Glide.with(ivMerchandiseImg)
                     .load(data.img)
                     .centerInside()
                     .into(ivMerchandiseImg)
 
                 btnDetailInfo.setOnClickListener {
-                    context.startActivity(Intent(context, FundingResultActivity::class.java))
+                    ivMerchandiseImg.context.startActivity(Intent(ivMerchandiseImg.context, FundingResultActivity::class.java))
                 }
             }
         }

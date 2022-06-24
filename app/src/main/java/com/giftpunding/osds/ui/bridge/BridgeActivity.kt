@@ -13,7 +13,7 @@ import com.giftpunding.osds.ui.TestActivity
 import com.giftpunding.osds.ui.TestViewBindingActivity
 import com.giftpunding.osds.ui.address.AddressDetailActivity
 import com.giftpunding.osds.ui.bridge.adapter.BridgeAdapter
-import com.giftpunding.osds.ui.funding.FundingListActivity
+import com.giftpunding.osds.ui.funding.FundingGiftListActivity
 import com.giftpunding.osds.ui.home.HomeActivity
 import com.giftpunding.osds.ui.login.LoginActivity
 import com.giftpunding.osds.ui.search.SearchActivity
@@ -49,7 +49,7 @@ class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding:
                 LoginActivity::class.java,
                 HomeActivity::class.java,
                 SearchActivity::class.java,
-                FundingListActivity::class.java,
+                FundingGiftListActivity::class.java,
                 TestViewBindingActivity::class.java,
                 TestActivity::class.java,
                 AddressActivity::class.java

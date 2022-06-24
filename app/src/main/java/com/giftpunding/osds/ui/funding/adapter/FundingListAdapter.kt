@@ -15,9 +15,6 @@ class FundingListAdapter(val context: Context) : RecyclerView.Adapter<FundingLis
 
     private val list = mutableListOf<FundingResponse>()
 
-    inner class FundingHolder(val binding: ItemFundingGiftListBinding) :
-        RecyclerView.ViewHolder(binding.root)
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FundingHolder {
         val view =
             ItemFundingGiftListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -47,9 +44,13 @@ class FundingListAdapter(val context: Context) : RecyclerView.Adapter<FundingLis
         }
     }
 
+
     override fun getItemCount() = list.size
 
     fun addItemList(getList: List<FundingResponse>) {
         list.addAll(getList)
     }
+
+    class FundingHolder(val binding: ItemFundingGiftListBinding) :
+        RecyclerView.ViewHolder(binding.root)
 }
