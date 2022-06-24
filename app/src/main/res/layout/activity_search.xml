@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <EditText
-        android:id="@+id/edit_search"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="52dp"
-        app:layout_goneMarginRight="28dp"
-        android:background="@drawable/bg_rect_solitude_trans100_radius16_stroke1"
-        android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="14dp"
-        android:hint="@string/content_search"
-        android:textSize="14sp"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:paddingTop="13dp"
-        android:paddingBottom="15dp"
-        android:paddingStart="20dp"
-        android:imeOptions="actionSearch"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tv_cancel"
-        tools:ignore="RtlSymmetry" />
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-    <TextView
-        android:id="@+id/tv_cancel"
-        style="@style/noto_sans_kr_regular_14_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/title_cancel"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/edit_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edit_search"
-        app:layout_constraintTop_toTopOf="@+id/edit_search" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <include layout = "@layout/content_search"
-        android:id="@+id/l_content_search"/>
-    <include layout = "@layout/content_search_keyword"
-        android:id="@+id/l_content_search_keyword"
-        android:visibility="gone"/>
+        <EditText
+            android:id="@+id/edit_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="52dp"
+            app:layout_goneMarginRight="28dp"
+            android:background="@drawable/bg_rect_solitude_trans100_radius16_stroke1"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="14dp"
+            android:hint="@string/content_search"
+            android:textSize="14sp"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingTop="13dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="20dp"
+            android:imeOptions="actionSearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_cancel"
+            tools:ignore="RtlSymmetry" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/noto_sans_kr_regular_14_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/title_cancel"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/edit_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/edit_search"
+            app:layout_constraintTop_toTopOf="@+id/edit_search" />
+
+        <include layout = "@layout/content_search"
+            android:id="@+id/l_content_search"/>
+        <include layout = "@layout/content_search_keyword"
+            android:id="@+id/l_content_search_keyword"
+            android:visibility="gone"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
