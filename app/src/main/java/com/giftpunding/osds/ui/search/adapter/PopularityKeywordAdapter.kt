@@ -1,6 +1,5 @@
 package com.giftpunding.osds.ui.search.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -11,7 +10,7 @@ import com.giftpunding.osds.databinding.ItemPopularityKeywordBinding
 class PopularityKeywordAdapter :
     RecyclerView.Adapter<PopularityKeywordAdapter.PopularityViewHolder>() {
 
-    private val mPopularityKeywordList = ArrayList<String>()
+    private val popularityKeywords = ArrayList<String>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -29,21 +28,22 @@ class PopularityKeywordAdapter :
         holder: PopularityViewHolder,
         position: Int
     ) {
-        this.mPopularityKeywordList[position].let { holder.bind(it, position) }
+        popularityKeywords[position].let { holder.bind(it, position) }
     }
 
-    override fun getItemCount(): Int = this.mPopularityKeywordList.size
+    override fun getItemCount(): Int = popularityKeywords.size
 
-    fun addItems(keywordList: ArrayList<String>) {
-        this.mPopularityKeywordList.addAll(keywordList.clone() as ArrayList<String>)
+    fun addItems(items: List<String>) {
+        popularityKeywords.addAll(items)
     }
 
-    class PopularityViewHolder(private val binding: ItemPopularityKeywordBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class PopularityViewHolder(
+        private val binding: ItemPopularityKeywordBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-        @SuppressLint("SetTextI18n")
         fun bind(keyword: String, position: Int) {
-            binding.tvPopularKeywordRank.text = (position + 1).toString()
+            val rank = position + 1
+            binding.tvPopularKeywordRank.text = "$rank"
             binding.tvPopularityKeyword.text = keyword
         }
     }
