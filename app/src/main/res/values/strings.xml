@@ -2,19 +2,94 @@
     <string name="app_name">osds</string>
 
     <string name="title_gift_box">선물 장바구니</string>
-    <string name="content_no_add_gift_box">추가한 선물이 없습니다.</string>
     <string name="title_gift_ranking">선물 랭킹</string>
+    <string name="title_category"> 카테고리 </string>
+    <string name="title_cancel">취소</string>
+    <string name="title_recently_keyword">최근 검색어</string>
+    <string name="title_popular_keyword">인기 검색어</string>
+    <string name="title_all_delete">모두 지우기</string>
+    <string name="title_sought_after_gift">많이 찾는 선물</string>
+    <string name="title_luxury">힘을 합치면 받을 수 있어!</string>
+    <string name="title_do_funding">선물하기</string>
+    <string name="title_funding_item">선물 항목</string>
+    <string name="title_info_input">정보 입력</string>
+    <string name="title_sender_name">보내는 분 이름</string>
+    <string name="title_message">메시지</string>
+    <string name="title_payment_type">결제 수단</string>
+    <string name="title_gift_list">선물 리스트</string>
+    <string name="title_gift_complete">선물완료</string>
+    <string name="title_payment_info">결제 정보</string>
+    <string name="title_input_info">입력 정보</string>
+    <string name="title_funding_list">펀딩내역</string>
+    <string name="title_payment_failure">결제 실패</string>
+
     <string name="category_all">전체</string>
-    <string name="category_price_one_to_two">1~2만원</string>
+    <string name="category_one_to_two">1~2만원</string>
     <string name="category_three_to_four">3~4만원</string>
     <string name="category_five_to_nine">5~9만원</string>
     <string name="category_over_ten">10만원 이상</string>
 
-    <string name="content_all_info">전체보기</string>
+    <string name="category_around_ten">10만원대</string>
+    <string name="category_around_twenty">20만원대</string>
+    <string name="category_over_thirty">30만원 이상</string>
 
+    <string name="category_merchandise_info">상품 설명</string>
+    <string name="category_detail_info">상세 정보</string>
 
-    <!-- 검색화면 -->
+    <string name="category_one_to_two_funding">1~2만원 펀딩</string>
+    <string name="category_three_to_four_funding">3~4만원 펀딩</string>
+    <string name="category_five_to_nine_funding">5~9만원 펀딩</string>
+    <string name="category_over_ten_funding">10만원 이상 펀딩</string>
+
+    <string name="category_sort_recommend">추천순</string>
+    <string name="category_sort_popular">인기순</string>
+    <string name="category_sort_funding">펀딩액순</string>
+    <string name="category_sort_time">마감임박순</string>
+    <string name="category_sort_new">최신순</string>
+    <string name="category_sort_participate">응원참여자순</string>
+
+    <string name="category_funding_price_all">잔액 전부</string>
+    <string name="category_payment_card">신용카드 결제</string>
+    <string name="category_payment_phone">휴대폰 결제</string>
+    <string name="category_ten_thousand">10,000</string>
+    <string name="category_five_thousand">5,000</string>
+    <string name="category_direct_input">직접 입력</string>
+
+    <string name="content_more_info">더보기</string>
     <string name="content_search"> 받고 싶은 선물을 찾아보세요!</string>
-    <string name="title_category"> 카테고리 </string>
+    <string name="content_merchandise_add">선물에 추가</string>
+    <string name="content_do_merchandise_add">선물에 추가하기</string>
+    <string name="content_essential">필수</string>
+    <string name="content_optional">선택</string>
+    <string name="content_funding_list">펀딩 내역</string>
 
+
+    <string name="content_gift_together">함께 선물하기</string>
+    <string name="content_possible_funding_price">펀딩 가능 금액</string>
+    <string name="content_total">총</string>
+    <string name="content_sender_hint">홍길동</string>
+    <string name="content_gift_funding">의 선물 펀딩을</string>
+    <string name="content_gift_funding_complete">완료하였습니다.</string>
+    <string name="content_gift_history">선물 내역</string>
+    <string name="content_confirm">확인</string>
+    <string name="content_funding">펀딩</string>
+    <string name="content_funding_failure">결제 실패하였습니다.</string>
+    <string name="content_payment_check">결제 수단을 확인한 후, 재시도 요청드립니다.</string>
+    <string name="content_retry">다시 선물하기</string>
+
+    <!-- 배송지 입력화면 -->
+    <string name="content_address">선물을 배송 받을 주소를\n설정해주세요.</string>
+    <string name="content_input">지번, 도로명, 건물명으로 검색</string>
+    <string name="title_complete">완료</string>
+    <string name="title_search_guide">이렇게 검색해 보세요.</string>
+    <string name="title_address_detail">주소 상세입력</string>
+    <string name="title_address_search">주소 검색</string>
+    <string name="content_road_name">도로명 + 건물번호</string>
+    <string name="content_road_name_example">예) 강남대로 94길</string>
+    <string name="content_land_lot_number">지역명 + 번지</string>
+    <string name="content_land_lot_number_example">예) 역상동 111&#8211;1</string>
+    <string name="content_building_name">건물명, 아파트명</string>
+    <string name="content_building_name_example">예) 동신아파트</string>
+    <string name="content_address_detail_hint">상세 주소를 입력해주세요.</string>
+    <string name="content_no_address_result">검색 결과가 없습니다.\n도로명, 지번, 건물명, 아파트 명으로\n재 검색해주세요.</string>
 </resources>

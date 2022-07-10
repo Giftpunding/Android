@@ -2,21 +2,27 @@ package com.giftpunding.osds.ui.login
 
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityLoginBinding
 import com.kakao.sdk.user.UserApiClient
 
-class LoginActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityLoginBinding
+class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        kakaoLoginButtonEvent()
+        init()
+        initEvent()
 
+    }
+
+    override fun init() {
+
+    }
+
+    override fun initEvent() {
+        kakaoLoginButtonEvent()
     }
 
     private fun kakaoLoginButtonEvent() {

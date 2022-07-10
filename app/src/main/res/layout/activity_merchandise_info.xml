@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.amar.library.ui.StickyScrollView
+        android:id="@+id/ns_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stickyFooter="@id/btn_merchandise_add">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ly_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageButton
+                android:id="@+id/btn_merchandise_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_dimens"
+                android:background="@color/trans100"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_home_gift_box_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_round_black"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_home_gift_box"
+                app:layout_constraintEnd_toEndOf="@id/btn_home_gift_box" />
+
+            <ImageButton
+                android:id="@+id/btn_home_gift_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_dimens"
+                android:background="@color/trans100"
+                android:src="@drawable/ic_gift_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/iv_merchandise_img"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+                android:background="@color/silver"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_home_gift_box" />
+
+            <TextView
+                android:id="@+id/tv_merchandise_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:text="브랜드"
+                android:textColor="@color/silver"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_merchandise_img" />
+
+            <ImageView
+                android:id="@+id/tv_merchandise_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:background="@color/trans100"
+                app:layout_constraintBottom_toBottomOf="@id/tv_merchandise_brand"
+                app:layout_constraintStart_toEndOf="@id/tv_merchandise_brand"
+                app:layout_constraintTop_toTopOf="@id/tv_merchandise_brand" />
+
+            <TextView
+                android:id="@+id/tv_merchandise_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:text="상품 제목 영역 입니다."
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_merchandise_brand" />
+
+            <TextView
+                android:id="@+id/tv_merchandise_possible_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:fontFamily="@font/helveticaneue_bold"
+                android:text="100,000"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_merchandise_title" />
+
+            <TextView
+                android:id="@+id/tv_merchandise_won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:text="원"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_merchandise_possible_price"
+                app:layout_constraintStart_toEndOf="@id/tv_merchandise_possible_price"
+                app:layout_constraintTop_toTopOf="@id/tv_merchandise_possible_price" />
+
+            <View
+                android:id="@+id/div_merchandise"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="42dp"
+                android:background="@color/silver"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_merchandise_possible_price" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/ly_merchandise_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div_merchandise"
+                app:tabIndicatorColor="@color/black"
+                app:tabIndicatorFullWidth="false"
+                app:tabTextAppearance="@style/merchandise_tab_text_appearance"
+                app:tabIndicatorHeight="4dp"
+                app:tabTextColor="@color/black">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_merchandise_info" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_detail_info" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_merchandise_info"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ly_merchandise_tab" />
+
+            <Button
+                android:id="@+id/btn_merchandise_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/night_rider"
+                android:fontFamily="@font/notosanskr_bold"
+                android:text="@string/content_do_merchandise_add"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:backgroundTint="@color/night_rider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="2:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.52" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.amar.library.ui.StickyScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

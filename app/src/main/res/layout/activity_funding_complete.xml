@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/tb_normal_toolbar"
+        layout="@layout/content_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_recipient"
+        style="@style/noto_sans_kr_bold_20_midnight_express"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        android:text="@string/content_sender_hint"
+        android:textColor="@color/midnight_express"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_gift_funding"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_normal_toolbar" />
+
+    <TextView
+        android:id="@+id/tv_gift_funding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:text="@string/content_gift_funding"
+        android:textColor="@color/midnight_express"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_recipient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_recipient"
+        app:layout_constraintTop_toTopOf="@id/tv_recipient" />
+
+    <TextView
+        android:id="@+id/tv_gift_funding_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:text="@string/content_gift_funding_complete"
+        android:textColor="@color/midnight_express"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_recipient" />
+
+    <ImageView
+        android:id="@+id/iv_merchandise_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="39dp"
+        android:background="@drawable/bg_rect_hawkes_blue_solitude_2_radius0_stroke1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_gift_funding_result" />
+
+    <TextView
+        android:id="@+id/tv_merchandise_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:text="brand"
+        android:textColor="@color/link_water"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_merchandise_img" />
+
+    <TextView
+        android:id="@+id/tv_merchandise_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:text="name"
+        android:textColor="@color/midnight_express"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_merchandise_brand" />
+
+
+    <TextView
+        android:id="@+id/tv_funding_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/helveticaneue_bold"
+        android:includeFontPadding="false"
+        android:text="50%"
+        android:textColor="@color/midnight_express"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_merchandise_name" />
+
+    <TextView
+        android:id="@+id/tv_current_funding_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/helveticanene_medium"
+        android:text="40,000"
+        android:textColor="@color/echo_blue_2"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_funding_percentage"
+        app:layout_constraintStart_toEndOf="@+id/tv_total_funding_price_title"
+        app:layout_constraintTop_toTopOf="@id/tv_funding_percentage" />
+
+    <TextView
+        android:id="@+id/tv_total_funding_price_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:text="@string/content_total"
+        android:textColor="@color/echo_blue_2"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_funding_percentage"
+        app:layout_constraintStart_toEndOf="@+id/tv_funding_percentage"
+        app:layout_constraintTop_toTopOf="@id/tv_funding_percentage" />
+
+    <TextView
+        android:id="@+id/tv_total_funding_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        android:fontFamily="@font/helveticanene_medium"
+        android:includeFontPadding="false"
+        android:text="+63,000"
+        android:textColor="@color/raven"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_total_funding_price_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_total_funding_price_title" />
+
+    <ProgressBar
+        android:id="@+id/pg_funding"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        android:progress="30"
+        android:progressTint="@color/midnight_express"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_funding_percentage" />
+
+    <android.widget.Button
+        android:id="@+id/btn_gift_send_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginBottom="@dimen/activity_horizontal_dimens"
+        android:background="@drawable/bg_rect_link_water_hawkes_blue_radius4_stroke1"
+        android:elevation="0dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:paddingTop="14dp"
+        android:paddingBottom="17dp"
+        android:stateListAnimator="@null"
+        android:text="@string/content_gift_history"
+        android:textColor="@color/raven"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_confirm"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.widget.Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        android:layout_marginBottom="@dimen/activity_horizontal_dimens"
+        android:background="@drawable/bg_rect_trans_100_midnight_express_radius4_stroke0"
+        android:elevation="0dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:paddingTop="14dp"
+        android:paddingBottom="17dp"
+        android:stateListAnimator="@null"
+        android:text="@string/content_confirm"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_gift_send_list" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
