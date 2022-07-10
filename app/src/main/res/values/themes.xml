@@ -94,10 +94,6 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="noto_sans_kr_medium_20_black" parent="noto_sans_kr_medium_20">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
     <style name="noto_sans_kr_bold_18_black" parent="noto_sans_kr_bold_18">
         <item name="android:textColor">@color/black</item>
     </style>
@@ -196,10 +192,6 @@
     </style>
 
     <style name="helvetica_neue_bold_16_black_padding0" parent="helvetica_neue_bold_16_black">
-        <item name="android:includeFontPadding">false</item>
-    </style>
-
-    <style name="noto_sans_kr_medium_20_black_padding0" parent="noto_sans_kr_medium_20_black">
         <item name="android:includeFontPadding">false</item>
     </style>
 
