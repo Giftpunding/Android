@@ -3,26 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_oval_hawkes_blue_solitude_2_radius360_stroke1.xml" value="0.1" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_solitude_trans100_radius20_stroke1.xml" value="0.1055" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/bg_rect_solitude_trans100_round16_stroke1.xml" value="0.1055" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1055" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_back.xml" value="0.1055" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_back_button.xml" value="0.1055" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_black_cancel.xml" value="0.1055" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address.xml" value="0.2" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address_detail.xml" value="0.264" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address_search.xml" value="0.264" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_funding_list.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_home.xml" value="0.1527777777777778" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_login_event_select.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_address_search_guide.xml" value="0.264" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_address_search_no_result.xml" value="0.17685185185185184" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_address_search_result.xml" value="0.17685185185185184" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/item_address_search_result.xml" value="0.4" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/item_funding_gift_list.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/item_home_gift_box_list.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/item_small_luxury_list.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_back.xml" value="0.125" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/drawable/ic_back_button.xml" value="0.125" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address.xml" value="0.18888888888888888" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address_detail.xml" value="0.18888888888888888" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address_search.xml" value="0.18888888888888888" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_login_event_select.xml" value="0.2" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_address_search_result.xml" value="0.18888888888888888" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/fragment_login_event_select.xml" value="0.2484375" />
       </map>
     </option>
   </component>
