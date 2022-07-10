@@ -15,7 +15,7 @@ import com.giftpunding.osds.ui.bridge.adapter.BridgeAdapter
 import com.giftpunding.osds.ui.funding.FundingListActivity
 import com.giftpunding.osds.ui.home.HomeActivity
 import com.giftpunding.osds.ui.login.LoginActivity
-import com.giftpunding.osds.ui.login.LoginEventSelectActivity
+import com.giftpunding.osds.ui.login.AnniversarySelectActivity
 import com.giftpunding.osds.ui.search.SearchActivity
 
 class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding::inflate) {
@@ -51,11 +51,11 @@ class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding:
                 SearchActivity::class.java,
                 FundingListActivity::class.java,
                 TestViewBindingActivity::class.java,
-                LoginEventSelectActivity::class.java,
                 TestViewBindingActivity::class.java,
                 TestActivity::class.java,
-                AddressActivity::class.java
-            )
+                AddressActivity::class.java,
+                AnniversarySelectActivity::class.java
+                )
 
             adapter = bridgeAdapter
             layoutManager = LinearLayoutManager(this@BridgeActivity)

@@ -138,6 +138,14 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="noto_sans_kr_medium_14_midnight_express" parent="noto_sans_kr_medium_14">
+        <item name="android:textColor">@color/midnight_express</item>
+    </style>
+
+    <style name="noto_sans_kr_medium_14_midnight_express_padding0" parent="noto_sans_kr_medium_14_midnight_express">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="noto_sans_kr_regular_14_black_padding0" parent="noto_sans_kr_regular_14_black">
         <item name="android:includeFontPadding">false</item>
     </style>
@@ -198,6 +206,12 @@
     <!-- 버튼 디자인 -->
     <style name="btn_gift_together_style" parent="android:Widget.Button">
         <item name="fontFamily">@font/notosanskr_regular</item>
+    </style>
+
+    <!-- NumberPicker 디자인 -->
+    <style name="np_custom_date_picker_style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorPrimary">@color/midnight_express</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
 </resources>
