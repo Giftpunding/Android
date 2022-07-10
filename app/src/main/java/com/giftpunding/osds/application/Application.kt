@@ -35,11 +35,16 @@ class Application: Application() {
     }
 
     private fun initNetworkModule() {
+
+        val gson : Gson = GsonBuilder()
+            .setLenient()
+            .create()
+
         retrofit =
             Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(OkHttpClient())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
     }
 
