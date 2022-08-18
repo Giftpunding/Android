@@ -15,8 +15,6 @@ class AnniversaryListAdapter(
 ) :
     RecyclerView.Adapter<AnniversaryListAdapter.LoginEventListViewHolder>() {
 
-    private var oldPosition = 100
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoginEventListViewHolder =
         LoginEventListViewHolder(
             ItemAnniversaryListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -26,18 +24,8 @@ class AnniversaryListAdapter(
         holder.onBind(mList[position])
 
         holder.itemView.setOnClickListener {
-            mList[oldPosition].isChecked = false
-            Log.d(
-                "AnniListAdapterTest",
-                "ClickTest, mList[oldPosition].isChecked: ${mList[oldPosition].isChecked.toString()}"
-            )
             mList[position].isChecked = true
-            Log.d(
-                "AnniListAdapterTest",
-                "ClickTest, mList[oldPosition].isChecked: ${mList[oldPosition].isChecked.toString()}"
-            )
             holder.onBind(mList[position])
-            oldPosition = holder.adapterPosition
         }
     }
 
@@ -47,9 +35,6 @@ class AnniversaryListAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(item: AnniversaryListData) {
-            Log.d("AnniListAdapterTest", "adapterPosition: ${adapterPosition.toString()}")
-            Log.d("AnniListAdapterTest", "item.isChecked: ${item.isChecked.toString()}")
-
             binding.btnEventType.apply {
                 isChecked = item.isChecked == true // background Color Setting
                 text = item.anniversaryType
