@@ -1,6 +1,12 @@
 package com.giftpunding.osds.application
 
 import android.app.Application
+import com.facebook.flipper.android.AndroidFlipperClient
+import com.facebook.flipper.android.utils.FlipperUtils
+import com.facebook.flipper.plugins.inspector.DescriptorMapping
+import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
+import com.facebook.soloader.SoLoader
+import com.giftpunding.osds.BuildConfig
 import com.giftpunding.osds.repository.LoginRepository
 import com.giftpunding.osds.repository.SearchRepository
 import com.giftpunding.osds.repository.local.pref.KeywordSharedPreference
@@ -28,7 +34,7 @@ class Application: Application() {
         initNetworkModule()
         initGson()
         initDependency()
-
+        initFlipper()
     }
 
     private fun initNetworkModule() {
@@ -51,6 +57,16 @@ class Application: Application() {
 
         loginRepository = LoginRepository(loginSharedPreference, loginRemoteDataSource)
         searchRepository = SearchRepository(keywordSharedPreference)
+    }
+
+    private fun initFlipper() {
+        SoLoader.init(this, false)
+
+        if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(this)) {
+            val client = AndroidFlipperClient.getInstance(this)
+            client.addPlugin(InspectorFlipperPlugin(this, DescriptorMapping.withDefaults()))
+            client.start()
+        }
     }
 
     companion object {
