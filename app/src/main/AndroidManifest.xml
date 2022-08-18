@@ -25,7 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.home.HomeActivity" />
@@ -38,10 +37,7 @@
             android:name=".ui.address.AddressDetailActivity"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity android:name=".ui.home.ranking.RankingActivity" />
-
-        <activity android:name=".ui.TestActivity" />
         <activity android:name=".ui.merchandise.MerchandiseActivity" />
-        <activity android:name=".ui.funding.FundingListActivity" />
         <activity
             android:name=".ui.funding.FundingActivity"
             android:windowSoftInputMode="adjustResize" />
@@ -51,6 +47,9 @@
             android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
             android:exported="true" />
         <activity android:name=".ui.login.AnniversarySelectActivity" />
+        <activity android:name=".ui.funding.FundingGiftListActivity"/>
+        <activity android:name=".ui.funding.FundingMyListInfoActivity"/>
+        <activity android:name=".ui.funding.FundingResultActivity"/>
     </application>
 
 </manifest>

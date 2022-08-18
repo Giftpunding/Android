@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/ly_appbar"
+        layout="@layout/content_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_merchandise_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/notosanskr_black"
+        android:includeFontPadding="false"
+        android:text="@string/title_funding_item"
+        android:textColor="@color/midnight_express"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ly_appbar" />
+
+    <ImageView
+        android:id="@+id/iv_merchandise_img"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="26dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_merchandise_info_title" />
+
+    <LinearLayout
+        android:id="@+id/ly_merchandise_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/iv_merchandise_img"
+        app:layout_constraintStart_toEndOf="@id/iv_merchandise_img"
+        app:layout_constraintTop_toTopOf="@id/iv_merchandise_img">
+
+        <TextView
+            android:id="@+id/tv_merchandise_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:text="brand"
+            android:textColor="@color/link_water"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_merchandise_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="name"
+            android:textColor="@color/midnight_express"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/helveticanene_medium"
+            android:text="13,000"
+            android:textColor="@color/echo_blue"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/div_merchandise_info_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="18dp"
+        android:background="@color/hawkes_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_merchandise_img" />
+
+    <View
+        android:id="@+id/div_merchandise_info"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/solitude_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/div_merchandise_info_shadow" />
+
+    <TextView
+        android:id="@+id/tv_payment_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/notosanskr_black"
+        android:includeFontPadding="false"
+        android:text="@string/title_payment_type"
+        android:textColor="@color/midnight_express"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/div_merchandise_info" />
+
+    <TextView
+        android:id="@+id/tv_payment_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="28dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:text="신용카드"
+        android:textColor="@color/echo_blue_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_payment_title" />
+
+    <TextView
+        android:id="@+id/tv_payment_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        android:text="13,000"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_payment_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_payment_type" />
+
+    <View
+        android:id="@+id/div_payment_info_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="22dp"
+        android:background="@color/hawkes_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_payment_type" />
+
+    <View
+        android:id="@+id/div_payment_info"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/solitude_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/div_payment_info_shadow" />
+
+
+    <TextView
+        android:id="@+id/tv_input_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/notosanskr_black"
+        android:includeFontPadding="false"
+        android:text="@string/title_input_info"
+        android:textColor="@color/midnight_express"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/div_payment_info" />
+
+    <TextView
+        android:id="@+id/tv_sender_name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:text="@string/title_sender_name"
+        android:textColor="@color/echo_blue_2"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_input_info_title" />
+
+
+    <TextView
+        android:id="@+id/tv_sender_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        android:background="@drawable/bg_rect_hawkes_blue_trans100_radius8_stroke1"
+        android:fontFamily="@font/notosanskr_medium"
+        android:gravity="center|start"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:paddingStart="15dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="16dp"
+        android:textColor="@color/midnight_express"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sender_name_title" />
+
+    <TextView
+        android:id="@+id/tv_message_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:text="@string/title_message"
+        android:textColor="@color/echo_blue_2"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sender_name" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        android:background="@drawable/bg_rect_hawkes_blue_trans100_radius8_stroke1"
+        android:fontFamily="@font/notosanskr_medium"
+        android:gravity="center|start"
+        android:includeFontPadding="false"
+        android:paddingStart="15dp"
+        android:paddingTop="23dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="25dp"
+        android:textColor="@color/midnight_express"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_message_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

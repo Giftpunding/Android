@@ -189,18 +189,22 @@
     <style name="noto_sans_kr_medium_20_black_padding0" parent="noto_sans_kr_medium_20_black">
         <item name="android:includeFontPadding">false</item>
     </style>
-
+    
     <!-- helvetica_neue font -->
     <style name="helvetica_neue_bold_16" parent="helvetica_neue_bold">
         <item name="android:textSize">16sp</item>
     </style>
-
+    
     <style name="helvetica_neue_bold_16_black" parent="helvetica_neue_bold_16">
         <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="helvetica_neue_bold_16_black_padding0" parent="helvetica_neue_bold_16_black">
         <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="noto_sans_kr_bold_20_midnight_express" parent="noto_sans_kr_bold_20">
+        <item name="android:textColor">@color/midnight_express</item>
     </style>
 
     <!-- 버튼 디자인 -->
@@ -212,6 +216,13 @@
     <style name="np_custom_date_picker_style" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColorPrimary">@color/midnight_express</item>
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- 바텀 네비게이션 폰트 디자인 -->
+    <style name="funding_list_bottom_navi_text" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/echo_blue_2</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
 </resources>

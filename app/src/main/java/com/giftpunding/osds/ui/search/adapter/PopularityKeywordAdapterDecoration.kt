@@ -6,7 +6,8 @@ import android.util.TypedValue
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class PopularityKeywordAdapterDecoration: RecyclerView.ItemDecoration() {
+class PopularityKeywordAdapterDecoration : RecyclerView.ItemDecoration() {
+    private val bottomSpacing: Int = 22
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -15,16 +16,13 @@ class PopularityKeywordAdapterDecoration: RecyclerView.ItemDecoration() {
         state: RecyclerView.State
     ) {
         super.getItemOffsets(outRect, view, parent, state)
-
-        if(parent.getChildAdapterPosition(view) != parent.adapter!!.itemCount - 1){
-            outRect.bottom = dpToPx(parent.context, 14).toInt()
-        }
+        outRect.bottom = dpToPx(parent.context).toInt()
     }
 
-    private fun dpToPx(context: Context, space: Int): Float {
+    private fun dpToPx(context: Context): Float {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
-            space.toFloat(),
+            bottomSpacing.toFloat(),
             context.resources.displayMetrics
         )
     }
