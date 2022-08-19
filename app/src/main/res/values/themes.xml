@@ -216,6 +216,8 @@
     <style name="np_custom_date_picker_style" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColorPrimary">@color/midnight_express</item>
         <item name="android:textSize">24sp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:fontFamily">@font/helveticanene_medium</item>
     </style>
 
     <!-- 바텀 네비게이션 폰트 디자인 -->
