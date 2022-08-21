@@ -10,26 +10,105 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
-        android:text="이벤트 종류"
+        android:text="@string/title_event_type"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_event_category"
+    <HorizontalScrollView
+        android:id="@+id/sv_event_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
         android:layout_marginTop="20dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_event_category" />
+        app:layout_constraintTop_toBottomOf="@id/tv_event_category">
+
+        <RadioGroup
+            android:id="@+id/category_event_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/btn_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+                android:button="@null"
+                android:checked="true"
+                android:fontFamily="@font/notosanskr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="36dp"
+                android:paddingVertical="12dp"
+                android:text="@string/category_anniversary_birthday"
+                android:textColor="@drawable/bg_sc_color_white_color_midnight_express"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/btn_childbirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+                android:button="@null"
+                android:fontFamily="@font/notosanskr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="36dp"
+                android:paddingVertical="12dp"
+                android:text="@string/category_anniversary_pregnancy"
+                android:textColor="@drawable/bg_sc_color_white_color_midnight_express"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/btn_housewarming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+                android:button="@null"
+                android:fontFamily="@font/notosanskr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="36dp"
+                android:paddingVertical="12dp"
+                android:text="@string/category_anniversary_housewarming"
+                android:textColor="@drawable/bg_sc_color_white_color_midnight_express"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/btn_marry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+                android:button="@null"
+                android:fontFamily="@font/notosanskr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="36dp"
+                android:layout_marginEnd="27dp"
+                android:paddingVertical="12dp"
+                android:text="@string/category_anniversary_wedding"
+                android:textColor="@drawable/bg_sc_color_white_color_midnight_express"
+                android:textSize="16sp" />
+
+        </RadioGroup>
+    </HorizontalScrollView>
 
     <include
         android:id="@+id/np_event_date_picker"
         layout="@layout/content_custom_date_picker"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="75dp"
+        android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_event_category" />
+        app:layout_constraintTop_toBottomOf="@id/sv_event_category" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,20 +36,6 @@ class AnniversarySelectFragment : Fragment() {
             2 -> binding.npEventDatePicker.npDayOfMonth.maxValue = 29
             4, 6, 9, 11 -> binding.npEventDatePicker.npDayOfMonth.maxValue = 30
         }
-
-        binding.rvEventCategory.apply {
-            adapter = AnniversaryListAdapter(context,
-                arrayListOf(
-                    AnniversaryListData(getString(R.string.category_anniversary_birthday), true),
-                    AnniversaryListData(getString(R.string.category_anniversary_pregnancy), false),
-                    AnniversaryListData(getString(R.string.category_anniversary_housewarming), false),
-                    AnniversaryListData(getString(R.string.category_anniversary_wedding), false),
-                    AnniversaryListData(getString(R.string.category_anniversary_user_input), false),
-                )
-            )
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            addItemDecoration(AnniversaryListAdapterDecoration())
-        }
     }
 
     fun initEvent() {
