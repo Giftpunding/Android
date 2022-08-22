@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.AnniversarySelectActivity">
+    tools:context=".ui.anniversary.AnniversarySelectActivity">
 
     <include
         android:id="@+id/tb_login_event_select"
@@ -25,10 +25,12 @@
 
     <fragment
         android:id="@+id/fragment_event_select"
-        android:name="com.giftpunding.osds.ui.login.AnniversarySelectFragment"
+        android:name="com.giftpunding.osds.ui.anniversary.AnniversarySelectFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_login_event_select_content" />
 

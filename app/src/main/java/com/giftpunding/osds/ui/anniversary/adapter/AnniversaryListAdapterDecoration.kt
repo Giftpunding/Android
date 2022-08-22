@@ -1,4 +1,4 @@
-package com.giftpunding.osds.ui.login.adapter
+package com.giftpunding.osds.ui.anniversary.adapter
 
 import android.graphics.Rect
 import android.view.View

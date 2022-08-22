@@ -1,13 +1,12 @@
-package com.giftpunding.osds.ui.login.adapter
+package com.giftpunding.osds.ui.anniversary.adapter
 
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.databinding.ItemAnniversaryListBinding
-import com.giftpunding.osds.ui.login.AnniversaryListData
+import com.giftpunding.osds.ui.anniversary.AnniversaryListData
 
 class AnniversaryListAdapter(
     val context: Context,

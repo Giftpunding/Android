@@ -1,4 +1,4 @@
-package com.giftpunding.osds.ui.login
+package com.giftpunding.osds.ui.anniversary
 
 import android.os.Bundle
 import com.giftpunding.osds.base.BaseActivity

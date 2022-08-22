@@ -7,11 +7,13 @@ import com.facebook.flipper.plugins.inspector.DescriptorMapping
 import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.giftpunding.osds.BuildConfig
+import com.giftpunding.osds.repository.AnniversaryRepository
 import com.giftpunding.osds.repository.LoginRepository
 import com.giftpunding.osds.repository.SearchRepository
 import com.giftpunding.osds.repository.local.pref.KeywordSharedPreference
 import com.giftpunding.osds.repository.local.pref.KeywordSharedPreferenceImpl
 import com.giftpunding.osds.repository.local.pref.LoginSharedPreference
+import com.giftpunding.osds.repository.remote.datasource.AnniversaryDataSource
 import com.giftpunding.osds.repository.remote.datasource.LoginRemoteDataSource
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -25,6 +27,7 @@ class Application: Application() {
     private lateinit var loginSharedPreference: LoginSharedPreference
     private lateinit var loginRemoteDataSource: LoginRemoteDataSource
     private lateinit var keywordSharedPreference: KeywordSharedPreference
+    private lateinit var anniversaryDataSource: AnniversaryDataSource
     private lateinit var gsonConvert: Gson
 
     override fun onCreate() {
@@ -57,6 +60,9 @@ class Application: Application() {
 
         loginRepository = LoginRepository(loginSharedPreference, loginRemoteDataSource)
         searchRepository = SearchRepository(keywordSharedPreference)
+
+        anniversaryDataSource = AnniversaryDataSource(retrofit)
+        anniversaryRepository = AnniversaryRepository(anniversaryDataSource)
     }
 
     private fun initFlipper() {
@@ -74,5 +80,6 @@ class Application: Application() {
         lateinit var mApp: Application
         lateinit var loginRepository: LoginRepository
         lateinit var searchRepository: SearchRepository
+        lateinit var anniversaryRepository: AnniversaryRepository
     }
 }

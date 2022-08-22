@@ -1,4 +1,4 @@
-package com.giftpunding.osds.ui.login
+package com.giftpunding.osds.ui.anniversary
 
 data class AnniversaryListData(
     val anniversaryType: String,
