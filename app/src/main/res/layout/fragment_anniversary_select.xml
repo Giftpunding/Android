@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -26,13 +27,13 @@
         app:layout_constraintTop_toBottomOf="@id/tv_event_category">
 
         <RadioGroup
-            android:id="@+id/category_event_type"
+            android:id="@+id/rg_category_event_type"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/btn_birthday"
+                android:id="@+id/r_btn_birthday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
@@ -49,7 +50,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/btn_childbirth"
+                android:id="@+id/r_btn_pregnancy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
@@ -65,7 +66,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/btn_housewarming"
+                android:id="@+id/r_btn_housewarming"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
@@ -81,7 +82,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/btn_marry"
+                android:id="@+id/r_btn_marry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
@@ -107,8 +108,22 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="75dp"
         android:layout_marginEnd="28dp"
+        android:layout_marginBottom="139dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sv_event_category" />
+        app:layout_constraintTop_toBottomOf="@id/sv_event_category"
+        app:layout_constraintBottom_toTopOf="@+id/btn_move_page"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_move_page"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="66dp"
+        android:text="다음"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
