@@ -2,6 +2,7 @@ package com.giftpunding.osds.ui.address
 
 import android.content.Intent
 import android.os.Bundle
+import com.giftpunding.osds.R
 import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityAddressBinding
 import com.giftpunding.osds.enum.BackButton
@@ -21,7 +22,7 @@ class AddressActivity : BaseActivity<ActivityAddressBinding>(ActivityAddressBind
         setToolbarType(ToolbarType.NORMAL)
         setBackButtonVisible(VisibleState.VISIBLE)
         setBackButton(BackButton.BACK)
-        setTitle("텍스트")
+        setTitle(resources.getString(R.string.title_setting_address))
         setCloseButton(VisibleState.INVISIBLE)
     }
 
@@ -31,5 +32,9 @@ class AddressActivity : BaseActivity<ActivityAddressBinding>(ActivityAddressBind
         }
 
         backButton.setOnClickListener { finish() }
+
+        binding.btnNextTodo.setOnClickListener {
+            //Todo 어디로 이동할지 작성해야함
+        }
     }
 }

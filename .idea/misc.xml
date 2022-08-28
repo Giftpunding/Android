@@ -65,6 +65,16 @@
         <entry key="..\:/Users/multicampus/Documents/Android/app/src/main/res/layout/item_funding_list.xml" value="0.190625" />
         <entry key="..\:/Users/multicampus/Documents/Android/app/src/main/res/layout/item_home_gift_box_list.xml" value="0.190625" />
         <entry key="..\:/Users/multicampus/Documents/Android/app/src/main/res/layout/item_small_luxury_list.xml" value="0.190625" />
+        <entry key="app/src/main/res/drawable/bg_rect_.xml" value="0.1745" />
+        <entry key="app/src/main/res/drawable/bg_rect_hawkes_blue_solitude_2_radius0_stroke1.xml" value="0.1745" />
+        <entry key="app/src/main/res/drawable/bg_rect_midnight_express_solitude2_radius16_stroke2.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_rect_midnight_express_white_radius16_stroke2.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_rect_trans100_solitude2_radius16.xml" value="0.1745" />
+        <entry key="app/src/main/res/drawable/bg_rect_transparent_midnight_express_radius16_stroke0.xml" value="0.1745" />
+        <entry key="app/src/main/res/drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0.xml" value="0.1745" />
+        <entry key="app/src/main/res/layout/activity_address.xml" value="0.306719970703125" />
+        <entry key="app/src/main/res/layout/activity_address_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_anniversary_select.xml" value="0.1381340579710145" />
       </map>
     </option>
   </component>
