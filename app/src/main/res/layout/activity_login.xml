@@ -1,23 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Button
-        android:id="@+id/btn_kakao_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <Button
-        android:id="@+id/btn_login_disconnect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Disconnect"
-        app:layout_constraintStart_toEndOf="@id/btn_kakao_login"
-        app:layout_constraintTop_toTopOf="parent" />
+    </data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/midnight_express">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_banner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight="16"
+            app:layout_constraintBottom_toTopOf="@id/tv_tutorial"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_tutorial"
+            style="@style/pretendard_medium_20_white"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="19dp"
+            app:layout_constraintVertical_weight="1"
+            android:text="@string/content_login_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vp_banner" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/ci_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ci_drawable_unselected="@drawable/ic_indicator_unselected"
+            app:ci_animator="@animator/ani_ci"
+            android:layout_marginTop="52dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_tutorial" />
+
+        <ImageButton
+            android:id="@+id/btn_kakao_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_kakao_login_medium_wide"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ci_banner"
+            app:layout_constraintVertical_bias="0.65" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

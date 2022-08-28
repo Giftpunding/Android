@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/helveticaneue_bold"
+            android:fontFamily="@font/helveticanene_bold"
             android:includeFontPadding="false"
             android:text="13,000"
             android:textColor="@color/black"

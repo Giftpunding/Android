@@ -77,6 +77,9 @@
     <string name="content_payment_check">결제 수단을 확인한 후, 재시도 요청드립니다.</string>
     <string name="content_retry">다시 선물하기</string>
 
+    <string name="content_login_tutorial">가입하여 선물 전달하기</string>
+    <string name="content_login_description">선물을 펀딩으로 받아보세요!</string>
+
     <!-- 배송지 입력화면 -->
     <string name="content_address">선물을 배송 받을 주소를\n설정해주세요.</string>
     <string name="content_input">지번, 도로명, 건물명으로 검색</string>

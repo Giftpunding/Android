@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="9dp"
-        android:fontFamily="@font/helveticaneue_bold"
+        android:fontFamily="@font/helveticanene_bold"
         android:includeFontPadding="false"
         android:text="13,000"
         android:textColor="@color/black"
