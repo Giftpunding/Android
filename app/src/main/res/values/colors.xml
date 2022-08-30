@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#808080</color>
-    <color name="transparent">#00FFFFFF</color>
+    <color name="trans100">#00FFFFFF</color>
     <color name="solitude">#E6E7EB</color>
     <color name="solitude_2">#F0F1F4</color>
     <color name="mischka">#A6A8B1</color>
@@ -22,7 +22,7 @@
     <color name="raven">#646A7E</color>
     <color name="whisper">#E5E5E5</color>
     <color name="white_smoke">#F6F6F6</color>
+    <color name="black_marlin">#3A3A3D</color>
     <color name="eucalyptus">#27AE60</color>
-    <color name="gainsboro">#D9D9D9</color>
-    <color name="bright_grey">#4F5463</color>
+
 </resources>

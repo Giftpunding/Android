@@ -1,12 +1,10 @@
 package com.giftpunding.osds.repository
 
 import android.util.Log
-import com.giftpunding.osds.data.response.login.LoginResponse
+import com.giftpunding.osds.data.response.BaseResponse
 import com.giftpunding.osds.repository.local.pref.LoginSharedPreference
 import com.giftpunding.osds.repository.remote.datasource.LoginRemoteDataSource
 import retrofit2.Callback
-import retrofit2.Call
-import retrofit2.Response
 
 class LoginRepository(
     private val loginSharedPreference: LoginSharedPreference,
