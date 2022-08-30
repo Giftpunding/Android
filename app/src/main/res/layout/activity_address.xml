@@ -18,13 +18,12 @@
 
     <ImageView
         android:id="@+id/iv_punding_complete_gift"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="34dp"
-        android:layout_marginEnd="231dp"
+        app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_address_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_address"
@@ -36,8 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
+        android:layout_marginTop="14dp"
         android:text="@string/content_address"
-        app:layout_constraintBottom_toTopOf="@+id/btn_address_search"
         app:layout_constraintStart_toStartOf="@+id/iv_punding_complete_gift"
         app:layout_constraintTop_toBottomOf="@+id/iv_punding_complete_gift" />
 
@@ -48,16 +47,14 @@
         android:layout_height="46dp"
         android:layout_marginTop="34dp"
         android:layout_marginEnd="28dp"
-        android:layout_marginBottom="304dp"
         android:background="@drawable/bg_rect_link_water_white_round10_stroke1"
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
         android:paddingStart="18dp"
         android:text="@string/content_input"
         app:drawableStartCompat="@drawable/ic_search"
-        app:layout_constraintBottom_toTopOf="@+id/btn_next_todo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/iv_punding_complete_gift"
+        app:layout_constraintStart_toStartOf="@+id/tv_address_content"
         app:layout_constraintTop_toBottomOf="@+id/tv_address_content"
         tools:ignore="RtlSymmetry" />
 
@@ -65,8 +62,6 @@
         android:id="@+id/btn_next_todo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginEnd="150dp"
         android:layout_marginBottom="62dp"
         android:enabled="false"
         android:gravity="center"
