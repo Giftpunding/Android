@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_horizontal_dimens"
-                android:background="@color/trans100"
+                android:background="@color/transparent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_horizontal_dimens"
-                android:background="@color/trans100"
+                android:background="@color/transparent"
                 android:src="@drawable/ic_gift_box"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:background="@color/trans100"
+                android:background="@color/transparent"
                 app:layout_constraintBottom_toBottomOf="@id/tv_merchandise_brand"
                 app:layout_constraintStart_toEndOf="@id/tv_merchandise_brand"
                 app:layout_constraintTop_toTopOf="@id/tv_merchandise_brand" />
@@ -110,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_dimens"
-                android:fontFamily="@font/helveticaneue_bold"
+                android:fontFamily="@font/helveticanene_bold"
                 android:text="100,000"
                 android:textColor="@color/black"
                 android:textSize="26sp"

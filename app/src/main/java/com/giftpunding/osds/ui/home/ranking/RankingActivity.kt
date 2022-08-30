@@ -4,7 +4,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
@@ -68,18 +67,18 @@ class RankingActivity : BaseActivity<ActivityGiftRankingBinding>(ActivityGiftRan
                 tvHomeGiftOverTen.setTextColor(resources.getColor(R.color.mischka, null))
 
                 tvHomeGiftAll.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticanene_bold)
                 tvHomeGiftOneToTwo.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticanene_bold)
                 tvHomeGiftThreeToFour.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticanene_bold)
                 tvHomeGiftFiveToNine.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticanene_bold)
                 tvHomeGiftOverTen.typeface =
-                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                    ResourcesCompat.getFont(this@RankingActivity, R.font.helveticanene_bold)
             }
             clickTextView.typeface =
-                ResourcesCompat.getFont(this@RankingActivity, R.font.helveticaneue_bold)
+                ResourcesCompat.getFont(this@RankingActivity, R.font.helveticanene_bold)
             clickTextView.setTextColor(resources.getColor(R.color.black, null))
         }
     }

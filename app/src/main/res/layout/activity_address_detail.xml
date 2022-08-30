@@ -83,7 +83,7 @@
         android:id="@+id/btn_text_delete"
         android:layout_width="50dp"
         android:layout_height="46dp"
-        android:background="@color/trans100"
+        android:background="@color/transparent"
         android:src="@drawable/ic_delete"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@id/edit_address_detail"
