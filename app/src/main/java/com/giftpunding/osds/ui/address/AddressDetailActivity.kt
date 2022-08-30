@@ -9,7 +9,7 @@ import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import com.giftpunding.osds.R
 import com.giftpunding.osds.base.BaseActivity
-import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
+import com.giftpunding.osds.data.response.address.AddressSearchResultResponseTemp
 import com.giftpunding.osds.databinding.ActivityAddressDetailBinding
 import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
@@ -34,7 +34,7 @@ class AddressDetailActivity :
         setTitle(getString(R.string.title_address_detail))
         setCloseButton(VisibleState.VISIBLE)
 
-        val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultResponse
+        val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultResponseTemp
         binding.tvSearchKeyword.text = addressData.searchKeyword
         binding.tvAddress.text = addressData.address
 

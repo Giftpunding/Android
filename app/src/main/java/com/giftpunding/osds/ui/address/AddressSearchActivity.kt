@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.ActivityResultLauncher
@@ -11,21 +12,26 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftpunding.osds.R
+import com.giftpunding.osds.application.Application
 import com.giftpunding.osds.base.BaseActivity
+import com.giftpunding.osds.callback.AddressSearchResultCallback
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
+import com.giftpunding.osds.data.response.address.AddressSearchResultResponseTemp
 import com.giftpunding.osds.databinding.ActivityAddressSearchBinding
 import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
-import com.giftpunding.osds.ui.address.adapter.AddressSearchResultAdapter
+import com.giftpunding.osds.ui.address.adapter.AddressSearchAdapter
 
 class AddressSearchActivity :
-    BaseActivity<ActivityAddressSearchBinding>(ActivityAddressSearchBinding::inflate) {
+    BaseActivity<ActivityAddressSearchBinding>(ActivityAddressSearchBinding::inflate),
+    AddressSearchResultCallback {
 
     // 더미데이터
     private val mList = arrayListOf(
-        AddressSearchResultResponse("삼성아파트", "도로명", "삼성동 123-4"),
-        AddressSearchResultResponse("현대아파트", "지번", "현대동 12-17")
+        AddressSearchResultResponseTemp("삼성아파트", "도로명", "삼성동 123-4"),
+        AddressSearchResultResponseTemp("현대아파트", "지번", "현대동 12-17")
     )
+    private var page = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +64,35 @@ class AddressSearchActivity :
 
         searchButtonEvent()
         textChangeListener()
+        addSearchTextWatcher()
+    }
+
+    private fun addSearchTextWatcher() {
+        binding.viewAddressSearchResult.rvAddressSearchResult.apply {
+            adapter = AddressSearchAdapter(this@AddressSearchActivity, emptyList())
+            layoutManager =
+                LinearLayoutManager(this@AddressSearchActivity, LinearLayoutManager.VERTICAL, false)
+        }
+        binding.editAddressSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                //텍스트 변화 감지 -> 변화됐다? -> 서버 통신으로 가져오자.
+                Application.addressRepository.getAddress(
+                    "KakaoAK ${resources.getString(R.string.kakao_rest_api_key)}",
+                    s.toString(),
+                    page,
+                    30,
+                    this@AddressSearchActivity
+                )
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
     }
 
     private fun searchButtonEvent() {
@@ -65,14 +100,14 @@ class AddressSearchActivity :
             if (i == EditorInfo.IME_ACTION_SEARCH) {
                 // TODO 주소 검색 API 호출
 
-                binding.viewAddressSearchGuide.root.visibility = View.GONE
-                binding.viewAddressSearchResult.root.visibility = View.VISIBLE
+//                binding.viewAddressSearchGuide.root.visibility = View.GONE
+//                binding.viewAddressSearchResult.root.visibility = View.VISIBLE
             }
             false
         }
 
         binding.viewAddressSearchResult.rvAddressSearchResult.apply {
-            adapter = AddressSearchResultAdapter(this@AddressSearchActivity, mList)
+            adapter = AddressSearchAdapter(this@AddressSearchActivity, emptyList())
             layoutManager =
                 LinearLayoutManager(this@AddressSearchActivity, LinearLayoutManager.VERTICAL, false)
         }
@@ -124,5 +159,26 @@ class AddressSearchActivity :
 
     fun useActivityResultLauncher(intent: Intent) {
         startActivityForResult.launch(intent)
+    }
+
+    override fun onSuccessAddressSearchResult(response: AddressSearchResultResponse) {
+        Log.d("AddressSearchActivity", "Success")
+        //만약 null 이면 pass, 아니면 출력
+
+        if(response.documents?.isEmpty() == true){
+            binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
+            binding.viewAddressSearchResult.root.visibility = View.GONE
+        }
+        else{
+            binding.viewAddressSearchGuide.root.visibility = View.GONE
+            binding.viewAddressSearchResult.root.visibility = View.VISIBLE
+        }
+        binding.viewAddressSearchResult.rvAddressSearchResult.apply {
+            adapter = AddressSearchAdapter(this@AddressSearchActivity, response.documents!!)
+        }
+    }
+
+    override fun onFailureAddressSearchResult(error: String) {
+        Log.d("AddressSearchActivity", "Fail $error")
     }
 }

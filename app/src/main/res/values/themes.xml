@@ -66,6 +66,14 @@
         <item name="android:textColor">@color/hawkes_blue</item>
     </style>
 
+    <style name="pretendard_medium_15" parent="pretendard_medium">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="pretendard_medium_15_midnight_express" parent="pretendard_medium_15">
+        <item name="android:textColor">@color/midnight_express</item>
+    </style>
+
     <style name="noto_sans_kr_regular" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/notosanskr_regular</item>
     </style>

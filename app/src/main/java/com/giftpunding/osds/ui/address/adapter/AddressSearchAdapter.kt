@@ -5,22 +5,22 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
-import com.giftpunding.osds.databinding.ItemAddressSearchResultBinding
+import com.giftpunding.osds.data.response.address.AddressSearchResultDocumentResponse
+import com.giftpunding.osds.databinding.ItemAddressSearchBinding
 import com.giftpunding.osds.ui.address.AddressDetailActivity
 import com.giftpunding.osds.ui.address.AddressSearchActivity
 
-class AddressSearchResultAdapter(
+class AddressSearchAdapter(
     private val context: Context,
-    private val addressSearchResultResponseList: List<AddressSearchResultResponse>
+    private val addressSearchResultResponseList: List<AddressSearchResultDocumentResponse>
 ) :
-    RecyclerView.Adapter<AddressSearchResultAdapter.AddressSearchResultViewHolder>() {
+    RecyclerView.Adapter<AddressSearchAdapter.AddressSearchResultViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): AddressSearchResultViewHolder =
         AddressSearchResultViewHolder(
-            ItemAddressSearchResultBinding.inflate(
+            ItemAddressSearchBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
@@ -37,14 +37,12 @@ class AddressSearchResultAdapter(
 
     override fun getItemCount(): Int = addressSearchResultResponseList.size
 
-    class AddressSearchResultViewHolder(private val binding: ItemAddressSearchResultBinding) :
+    class AddressSearchResultViewHolder(private val binding: ItemAddressSearchBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(item: AddressSearchResultResponse) {
+        fun onBind(item: AddressSearchResultDocumentResponse) {
             binding.apply {
-                tvSearchKeyword.text = item.searchKeyword
-                tvAddressType.text = item.addressType
-                tvAddress.text = item.address
+                tvAddress.text = item.addressName
             }
         }
     }
