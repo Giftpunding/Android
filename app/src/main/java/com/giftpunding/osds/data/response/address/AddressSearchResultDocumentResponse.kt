@@ -13,7 +13,7 @@ data class AddressSearchResultDocumentResponse(
     @SerializedName("y")
     var y: String?,
     @SerializedName("address")
-    var address: AddressSearchResultAddressResponse?,
+    var address: Address?,
     @SerializedName("road_address")
-    var roadAddress: AddressSearchResultRoadAddressResponse?
+    var roadAddress: RoadAaddress?
 ) : Serializable

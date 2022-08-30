@@ -36,10 +36,17 @@ class AddressDetailActivity :
         setCloseButton(VisibleState.VISIBLE)
 
         val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultDocumentResponse
-        binding.tvSearchKeyword.text = addressData.addressName
-        binding.tvAddress.text = addressData.addressName
 
+        binding.tvSearchKeyword.text = addressData.addressName
+        
         //도로명, 지번 구분 표시
+        if (addressData.address != null) {
+            binding.tvAddressType.text = "지번"
+            binding.tvAddress.text = addressData.address!!.addressName
+        } else if (addressData.roadAddress != null) {
+            binding.tvAddressType.text = "도로명"
+            binding.tvAddress.text = addressData.roadAddress!!.roadName
+        }
 
         binding.editAddressDetail.requestFocus()
         revealKeyboard(binding.editAddressDetail)

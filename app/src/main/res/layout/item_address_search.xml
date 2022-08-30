@@ -4,28 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_address"
-        style="@style/pretendard_medium_15_midnight_express"
-        android:layout_width="0dp"
-        android:text="123123"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include
+        android:id="@+id/l_address_name"
+        layout="@layout/item_content_address_name"
+        android:visibility="visible">
+    </include>
 
-    <View
-        android:id="@+id/div_address"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/solitude_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_address" />
+    <include
+        android:id="@+id/l_address_result"
+        layout="@layout/item_address_search_result"
+        android:visibility="gone">
+    </include>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
