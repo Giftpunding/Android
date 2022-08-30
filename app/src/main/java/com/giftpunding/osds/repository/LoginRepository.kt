@@ -18,13 +18,11 @@ class LoginRepository(
         loginRemoteDataSource.getLoginService().postLoginToken(accessToken).enqueue(object :
             Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                Log.d("LoginTest", response.toString())
+                loginSharedPreference.setUserToken(response.body()!!.jwtToken)
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.d("LoginTest", t.stackTraceToString())
             }
-
         })
     }
 

@@ -7,6 +7,7 @@ import com.facebook.flipper.plugins.inspector.DescriptorMapping
 import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.giftpunding.osds.BuildConfig
+import com.giftpunding.osds.R
 import com.giftpunding.osds.repository.AddressRepository
 import com.giftpunding.osds.repository.AnniversaryRepository
 import com.giftpunding.osds.repository.LoginRepository
@@ -19,6 +20,7 @@ import com.giftpunding.osds.repository.remote.datasource.AnniversaryDataSource
 import com.giftpunding.osds.repository.remote.datasource.LoginRemoteDataSource
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.kakao.sdk.common.KakaoSdk
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -42,6 +44,7 @@ class Application: Application() {
         initGson()
         initDependency()
         initFlipper()
+        KakaoSdk.init(this, getString(R.string.native_app_key))
     }
 
     private fun initNetworkModule() {
@@ -90,7 +93,7 @@ class Application: Application() {
     }
 
     companion object {
-        const val baseUrl: String = "http://3.39.236.149"
+        const val baseUrl: String = "http://3.36.251.242:8080"
         const val kakaoBaseUrl : String = "https://dapi.kakao.com"
         lateinit var mApp: Application
         lateinit var loginRepository: LoginRepository
