@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,48 +11,67 @@
         android:id="@+id/tb_address"
         layout="@layout/content_toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/iv_punding_complete_gift"/>
+
+    <ImageView
+        android:id="@+id/iv_punding_complete_gift"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="231dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_address_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_address"
+        android:src="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/tv_address_content"
         style="@style/noto_sans_kr_medium_20_black_padding0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="39dp"
         android:includeFontPadding="false"
         android:text="@string/content_address"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tb_address" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_address_search"
+        app:layout_constraintStart_toStartOf="@+id/iv_punding_complete_gift"
+        app:layout_constraintTop_toBottomOf="@+id/iv_punding_complete_gift" />
 
     <TextView
         android:id="@+id/btn_address_search"
         style="@style/noto_sans_kr_medium_16_link_water_padding0"
         android:layout_width="0dp"
         android:layout_height="46dp"
-        android:layout_marginHorizontal="28dp"
-        android:layout_marginTop="73dp"
-        android:background="@drawable/bg_rect_trans100_solitude2_radius16"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="304dp"
+        android:background="@drawable/bg_rect_link_water_white_round10_stroke1"
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
         android:paddingStart="18dp"
         android:text="@string/content_input"
         app:drawableStartCompat="@drawable/ic_search"
+        app:layout_constraintBottom_toTopOf="@+id/btn_next_todo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_address_content" />
+        app:layout_constraintStart_toStartOf="@+id/iv_punding_complete_gift"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address_content"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
-        android:id="@+id/btn_address_confirm"
-        style="@style/noto_sans_kr_medium_16_white_padding0"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="28dp"
-        android:layout_marginBottom="61dp"
-        android:background="@drawable/bg_sc_rect_trans100_echo_blue2_radius4_rect_trans100_midnight_express_radius4"
+        android:id="@+id/btn_next_todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="62dp"
         android:enabled="false"
         android:gravity="center"
-        android:text="@string/content_confirm"
+        android:text="@string/content_next"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
