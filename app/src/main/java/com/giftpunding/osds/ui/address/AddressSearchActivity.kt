@@ -99,9 +99,8 @@ class AddressSearchActivity :
         binding.editAddressSearch.setOnEditorActionListener { textView, i, keyEvent ->
             if (i == EditorInfo.IME_ACTION_SEARCH) {
                 // TODO 주소 검색 API 호출
-
-//                binding.viewAddressSearchGuide.root.visibility = View.GONE
-//                binding.viewAddressSearchResult.root.visibility = View.VISIBLE
+                binding.viewAddressSearchGuide.root.visibility = View.GONE
+                binding.viewAddressSearchResult.root.visibility = View.VISIBLE
             }
             false
         }
@@ -165,16 +164,16 @@ class AddressSearchActivity :
         Log.d("AddressSearchActivity", "Success")
         //만약 null 이면 pass, 아니면 출력
 
-        if(response.documents?.isEmpty() == true){
+        if (response.documents?.isEmpty() == true) {
             binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
             binding.viewAddressSearchResult.root.visibility = View.GONE
-        }
-        else{
+        } else {
             binding.viewAddressSearchGuide.root.visibility = View.GONE
             binding.viewAddressSearchResult.root.visibility = View.VISIBLE
         }
         binding.viewAddressSearchResult.rvAddressSearchResult.apply {
-            adapter = AddressSearchAdapter(this@AddressSearchActivity, response.documents!!)
+            adapter =
+                AddressSearchAdapter(this@AddressSearchActivity, response.documents!!)
         }
     }
 

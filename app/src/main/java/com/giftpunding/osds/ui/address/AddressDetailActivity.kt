@@ -9,6 +9,7 @@ import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import com.giftpunding.osds.R
 import com.giftpunding.osds.base.BaseActivity
+import com.giftpunding.osds.data.response.address.AddressSearchResultDocumentResponse
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponseTemp
 import com.giftpunding.osds.databinding.ActivityAddressDetailBinding
 import com.giftpunding.osds.enum.BackButton
@@ -34,9 +35,11 @@ class AddressDetailActivity :
         setTitle(getString(R.string.title_address_detail))
         setCloseButton(VisibleState.VISIBLE)
 
-        val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultResponseTemp
-        binding.tvSearchKeyword.text = addressData.searchKeyword
-        binding.tvAddress.text = addressData.address
+        val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultDocumentResponse
+        binding.tvSearchKeyword.text = addressData.addressName
+        binding.tvAddress.text = addressData.addressName
+
+        //도로명, 지번 구분 표시
 
         binding.editAddressDetail.requestFocus()
         revealKeyboard(binding.editAddressDetail)
