@@ -65,6 +65,7 @@
         <activity android:name=".ui.funding.FundingGiftListActivity"/>
         <activity android:name=".ui.funding.FundingMyListInfoActivity"/>
         <activity android:name=".ui.funding.FundingResultActivity"/>
+        <activity android:name=".ui.keyhash.KeyHashActivity"/>
     </application>
 
 </manifest>

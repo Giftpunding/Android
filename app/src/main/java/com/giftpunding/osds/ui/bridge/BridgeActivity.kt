@@ -15,6 +15,7 @@ import com.giftpunding.osds.ui.funding.FundingGiftListActivity
 import com.giftpunding.osds.ui.home.HomeActivity
 import com.giftpunding.osds.ui.login.LoginActivity
 import com.giftpunding.osds.ui.anniversary.AnniversarySelectActivity
+import com.giftpunding.osds.ui.keyhash.KeyHashActivity
 import com.giftpunding.osds.ui.search.SearchActivity
 
 class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding::inflate) {
@@ -52,6 +53,7 @@ class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding:
                 TestViewBindingActivity::class.java,
                 AddressActivity::class.java,
                 AnniversarySelectActivity::class.java,
+                KeyHashActivity::class.java
             )
 
             adapter = bridgeAdapter
