@@ -75,6 +75,12 @@ dependencies {
     debugImplementation 'com.facebook.soloader:soloader:0.10.1'
     releaseImplementation 'com.facebook.flipper:flipper-noop:0.153.0'
 
-    //coroutine
+    // coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2'
+
+    // kakao
+    implementation "com.kakao.sdk:v2-all:2.11.0"
+
+    // https://github.com/skydoves/Balloon
+    implementation "com.github.skydoves:balloon:1.4.7"
 }
