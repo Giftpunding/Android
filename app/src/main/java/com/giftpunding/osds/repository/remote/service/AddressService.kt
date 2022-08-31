@@ -10,9 +10,7 @@ interface AddressService {
     @GET("/v2/local/search/address.json")
     suspend fun getAddress(
         @Header("Authorization") token: String,
-        @Query("query") query: String,
-        @Query("page") page: Int,
-        @Query("size") size: Int
+        @Query("query") query: String
     ): AddressSearchResultResponse
 
     //좌표값으로 주소지( 지번 또는 도로명) 가져오기

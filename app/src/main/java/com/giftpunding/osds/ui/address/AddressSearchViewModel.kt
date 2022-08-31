@@ -22,9 +22,9 @@ class AddressSearchViewModel : ViewModel() {
     val detailAddressName: LiveData<AddressSearchResultResponse>
         get() = _detailAddressName
 
-    fun getAddress(apiKey: String, query: String, page: Int, size: Int) {
+    fun getAddress(apiKey: String, keyword: String) {
         viewModelScope.launch(exceptionHandler) {
-            val result = Application.addressRepository.getAddress(apiKey, query, page, size)
+            val result = Application.addressRepository.getAddress(apiKey, keyword)
             _isExistAddress.value = result
         }
     }
@@ -41,6 +41,7 @@ class AddressSearchViewModel : ViewModel() {
         }
     }
 
+    // 코루틴 예외처리
     private val exceptionHandler = CoroutineExceptionHandler { _, exception ->
         Log.d(tag, exception.message.toString())
     }

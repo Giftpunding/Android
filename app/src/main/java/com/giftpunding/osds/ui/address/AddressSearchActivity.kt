@@ -38,8 +38,6 @@ class AddressSearchActivity :
         }
     }
 
-    private var page = 45
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -163,9 +161,7 @@ class AddressSearchActivity :
     private fun getAddress(address: CharSequence?) {
         viewModel.getAddress(
             "KakaoAK ${resources.getString(R.string.rest_api_key)}",
-            address.toString(),
-            page,
-            30
+            address.toString()
         )
     }
 
