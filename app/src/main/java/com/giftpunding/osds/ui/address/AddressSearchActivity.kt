@@ -185,15 +185,18 @@ class AddressSearchActivity :
 
         // 검색 결과 보여주기 위해서 리사이클러 뷰 어뎁터에 데이터 넣어 줌
         addressSearchAdapter.clearItems()
+        addressSearchAdapter.setAddressKeyword(binding.editAddressSearch.text.toString())
         addressSearchAdapter.addItems(address.documents)
     }
 
 
     private fun initLiveData() {
+        // 첫번째 주소 검색 결과
         viewModel.isExistAddress.observe(this) { address ->
             updateAddressView(address)
         }
 
+        // 지번, 도로명 검색 결과
         viewModel.detailAddressName.observe(this){ address ->
             updateAddressView(address)
         }
