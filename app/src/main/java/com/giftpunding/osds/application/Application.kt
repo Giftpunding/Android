@@ -8,12 +8,14 @@ import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.giftpunding.osds.BuildConfig
 import com.giftpunding.osds.R
+import com.giftpunding.osds.repository.AddressRepository
 import com.giftpunding.osds.repository.AnniversaryRepository
 import com.giftpunding.osds.repository.LoginRepository
 import com.giftpunding.osds.repository.SearchRepository
 import com.giftpunding.osds.repository.local.pref.KeywordSharedPreference
 import com.giftpunding.osds.repository.local.pref.KeywordSharedPreferenceImpl
 import com.giftpunding.osds.repository.local.pref.LoginSharedPreference
+import com.giftpunding.osds.repository.remote.datasource.AddressDataSource
 import com.giftpunding.osds.repository.remote.datasource.AnniversaryDataSource
 import com.giftpunding.osds.repository.remote.datasource.LoginRemoteDataSource
 import com.google.gson.Gson
@@ -26,10 +28,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Application: Application() {
 
     private lateinit var retrofit:Retrofit
+    private lateinit var kakaoAddressRetrofit:Retrofit
     private lateinit var loginSharedPreference: LoginSharedPreference
     private lateinit var loginRemoteDataSource: LoginRemoteDataSource
     private lateinit var keywordSharedPreference: KeywordSharedPreference
     private lateinit var anniversaryDataSource: AnniversaryDataSource
+    private lateinit var addressDataSource: AddressDataSource
     private lateinit var gsonConvert: Gson
 
     override fun onCreate() {
@@ -50,6 +54,13 @@ class Application: Application() {
                 .client(OkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
+
+        kakaoAddressRetrofit =
+            Retrofit.Builder()
+                .baseUrl(kakaoBaseUrl)
+                .client(OkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
     }
 
     private fun initGson() {
@@ -66,6 +77,9 @@ class Application: Application() {
 
         anniversaryDataSource = AnniversaryDataSource(retrofit)
         anniversaryRepository = AnniversaryRepository(anniversaryDataSource)
+
+        addressDataSource = AddressDataSource(kakaoAddressRetrofit)
+        addressRepository = AddressRepository(addressDataSource)
     }
 
     private fun initFlipper() {
@@ -80,9 +94,11 @@ class Application: Application() {
 
     companion object {
         const val baseUrl: String = "http://3.36.251.242:8080"
+        const val kakaoBaseUrl : String = "https://dapi.kakao.com"
         lateinit var mApp: Application
         lateinit var loginRepository: LoginRepository
         lateinit var searchRepository: SearchRepository
         lateinit var anniversaryRepository: AnniversaryRepository
+        lateinit var addressRepository: AddressRepository
     }
 }

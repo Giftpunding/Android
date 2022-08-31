@@ -10,7 +10,6 @@ class AnniversaryRepository(private val anniversaryDataSource: AnniversaryDataSo
             anniversaryDay = anniversaryDay,
             anniversary = anniversary
         )
-
         anniversaryDataSource.getAnniversaryService().postUser(userDto)
     }
 }

@@ -76,6 +76,7 @@
         android:paddingStart="18dp"
         android:paddingEnd="50dp"
         android:textColorHint="@color/echo_blue"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_address" />
 
