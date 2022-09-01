@@ -74,6 +74,14 @@ class AddressSearchActivity :
         // 주소 검색 삭제 버튼
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressSearch.text = null
+
+            //Guide 제외 나머지로 돌아가기
+            binding.viewAddressSearchNoResult.root.visibility = View.GONE
+            binding.viewAddressSearchDetailResult.root.visibility = View.GONE
+            binding.viewAddressSearchResult.root.visibility = View.GONE
+            binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
+
+            addressSearchAdapter.setAddressFlag(false);
         }
 
         // 주소 입력 화면 종료 버튼
@@ -83,7 +91,7 @@ class AddressSearchActivity :
 
         // 주소 검색 완료 버튼
         // 해당 버튼은 키보드에 있음
-        binding.editAddressSearch.setOnEditorActionListener { textView, i, keyEvent ->
+        binding.editAddressSearch.setOnEditorActionListener { _, i, _ ->
             if (i == EditorInfo.IME_ACTION_SEARCH) {
                 binding.viewAddressSearchGuide.root.visibility = View.GONE
                 binding.viewAddressSearchResult.root.visibility = View.VISIBLE

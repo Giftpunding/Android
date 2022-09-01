@@ -57,6 +57,11 @@ class AddressSearchAdapter :
         addressKeyword = keyword
     }
 
+    // 초기 상태, 주소 입력상태 관리
+    fun setAddressFlag(flag: Boolean){
+        this.flag = flag;
+    }
+
     @SuppressLint("NotifyDataSetChanged")
     fun addItems(address: List<AddressSearchResultDocumentResponse>?) {
         if (address != null) {
