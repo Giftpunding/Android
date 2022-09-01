@@ -74,6 +74,11 @@ class AddressSearchActivity :
         // 주소 검색 삭제 버튼
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressSearch.text = null
+            //true면 첫번째 상태
+            if(addressSearchAdapter.getFirstAddressView()) {
+                binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
+                binding.viewAddressSearchResult.root.visibility = View.GONE
+            }
         }
 
         // 주소 입력 화면 종료 버튼
@@ -83,7 +88,7 @@ class AddressSearchActivity :
 
         // 주소 검색 완료 버튼
         // 해당 버튼은 키보드에 있음
-        binding.editAddressSearch.setOnEditorActionListener { textView, i, keyEvent ->
+        binding.editAddressSearch.setOnEditorActionListener { _, i, _ ->
             if (i == EditorInfo.IME_ACTION_SEARCH) {
                 binding.viewAddressSearchGuide.root.visibility = View.GONE
                 binding.viewAddressSearchResult.root.visibility = View.VISIBLE
@@ -160,7 +165,7 @@ class AddressSearchActivity :
     // 주소 검색
     private fun getAddress(address: CharSequence?) {
         viewModel.getAddress(
-            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
+            "KakaoAK ${resources.getString(R.string.kakao_rest_api_key)}",
             address.toString()
         )
     }
@@ -168,17 +173,21 @@ class AddressSearchActivity :
     //좌표값으로 주소지( 지번 또는 도로명) 가져오기
     private fun getAddress(addressData: AddressSearchResultDocumentResponse) {
         viewModel.getAddress(
-            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
+            "KakaoAK ${resources.getString(R.string.kakao_rest_api_key)}",
             addressData
         )
     }
 
     //응답 된 데이터 안에 주소 데이터의 존재 여부에 따라 뷰 업데이트
     private fun updateAddressView(address: AddressSearchResultResponse) {
+        //데이터가 없다.
         if (address.documents?.isEmpty() == true) {
-            binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
-            binding.viewAddressSearchResult.root.visibility = View.GONE
+            if(addressSearchAdapter.getFirstAddressView()) {
+                binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
+                binding.viewAddressSearchResult.root.visibility = View.GONE
+            }
         } else {
+            //firstAddressView = true?
             binding.viewAddressSearchGuide.root.visibility = View.GONE
             binding.viewAddressSearchResult.root.visibility = View.VISIBLE
         }

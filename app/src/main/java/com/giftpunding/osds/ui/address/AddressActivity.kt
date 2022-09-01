@@ -8,6 +8,7 @@ import com.giftpunding.osds.databinding.ActivityAddressBinding
 import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
+import com.giftpunding.osds.ui.home.HomeActivity
 
 class AddressActivity : BaseActivity<ActivityAddressBinding>(ActivityAddressBinding::inflate) {
 
@@ -34,7 +35,7 @@ class AddressActivity : BaseActivity<ActivityAddressBinding>(ActivityAddressBind
         backButton.setOnClickListener { finish() }
 
         binding.btnNextTodo.setOnClickListener {
-            //Todo 어디로 이동할지 작성해야함
+            startActivity(Intent(this,HomeActivity::class.java))
         }
     }
 }

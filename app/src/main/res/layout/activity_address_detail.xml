@@ -48,8 +48,9 @@
         android:text="도로명 주소 영역입니다"
         android:textColor="@color/echo_blue_2"
         android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@+id/tv_address_type"
-        app:layout_constraintStart_toEndOf="@+id/tv_address_type"/>
+        app:layout_constraintBottom_toBottomOf="@+id/tv_address_type"
+        app:layout_constraintStart_toEndOf="@+id/tv_address_type"
+        app:layout_constraintTop_toTopOf="@+id/tv_address_type" />
 
     <View
         android:id="@+id/view_keyboard_hide_touch_area"
@@ -94,10 +95,14 @@
         android:id="@+id/btn_complete"
         style="@style/noto_sans_kr_medium_16_white_padding0"
         android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="14dp"
-        android:background="@drawable/bg_sc_rect_trans100_echo_blue2_radius4_rect_trans100_midnight_express_radius4"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        android:layout_marginBottom="46dp"
+        android:background="@drawable/bg_sc_rect_trans100_echo_blue2_radius4_rect_trans100_midnight_express_radius10"
         android:enabled="false"
+        android:minHeight="0dp"
+        android:paddingVertical="15dp"
         android:text="@string/title_register_complete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
