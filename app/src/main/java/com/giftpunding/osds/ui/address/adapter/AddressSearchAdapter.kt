@@ -57,9 +57,8 @@ class AddressSearchAdapter :
         addressKeyword = keyword
     }
 
-    // 초기 상태, 주소 입력상태 관리
-    fun setAddressFlag(flag: Boolean){
-        this.flag = flag;
+    fun getFirstAddressView() : Boolean{
+        return isFirstAddressView
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -93,7 +92,7 @@ class AddressSearchAdapter :
                 initAddressNameView(item, keyword)
             } else {
                 //첫번째 주소 검색 후 주소의 좌표값을 통해 지번과 도로명 보여주는 뷰
-                initAddressResultView(item, keyword)
+                initAddressResultView(item)
             }
         }
 
@@ -101,21 +100,28 @@ class AddressSearchAdapter :
             item: AddressSearchResultDocumentResponse,
             keyword: String
         ) {
-            binding.lAddressName.tvAddress.text = (SpannableString.setTextColor(item.addressName!!, keyword))
+            binding.lAddressName.tvAddress.text = item.addressName
+            //binding.lAddressName.tvAddress.append(SpannableString.setTextColor(item.addressName!!, keyword))
         }
 
         private fun initAddressResultView(
             item: AddressSearchResultDocumentResponse,
-            keyword: String
         ) {
             binding.lAddressResult.apply {
-                tvSearchKeyword.text = keyword
                 if (item.address != null) {
                     tvAddressType.text = "지번"
                     tvAddress.text = item.address!!.addressName
-                } else if (item.roadAddress != null) {
+                    tvSearchKeyword.text = item.address!!.addressName
+                }
+                if (item.roadAddress != null) {
                     tvAddressType.text = "도로명"
-                    tvAddress.text = item.roadAddress!!.roadName
+                    tvAddress.text = item.roadAddress?.addressName
+                    if(item.roadAddress?.buildingName == ""){
+                        tvSearchKeyword.text = item.roadAddress?.addressName
+                    }
+                    else{
+                        tvSearchKeyword.text = item.roadAddress?.buildingName
+                    }
                 }
             }
         }

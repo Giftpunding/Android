@@ -74,14 +74,11 @@ class AddressSearchActivity :
         // 주소 검색 삭제 버튼
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressSearch.text = null
-
-            //Guide 제외 나머지로 돌아가기
-            binding.viewAddressSearchNoResult.root.visibility = View.GONE
-            binding.viewAddressSearchDetailResult.root.visibility = View.GONE
-            binding.viewAddressSearchResult.root.visibility = View.GONE
-            binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
-
-            addressSearchAdapter.setAddressFlag(false);
+            //true면 첫번째 상태
+            if(addressSearchAdapter.getFirstAddressView()) {
+                binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
+                binding.viewAddressSearchResult.root.visibility = View.GONE
+            }
         }
 
         // 주소 입력 화면 종료 버튼
@@ -183,10 +180,14 @@ class AddressSearchActivity :
 
     //응답 된 데이터 안에 주소 데이터의 존재 여부에 따라 뷰 업데이트
     private fun updateAddressView(address: AddressSearchResultResponse) {
+        //데이터가 없다.
         if (address.documents?.isEmpty() == true) {
-            binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
-            binding.viewAddressSearchResult.root.visibility = View.GONE
+            if(addressSearchAdapter.getFirstAddressView()) {
+                binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
+                binding.viewAddressSearchResult.root.visibility = View.GONE
+            }
         } else {
+            //firstAddressView = true?
             binding.viewAddressSearchGuide.root.visibility = View.GONE
             binding.viewAddressSearchResult.root.visibility = View.VISIBLE
         }
