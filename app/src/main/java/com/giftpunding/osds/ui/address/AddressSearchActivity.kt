@@ -78,6 +78,9 @@ class AddressSearchActivity :
             if(addressSearchAdapter.getFirstAddressView()) {
                 binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
                 binding.viewAddressSearchResult.root.visibility = View.GONE
+                binding.viewAddressSearchNoResult.root.visibility = View.GONE
+            }else{
+                addressSearchAdapter.setFirstAddressView(true)
             }
         }
 
@@ -180,22 +183,20 @@ class AddressSearchActivity :
 
     //응답 된 데이터 안에 주소 데이터의 존재 여부에 따라 뷰 업데이트
     private fun updateAddressView(address: AddressSearchResultResponse) {
-        //데이터가 없다.
-        if (address.documents?.isEmpty() == true) {
-            if(addressSearchAdapter.getFirstAddressView()) {
-                binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
-                binding.viewAddressSearchResult.root.visibility = View.GONE
-            }
-        } else {
-            //firstAddressView = true?
-            binding.viewAddressSearchGuide.root.visibility = View.GONE
+        binding.viewAddressSearchGuide.root.visibility = View.GONE
+        //데이터가 없을 경우 -> 결과물이 없다는 표시의 이미지를 표출
+        if(address.documents?.isEmpty() == true){
+            binding.viewAddressSearchNoResult.root.visibility = View.VISIBLE
+            binding.viewAddressSearchResult.root.visibility = View.GONE
+        }else{
+            binding.viewAddressSearchNoResult.root.visibility = View.GONE
             binding.viewAddressSearchResult.root.visibility = View.VISIBLE
-        }
 
-        // 검색 결과 보여주기 위해서 리사이클러 뷰 어뎁터에 데이터 넣어 줌
-        addressSearchAdapter.clearItems()
-        addressSearchAdapter.setAddressKeyword(binding.editAddressSearch.text.toString())
-        addressSearchAdapter.addItems(address.documents)
+            // 검색 결과 보여주기 위해서 리사이클러 뷰 어뎁터에 데이터 넣어 줌
+            addressSearchAdapter.clearItems()
+            addressSearchAdapter.setAddressKeyword(binding.editAddressSearch.text.toString())
+            addressSearchAdapter.addItems(address.documents)
+        }
     }
 
 
