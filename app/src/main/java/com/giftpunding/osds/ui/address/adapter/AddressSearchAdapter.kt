@@ -1,6 +1,10 @@
 package com.giftpunding.osds.ui.address.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.text.Spannable
+import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -100,8 +104,19 @@ class AddressSearchAdapter :
             item: AddressSearchResultDocumentResponse,
             keyword: String
         ) {
+            //indexof로 첫글자 찾기, 그 후 키워드의 숫자 만큼 글자색 변경
+            //item = 주소 정보가 담긴 객체
+            //keyword = 내가 입력한 글씨
+
+            Log.d("keyword test", "${item.addressName?.indexOf(keyword)}")
+
+            val searchIdx = item.addressName?.indexOf(keyword)!!
+            val currentKeywordSize = keyword.length
+
             binding.lAddressName.tvAddress.text = item.addressName
-            //binding.lAddressName.tvAddress.append(SpannableString.setTextColor(item.addressName!!, keyword))
+            val span = binding.lAddressName.tvAddress.text as android.text.SpannableString
+            span.setSpan(ForegroundColorSpan(Color.BLUE),searchIdx,searchIdx+currentKeywordSize, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            binding.lAddressName.tvAddress.text = span
         }
 
         private fun initAddressResultView(
