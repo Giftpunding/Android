@@ -1,6 +1,11 @@
 package com.giftpunding.osds.ui.address.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +14,8 @@ import com.giftpunding.osds.data.response.address.AddressSearchResultDocumentRes
 import com.giftpunding.osds.databinding.ItemAddressSearchBinding
 import com.giftpunding.osds.ui.address.ItemClickListener
 import com.giftpunding.osds.util.SpannableString
+import java.util.*
+import kotlin.collections.ArrayList
 
 class AddressSearchAdapter :
     RecyclerView.Adapter<AddressSearchAdapter.AddressSearchResultViewHolder>() {
@@ -31,13 +38,13 @@ class AddressSearchAdapter :
     override fun onBindViewHolder(holder: AddressSearchResultViewHolder, position: Int) {
         holder.onBind(addressItems[position], isFirstAddressView, addressKeyword)
 
-        if(isFirstAddressView){
-            holder.itemView.setOnClickListener{
+        if (isFirstAddressView) {
+            holder.itemView.setOnClickListener {
                 isFirstAddressView = false
                 itemClickListener.clickAddressName(addressItems[position])
             }
-        }else{
-            holder.itemView.setOnClickListener{
+        } else {
+            holder.itemView.setOnClickListener {
                 isFirstAddressView = true
                 addressItems[position].addressName = addressKeyword
                 itemClickListener.clickDetailAddressName(addressItems[position])
@@ -53,11 +60,11 @@ class AddressSearchAdapter :
     }
 
     // 검색어 주입
-    fun setAddressKeyword(keyword: String){
+    fun setAddressKeyword(keyword: String) {
         addressKeyword = keyword
     }
 
-    fun getFirstAddressView() : Boolean{
+    fun getFirstAddressView(): Boolean {
         return isFirstAddressView
     }
 
@@ -100,8 +107,32 @@ class AddressSearchAdapter :
             item: AddressSearchResultDocumentResponse,
             keyword: String
         ) {
+            binding.lAddressName.tvAddress.text = ""
+            val st = StringTokenizer(item.addressName)
+
+            while (st.hasMoreTokens()) {
+                //경기 용인시 기흥구 신갈로58번길
+                val token = st.nextToken()
+                //keyword : 신갈로, token : 신갈로58번길
+                Log.d("current token" ,token)
+                if (keyword.contains(token)) {
+                    Log.d("keyword is contain",token)
+                    val ssb = SpannableStringBuilder("$token ")
+                    //무조건 포함할까? 경기, 경기도면? 신갈로58번길, 신갈로면?
+                    ssb.apply{
+                        //토큰 기반 -> 신갈로58번길, 신갈로
+                        if(token.length > keyword.length){
+                            setSpan(ForegroundColorSpan(Color.BLUE), 0, keyword.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        }
+                        //키워드 기반 -> 경기, 경기도
+                        else{
+                            setSpan(ForegroundColorSpan(Color.BLUE), 0, token.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        }
+                    }
+                    binding.lAddressName.tvAddress.append(ssb)
+                }
+            }
             binding.lAddressName.tvAddress.text = item.addressName
-            //binding.lAddressName.tvAddress.append(SpannableString.setTextColor(item.addressName!!, keyword))
         }
 
         private fun initAddressResultView(
@@ -116,10 +147,9 @@ class AddressSearchAdapter :
                 if (item.roadAddress != null) {
                     tvAddressType.text = "도로명"
                     tvAddress.text = item.roadAddress?.addressName
-                    if(item.roadAddress?.buildingName == ""){
+                    if (item.roadAddress?.buildingName == "") {
                         tvSearchKeyword.text = item.roadAddress?.addressName
-                    }
-                    else{
+                    } else {
                         tvSearchKeyword.text = item.roadAddress?.buildingName
                     }
                 }
@@ -127,10 +157,10 @@ class AddressSearchAdapter :
         }
 
         private fun changeRecyclerView(isFirstAddressView: Boolean) {
-            if(isFirstAddressView){
+            if (isFirstAddressView) {
                 binding.lAddressResult.root.visibility = View.GONE
                 binding.lAddressName.root.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.lAddressResult.root.visibility = View.VISIBLE
                 binding.lAddressName.root.visibility = View.GONE
             }
