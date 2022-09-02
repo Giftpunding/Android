@@ -165,7 +165,7 @@ class AddressSearchActivity :
     // 주소 검색
     private fun getAddress(address: CharSequence?) {
         viewModel.getAddress(
-            "KakaoAK ${resources.getString(R.string.kakao_rest_api_key)}",
+            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
             address.toString()
         )
     }
@@ -173,7 +173,7 @@ class AddressSearchActivity :
     //좌표값으로 주소지( 지번 또는 도로명) 가져오기
     private fun getAddress(addressData: AddressSearchResultDocumentResponse) {
         viewModel.getAddress(
-            "KakaoAK ${resources.getString(R.string.kakao_rest_api_key)}",
+            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
             addressData
         )
     }
