@@ -43,20 +43,6 @@ class AddressDetailActivity :
         //도로명, 지번 구분 표시
         initAddressTextViews(addressData)
 
-//        if (addressData.roadAddress != null) {
-//            binding.tvAddressType.text = "도로명"
-//            binding.tvAddress.text = addressData.roadAddress!!.roadName
-//            if (addressData.roadAddress!!.buildingName != "") {
-//                binding.tvSearchKeyword.text =
-//                    addressData.roadAddress!!.addressName + " " + addressData.roadAddress!!.buildingName
-//            } else {
-//                binding.tvSearchKeyword.text = addressData.roadAddress!!.roadName
-//            }
-//        }else if(addressData.address != null) {
-//            binding.tvAddressType.text = "지번"
-//            binding.tvAddress.text = addressData.address!!.addressName
-//            binding.tvSearchKeyword.text = addressData.address!!.addressName
-//        }
         binding.editAddressDetail.requestFocus()
         revealKeyboard(binding.editAddressDetail)
     }

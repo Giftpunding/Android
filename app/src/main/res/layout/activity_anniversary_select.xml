@@ -23,9 +23,85 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tb_login_event_select" />
 
-    <fragment
-        android:id="@+id/fragment_event_select"
-        android:name="com.giftpunding.osds.ui.anniversary.AnniversarySelectFragment"
+    <TextView
+        android:id="@+id/tv_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+        android:paddingHorizontal="36dp"
+        android:paddingVertical="13dp"
+        android:text="@string/category_anniversary_birthday"
+        android:textColor="@color/black_marlin"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_event_select_content" />
+
+    <TextView
+        android:id="@+id/tv_pregnancy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+        android:paddingHorizontal="36dp"
+        android:paddingVertical="13dp"
+        android:text="@string/category_anniversary_pregnancy"
+        android:textColor="@color/black_marlin"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/tv_birthday"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_event_select_content" />
+
+    <TextView
+        android:id="@+id/tv_housewarming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+        android:paddingHorizontal="36dp"
+
+        android:paddingVertical="13dp"
+
+        android:text="@string/category_anniversary_housewarming"
+        android:textColor="@color/black_marlin"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_birthday" />
+
+    <TextView
+        android:id="@+id/tv_wedding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+        android:paddingHorizontal="36dp"
+        android:paddingVertical="13dp"
+        android:text="@string/category_anniversary_wedding"
+        android:textColor="@color/black_marlin"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/tv_housewarming"
+        app:layout_constraintTop_toBottomOf="@id/tv_pregnancy" />
+
+    <TextView
+        android:id="@+id/tv_user_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+        android:paddingHorizontal="36dp"
+        android:paddingVertical="13dp"
+        android:text="@string/category_anniversary_user_input"
+        android:textColor="@color/black_marlin"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_housewarming" />
+
+    <FrameLayout
+        android:id="@+id/fl_anniversary_select"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="50dp"

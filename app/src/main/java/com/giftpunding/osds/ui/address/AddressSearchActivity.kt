@@ -194,6 +194,7 @@ class AddressSearchActivity :
             showAddressSearchResultView()
             // 검색 결과 보여주기 위해서 리사이클러 뷰 어뎁터에 데이터 넣어 줌
             addressSearchAdapter.clearItems()
+            addressSearchAdapter.setKeyword(binding.editAddressSearch.text.toString())
             address.documents?.let { addressSearchAdapter.addItems(it) }
         }
     }
