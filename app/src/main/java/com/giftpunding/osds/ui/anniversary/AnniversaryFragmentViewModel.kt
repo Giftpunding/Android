@@ -23,6 +23,7 @@ class AnniversaryFragmentViewModel : ViewModel() {
                 Application.anniversaryRepository.addAnniversary(anniversaryDay, anniversary)
             if (response.isSuccessful) {
                 _anniversaryResponse.value = response.body()
+
             } else {
                 Log.e("AnniversaryViewModel", "err")
             }

@@ -1,5 +1,6 @@
 package com.giftpunding.osds.ui.login
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,7 @@ import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
 import com.giftpunding.osds.application.Application.Companion.loginRepository
+import com.giftpunding.osds.ui.anniversary.AnniversarySelectActivity
 import com.giftpunding.osds.ui.login.adapter.LoginBannerAdapter
 import com.skydoves.balloon.*
 
@@ -27,23 +29,27 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     }
 
     override fun init() {
-        val list = listOf(R.drawable.ic_launcher_background,R.drawable.ic_launcher_background,R.drawable.ic_launcher_background)
+        val list = listOf(
+            R.drawable.ic_launcher_background,
+            R.drawable.ic_launcher_background,
+            R.drawable.ic_launcher_background
+        )
 
         binding.apply {
-            vpBanner.adapter = LoginBannerAdapter(list,this@LoginActivity)
+            vpBanner.adapter = LoginBannerAdapter(list, this@LoginActivity)
             ciBanner.setViewPager(vpBanner)
             btnKakaoLogin.setOnClickListener { kakaoLoginButtonEvent() }
             btnKakaoLogin.showAlignTop(makeBalloon())
         }
     }
 
-    private fun makeBalloon() : Balloon{
+    private fun makeBalloon(): Balloon {
         val popUpMessage = Balloon.Builder(this)
             .setWidth(BalloonSizeSpec.WRAP)
             .setHeight(BalloonSizeSpec.WRAP)
             .setText(resources.getString(R.string.content_login_tutorial))
             .setTextColorResource(R.color.hawkes_blue)
-            .setTextTypeface(ResourcesCompat.getFont(this,R.font.pretendard_medium)!!)
+            .setTextTypeface(ResourcesCompat.getFont(this, R.font.pretendard_medium)!!)
             .setTextSize(13f)
             .setIconHeight(20)
             .setMarginBottom(6)
@@ -76,6 +82,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                 // 로그인 성공 API 호출
                 loginRepository.getJwt(token.accessToken)
                 Log.i(TAG, "카카오계정으로 로그인 성공 ${token.accessToken}")
+
+                finish()
+                startActivity(Intent(this, AnniversarySelectActivity::class.java))
             }
         }
 
@@ -92,6 +101,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                         // 로그인 성공 API 호출
                         loginRepository.getJwt(token.accessToken)
                         Log.i(TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
+
+                        finish()
+                        startActivity(Intent(this, AnniversarySelectActivity::class.java))
                     }
                 }
             } else {
