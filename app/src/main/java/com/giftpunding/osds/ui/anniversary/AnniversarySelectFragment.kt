@@ -47,8 +47,8 @@ class AnniversarySelectFragment : Fragment() {
     }
 
     private fun initAnniversaryViewModel(){
+        //옵저빙하여 변화가 있으면 실행
         viewModel.anniversaryResponse.observe(viewLifecycleOwner){
-            //옵저빙하여 변화가 있으면 실행
             startActivity(Intent(requireContext(), HomeActivity::class.java))
         }
     }

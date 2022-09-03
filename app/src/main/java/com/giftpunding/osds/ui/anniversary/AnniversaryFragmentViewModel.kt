@@ -11,12 +11,14 @@ import kotlinx.coroutines.launch
 
 class AnniversaryFragmentViewModel : ViewModel() {
 
+    //임시로 Anniversary response, request를 만들었음, 후에 User로 통합할 예정
     private val _anniversaryResponse = MutableLiveData<AnniversaryResponse>()
     val anniversaryResponse: LiveData<AnniversaryResponse>
         get() = _anniversaryResponse
 
     fun addAnniversary(anniversaryDay: String, anniversary: String) {
         viewModelScope.launch {
+            //Callback이 아닌 Response를 반환
             val response =
                 Application.anniversaryRepository.addAnniversary(anniversaryDay, anniversary)
             if (response.isSuccessful) {
