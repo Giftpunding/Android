@@ -23,6 +23,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tb_login_event_select" />
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_event_select"
+        android:name="com.giftpunding.osds.ui.anniversary.AnniversarySelectFragment"
     <TextView
         android:id="@+id/tv_birthday"
         android:layout_width="wrap_content"

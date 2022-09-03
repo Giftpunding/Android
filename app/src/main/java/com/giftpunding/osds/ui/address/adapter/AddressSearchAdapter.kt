@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.giftpunding.osds.data.response.address.AddressSearchResultDocumentResponse
 import com.giftpunding.osds.databinding.ItemAddressSearchBinding
 import com.giftpunding.osds.ui.address.ItemClickListener
-import com.giftpunding.osds.util.SpannableString
+import com.giftpunding.osds.util.setAddressTextColor
+import kotlin.collections.ArrayList
 
 class AddressSearchAdapter :
     RecyclerView.Adapter<AddressSearchAdapter.AddressSearchResultViewHolder>() {
@@ -31,13 +32,13 @@ class AddressSearchAdapter :
     override fun onBindViewHolder(holder: AddressSearchResultViewHolder, position: Int) {
         holder.onBind(addressItems[position], isFirstAddressView, addressKeyword)
 
-        if(isFirstAddressView){
-            holder.itemView.setOnClickListener{
+        if (isFirstAddressView) {
+            holder.itemView.setOnClickListener {
                 isFirstAddressView = false
                 itemClickListener.clickAddressName(addressItems[position])
             }
-        }else{
-            holder.itemView.setOnClickListener{
+        } else {
+            holder.itemView.setOnClickListener {
                 isFirstAddressView = true
                 addressItems[position].addressName = addressKeyword
                 itemClickListener.clickDetailAddressName(addressItems[position])
@@ -53,11 +54,15 @@ class AddressSearchAdapter :
     }
 
     // 검색어 주입
-    fun setAddressKeyword(keyword: String){
+    fun setAddressKeyword(keyword: String) {
         addressKeyword = keyword
     }
 
-    fun getFirstAddressView() : Boolean{
+    fun setFirstAddressView(isFirstAddressView: Boolean){
+        this.isFirstAddressView = isFirstAddressView
+    }
+
+    fun getFirstAddressView(): Boolean {
         return isFirstAddressView
     }
 
@@ -100,8 +105,7 @@ class AddressSearchAdapter :
             item: AddressSearchResultDocumentResponse,
             keyword: String
         ) {
-            binding.lAddressName.tvAddress.text = item.addressName
-            //binding.lAddressName.tvAddress.append(SpannableString.setTextColor(item.addressName!!, keyword))
+            binding.lAddressName.tvAddress.setAddressTextColor(item.addressName!!,keyword)
         }
 
         private fun initAddressResultView(
@@ -116,10 +120,9 @@ class AddressSearchAdapter :
                 if (item.roadAddress != null) {
                     tvAddressType.text = "도로명"
                     tvAddress.text = item.roadAddress?.addressName
-                    if(item.roadAddress?.buildingName == ""){
+                    if (item.roadAddress?.buildingName == "") {
                         tvSearchKeyword.text = item.roadAddress?.addressName
-                    }
-                    else{
+                    } else {
                         tvSearchKeyword.text = item.roadAddress?.buildingName
                     }
                 }
@@ -127,10 +130,10 @@ class AddressSearchAdapter :
         }
 
         private fun changeRecyclerView(isFirstAddressView: Boolean) {
-            if(isFirstAddressView){
+            if (isFirstAddressView) {
                 binding.lAddressResult.root.visibility = View.GONE
                 binding.lAddressName.root.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.lAddressResult.root.visibility = View.VISIBLE
                 binding.lAddressName.root.visibility = View.GONE
             }

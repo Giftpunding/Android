@@ -109,6 +109,9 @@ class Application: Application() {
         }
     }
 
+
+
+
     companion object {
         const val baseUrl: String = "http://3.36.251.242:8080"
         const val kakaoBaseUrl : String = "https://dapi.kakao.com"
