@@ -8,12 +8,10 @@ import com.giftpunding.osds.ui.main.MainActivity
 import com.giftpunding.osds.R
 import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityBridgeBinding
-import com.giftpunding.osds.ui.TestViewBindingActivity
 import com.giftpunding.osds.ui.address.AddressActivity
 import com.giftpunding.osds.ui.bridge.adapter.BridgeAdapter
 import com.giftpunding.osds.ui.funding.FundingGiftListActivity
 import com.giftpunding.osds.ui.home.HomeActivity
-import com.giftpunding.osds.ui.login.LoginActivity
 import com.giftpunding.osds.ui.anniversary.AnniversarySelectActivity
 import com.giftpunding.osds.ui.keyhash.KeyHashActivity
 import com.giftpunding.osds.ui.search.SearchActivity
@@ -46,13 +44,12 @@ class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding:
 
             val mActivityList: ArrayList<Class<out Activity>> = arrayListOf(
                 MainActivity::class.java,
-                LoginActivity::class.java,
+//                LoginActivity::class.java,
                 HomeActivity::class.java,
                 SearchActivity::class.java,
                 FundingGiftListActivity::class.java,
-                TestViewBindingActivity::class.java,
-                AddressActivity::class.java,
-                AnniversarySelectActivity::class.java,
+//                AddressActivity::class.java,
+//                AnniversarySelectActivity::class.java,
                 KeyHashActivity::class.java
             )
 
