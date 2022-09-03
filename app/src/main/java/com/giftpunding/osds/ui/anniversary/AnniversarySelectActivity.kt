@@ -24,7 +24,7 @@ class AnniversarySelectActivity :
         setBackButtonVisible(VisibleState.VISIBLE)
         setBackButton(BackButton.BACK)
         setCloseButton(VisibleState.INVISIBLE)
-        setTitle("텍스트")
+        setTitle("타이틀")
 
     }
 
