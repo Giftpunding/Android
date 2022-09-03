@@ -83,6 +83,7 @@
     <string name="content_login_description">선물을 펀딩으로 받아보세요!</string>
 
     <string name="content_next_step">다음</string>
+    <string name="content_empty_user_input_anniversary">기념일을 입력해주세요.</string>
 
     <!-- 배송지 입력화면 -->
     <string name="content_address">펀딩 완료된 선물을\n어디로 배송해 드릴까요?</string>
@@ -106,7 +107,7 @@
     <string name="category_anniversary_pregnancy">&#129328; 임신 / 출산</string>
     <string name="category_anniversary_housewarming">&#127968; 이사 / 집들이</string>
     <string name="category_anniversary_wedding">&#128141; 결혼</string>
-    <string name="category_anniversary_user_input">직접 입력</string>
+    <string name="category_anniversary_user_input">&#x270F;&#xFE0F; 직접 입력</string>
     <string name="content_month">월</string>
     <string name="content_day_of_month">일</string>
     <string name="title_event_type">이벤트 종류</string>

@@ -1,7 +1,11 @@
 package com.giftpunding.osds.ui.anniversary
 
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.giftpunding.osds.R
 import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.databinding.ActivityAnniversarySelectBinding
 import com.giftpunding.osds.enum.BackButton
@@ -33,6 +37,17 @@ class AnniversarySelectActivity :
         binding.tvPregnancy.setOnClickListener { replaceFragment(PREGNANCY) }
         binding.tvHousewarming.setOnClickListener { replaceFragment(HOUSEWARMING) }
         binding.tvWedding.setOnClickListener { replaceFragment(WEDDING) }
+        binding.editUserInput.setOnEditorActionListener { _, actionId, _ ->
+            if(actionId == EditorInfo.IME_ACTION_DONE){
+                if(binding.editUserInput.text.toString() == ""){
+                    Toast.makeText(this, getString(R.string.content_empty_user_input_anniversary),Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    replaceFragment(binding.editUserInput.text.toString())
+                }
+            }
+            false
+        }
     }
 
     private fun replaceFragment(anniversaryType: String) {
@@ -41,7 +56,6 @@ class AnniversarySelectActivity :
                 putString(ANNIVERSARY_TYPE, anniversaryType)
             }
         }
-
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.flAnniversarySelect.id, anniversarySelectFragment).commit()

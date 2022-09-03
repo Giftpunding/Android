@@ -36,25 +36,27 @@ class AnniversarySelectFragment : Fragment() {
     }
 
     fun init() {
-        when (requireArguments().getString(AnniversarySelectActivity.ANNIVERSARY_TYPE)) {
+        when (val anniversaryType = requireArguments().getString(AnniversarySelectActivity.ANNIVERSARY_TYPE)!!) {
             AnniversarySelectActivity.BIRTHDAY -> {
                 anniversary = AnniversarySelectActivity.BIRTHDAY
                 setSelectedAnniversary(binding.rBtnBirthday)
-
             }
             AnniversarySelectActivity.PREGNANCY -> {
                 anniversary = AnniversarySelectActivity.PREGNANCY
                 setSelectedAnniversary(binding.rBtnPregnancy)
-
             }
             AnniversarySelectActivity.HOUSEWARMING -> {
                 anniversary = AnniversarySelectActivity.HOUSEWARMING
                 setSelectedAnniversary(binding.rBtnHousewarming)
-
             }
             AnniversarySelectActivity.WEDDING -> {
                 anniversary = AnniversarySelectActivity.WEDDING
                 setSelectedAnniversary(binding.rBtnMarry)
+            }
+            else -> {
+                anniversary = anniversaryType
+                binding.rBtnUserInput.text = anniversaryType
+                setSelectedAnniversary(binding.rBtnUserInput)
             }
         }
     }
@@ -111,6 +113,9 @@ class AnniversarySelectFragment : Fragment() {
 
         binding.rBtnMarry.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) setAnniversary("marry")
+        }
+        binding.rBtnUserInput.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) setAnniversary(anniversary)
         }
     }
 

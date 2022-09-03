@@ -61,9 +61,7 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
         android:paddingHorizontal="36dp"
-
         android:paddingVertical="13dp"
-
         android:text="@string/category_anniversary_housewarming"
         android:textColor="@color/black_marlin"
         android:textSize="16sp"
@@ -85,17 +83,21 @@
         app:layout_constraintStart_toEndOf="@id/tv_housewarming"
         app:layout_constraintTop_toBottomOf="@id/tv_pregnancy" />
 
-    <TextView
-        android:id="@+id/tv_user_input"
+    <EditText
+        android:id="@+id/edit_user_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+        android:gravity="center"
+        android:hint="@string/category_anniversary_user_input"
+        android:imeOptions="actionDone"
+        android:inputType="text"
         android:paddingHorizontal="36dp"
         android:paddingVertical="13dp"
-        android:text="@string/category_anniversary_user_input"
         android:textColor="@color/black_marlin"
+        android:textColorHint="@color/black_marlin"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_housewarming" />
