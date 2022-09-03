@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
+import android.widget.RadioButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -32,18 +34,28 @@ class AnniversarySelectFragment : Fragment() {
     fun init() {
         when (requireArguments().getString(AnniversarySelectActivity.ANNIVERSARY_TYPE)) {
             AnniversarySelectActivity.BIRTHDAY -> {
-                binding.rBtnBirthday.isChecked = true
+                setSelectedAnniversary(binding.rBtnBirthday)
+
             }
             AnniversarySelectActivity.PREGNANCY -> {
-                binding.rBtnPregnancy.isChecked = true
+                setSelectedAnniversary(binding.rBtnPregnancy)
+
             }
             AnniversarySelectActivity.HOUSEWARMING -> {
-                binding.rBtnHousewarming.isChecked = true
+                setSelectedAnniversary(binding.rBtnHousewarming)
+
             }
             AnniversarySelectActivity.WEDDING -> {
-                binding.rBtnMarry.isChecked = true
+                setSelectedAnniversary(binding.rBtnMarry)
             }
         }
+    }
+
+    private fun setSelectedAnniversary(view: RadioButton) {
+        view.viewTreeObserver.addOnGlobalLayoutListener {
+            binding.svEventCategory.scrollTo(view.left, 0)
+        }
+        view.isChecked = true
     }
 
     private fun initCalender() {
