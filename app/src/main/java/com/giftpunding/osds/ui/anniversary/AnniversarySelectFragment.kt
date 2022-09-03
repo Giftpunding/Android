@@ -1,6 +1,7 @@
 package com.giftpunding.osds.ui.anniversary
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +30,20 @@ class AnniversarySelectFragment : Fragment() {
     }
 
     fun init() {
-
+        when (requireArguments().getString(AnniversarySelectActivity.ANNIVERSARY_TYPE)) {
+            AnniversarySelectActivity.BIRTHDAY -> {
+                binding.rBtnBirthday.isChecked = true
+            }
+            AnniversarySelectActivity.PREGNANCY -> {
+                binding.rBtnPregnancy.isChecked = true
+            }
+            AnniversarySelectActivity.HOUSEWARMING -> {
+                binding.rBtnHousewarming.isChecked = true
+            }
+            AnniversarySelectActivity.WEDDING -> {
+                binding.rBtnMarry.isChecked = true
+            }
+        }
     }
 
     private fun initCalender() {
@@ -50,7 +64,7 @@ class AnniversarySelectFragment : Fragment() {
             val day = binding.npEventDatePicker.npDayOfMonth.value.toString()
             //서버에서 데이터 관해서 이야기 필요
             // 1월1일로 받을지 , 1, 1 처럼 월 일 따로 받을지 논의해야하는 사항
-            val anniversaryDay = (month + "월" + day +"일")
+            val anniversaryDay = (month + "월" + day + "일")
 //            viewModel.addAnniversary(anniversaryDay, anniversary)
         }
 
@@ -87,7 +101,7 @@ class AnniversarySelectFragment : Fragment() {
         }
     }
 
-    private fun setAnniversary(anniversary: String){
+    private fun setAnniversary(anniversary: String) {
         this.anniversary = anniversary
     }
 
