@@ -1,6 +1,8 @@
 package com.giftpunding.osds.ui.anniversary
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.giftpunding.osds.databinding.FragmentAnniversarySelectBinding
+import com.giftpunding.osds.ui.home.HomeActivity
 import kotlinx.coroutines.launch
 
 class AnniversarySelectFragment : Fragment() {
@@ -20,11 +23,12 @@ class AnniversarySelectFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAnniversarySelectBinding.inflate(inflater, container, false)
         init()
         initCalender()
         initEvent()
+        initAnniversaryViewModel()
         return binding.root
     }
 
@@ -42,33 +46,41 @@ class AnniversarySelectFragment : Fragment() {
         initDayOfMonth(minMonth)
     }
 
+    private fun initAnniversaryViewModel(){
+        //옵저빙하여 변화가 있으면 실행
+        viewModel.anniversaryResponse.observe(viewLifecycleOwner){
+            startActivity(Intent(requireContext(), HomeActivity::class.java))
+        }
+    }
+
     fun initEvent() {
         changeDayOfMonthMaxValue()
 
         binding.btnMovePage.setOnClickListener {
             val month = binding.npEventDatePicker.npMonth.value.toString()
             val day = binding.npEventDatePicker.npDayOfMonth.value.toString()
-            //서버에서 데이터 관해서 이야기 필요
-            // 1월1일로 받을지 , 1, 1 처럼 월 일 따로 받을지 논의해야하는 사항
+            // 해당 형태로 전달
             val anniversaryDay = (month + "월" + day +"일")
-//            viewModel.addAnniversary(anniversaryDay, anniversary)
+
+            Log.d("Test anniversary", "$anniversaryDay , $anniversary")
+            viewModel.addAnniversary(anniversaryDay, anniversary)
         }
 
-        // 서버에 영어로 보낼 지 정해야함
-        binding.rBtnBirthday.setOnClickListener {
-            setAnniversary("birthday")
+        // 서버에 영어 형태로 전달
+        binding.rBtnBirthday.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked) setAnniversary("birthday")
         }
 
-        binding.rBtnPregnancy.setOnClickListener {
-            setAnniversary("pregnancy")
+        binding.rBtnPregnancy.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked) setAnniversary("pregnancy")
         }
 
-        binding.rBtnHousewarming.setOnClickListener {
-            setAnniversary("housewarming")
+        binding.rBtnHousewarming.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked) setAnniversary("housewarming")
         }
 
-        binding.rBtnMarry.setOnClickListener {
-            setAnniversary("marry")
+        binding.rBtnMarry.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked) setAnniversary("marry")
         }
     }
 

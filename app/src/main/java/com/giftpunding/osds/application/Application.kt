@@ -21,6 +21,7 @@ import com.giftpunding.osds.repository.remote.datasource.LoginRemoteDataSource
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.kakao.sdk.common.KakaoSdk
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -48,10 +49,26 @@ class Application: Application() {
     }
 
     private fun initNetworkModule() {
+        val interceptor = Interceptor {
+            with(it) {
+                val newRequest =
+                    request().newBuilder()
+                        .addHeader(
+                            "Authorization",
+                            LoginSharedPreference(context = this@Application).getUserToken() ?: ""
+                        )
+                        .build()
+
+                proceed(newRequest)
+            }
+        }
+
+        val httpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
+
         retrofit =
             Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .client(OkHttpClient())
+                .client(httpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
@@ -91,6 +108,9 @@ class Application: Application() {
             client.start()
         }
     }
+
+
+
 
     companion object {
         const val baseUrl: String = "http://3.36.251.242:8080"
