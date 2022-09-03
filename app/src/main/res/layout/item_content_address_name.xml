@@ -9,7 +9,6 @@
         android:id="@+id/tv_address"
         style="@style/pretendard_medium_15_midnight_express"
         android:layout_width="0dp"
-        android:text="123123"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="22dp"
