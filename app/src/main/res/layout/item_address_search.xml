@@ -10,11 +10,11 @@
         android:visibility="visible">
     </include>
 
-    <include
-        android:id="@+id/l_address_result"
-        layout="@layout/item_address_search_result"
-        android:visibility="gone">
-    </include>
+<!--    <include-->
+<!--        android:id="@+id/l_address_result"-->
+<!--        layout="@layout/item_address_search_result"-->
+<!--        android:visibility="gone">-->
+<!--    </include>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
