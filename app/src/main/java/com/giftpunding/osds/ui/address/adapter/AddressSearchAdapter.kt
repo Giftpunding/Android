@@ -58,6 +58,10 @@ class AddressSearchAdapter :
         addressKeyword = keyword
     }
 
+    fun setFirstAddressView(isFirstAddressView: Boolean){
+        this.isFirstAddressView = isFirstAddressView
+    }
+
     fun getFirstAddressView(): Boolean {
         return isFirstAddressView
     }
