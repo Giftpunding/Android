@@ -13,7 +13,7 @@
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address.xml" value="0.2" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address_detail.xml" value="0.264" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_address_search.xml" value="0.264" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_anniversary_select.xml" value="0.2" />
+        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_anniversary_select.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_funding_list.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_home.xml" value="0.1527777777777778" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/activity_login_event_select.xml" value="0.24947916666666667" />
@@ -22,9 +22,7 @@
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_address_search_no_result.xml" value="0.17685185185185184" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_address_search_result.xml" value="0.17685185185185184" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_custom_date_picker.xml" value="0.264" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/content_toolbar.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/fragment_anniversary_select.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/fragment_anniversary_types.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/fragment_login_event_select.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/item_address_search_result.xml" value="0.4" />
         <entry key="..\:/Users/hey/Desktop/Android/app/src/main/res/layout/item_anniversary_list.xml" value="0.24947916666666667" />
@@ -73,16 +71,14 @@
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_address.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_address_detail.xml" value="0.25" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_address_search.xml" value="0.3537037037037037" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_anniversary_select.xml" value="0.19635416666666666" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_merchandise_info.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/activity_search.xml" value="0.24375" />
+        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/content_address_search_result.xml" value="0.16458333333333333" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/content_gift_toolbar.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/content_login_banner.xml" value="0.24375" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/fragment_anniversary_select.xml" value="0.19479166666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_address_search.xml" value="0.33" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_address_search_result.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_content_address_name.xml" value="0.3619791666666667" />
       </map>
     </option>
   </component>

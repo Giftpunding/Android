@@ -19,19 +19,22 @@ import com.giftpunding.osds.databinding.ActivityAddressSearchBinding
 import com.giftpunding.osds.enum.ToolbarType
 import com.giftpunding.osds.enum.VisibleState
 import com.giftpunding.osds.ui.address.adapter.AddressSearchAdapter
+import com.giftpunding.osds.ui.address.adapter.AddressSearchDetailAdapter
 
 class AddressSearchActivity :
     BaseActivity<ActivityAddressSearchBinding>(ActivityAddressSearchBinding::inflate) {
 
     private val viewModel: AddressSearchViewModel by viewModels()
     private val addressSearchAdapter = AddressSearchAdapter()
-    private val itemClickListener = object : ItemClickListener {
-        override fun clickAddressName(addressName: AddressSearchResultDocumentResponse) {
+    private val addressSearchDetailAdapter = AddressSearchDetailAdapter()
+    private val itemClickListener = object : AddressSearchClickListener {
+        override fun addressSearchClickable(addressName: AddressSearchResultDocumentResponse) {
             getAddress(addressName)
-            addressSearchAdapter.setAddressKeyword(addressName.addressName!!)
         }
+    }
 
-        override fun clickDetailAddressName(addressResult: AddressSearchResultDocumentResponse) {
+    private val addressSearchClickListener = object : AddressSearchDetailClickListener{
+        override fun addressSearchDetailClickable(addressResult: AddressSearchResultDocumentResponse) {
             val addressIntent = Intent(this@AddressSearchActivity, AddressDetailActivity::class.java)
             addressIntent.putExtra("AddressData", addressResult)
             useActivityResultLauncher(addressIntent)
@@ -61,6 +64,14 @@ class AddressSearchActivity :
             layoutManager =
                 LinearLayoutManager(this@AddressSearchActivity, LinearLayoutManager.VERTICAL, false)
         }
+
+        // 주소 검색
+        addressSearchDetailAdapter.setClickListener(addressSearchClickListener)
+        binding.viewAddressSearchDetailResult.rvAddressSearchResult.apply {
+            adapter = addressSearchDetailAdapter
+            layoutManager =
+                LinearLayoutManager(this@AddressSearchActivity, LinearLayoutManager.VERTICAL, false)
+        }
     }
 
     private fun initToolbar() {
@@ -74,14 +85,6 @@ class AddressSearchActivity :
         // 주소 검색 삭제 버튼
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressSearch.text = null
-            //true면 첫번째 상태
-            if(addressSearchAdapter.getFirstAddressView()) {
-                binding.viewAddressSearchGuide.root.visibility = View.VISIBLE
-                binding.viewAddressSearchResult.root.visibility = View.GONE
-                binding.viewAddressSearchNoResult.root.visibility = View.GONE
-            }else{
-                addressSearchAdapter.setFirstAddressView(true)
-            }
         }
 
         // 주소 입력 화면 종료 버튼
@@ -182,33 +185,54 @@ class AddressSearchActivity :
     }
 
     //응답 된 데이터 안에 주소 데이터의 존재 여부에 따라 뷰 업데이트
-    private fun updateAddressView(address: AddressSearchResultResponse) {
+    private fun updateAddressSearchView(address: AddressSearchResultResponse) {
         binding.viewAddressSearchGuide.root.visibility = View.GONE
         //데이터가 없을 경우 -> 결과물이 없다는 표시의 이미지를 표출
         if(address.documents?.isEmpty() == true){
-            binding.viewAddressSearchNoResult.root.visibility = View.VISIBLE
-            binding.viewAddressSearchResult.root.visibility = View.GONE
+            showAddressSearchNoResultView()
         }else{
-            binding.viewAddressSearchNoResult.root.visibility = View.GONE
-            binding.viewAddressSearchResult.root.visibility = View.VISIBLE
-
+            showAddressSearchResultView()
             // 검색 결과 보여주기 위해서 리사이클러 뷰 어뎁터에 데이터 넣어 줌
             addressSearchAdapter.clearItems()
-            addressSearchAdapter.setAddressKeyword(binding.editAddressSearch.text.toString())
-            addressSearchAdapter.addItems(address.documents)
+            addressSearchAdapter.setKeyword(binding.editAddressSearch.text.toString())
+            address.documents?.let { addressSearchAdapter.addItems(it) }
         }
     }
 
+    private fun showAddressSearchNoResultView(){
+        binding.viewAddressSearchNoResult.root.visibility = View.VISIBLE
+        binding.viewAddressSearchResult.root.visibility = View.GONE
+        binding.viewAddressSearchDetailResult.root.visibility = View.GONE
+    }
+
+    private fun showAddressSearchResultView(){
+        binding.viewAddressSearchNoResult.root.visibility = View.GONE
+        binding.viewAddressSearchResult.root.visibility = View.VISIBLE
+        binding.viewAddressSearchDetailResult.root.visibility = View.GONE
+    }
+
+    private fun updateAddressSearchDetailView(address: AddressSearchResultResponse) {
+        //상세 주소 보기 위한 뷰
+        showAddressSearchDetailResultView()
+        addressSearchDetailAdapter.clearItems()
+        address.documents?.let { addressSearchDetailAdapter.addItems(it) }
+    }
+
+    private fun showAddressSearchDetailResultView(){
+        binding.viewAddressSearchNoResult.root.visibility = View.GONE
+        binding.viewAddressSearchResult.root.visibility = View.GONE
+        binding.viewAddressSearchDetailResult.root.visibility = View.VISIBLE
+    }
 
     private fun initLiveData() {
         // 첫번째 주소 검색 결과
         viewModel.isExistAddress.observe(this) { address ->
-            updateAddressView(address)
+            updateAddressSearchView(address)
         }
 
         // 지번, 도로명 검색 결과
-        viewModel.detailAddressName.observe(this){ address ->
-            updateAddressView(address)
+        viewModel.isDetailAddress.observe(this){ address ->
+            updateAddressSearchDetailView(address)
         }
     }
 
