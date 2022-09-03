@@ -2,17 +2,25 @@ package com.giftpunding.osds.ui.address
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
+import android.inputmethodservice.Keyboard
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.giftpunding.osds.R
 import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.data.response.address.AddressSearchResultDocumentResponse
+import com.giftpunding.osds.data.response.address.AddressSearchResultResponseTemp
 import com.giftpunding.osds.databinding.ActivityAddressDetailBinding
 import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
@@ -23,11 +31,14 @@ import com.giftpunding.osds.ui.home.HomeActivity
 class AddressDetailActivity :
     BaseActivity<ActivityAddressDetailBinding>(ActivityAddressDetailBinding::inflate) {
 
+    private val viewModel : AddressSearchViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         init()
         initEvent()
+        initAddressViewModel()
     }
 
     @SuppressLint("SetTextI18n")
@@ -40,11 +51,20 @@ class AddressDetailActivity :
 
         val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultDocumentResponse
 
+        binding.tvSearchKeyword.text = addressData.addressName
+        
         //도로명, 지번 구분 표시
         initAddressTextViews(addressData)
 
         binding.editAddressDetail.requestFocus()
         revealKeyboard(binding.editAddressDetail)
+    }
+
+    private fun initAddressViewModel(){
+        viewModel.userResponse.observe(this){
+            finishAffinity()
+            startActivity(Intent(this,HomeActivity::class.java))
+        }
     }
 
     private fun initAddressTextViews(addressData: AddressSearchResultDocumentResponse) {
@@ -86,8 +106,8 @@ class AddressDetailActivity :
     override fun initEvent() {
         binding.btnComplete.setOnClickListener {
             // TODO 회원가입 완료(주소 저장) API 호출
-            finishAffinity()
-            startActivity(Intent(this, HomeActivity::class.java))
+            val address = "${binding.tvAddress.text} ${binding.editAddressDetail.text}"
+            viewModel.addAddress(address)
         }
 
         binding.btnTextDelete.setOnClickListener {

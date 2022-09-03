@@ -1,8 +1,21 @@
 package com.giftpunding.osds.data.response.user
 
+import com.google.gson.annotations.SerializedName
+
 data class User(
-    //User 데이터는 추가 해야함
-    val anniversaryDay: String?,
-    val anniversary: String?
+    @SerializedName("account")
+    var account: String?,
+    @SerializedName("address")
+    var address: String?,
+    @SerializedName("birthday")
+    var birthday: String?,
+    @SerializedName("name")
+    var name: String?,
+    @SerializedName("nickname")
+    var nickname: String?,
+    @SerializedName("phoneNumber")
+    var phoneNumber: String?,
+    @SerializedName("profile")
+    var profile: String?
 )
 

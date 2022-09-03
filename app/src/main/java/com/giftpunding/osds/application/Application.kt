@@ -95,7 +95,7 @@ class Application: Application() {
         anniversaryDataSource = AnniversaryDataSource(retrofit)
         anniversaryRepository = AnniversaryRepository(anniversaryDataSource)
 
-        addressDataSource = AddressDataSource(kakaoAddressRetrofit)
+        addressDataSource = AddressDataSource(kakaoAddressRetrofit, retrofit)
         addressRepository = AddressRepository(addressDataSource)
     }
 
