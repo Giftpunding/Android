@@ -82,6 +82,8 @@
     <string name="content_login_tutorial">가입하여 선물 전달하기</string>
     <string name="content_login_description">선물을 펀딩으로 받아보세요!</string>
 
+    <string name="content_next_step">다음</string>
+
     <!-- 배송지 입력화면 -->
     <string name="content_address">펀딩 완료된 선물을\n어디로 배송해 드릴까요?</string>
     <string name="content_input">지번, 도로명, 건물명으로 검색</string>
