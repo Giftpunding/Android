@@ -18,9 +18,9 @@ class AddressSearchViewModel : ViewModel() {
     val isExistAddress: LiveData<AddressSearchResultResponse>
         get() = _isExistAddress
 
-    private val _detailAddressName = MutableLiveData<AddressSearchResultResponse>()
-    val detailAddressName: LiveData<AddressSearchResultResponse>
-        get() = _detailAddressName
+    private val _isExistDetailAddress = MutableLiveData<AddressSearchResultResponse>()
+    val isDetailAddress: LiveData<AddressSearchResultResponse>
+        get() = _isExistDetailAddress
 
     fun getAddress(apiKey: String, keyword: String) {
         viewModelScope.launch(exceptionHandler) {
@@ -37,7 +37,7 @@ class AddressSearchViewModel : ViewModel() {
                 addressData.x.toString(),
                 addressData.y.toString()
             )
-            _detailAddressName.value = result
+            _isExistDetailAddress.value = result
         }
     }
 

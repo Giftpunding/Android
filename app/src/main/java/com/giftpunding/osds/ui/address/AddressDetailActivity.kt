@@ -1,25 +1,18 @@
 package com.giftpunding.osds.ui.address
 
-import android.accessibilityservice.AccessibilityService
+import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
-import android.inputmethodservice.Keyboard
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.giftpunding.osds.R
 import com.giftpunding.osds.base.BaseActivity
 import com.giftpunding.osds.data.response.address.AddressSearchResultDocumentResponse
-import com.giftpunding.osds.data.response.address.AddressSearchResultResponseTemp
 import com.giftpunding.osds.databinding.ActivityAddressDetailBinding
 import com.giftpunding.osds.enum.BackButton
 import com.giftpunding.osds.enum.ToolbarType
@@ -37,6 +30,7 @@ class AddressDetailActivity :
         initEvent()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun init() {
         setToolbarType(ToolbarType.NORMAL)
         setBackButtonVisible(VisibleState.VISIBLE)
@@ -46,19 +40,47 @@ class AddressDetailActivity :
 
         val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultDocumentResponse
 
-        binding.tvSearchKeyword.text = addressData.addressName
-        
         //도로명, 지번 구분 표시
-        if (addressData.address != null) {
-            binding.tvAddressType.text = "지번"
-            binding.tvAddress.text = addressData.address!!.addressName
-        } else if (addressData.roadAddress != null) {
-            binding.tvAddressType.text = "도로명"
-            binding.tvAddress.text = addressData.roadAddress!!.roadName
-        }
+        initAddressTextViews(addressData)
 
         binding.editAddressDetail.requestFocus()
         revealKeyboard(binding.editAddressDetail)
+    }
+
+    private fun initAddressTextViews(addressData: AddressSearchResultDocumentResponse) {
+       // 도로명이 있는 경우
+        if (addressData.roadAddress != null) {
+            updateRoadAddressTypeView(addressData)
+        }
+        // 도로명은 없고 지번이 있는 경우
+        else if(addressData.address != null){
+            updateAddressTypeView(addressData)
+        }
+    }
+
+    //도로명으로 보여주기
+    @SuppressLint("SetTextI18n")
+    private fun updateRoadAddressTypeView(addressData: AddressSearchResultDocumentResponse) {
+        binding.tvAddressType.text = "도로명"
+        binding.tvAddress.text = addressData.roadAddress!!.roadName
+        if(isExistBuildingName(addressData)){
+            binding.tvSearchKeyword.text =
+                addressData.roadAddress!!.addressName + " " + addressData.roadAddress!!.buildingName
+        }else{
+            binding.tvSearchKeyword.text = addressData.roadAddress!!.roadName
+        }
+    }
+
+    // 도로명에서 건물 이름이 있는 경우
+    private fun isExistBuildingName(addressData: AddressSearchResultDocumentResponse): Boolean{
+        return addressData.roadAddress!!.buildingName != ""
+    }
+
+    // 지번으로 보여주기
+    private fun updateAddressTypeView(addressData: AddressSearchResultDocumentResponse) {
+        binding.tvSearchKeyword.text = addressData.address!!.addressName
+        binding.tvAddressType.text = "지번"
+        binding.tvAddress.text = addressData.address!!.addressName
     }
 
     override fun initEvent() {
