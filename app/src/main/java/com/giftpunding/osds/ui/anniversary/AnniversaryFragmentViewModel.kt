@@ -22,7 +22,7 @@ class AnniversaryFragmentViewModel : ViewModel() {
             val response =
                 Application.anniversaryRepository.addAnniversary(anniversaryDay, anniversary)
             if (response.isSuccessful) {
-                _anniversaryResponse.postValue(response.body())
+                _anniversaryResponse.value = response.body()
             } else {
                 Log.e("AnniversaryViewModel", "err")
             }
