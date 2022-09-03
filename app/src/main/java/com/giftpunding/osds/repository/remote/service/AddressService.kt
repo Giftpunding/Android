@@ -1,9 +1,11 @@
 package com.giftpunding.osds.repository.remote.service
 
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Query
+import com.giftpunding.osds.data.response.anniversary.AnniversaryRequest
+import com.giftpunding.osds.data.response.anniversary.AnniversaryResponse
+import com.giftpunding.osds.data.response.user.User
+import retrofit2.Response
+import retrofit2.http.*
 
 //레트로핏 인터페이스 선언
 interface AddressService {
@@ -20,4 +22,9 @@ interface AddressService {
         @Query("x") x: String,
         @Query("y") y: String,
     ): AddressSearchResultResponse
+
+    @PATCH("api/user/me")
+    suspend fun postAddress(
+        @Query("address") address:String
+    ):Response<User>
 }

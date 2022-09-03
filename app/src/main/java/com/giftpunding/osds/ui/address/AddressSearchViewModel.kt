@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.giftpunding.osds.application.Application
 import com.giftpunding.osds.data.response.address.AddressSearchResultDocumentResponse
 import com.giftpunding.osds.data.response.address.AddressSearchResultResponse
+import com.giftpunding.osds.data.response.user.User
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
@@ -21,6 +22,22 @@ class AddressSearchViewModel : ViewModel() {
     private val _detailAddressName = MutableLiveData<AddressSearchResultResponse>()
     val detailAddressName: LiveData<AddressSearchResultResponse>
         get() = _detailAddressName
+
+    private val _userResponse = MutableLiveData<User>()
+    val userResponse: LiveData<User>
+        get() = _userResponse
+
+    fun addAddress(address : String){
+        viewModelScope.launch(exceptionHandler){
+            val response = Application.addressRepository.addAddress(address)
+            if(response.isSuccessful){
+                _userResponse.value = response.body()
+            }
+            else {
+                Log.e("AddressSearchViewModel", "err")
+            }
+        }
+    }
 
     fun getAddress(apiKey: String, keyword: String) {
         viewModelScope.launch(exceptionHandler) {
