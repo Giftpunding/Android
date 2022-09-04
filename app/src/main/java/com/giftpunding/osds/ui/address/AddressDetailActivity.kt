@@ -87,7 +87,7 @@ class AddressDetailActivity :
             binding.tvSearchKeyword.text =
                 addressData.roadAddress!!.addressName + " " + addressData.roadAddress!!.buildingName
         }else{
-            binding.tvSearchKeyword.text = addressData.roadAddress!!.roadName
+            binding.tvSearchKeyword.text = addressData.roadAddress!!.addressName
         }
     }
 
