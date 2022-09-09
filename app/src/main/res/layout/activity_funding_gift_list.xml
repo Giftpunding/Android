@@ -52,31 +52,31 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <com.giftpunding.osds.component.PriceCategoryItem
+                    <com.giftfunding.osds.component.PriceCategoryItem
                         android:id="@+id/item_gift_list_category_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="18dp" />
 
-                    <com.giftpunding.osds.component.PriceCategoryItem
+                    <com.giftfunding.osds.component.PriceCategoryItem
                         android:id="@+id/item_gift_list_category_one_to_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="18dp" />
 
-                    <com.giftpunding.osds.component.PriceCategoryItem
+                    <com.giftfunding.osds.component.PriceCategoryItem
                         android:id="@+id/item_gift_list_category_three_to_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="18dp" />
 
-                    <com.giftpunding.osds.component.PriceCategoryItem
+                    <com.giftfunding.osds.component.PriceCategoryItem
                         android:id="@+id/item_gift_list_category_five_to_nine"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="18dp" />
 
-                    <com.giftpunding.osds.component.PriceCategoryItem
+                    <com.giftfunding.osds.component.PriceCategoryItem
                         android:id="@+id/item_gift_list_category_over_ten"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
