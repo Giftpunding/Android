@@ -87,3 +87,6 @@ lint/tmp/
 
 # App Key
 app/src/main/res/values/kakao_app_key.xml
+
+# Firebase
+app/google-services.json

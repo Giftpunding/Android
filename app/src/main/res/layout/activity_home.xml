@@ -84,7 +84,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_home_gift_ranking_title">
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_gift_ranking_category_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_gift_ranking_category_one_to_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                 app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_all"
                 app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_all" />
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_gift_ranking_category_three_to_four"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
                 app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_one_to_two"
                 app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_one_to_two" />
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_gift_ranking_category_five_to_nine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
                 app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_three_to_four"
                 app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_three_to_four" />
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_gift_ranking_category_over_ten"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_home_sought_after_gift_category">
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_popular_gift_category_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -228,7 +228,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_popular_gift_category_five_to_nine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -237,7 +237,7 @@
                 app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_all"
                 app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_all" />
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_popular_gift_category_around_ten"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -246,7 +246,7 @@
                 app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_five_to_nine"
                 app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_five_to_nine" />
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_popular_gift_category_around_twenty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -255,7 +255,7 @@
                 app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_around_ten"
                 app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_around_ten" />
 
-            <com.giftpunding.osds.component.PriceCategoryItem
+            <com.giftfunding.osds.component.PriceCategoryItem
                 android:id="@+id/item_popular_gift_category_over_thirty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
