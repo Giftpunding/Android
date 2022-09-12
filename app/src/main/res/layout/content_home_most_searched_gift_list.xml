@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_home_most_searched_gift_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:text="@string/title_sought_after_gift"
+        android:textColor="@color/black"
+        android:textSize="@dimen/home_sub_title_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_home_most_searched_gift_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="42dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_most_searched_gift_title" />
+
+    <RadioButton
+        android:id="@+id/r_btn_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="30dp"
+        android:button="@color/transparent"
+        android:checked="true"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_all"
+        app:layout_constraintEnd_toStartOf="@id/r_btn_five_to_nine"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_home_most_searched_gift_category" />
+
+    <RadioButton
+        android:id="@+id/r_btn_five_to_nine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@color/transparent"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_five_to_nine"
+        app:layout_constraintBottom_toBottomOf="@id/r_btn_all"
+        app:layout_constraintEnd_toStartOf="@id/r_btn_around_ten"
+        app:layout_constraintStart_toEndOf="@id/r_btn_all"
+        app:layout_constraintTop_toTopOf="@id/r_btn_all" />
+
+    <RadioButton
+        android:id="@+id/r_btn_around_ten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:button="@color/transparent"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_around_ten"
+        app:layout_constraintBottom_toBottomOf="@id/r_btn_five_to_nine"
+        app:layout_constraintEnd_toStartOf="@id/r_btn_around_twenty"
+        app:layout_constraintStart_toEndOf="@id/r_btn_five_to_nine"
+        app:layout_constraintTop_toTopOf="@id/r_btn_five_to_nine" />
+
+    <RadioButton
+        android:id="@+id/r_btn_around_twenty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:button="@color/transparent"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_around_twenty"
+        app:layout_constraintBottom_toBottomOf="@id/r_btn_around_ten"
+        app:layout_constraintEnd_toStartOf="@id/r_btn_over_thirty"
+        app:layout_constraintStart_toEndOf="@id/r_btn_around_ten"
+        app:layout_constraintTop_toTopOf="@id/r_btn_around_ten" />
+
+    <RadioButton
+        android:id="@+id/r_btn_over_thirty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:button="@color/transparent"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_over_thirty"
+        app:layout_constraintBottom_toBottomOf="@id/r_btn_around_twenty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/r_btn_around_twenty"
+        app:layout_constraintTop_toTopOf="@id/r_btn_around_twenty" />
+
+    <com.giftfunding.osds.component.ConstraintRadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="r_btn_five_to_nine,r_btn_all,r_btn_around_ten,r_btn_around_twenty,r_btn_over_thirty"
+        tools:ignore="MissingConstraints" />
+
+    <!--  상품 표시  -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_sought_after_gift"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/r_btn_five_to_nine" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ly_sought_after_gift_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vp_sought_after_gift">
+
+        <ImageButton
+            android:id="@+id/btn_sought_after_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_back_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/ly_sought_after_gift_page_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_sought_after_after"
+            app:layout_constraintStart_toEndOf="@id/btn_sought_after_back"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_sought_after_category_page_previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticanene_regular"
+                android:text="1"
+                android:textColor="@color/echo_blue"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_sought_after_category_page_div"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/helveticanene_regular"
+                android:text="/"
+                android:textColor="@color/echo_blue"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_sought_after_category_page_after"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticanene_regular"
+                android:text="1"
+                android:textColor="@color/echo_blue"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_sought_after_after"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_front_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

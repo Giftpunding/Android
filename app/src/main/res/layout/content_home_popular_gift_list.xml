@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_home_popular_gift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_dimens"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:text="많이 받고 싶어 하는 선물"
+        android:textColor="@color/black"
+        android:textSize="@dimen/home_sub_title_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <RadioButton
+        android:id="@+id/r_btn_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:gravity="center"
+        android:checked="true"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_all"
+        app:layout_constraintEnd_toStartOf="@id/r_btn_one_to_two"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_popular_gift" />
+
+    <RadioButton
+        android:id="@+id/r_btn_one_to_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_one_to_two"
+        app:layout_constraintBottom_toBottomOf="@id/r_btn_all"
+        app:layout_constraintEnd_toStartOf="@id/r_btn_three_to_four"
+        app:layout_constraintStart_toEndOf="@id/r_btn_all"
+        app:layout_constraintTop_toTopOf="@id/r_btn_all" />
+
+    <RadioButton
+        android:id="@+id/r_btn_three_to_four"
+        android:layout_width="wrap_content"
+        android:button="@color/transparent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_three_to_four"
+        app:layout_constraintBottom_toBottomOf="@id/r_btn_one_to_two"
+        app:layout_constraintEnd_toStartOf="@id/r_btn_five_to_nine"
+        app:layout_constraintStart_toEndOf="@id/r_btn_one_to_two"
+        app:layout_constraintTop_toTopOf="@id/r_btn_one_to_two" />
+
+    <RadioButton
+        android:id="@+id/r_btn_five_to_nine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@color/transparent"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_five_to_nine"
+        app:layout_constraintBottom_toBottomOf="@id/r_btn_three_to_four"
+        app:layout_constraintEnd_toStartOf="@id/r_btn_over_ten"
+        app:layout_constraintStart_toEndOf="@id/r_btn_three_to_four"
+        app:layout_constraintTop_toTopOf="@id/r_btn_three_to_four" />
+
+    <RadioButton
+        android:id="@+id/r_btn_over_ten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        android:button="@color/transparent"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/category_over_ten"
+        app:layout_constraintBottom_toBottomOf="@id/r_btn_five_to_nine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/r_btn_five_to_nine"
+        app:layout_constraintTop_toTopOf="@id/r_btn_five_to_nine" />
+
+    <com.giftfunding.osds.component.ConstraintRadioGroup
+        android:id="@+id/ly_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="r_btn_all,r_btn_five_to_nine,r_btn_one_to_two,r_btn_over_ten,r_btn_three_to_four"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_home_gift_merchandise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_dimens"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+        android:nestedScrollingEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/r_btn_all" />
+
+    <LinearLayout
+        android:id="@+id/ly_merchandise_more_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/bg_rect_hawkes_blue_trans100_radius8_stroke1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="32dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="9dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_home_gift_merchandise">
+
+        <TextView
+            android:id="@+id/tv_merchandise_more_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="@string/content_more_info"
+            android:textColor="@color/raven"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ic_more_info_arrow" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

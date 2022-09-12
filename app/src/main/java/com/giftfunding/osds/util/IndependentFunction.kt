@@ -2,6 +2,10 @@ package com.giftfunding.osds.util
 
 import android.content.Context
 import android.util.TypedValue
+import android.widget.CompoundButton
+import android.widget.RadioButton
+import androidx.core.content.res.ResourcesCompat
+import com.giftfunding.osds.R
 
 fun dpToPx(context: Context, dp: Float) =
     TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics)
@@ -33,4 +37,14 @@ fun addComma(number: Int): String = if (number >= 0) {
     "%,d".format(number)
 } else {
     "- "
+}
+
+fun CompoundButton.setTextStyleBold(){
+    if(isChecked){
+        this.setTextColor(ResourcesCompat.getColor(resources, R.color.midnight_express,null))
+        this.typeface = ResourcesCompat.getFont(context, R.font.pretendard_medium)
+    }else{
+        this.setTextColor(ResourcesCompat.getColor(resources, R.color.echo_blue_2,null))
+        this.typeface = ResourcesCompat.getFont(context, R.font.helveticanene_medium)
+    }
 }

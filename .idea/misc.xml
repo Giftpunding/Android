@@ -86,7 +86,18 @@
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_address_search.xml" value="0.33" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_address_search_result.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/rsw14/Desktop/RyuSw/Project/OSDS_Project/OSDS_Project/app/src/main/res/layout/item_content_address_name.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/drawable/bg_sc_color_white_color_midnight_express.xml" value="0.1" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/drawable/bg_sc_font_pretendard_normal_midnight_express_helvetica_neue_normal_asdfasd.xml" value="0.1" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/activity_login.xml" value="0.21203703703703702" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/content_gift_toolbar.xml" value="0.3703125" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/content_home_expensive_gift_list.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/content_home_most_searched_gift_list.xml" value="0.33" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/content_home_popular_gift_list.xml" value="0.33" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/content_popular_gift_list.xml" value="0.3703125" />
         <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/fragment_anniversary_select.xml" value="0.17647058823529413" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/item_popular_gift.xml" value="0.3703125" />
+        <entry key="..\:/Users/rsw14/OneDrive/Desktop/Android/app/src/main/res/layout/item_popular_gift_category.xml" value="0.3703125" />
       </map>
     </option>
   </component>

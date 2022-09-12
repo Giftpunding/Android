@@ -12,345 +12,30 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <!-- appbar로 적용하면 해당 코드로 적용, 아니라면 LinearLayout으로 진행 -->
-
-        <com.google.android.material.appbar.AppBarLayout
+        <include
             android:id="@+id/ly_home_appbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
+            layout="@layout/content_gift_toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white">
-
-                <TextView
-                    android:id="@+id/tv_home_gift_box_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/bg_round_black"
-                    android:fontFamily="@font/helveticanene_regular"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@id/btn_home_gift_box"
-                    app:layout_constraintEnd_toEndOf="@id/btn_home_gift_box" />
-
-                <ImageButton
-                    android:id="@+id/btn_home_gift_box"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="@dimen/activity_horizontal_dimens"
-                    android:layout_marginBottom="16dp"
-                    android:background="@color/transparent"
-                    android:src="@drawable/ic_gift_box"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <TextView
-            android:id="@+id/tv_home_gift_ranking_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="200dp"
-            android:fontFamily="@font/notosanskr_regular"
-            android:includeFontPadding="false"
-            android:text="@string/title_gift_ranking"
-            android:textColor="@color/black"
-            android:textSize="@dimen/home_sub_title_size"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ly_home_appbar" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ly_gift_category"
+        <include
+            android:id="@+id/content_popular_gift_list"
+            layout="@layout/content_home_popular_gift_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="37dp"
-            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_gift_ranking_title">
+            app:layout_constraintTop_toBottomOf="@+id/ly_home_appbar" />
 
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_gift_ranking_category_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/item_gift_ranking_category_one_to_two"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_gift_ranking_category_one_to_two"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/item_gift_ranking_category_all"
-                app:layout_constraintEnd_toStartOf="@id/item_gift_ranking_category_three_to_four"
-                app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_all"
-                app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_all" />
-
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_gift_ranking_category_three_to_four"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/item_gift_ranking_category_one_to_two"
-                app:layout_constraintEnd_toStartOf="@id/item_gift_ranking_category_five_to_nine"
-                app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_one_to_two"
-                app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_one_to_two" />
-
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_gift_ranking_category_five_to_nine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/item_gift_ranking_category_three_to_four"
-                app:layout_constraintEnd_toStartOf="@id/item_gift_ranking_category_over_ten"
-                app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_three_to_four"
-                app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_three_to_four" />
-
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_gift_ranking_category_over_ten"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/item_gift_ranking_category_five_to_nine"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/item_gift_ranking_category_five_to_nine"
-                app:layout_constraintTop_toTopOf="@id/item_gift_ranking_category_five_to_nine" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_home_gift_merchandise"
+        <include
+            android:id="@+id/content_most_searched_gift_list"
+            layout="@layout/content_home_most_searched_gift_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="27dp"
-            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
-            android:nestedScrollingEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ly_gift_category" />
-
-        <LinearLayout
-            android:id="@+id/ly_merchandise_more_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:background="@drawable/bg_rect_hawkes_blue_trans100_radius8_stroke1"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="32dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="32dp"
-            android:paddingBottom="9dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_home_gift_merchandise">
-
-            <TextView
-                android:id="@+id/tv_merchandise_more_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosanskr_regular"
-                android:includeFontPadding="false"
-                android:text="@string/content_more_info"
-                android:textColor="@color/raven"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/ic_more_info_arrow" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_home_sought_after_gift"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="64dp"
-            android:fontFamily="@font/notosanskr_regular"
-            android:includeFontPadding="false"
-            android:text="@string/title_sought_after_gift"
-            android:textColor="@color/black"
-            android:textSize="@dimen/home_sub_title_size"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ly_merchandise_more_info" />
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_home_sought_after_gift_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="42dp"
-            android:layout_marginEnd="22dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_sought_after_gift" />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ly_sought_after_gift_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_home_sought_after_gift_category">
-
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_popular_gift_category_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/item_popular_gift_category_five_to_nine"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_popular_gift_category_five_to_nine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/item_popular_gift_category_all"
-                app:layout_constraintEnd_toStartOf="@id/item_popular_gift_category_around_ten"
-                app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_all"
-                app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_all" />
-
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_popular_gift_category_around_ten"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/item_popular_gift_category_five_to_nine"
-                app:layout_constraintEnd_toStartOf="@id/item_popular_gift_category_around_twenty"
-                app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_five_to_nine"
-                app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_five_to_nine" />
-
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_popular_gift_category_around_twenty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/item_popular_gift_category_around_ten"
-                app:layout_constraintEnd_toStartOf="@id/item_popular_gift_category_over_thirty"
-                app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_around_ten"
-                app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_around_ten" />
-
-            <com.giftfunding.osds.component.PriceCategoryItem
-                android:id="@+id/item_popular_gift_category_over_thirty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/item_popular_gift_category_around_twenty"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/item_popular_gift_category_around_twenty"
-                app:layout_constraintTop_toTopOf="@id/item_popular_gift_category_around_twenty" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vp_sought_after_gift"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="27dp"
-            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ly_sought_after_gift_category" />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ly_sought_after_gift_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vp_sought_after_gift">
-
-            <ImageButton
-                android:id="@+id/btn_sought_after_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:src="@drawable/ic_back_button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <LinearLayout
-                android:id="@+id/ly_sought_after_gift_page_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginEnd="26dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btn_sought_after_after"
-                app:layout_constraintStart_toEndOf="@id/btn_sought_after_back"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/tv_sought_after_category_page_previous"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/helveticanene_regular"
-                    android:text="1"
-                    android:textColor="@color/echo_blue"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_sought_after_category_page_div"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/helveticanene_regular"
-                    android:text="/"
-                    android:textColor="@color/echo_blue"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_sought_after_category_page_after"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/helveticanene_regular"
-                    android:text="1"
-                    android:textColor="@color/echo_blue"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/btn_sought_after_after"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:src="@drawable/ic_front_button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@id/content_popular_gift_list" />
 
 
         <androidx.viewpager2.widget.ViewPager2
@@ -362,90 +47,16 @@
             android:layout_marginEnd="@dimen/activity_horizontal_dimens"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ly_sought_after_gift_page" />
+            app:layout_constraintTop_toBottomOf="@id/content_most_searched_gift_list" />
 
-
-        <TextView
-            android:id="@+id/tv_luxury_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="64dp"
-            android:fontFamily="@font/notosanskr_regular"
-            android:includeFontPadding="false"
-            android:text="@string/title_luxury"
-            android:textColor="@color/black"
-            android:textSize="@dimen/home_sub_title_size"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vp_advertisement" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_luxury_list"
+        <include
+            android:id="@+id/content_expensive_gift_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
-            android:clipToPadding="false"
+            layout="@layout/content_home_expensive_gift_list"
+            app:layout_constraintTop_toBottomOf="@id/vp_advertisement"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_luxury_title" />
-
-        <LinearLayout
-            android:id="@+id/ly_luxury_more_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:background="@drawable/bg_rect_hawkes_blue_trans100_radius8_stroke1"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="32dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="32dp"
-            android:paddingBottom="9dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_luxury_list">
-
-            <TextView
-                android:id="@+id/tv_luxury_more_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosanskr_regular"
-                android:includeFontPadding="false"
-                android:text="@string/content_more_info"
-                android:textColor="@color/raven"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/ic_more_info_arrow" />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/iv_recommend_banner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="72dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ly_luxury_more_info" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_recommend_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginTop="29dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_recommend_banner" />
-
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.amar.library.ui.StickyScrollView>
