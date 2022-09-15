@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
+import com.giftfunding.osds.component.OrderGiftBottomSheetDialog
 import com.giftfunding.osds.data.response.home.luxuryGift.LuxuryGiftResponse
 import com.giftfunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftfunding.osds.data.response.home.popualrGift.PopularGiftCategoryResponse
@@ -18,9 +19,11 @@ import com.giftfunding.osds.ui.merchandise.adapter.MerchandiseAdapter
 import com.giftfunding.osds.ui.home.ranking.RankingActivity
 import com.giftfunding.osds.ui.home.popular.adapter.PopularGiftCategoryAdapter
 import com.giftfunding.osds.ui.home.popular.adapter.PopularGiftPagerAdapter
+import com.giftfunding.osds.ui.merchandise.MerchandiseActivity
 import kotlin.math.ceil
 
-class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate), View.OnClickListener {
+class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate),
+    View.OnClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -222,7 +225,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
 
             //상품 리스트 연결
             rvHomeGiftMerchandise.apply {
-                val merchandiseAdapter = MerchandiseAdapter(this@HomeActivity)
+                val merchandiseAdapter = MerchandiseAdapter({
+                    showBottomSheetDialog()
+                },{
+                    moveActivity()
+                })
                 layoutManager =
                     LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
                 adapter = merchandiseAdapter
@@ -287,6 +294,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             btnSoughtAfterBack.setOnClickListener(this@HomeActivity)
             btnSoughtAfterAfter.setOnClickListener(this@HomeActivity)
         }
+
     }
 
     override fun onClick(view: View?) {
@@ -318,5 +326,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
                 }
             }
         }
+    }
+
+    private fun showBottomSheetDialog() {
+        val modalBottomSheet = OrderGiftBottomSheetDialog()
+        modalBottomSheet.show(supportFragmentManager, OrderGiftBottomSheetDialog.TAG)
+    }
+
+    private fun moveActivity() {
+        startActivity(Intent(this@HomeActivity, MerchandiseActivity::class.java))
     }
 }

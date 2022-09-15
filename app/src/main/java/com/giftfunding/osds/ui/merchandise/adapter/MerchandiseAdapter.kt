@@ -1,19 +1,16 @@
 package com.giftfunding.osds.ui.merchandise.adapter
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.giftfunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftfunding.osds.databinding.ItemMerchandiseHorizontalBinding
-import com.giftfunding.osds.ui.merchandise.MerchandiseActivity
 import com.giftfunding.osds.util.addComma
 
-
 class MerchandiseAdapter(
-    private val context: Context,
+    private val addGiftList: () -> Unit,
+    private val moveActivity: () -> Unit
 ) : RecyclerView.Adapter<MerchandiseAdapter.HomeMerchandiseHolder>() {
 
     private val list = mutableListOf<MerchandiseResponse>()
@@ -39,7 +36,7 @@ class MerchandiseAdapter(
                 binding.tvMerchandiseName.text = name
                 binding.tvMerchandisePrice.text = addComma(price)
 
-                Glide.with(context)
+                Glide.with(binding.ivMerchandiseImg)
                     .load(img)
                     .centerCrop()
                     .override(100, 100)
@@ -47,16 +44,17 @@ class MerchandiseAdapter(
 
                 binding.btnMerchandiseAdd.setOnClickListener {
                     //선물 추가
+                    addGiftList()
                 }
                 itemView.setOnClickListener {
-                    context.startActivity(Intent(context, MerchandiseActivity::class.java))
+                    moveActivity()
                 }
             }
         }
     }
 
-    override fun getItemCount():Int{
-        return if(list.size > 5) 5
+    override fun getItemCount(): Int {
+        return if (list.size > 5) 5
         else list.size
     }
 
