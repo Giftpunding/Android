@@ -111,4 +111,7 @@
     <string name="content_month">월</string>
     <string name="content_day_of_month">일</string>
     <string name="title_event_type">이벤트 종류</string>
+
+    <!-- 선물담기 -->
+    <string name="content_put_gift">선물 담기</string>
 </resources>
