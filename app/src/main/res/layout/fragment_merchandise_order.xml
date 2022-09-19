@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include_order_merchandise"
+            layout="@layout/content_merchandise_order_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/include_order_merchandise_color"
+            layout="@layout/content_merchandise_order_color"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="@+id/include_order_merchandise"
+            app:layout_constraintStart_toStartOf="@+id/include_order_merchandise"
+            app:layout_constraintTop_toBottomOf="@+id/include_order_merchandise" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_merchandise_color"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/include_order_merchandise_color"
+            app:layout_constraintStart_toStartOf="@+id/include_order_merchandise_color"
+            app:layout_constraintTop_toBottomOf="@+id/include_order_merchandise_color" />
+
+        <include
+            android:id="@+id/include_order_merchandise_size"
+            layout="@layout/content_merchandise_order_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/include_order_merchandise_color"
+            app:layout_constraintStart_toStartOf="@+id/include_order_merchandise_color"
+            app:layout_constraintTop_toBottomOf="@+id/include_order_merchandise_color" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_merchandise_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/include_order_merchandise_size"
+            app:layout_constraintStart_toStartOf="@+id/include_order_merchandise_size"
+            app:layout_constraintTop_toBottomOf="@+id/include_order_merchandise_size" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_put_product"
+            style="@style/noto_sans_kr_medium_16_white_padding0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="40dp"
+            app:layout_goneMarginTop="40dp"
+            android:paddingTop="17dp"
+            android:paddingBottom="19dp"
+            android:text="@string/content_put_gift"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_merchandise_color">
+
+        </androidx.appcompat.widget.AppCompatButton>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
