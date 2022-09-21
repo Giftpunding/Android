@@ -3,10 +3,13 @@ package com.giftfunding.osds.ui.merchandise.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.giftfunding.osds.data.response.product.SizeInfo
+import com.giftfunding.osds.data.response.merchandise.SizeInfo
 import com.giftfunding.osds.databinding.ItemMerchandiseSizeBinding
+import com.giftfunding.osds.util.convertWon
 
-class MerchandiseSizeAdapter :
+class MerchandiseSizeAdapter(
+    private val selectSize: (SizeInfo) -> Unit
+) :
     RecyclerView.Adapter<MerchandiseSizeAdapter.MerchandiseSizeHolder>() {
 
     private val sizes = mutableListOf<SizeInfo>()
@@ -26,7 +29,11 @@ class MerchandiseSizeAdapter :
     override fun onBindViewHolder(holder: MerchandiseSizeHolder, position: Int) {
         with(holder){
             binding.tvMerchandiseSizeName.text = sizes[position].size
-            binding.tvMerchandiseSizeSurcharge.text = sizes[position].surCharge
+            binding.tvMerchandiseSizeSurcharge.text = convertWon(sizes[position].surCharge)
+        }
+
+        holder.itemView.setOnClickListener {
+            selectSize(sizes[position])
         }
     }
 

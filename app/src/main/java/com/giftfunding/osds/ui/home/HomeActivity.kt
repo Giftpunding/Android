@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
-import com.giftfunding.osds.component.OrderMerchandiseBottomSheetDialog
+import com.giftfunding.osds.ui.merchandise.OrderMerchandiseBottomSheetDialog
 import com.giftfunding.osds.data.response.home.luxuryGift.LuxuryGiftResponse
 import com.giftfunding.osds.data.response.home.merchandise.MerchandiseResponse
 import com.giftfunding.osds.data.response.home.popualrGift.PopularGiftCategoryResponse

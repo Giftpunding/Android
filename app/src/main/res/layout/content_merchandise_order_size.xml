@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_half_rect_hawkes_blue_trans100_radius4_stoke1">
+        android:background="@drawable/bg_top_half_rect_hawkes_blue_trans100_radius4_stoke1">
 
         <TextView
             android:id="@+id/tv_merchandise_size_title"
