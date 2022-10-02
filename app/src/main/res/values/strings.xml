@@ -114,4 +114,19 @@
 
     <!-- 선물담기 -->
     <string name="content_put_gift">선물 담기</string>
+
+    <string name="category_luxury">명품 패션</string>
+    <string name="category_beauty">뷰티</string>
+    <string name="category_living">리빙/인테리어</string>
+    <string name="category_fashion">패션</string>
+    <string name="category_digital">디지털/가전</string>
+
+    <string name="category_food">식품</string>
+    <string name="category_gifticon">교환권</string>
+    <string name="category_kitchen">주방</string>
+    <string name="category_sport">스포츠</string>
+    <string name="category_flower">꽃배달</string>
+    <string name="category_baby">출산/유아</string>
+    <string name="category_pet">반려동물</string>
+
 </resources>
