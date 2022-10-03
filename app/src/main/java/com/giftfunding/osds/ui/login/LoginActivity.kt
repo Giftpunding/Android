@@ -15,6 +15,8 @@ import com.giftfunding.osds.ui.anniversary.AnniversarySelectActivity
 import com.giftfunding.osds.ui.login.adapter.LoginBannerAdapter
 import com.skydoves.balloon.*
 import com.giftfunding.osds.R
+import com.giftfunding.osds.repository.local.pref.LoginSharedPreference
+import com.giftfunding.osds.ui.home.HomeActivity
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 
@@ -28,6 +30,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     }
 
     override fun init() {
+        checkAutoLogin()
+
         val list = listOf(
             R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
@@ -67,6 +71,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
             .setDismissWhenTouchOutside(false)
 
         return popUpMessage.build()
+    }
+
+    fun checkAutoLogin() {
+        if(!LoginSharedPreference(this).getUserToken().isNullOrEmpty()) {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+        }
     }
 
     override fun initEvent() {

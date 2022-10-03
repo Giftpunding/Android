@@ -91,7 +91,9 @@ class AnniversarySelectFragment : Fragment() {
             val anniversaryDay = (month + "월" + day + "일")
 
             Log.d("Test anniversary", "$anniversaryDay , $anniversary")
-            viewModel.addAnniversary(anniversaryDay, anniversary)
+            startActivity(Intent(requireContext(), AddressActivity::class.java))
+
+            //viewModel.addAnniversary(anniversaryDay, anniversary)
         }
 
         // 서버에 영어 형태로 전달
