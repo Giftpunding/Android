@@ -2,13 +2,20 @@ package com.giftfunding.osds.ui.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
+import com.giftfunding.osds.data.response.home.item.ItemCategoryResponse
 import com.giftfunding.osds.databinding.ActivityHomeBinding
 import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.ui.home.adapter.HomeBannerAdapter
+import com.giftfunding.osds.ui.home.adapter.HomeMainCategoryAdapter
+import com.skydoves.balloon.Balloon
+import com.skydoves.balloon.BalloonSizeSpec
+import com.skydoves.balloon.showAlignTop
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 
@@ -29,6 +36,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         initToolbar()
         initSearchInputPopUp()
         initBanner()
+        initMainCategoryList()
     }
 
     override fun initEvent() {
@@ -43,11 +51,39 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
     }
 
     private fun initToolbar() {
-        setToolbarType(ToolbarType.GIFT)
+        setToolbarType(ToolbarType.GIFT, R.id.ly_home_main)
     }
 
     private fun initSearchInputPopUp() {
+        binding.editSearchGift.showAlignTop(makeBalloon())
+    }
 
+    //최상위 함수로 뺄 예정
+    private fun makeBalloon(): Balloon {
+        val popUpMessage = Balloon.Builder(this)
+            .setWidth(BalloonSizeSpec.WRAP)
+            .setHeight(BalloonSizeSpec.WRAP)
+            .setText(resources.getString(R.string.content_login_tutorial))
+            .setTextColorResource(R.color.hawkes_blue)
+            .setTextTypeface(ResourcesCompat.getFont(this, R.font.pretendard_medium)!!)
+            .setTextSize(13f)
+            .setIconHeight(20)
+            .setMarginBottom(6)
+            .setIconWidth(20)
+            .setIconDrawableResource(R.drawable.ic_launcher_background)
+            .setArrowSize(12)
+            .setArrowPosition(0.5f)
+            .setPaddingTop(8)
+            .setPaddingLeft(13)
+            .setPaddingRight(13)
+            .setPaddingBottom(8)
+            .setCornerRadius(10f)
+            .setBackgroundColorResource(R.color.bright_grey)
+            .setDismissWhenClicked(false)
+            .setDismissWhenOverlayClicked(false)
+            .setDismissWhenTouchOutside(false)
+
+        return popUpMessage.build()
     }
 
     private fun initBanner() {
@@ -61,6 +97,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         binding.vp2HomeBanner.apply {
             adapter = HomeBannerAdapter(this@HomeActivity, list)
             setAutoBanner(list.size)
+        }
+    }
+
+    private fun initMainCategoryList(){
+        //test input data
+        val list = mutableListOf<ItemCategoryResponse>()
+        for(idx in 1..8){
+            list.add(ItemCategoryResponse(R.drawable.ic_launcher_background, "카테고리$idx"))
+        }
+
+        binding.rcvMainCategory.apply {
+            layoutManager = GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
+            adapter = HomeMainCategoryAdapter(this@HomeActivity, list.toList())
         }
     }
 

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.giftfunding.osds.data.response.home.merchandise.MerchandiseResponse
+import com.giftfunding.osds.data.response.home.item.ItemResponse
 import com.giftfunding.osds.databinding.ItemMerchandiseHorizontalBinding
 import com.giftfunding.osds.util.addComma
 
@@ -13,7 +13,7 @@ class MerchandiseAdapter(
     private val moveActivity: () -> Unit
 ) : RecyclerView.Adapter<MerchandiseAdapter.HomeMerchandiseHolder>() {
 
-    private val list = mutableListOf<MerchandiseResponse>()
+    private val list = mutableListOf<ItemResponse>()
 
     inner class HomeMerchandiseHolder(val binding: ItemMerchandiseHorizontalBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -58,7 +58,7 @@ class MerchandiseAdapter(
         else list.size
     }
 
-    fun addItemList(itemList: List<MerchandiseResponse>) {
+    fun addItemList(itemList: List<ItemResponse>) {
         list.addAll(itemList)
     }
 }

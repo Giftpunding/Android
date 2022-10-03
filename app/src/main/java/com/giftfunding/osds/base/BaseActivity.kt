@@ -44,14 +44,14 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         _binding = null
     }
 
-    protected fun setToolbarType(type: ToolbarType) {
+    protected fun setToolbarType(type: ToolbarType, existTopLayout: Int = -1) {
         when (type) {
             ToolbarType.NORMAL -> {
                 normalToolbarType()
             }
 
             ToolbarType.GIFT -> {
-                giftToolbarType()
+                giftToolbarType(existTopLayout)
             }
         }
     }
@@ -64,8 +64,12 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         closeButton = normalToolbarBinding.ivClose
     }
 
-    private fun giftToolbarType() {
-        giftToolbarBinding = ContentGiftToolbarBinding.bind(binding.root)
+    private fun giftToolbarType(existTopLayout: Int) {
+        giftToolbarBinding = if(existTopLayout != -1){
+            ContentGiftToolbarBinding.bind(binding.root.findViewById(existTopLayout))
+        } else{
+            ContentGiftToolbarBinding.bind(binding.root)
+        }
         //input view
     }
 
