@@ -58,19 +58,29 @@ class AddressSearchDetailAdapter :
         fun onBind(item: AddressSearchResultDocumentResponse) {
 
             binding.lAddressResult.apply {
-                if (item.address != null) {
-                    tvAddressType.text = "지번"
-                    tvAddress.text = item.address!!.addressName
-                    tvSearchKeyword.text = item.address!!.addressName
-                }
-                if (item.roadAddress != null) {
-                    tvAddressType.text = "도로명"
-                    tvAddress.text = item.roadAddress?.addressName
-                    if(item.roadAddress?.buildingName == ""){
-                        tvSearchKeyword.text = item.roadAddress?.addressName
+                when(item.addressType) {
+                    // 도로명
+                    "ROAD" -> {
+                        tvAddressType.text = "도로명"
+                        tvSearchKeyword.text = item.addressName
+                        tvAddress.text = item.roadAddress?.addressName
                     }
-                    else{
-                        tvSearchKeyword.text = item.roadAddress?.buildingName
+                    // 도로명 + 건물번호
+                    "ROAD_ADDR" -> {
+                        tvAddressType.text = "도로명"
+                        tvSearchKeyword.text = item.addressName
+                        tvAddress.text = item.roadAddress?.addressName
+                    }
+                    // 지번주소
+                    "REGION_ADDR" -> {
+                        tvAddressType.text = "도로명"
+                        tvSearchKeyword.text = item.address!!.addressName
+                        tvAddress.text = item.roadAddress?.addressName
+                    }
+
+                    // 지역 이름
+                    "REGION" -> {
+
                     }
                 }
             }

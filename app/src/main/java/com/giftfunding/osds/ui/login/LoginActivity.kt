@@ -73,7 +73,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         return popUpMessage.build()
     }
 
-    fun checkAutoLogin() {
+    private fun checkAutoLogin() {
         if(!LoginSharedPreference(this).getUserToken().isNullOrEmpty()) {
             startActivity(Intent(this, HomeActivity::class.java))
             finish()

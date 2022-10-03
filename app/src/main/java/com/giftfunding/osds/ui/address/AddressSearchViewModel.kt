@@ -19,10 +19,6 @@ class AddressSearchViewModel : ViewModel() {
     val isExistAddress: LiveData<AddressSearchResultResponse>
         get() = _isExistAddress
 
-    private val _isExistDetailAddress = MutableLiveData<AddressSearchResultResponse>()
-    val isDetailAddress: LiveData<AddressSearchResultResponse>
-        get() = _isExistDetailAddress
-
     private val _userResponse = MutableLiveData<User>()
     val userResponse: LiveData<User>
         get() = _userResponse
@@ -43,18 +39,6 @@ class AddressSearchViewModel : ViewModel() {
         viewModelScope.launch(exceptionHandler) {
             val result = Application.addressRepository.getAddress(apiKey, keyword)
             _isExistAddress.value = result
-        }
-    }
-
-    //좌표값으로 주소지( 지번 또는 도로명) 가져오기
-    fun getAddress(apiKey: String, addressData: AddressSearchResultDocumentResponse) {
-        viewModelScope.launch(exceptionHandler) {
-            val result = Application.addressRepository.getAddress(
-                apiKey,
-                addressData.x.toString(),
-                addressData.y.toString()
-            )
-            _isExistDetailAddress.value = result
         }
     }
 
