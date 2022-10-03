@@ -225,8 +225,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_dimens"
-            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
             android:layout_marginTop="22dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_dimens"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/div_slider_bottom" />
@@ -268,7 +268,10 @@
             android:id="@+id/rcv_luxury_list"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_dimens"
             android:layout_marginTop="25dp"
+            android:layout_marginEnd="16dp"
+            android:clipToPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_luxury_title" />
@@ -401,9 +404,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_more_gift_list"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_dimens"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_more_gift_category_refresh" />

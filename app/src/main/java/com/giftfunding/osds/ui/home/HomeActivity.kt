@@ -10,12 +10,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.data.response.home.item.ItemCategoryResponse
+import com.giftfunding.osds.data.response.home.item.ItemLuxuryResponse
 import com.giftfunding.osds.data.response.home.item.ItemResponse
 import com.giftfunding.osds.databinding.ActivityHomeBinding
 import com.giftfunding.osds.enum.ToolbarType
-import com.giftfunding.osds.ui.home.adapter.HomeBannerAdapter
-import com.giftfunding.osds.ui.home.adapter.HomeMainCategoryAdapter
-import com.giftfunding.osds.ui.home.adapter.HomeMostSelectedListAdapter
+import com.giftfunding.osds.ui.home.adapter.*
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonSizeSpec
 import com.skydoves.balloon.showAlignTop
@@ -41,6 +40,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         initBanner()
         initMainCategoryList()
         initMostSelectedGiftList()
+        initLuxuryList()
+        initMoreItemList()
     }
 
     override fun initEvent() {
@@ -59,35 +60,34 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
     }
 
     private fun initSearchInputPopUp() {
+        //말풍선 생성
+        fun makeBalloon(): Balloon {
+            val popUpMessage = Balloon.Builder(this)
+                .setWidth(BalloonSizeSpec.WRAP)
+                .setHeight(BalloonSizeSpec.WRAP)
+                .setText(resources.getString(R.string.content_login_tutorial))
+                .setTextColorResource(R.color.hawkes_blue)
+                .setTextTypeface(ResourcesCompat.getFont(this, R.font.pretendard_medium)!!)
+                .setTextSize(13f)
+                .setIconHeight(20)
+                .setMarginBottom(6)
+                .setIconWidth(20)
+                .setIconDrawableResource(R.drawable.ic_launcher_background)
+                .setArrowSize(12)
+                .setArrowPosition(0.5f)
+                .setPaddingTop(8)
+                .setPaddingLeft(13)
+                .setPaddingRight(13)
+                .setPaddingBottom(8)
+                .setCornerRadius(10f)
+                .setBackgroundColorResource(R.color.bright_grey)
+                .setDismissWhenClicked(false)
+                .setDismissWhenOverlayClicked(false)
+                .setDismissWhenTouchOutside(false)
+
+            return popUpMessage.build()
+        }
         binding.editSearchGift.showAlignTop(makeBalloon())
-    }
-
-    //최상위 함수로 뺄 예정
-    private fun makeBalloon(): Balloon {
-        val popUpMessage = Balloon.Builder(this)
-            .setWidth(BalloonSizeSpec.WRAP)
-            .setHeight(BalloonSizeSpec.WRAP)
-            .setText(resources.getString(R.string.content_login_tutorial))
-            .setTextColorResource(R.color.hawkes_blue)
-            .setTextTypeface(ResourcesCompat.getFont(this, R.font.pretendard_medium)!!)
-            .setTextSize(13f)
-            .setIconHeight(20)
-            .setMarginBottom(6)
-            .setIconWidth(20)
-            .setIconDrawableResource(R.drawable.ic_launcher_background)
-            .setArrowSize(12)
-            .setArrowPosition(0.5f)
-            .setPaddingTop(8)
-            .setPaddingLeft(13)
-            .setPaddingRight(13)
-            .setPaddingBottom(8)
-            .setCornerRadius(10f)
-            .setBackgroundColorResource(R.color.bright_grey)
-            .setDismissWhenClicked(false)
-            .setDismissWhenOverlayClicked(false)
-            .setDismissWhenTouchOutside(false)
-
-        return popUpMessage.build()
     }
 
     private fun initBanner() {
@@ -104,29 +104,82 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         }
     }
 
-    private fun initMainCategoryList(){
+    private fun initMoreItemList(){
+        //test input data
+        val list = mutableListOf<ItemResponse>()
+        for (idx in 1..8) {
+            list.add(
+                ItemResponse(
+                    idx = idx,
+                    name = "상품$idx",
+                    price = 40000,
+                    brand = "브랜드$idx",
+                    img = R.drawable.ic_launcher_background
+                )
+            )
+        }
+        binding.rcvMoreGiftList.apply {
+            layoutManager = GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
+            adapter = HomeMoreGiftAdapter(this@HomeActivity, list)
+        }
+    }
+
+    private fun initMainCategoryList() {
         //test input data
         val list = mutableListOf<ItemCategoryResponse>()
-        for(idx in 1..8){
+        for (idx in 1..8) {
             list.add(ItemCategoryResponse(R.drawable.ic_launcher_background, "카테고리$idx"))
         }
 
         binding.rcvMainCategory.apply {
-            layoutManager = GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
+            layoutManager =
+                GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
             adapter = HomeMainCategoryAdapter(this@HomeActivity, list.toList())
         }
     }
 
-    private fun initMostSelectedGiftList(){
+    private fun initMostSelectedGiftList() {
         //test input data
         val list = mutableListOf<ItemResponse>()
-        for(idx in 1..8){
-            list.add(ItemResponse(idx = idx, name = "상품$idx", price = 40000, brand = "브랜드$idx", img = R.drawable.ic_launcher_background))
+        for (idx in 1..8) {
+            list.add(
+                ItemResponse(
+                    idx = idx,
+                    name = "상품$idx",
+                    price = 40000,
+                    brand = "브랜드$idx",
+                    img = R.drawable.ic_launcher_background
+                )
+            )
         }
 
         binding.rcvAnotherPeopleSelectedGiftList.apply {
-            layoutManager = LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
             adapter = HomeMostSelectedListAdapter(this@HomeActivity, list.toList())
+        }
+    }
+
+    private fun initLuxuryList() {
+        //test input data
+        val list = mutableListOf<ItemLuxuryResponse>()
+        for (idx in 1..12) {
+            list.add(
+                ItemLuxuryResponse(
+                    brandImg = R.drawable.ic_launcher_background,
+                    idx = idx,
+                    name = "상품$idx",
+                    price = 40000,
+                    brand = "브랜드$idx",
+                    img = R.drawable.ic_launcher_background
+                )
+            )
+        }
+
+        binding.rcvLuxuryList.apply {
+            layoutManager =
+                LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = HomeLuxuryListAdapter(this@HomeActivity, list)
         }
     }
 
