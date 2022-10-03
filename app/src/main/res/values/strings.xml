@@ -114,4 +114,7 @@
 
     <!-- 선물담기 -->
     <string name="content_put_gift">선물 담기</string>
+
+    <!-- 로그인 -->
+    <string name="title_kakao_login">카카오로 시작하기</string>
 </resources>

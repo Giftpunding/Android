@@ -44,7 +44,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_tutorial" />
 
-        <ImageButton
+        <TextView
+            android:id="@+id/btn_kakao_login"
+            android:layout_width="316dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_rect_transparent_golden_yellow_radius10"
+            android:text="@string/title_kakao_login"
+            android:textColor="@color/maire"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ci_banner"
+            app:layout_constraintVertical_bias="0.65"
+            />
+
+        <!-- ImageButton
             android:id="@+id/btn_kakao_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,8 +72,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ci_banner"
-            app:layout_constraintVertical_bias="0.65" />
-
+            app:layout_constraintVertical_bias="0.65" / -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
