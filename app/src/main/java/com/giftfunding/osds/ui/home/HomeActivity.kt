@@ -5,14 +5,17 @@ import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.data.response.home.item.ItemCategoryResponse
+import com.giftfunding.osds.data.response.home.item.ItemResponse
 import com.giftfunding.osds.databinding.ActivityHomeBinding
 import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.ui.home.adapter.HomeBannerAdapter
 import com.giftfunding.osds.ui.home.adapter.HomeMainCategoryAdapter
+import com.giftfunding.osds.ui.home.adapter.HomeMostSelectedListAdapter
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonSizeSpec
 import com.skydoves.balloon.showAlignTop
@@ -37,6 +40,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         initSearchInputPopUp()
         initBanner()
         initMainCategoryList()
+        initMostSelectedGiftList()
     }
 
     override fun initEvent() {
@@ -110,6 +114,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         binding.rcvMainCategory.apply {
             layoutManager = GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
             adapter = HomeMainCategoryAdapter(this@HomeActivity, list.toList())
+        }
+    }
+
+    private fun initMostSelectedGiftList(){
+        //test input data
+        val list = mutableListOf<ItemResponse>()
+        for(idx in 1..8){
+            list.add(ItemResponse(idx = idx, name = "상품$idx", price = 40000, brand = "브랜드$idx", img = R.drawable.ic_launcher_background))
+        }
+
+        binding.rcvAnotherPeopleSelectedGiftList.apply {
+            layoutManager = LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
+            adapter = HomeMostSelectedListAdapter(this@HomeActivity, list.toList())
         }
     }
 
