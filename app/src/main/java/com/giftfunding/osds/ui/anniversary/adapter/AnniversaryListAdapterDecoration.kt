@@ -3,6 +3,7 @@ package com.giftfunding.osds.ui.anniversary.adapter
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.giftfunding.osds.util.dpToPixel
 import com.giftfunding.osds.util.dpToPx
 
 class AnniversaryListAdapterDecoration : RecyclerView.ItemDecoration() {
@@ -15,8 +16,8 @@ class AnniversaryListAdapterDecoration : RecyclerView.ItemDecoration() {
     ) {
         super.getItemOffsets(outRect, view, parent, state)
 
-        val margin28dp = dpToPx(parent.context, 28F)
-        val margin6dp = dpToPx(parent.context, 6F)
+        val margin28dp = 28.dpToPixel(parent.context)
+        val margin6dp = 6.dpToPixel(parent.context)
 
         when (parent.getChildAdapterPosition(view)) {
             0 -> outRect.left = margin28dp

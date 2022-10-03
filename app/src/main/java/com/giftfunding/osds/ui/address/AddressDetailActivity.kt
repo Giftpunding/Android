@@ -11,6 +11,9 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.setMargins
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.data.response.address.AddressSearchResultDocumentResponse
@@ -19,12 +22,13 @@ import com.giftfunding.osds.enum.BackButton
 import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.enum.VisibleState
 import com.giftfunding.osds.ui.home.HomeActivity
+import com.giftfunding.osds.util.dpToPixel
 
 
 class AddressDetailActivity :
     BaseActivity<ActivityAddressDetailBinding>(ActivityAddressDetailBinding::inflate) {
 
-    private val viewModel : AddressSearchViewModel by viewModels()
+    private val viewModel: AddressSearchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,10 +46,11 @@ class AddressDetailActivity :
         setTitle(getString(R.string.title_address_detail))
         setCloseButton(VisibleState.VISIBLE)
 
-        val addressData = intent.getSerializableExtra("AddressData") as AddressSearchResultDocumentResponse
+        val addressData =
+            intent.getSerializableExtra("AddressData") as AddressSearchResultDocumentResponse
 
         binding.tvSearchKeyword.text = addressData.addressName
-        
+
         //도로명, 지번 구분 표시
         initAddressTextViews(addressData)
 
@@ -53,20 +58,20 @@ class AddressDetailActivity :
         revealKeyboard(binding.editAddressDetail)
     }
 
-    private fun initAddressViewModel(){
-        viewModel.userResponse.observe(this){
+    private fun initAddressViewModel() {
+        viewModel.userResponse.observe(this) {
             finishAffinity()
-            startActivity(Intent(this,HomeActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 
     private fun initAddressTextViews(addressData: AddressSearchResultDocumentResponse) {
-       // 도로명이 있는 경우
+        // 도로명이 있는 경우
         if (addressData.roadAddress != null) {
             updateRoadAddressTypeView(addressData)
         }
         // 도로명은 없고 지번이 있는 경우
-        else if(addressData.address != null){
+        else if (addressData.address != null) {
             updateAddressTypeView(addressData)
         }
     }
@@ -76,16 +81,16 @@ class AddressDetailActivity :
     private fun updateRoadAddressTypeView(addressData: AddressSearchResultDocumentResponse) {
         binding.tvAddressType.text = "도로명"
         binding.tvAddress.text = addressData.roadAddress!!.roadName
-        if(isExistBuildingName(addressData)){
+        if (isExistBuildingName(addressData)) {
             binding.tvSearchKeyword.text =
                 addressData.roadAddress!!.addressName + " " + addressData.roadAddress!!.buildingName
-        }else{
+        } else {
             binding.tvSearchKeyword.text = addressData.roadAddress!!.addressName
         }
     }
 
     // 도로명에서 건물 이름이 있는 경우
-    private fun isExistBuildingName(addressData: AddressSearchResultDocumentResponse): Boolean{
+    private fun isExistBuildingName(addressData: AddressSearchResultDocumentResponse): Boolean {
         return addressData.roadAddress!!.buildingName != ""
     }
 
@@ -124,16 +129,66 @@ class AddressDetailActivity :
         keypadUpDownListener()
     }
 
-    private fun keypadUpDownListener(){
-        binding.editAddressDetail.viewTreeObserver.addOnGlobalLayoutListener{
+    private fun keypadUpDownListener() {
+        binding.editAddressDetail.viewTreeObserver.addOnGlobalLayoutListener {
             val r = Rect()
             binding.editAddressDetail.getWindowVisibleDisplayFrame(r)
             //정확한 수치가 없음
-            if(binding.editAddressDetail.rootView.height - (r.bottom - r.top) > 600){
+            if (binding.editAddressDetail.rootView.height - (r.bottom - r.top) > 600) {
                 Log.e("keypad", "on")
-            }
-            else{
-                Log.d("keypad","off")
+                binding.btnComplete.apply {
+                    background = AppCompatResources.getDrawable(
+                        this@AddressDetailActivity,
+                        R.drawable.bg_sc_rect_trans100_echo_blue2_radius0_rect_trans100_midnight_express_radius0
+                    )
+                    layoutParams = ConstraintLayout.LayoutParams(
+                        ConstraintLayout.LayoutParams.MATCH_PARENT,
+                        50.dpToPixel(this@AddressDetailActivity)
+                    ).apply {
+                        setMargins(0)
+                    }
+                }
+                ConstraintSet().apply {
+                    clone(binding.clView)
+                    connect(
+                        binding.btnComplete.id,
+                        ConstraintSet.BOTTOM,
+                        binding.clView.id,
+                        ConstraintSet.BOTTOM,
+                        0
+                    )
+                    applyTo(binding.clView)
+                }
+            } else {
+                Log.d("keypad", "off")
+                binding.btnComplete.apply {
+                    background = AppCompatResources.getDrawable(
+                        this@AddressDetailActivity,
+                        R.drawable.bg_sc_rect_trans100_echo_blue2_radius10_rect_trans100_midnight_express_radius10
+                    )
+                    layoutParams = ConstraintLayout.LayoutParams(
+                        ConstraintLayout.LayoutParams.MATCH_PARENT,
+                        50.dpToPixel(this@AddressDetailActivity)
+                    ).apply {
+                        setMargins(
+                            28.dpToPixel(this@AddressDetailActivity),
+                            0,
+                            28.dpToPixel(this@AddressDetailActivity),
+                            0
+                        )
+                    }
+                }
+                ConstraintSet().apply {
+                    clone(binding.clView)
+                    connect(
+                        binding.btnComplete.id,
+                        ConstraintSet.BOTTOM,
+                        binding.clView.id,
+                        ConstraintSet.BOTTOM,
+                        46.dpToPixel(this@AddressDetailActivity)
+                    )
+                    applyTo(binding.clView)
+                }
             }
         }
     }

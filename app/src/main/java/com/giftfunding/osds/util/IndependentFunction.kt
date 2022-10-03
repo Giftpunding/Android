@@ -3,10 +3,6 @@ package com.giftfunding.osds.util
 import android.content.Context
 import android.util.TypedValue
 
-fun dpToPx(context: Context, dp: Float) =
-    TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics)
-        .toInt()
-
 fun pxToDp(context: Context, px: Float): Int {
     var density = context.resources.displayMetrics.density
     when (density) {
