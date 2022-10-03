@@ -6,13 +6,31 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.giftfunding.osds.data.response.home.item.ItemLuxuryResponse
+import com.giftfunding.osds.data.response.home.item.ItemResponse
 import com.giftfunding.osds.databinding.ItemHomeLuxuryListBinding
 import com.giftfunding.osds.util.addComma
 
 class HomeLuxuryListAdapter(
-    val context: Context,
-    private val homeLuxuryList: List<ItemLuxuryResponse>
 ) : RecyclerView.Adapter<HomeLuxuryListAdapter.HomeLuxuryListHolder>() {
+
+    private val homeLuxuryList = mutableListOf<ItemLuxuryResponse>()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeLuxuryListHolder {
+        val view =
+            ItemHomeLuxuryListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return HomeLuxuryListHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: HomeLuxuryListHolder, position: Int) {
+        holder.bind(homeLuxuryList[position])
+    }
+
+    override fun getItemCount() = LUXURY_LIST_ITEM_COUNT
+
+    fun addItemList(itemList : List<ItemLuxuryResponse>){
+        homeLuxuryList.addAll(itemList)
+    }
+
     class HomeLuxuryListHolder(val binding: ItemHomeLuxuryListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ItemLuxuryResponse) {
@@ -28,18 +46,6 @@ class HomeLuxuryListAdapter(
             }
         }
     }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeLuxuryListHolder {
-        val view =
-            ItemHomeLuxuryListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HomeLuxuryListHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: HomeLuxuryListHolder, position: Int) {
-        holder.bind(homeLuxuryList[position])
-    }
-
-    override fun getItemCount() = LUXURY_LIST_ITEM_COUNT
 
     companion object {
         private const val LUXURY_LIST_ITEM_COUNT = 12

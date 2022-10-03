@@ -101,8 +101,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             R.drawable.ic_launcher_background
         )
 
+        val bannerAdapter = HomeBannerAdapter()
+        bannerAdapter.addBannerItemList(list)
+
         binding.vp2HomeBanner.apply {
-            adapter = HomeBannerAdapter(this@HomeActivity, list)
+            adapter = bannerAdapter
             setAutoBanner(list.size)
         }
     }
@@ -121,10 +124,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
                 )
             )
         }
+
+        val moreGiftAdapter = HomeMoreGiftAdapter()
+        moreGiftAdapter.addItemList(list)
         binding.rcvMoreGiftList.apply {
             layoutManager =
                 GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
-            adapter = HomeMoreGiftAdapter(this@HomeActivity, list)
+            adapter = moreGiftAdapter
         }
     }
 
@@ -135,10 +141,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             list.add(ItemCategoryResponse(R.drawable.ic_launcher_background, "카테고리$idx"))
         }
 
+        val mainCategoryAdapter =  HomeMainCategoryAdapter()
+        mainCategoryAdapter.addItemLIST(list)
+
         binding.rcvMainCategory.apply {
             layoutManager =
                 GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
-            adapter = HomeMainCategoryAdapter(this@HomeActivity, list.toList())
+            adapter = mainCategoryAdapter
         }
     }
 
@@ -157,10 +166,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             )
         }
 
+        val mostSelectedListAdapter = HomeMostSelectedListAdapter()
+        mostSelectedListAdapter.addItemList(list)
+
         binding.rcvAnotherPeopleSelectedGiftList.apply {
             layoutManager =
                 LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
-            adapter = HomeMostSelectedListAdapter(this@HomeActivity, list.toList())
+            adapter = mostSelectedListAdapter
         }
     }
 
@@ -171,10 +183,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             list.add("키워드$idx")
         }
 
+        val mostSearchedListAdapter = HomeMostSearchedListAdapter()
+        mostSearchedListAdapter.addKeywordList(list)
+
         binding.rcvMostSearchedGiftList.apply {
             layoutManager =
                 GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.VERTICAL, false)
-            adapter = HomeMostSearchedListAdapter(this@HomeActivity, list)
+            adapter = mostSearchedListAdapter
         }
     }
 
@@ -194,10 +209,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             )
         }
 
+        val homeLuxuryListAdapter = HomeLuxuryListAdapter()
+        homeLuxuryListAdapter.addItemList(list)
+
         binding.rcvLuxuryList.apply {
             layoutManager =
                 LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = HomeLuxuryListAdapter(this@HomeActivity, list)
+            adapter = homeLuxuryListAdapter
         }
     }
 

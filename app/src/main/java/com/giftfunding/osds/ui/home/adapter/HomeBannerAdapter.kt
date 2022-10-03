@@ -8,15 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.giftfunding.osds.databinding.ContentBannerBinding
 
 //배너 이미지는 drawable을 임시로 사용
-class HomeBannerAdapter(val context: Context, private val bannerList: List<Int>) :
+class HomeBannerAdapter() :
     RecyclerView.Adapter<HomeBannerAdapter.HomeBannerHolder>() {
 
-    inner class HomeBannerHolder(val binding: ContentBannerBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun bind(img: Int) {
-            binding.ivBanner.setImageResource(img)
-        }
-    }
+    private val bannerList = mutableListOf<Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBannerHolder {
         val view = ContentBannerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -28,4 +23,15 @@ class HomeBannerAdapter(val context: Context, private val bannerList: List<Int>)
     }
 
     override fun getItemCount() = Int.MAX_VALUE
+
+    fun addBannerItemList(imgList : List<Int>){
+        bannerList.addAll(imgList)
+    }
+
+    class HomeBannerHolder(val binding: ContentBannerBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(img: Int) {
+            binding.ivBanner.setImageResource(img)
+        }
+    }
 }

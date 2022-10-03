@@ -9,18 +9,9 @@ import com.giftfunding.osds.data.response.home.item.ItemCategoryResponse
 import com.giftfunding.osds.databinding.ItemHomeMainCategoryBinding
 
 
-class HomeMainCategoryAdapter(val context : Context, private val categoryList : List<ItemCategoryResponse>) : RecyclerView.Adapter<HomeMainCategoryAdapter.HomeMainCategoryHolder>() {
-    class HomeMainCategoryHolder(val binding : ItemHomeMainCategoryBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(categoryItem : ItemCategoryResponse){
-            binding.apply {
-                Glide.with(ivCategoryImg)
-                    .load(categoryItem.img)
-                    .centerCrop()
+class HomeMainCategoryAdapter() : RecyclerView.Adapter<HomeMainCategoryAdapter.HomeMainCategoryHolder>() {
 
-                tvCategory.text = categoryItem.categoryName
-            }
-        }
-    }
+    private val categoryList = mutableListOf<ItemCategoryResponse>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeMainCategoryHolder {
         val view = ItemHomeMainCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -32,4 +23,20 @@ class HomeMainCategoryAdapter(val context : Context, private val categoryList : 
     }
 
     override fun getItemCount() = categoryList.size
+
+    fun addItemLIST(itemList : List<ItemCategoryResponse>){
+        categoryList.addAll(itemList)
+    }
+
+    class HomeMainCategoryHolder(val binding : ItemHomeMainCategoryBinding) : RecyclerView.ViewHolder(binding.root){
+        fun bind(categoryItem : ItemCategoryResponse){
+            binding.apply {
+                Glide.with(ivCategoryImg)
+                    .load(categoryItem.img)
+                    .centerCrop()
+
+                tvCategory.text = categoryItem.categoryName
+            }
+        }
+    }
 }

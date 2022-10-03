@@ -1,5 +1,6 @@
 package com.giftfunding.osds.ui.home.adapter
 
+import android.content.ClipData.Item
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +12,10 @@ import com.giftfunding.osds.databinding.ItemMerchandiseHorizontalBinding
 import com.giftfunding.osds.databinding.ItemMostSearchedListBinding
 import com.giftfunding.osds.util.addComma
 
-class HomeMostSelectedListAdapter(val context : Context, val itemList : List<ItemResponse>) : RecyclerView.Adapter<HomeMostSelectedListAdapter.HomeMostSelectedViewHolder>(){
+class HomeMostSelectedListAdapter() : RecyclerView.Adapter<HomeMostSelectedListAdapter.HomeMostSelectedViewHolder>(){
+
+    private val itemList = mutableListOf<ItemResponse>()
+
     class HomeMostSelectedViewHolder(val binding : ItemMerchandiseHorizontalBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item : ItemResponse){
             binding.apply {
@@ -42,6 +46,10 @@ class HomeMostSelectedListAdapter(val context : Context, val itemList : List<Ite
     }
 
     override fun getItemCount() = MOST_SELECTED_ITEM_COUNT
+
+    fun addItemList(itemList : List<ItemResponse>){
+        this.itemList.addAll(itemList)
+    }
 
     companion object{
         private const val MOST_SELECTED_ITEM_COUNT = 5
