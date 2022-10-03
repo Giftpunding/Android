@@ -4,7 +4,6 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.giftfunding.osds.util.dpToPixel
-import com.giftfunding.osds.util.dpToPx
 
 class AnniversaryListAdapterDecoration : RecyclerView.ItemDecoration() {
 

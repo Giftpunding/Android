@@ -8,7 +8,7 @@
 
     <item android:state_enabled="false">
         <shape android:shape="rectangle">
-            <solid android:color="@color/echo_blue_2" />
+            <solid android:color="@color/link_water" />
         </shape>
     </item>
 

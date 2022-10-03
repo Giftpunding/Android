@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="28dp"
         android:layout_marginBottom="46dp"
-        android:background="@drawable/bg_sc_rect_trans100_echo_blue2_radius10_rect_trans100_midnight_express_radius10"
+        android:background="@drawable/bg_sc_rect_trans100_link_water_radius10_rect_trans100_midnight_express_radius10"
         android:enabled="false"
         android:minHeight="0dp"
         android:paddingVertical="15dp"

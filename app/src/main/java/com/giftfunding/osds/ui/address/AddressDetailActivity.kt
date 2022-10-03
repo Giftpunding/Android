@@ -139,7 +139,7 @@ class AddressDetailActivity :
                 binding.btnComplete.apply {
                     background = AppCompatResources.getDrawable(
                         this@AddressDetailActivity,
-                        R.drawable.bg_sc_rect_trans100_echo_blue2_radius0_rect_trans100_midnight_express_radius0
+                        R.drawable.bg_sc_rect_trans100_link_water_radius0_rect_trans100_midnight_express_radius0
                     )
                     layoutParams = ConstraintLayout.LayoutParams(
                         ConstraintLayout.LayoutParams.MATCH_PARENT,
@@ -164,7 +164,7 @@ class AddressDetailActivity :
                 binding.btnComplete.apply {
                     background = AppCompatResources.getDrawable(
                         this@AddressDetailActivity,
-                        R.drawable.bg_sc_rect_trans100_echo_blue2_radius10_rect_trans100_midnight_express_radius10
+                        R.drawable.bg_sc_rect_trans100_link_water_radius10_rect_trans100_midnight_express_radius10
                     )
                     layoutParams = ConstraintLayout.LayoutParams(
                         ConstraintLayout.LayoutParams.MATCH_PARENT,
