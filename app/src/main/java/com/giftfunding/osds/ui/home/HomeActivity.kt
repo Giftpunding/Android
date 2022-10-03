@@ -42,6 +42,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         initMostSelectedGiftList()
         initLuxuryList()
         initMoreItemList()
+        initMostSearchedList()
     }
 
     override fun initEvent() {
@@ -60,13 +61,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
     }
 
     private fun initSearchInputPopUp() {
-        //말풍선 생성
+        //말풍선 생성 -> 최상위 함수로 뺄 예정
         fun makeBalloon(): Balloon {
             val popUpMessage = Balloon.Builder(this)
                 .setWidth(BalloonSizeSpec.WRAP)
                 .setHeight(BalloonSizeSpec.WRAP)
-                .setText(resources.getString(R.string.content_login_tutorial))
-                .setTextColorResource(R.color.hawkes_blue)
+                .setText("찾으시는 선물이 있나요?")
+                .setTextColorResource(R.color.solitude_2)
                 .setTextTypeface(ResourcesCompat.getFont(this, R.font.pretendard_medium)!!)
                 .setTextSize(13f)
                 .setIconHeight(20)
@@ -80,10 +81,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
                 .setPaddingRight(13)
                 .setPaddingBottom(8)
                 .setCornerRadius(10f)
-                .setBackgroundColorResource(R.color.bright_grey)
-                .setDismissWhenClicked(false)
-                .setDismissWhenOverlayClicked(false)
-                .setDismissWhenTouchOutside(false)
+                .setBackgroundColorResource(R.color.midnight_express)
 
             return popUpMessage.build()
         }
@@ -157,6 +155,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             layoutManager =
                 LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
             adapter = HomeMostSelectedListAdapter(this@HomeActivity, list.toList())
+        }
+    }
+
+    private fun initMostSearchedList(){
+        //test input data
+        val list = mutableListOf<String>()
+        for(idx in 1..10){
+            list.add("키워드$idx")
+        }
+
+        binding.rcvMostSearchedGiftList.apply {
+            layoutManager = GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.VERTICAL, false)
+            adapter = HomeMostSearchedListAdapter(this@HomeActivity, list)
         }
     }
 
