@@ -27,5 +27,9 @@ class HomeMostSearchedListAdapter(val context : Context, val keywordList : List<
         holder.bind(keywordList[position])
     }
 
-    override fun getItemCount() = 10
+    override fun getItemCount() = MOST_SEARCHED_KEYWORD_COUNT
+
+    companion object{
+        private const val MOST_SEARCHED_KEYWORD_COUNT = 10
+    }
 }

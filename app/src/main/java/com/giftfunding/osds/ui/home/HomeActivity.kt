@@ -1,7 +1,10 @@
 package com.giftfunding.osds.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
+import android.widget.ScrollView
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -46,10 +49,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
     }
 
     override fun initEvent() {
-
+        initTopScrollEvent()
     }
 
     private fun initAutoBanner(): Job {
+        //뷰페이저 자동 스크롤(4초 간격)
         return lifecycleScope.launchWhenResumed {
             delay(4000)
             binding.vp2HomeBanner.currentItem = ++bannerPosition
@@ -57,7 +61,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
     }
 
     private fun initToolbar() {
-        setToolbarType(ToolbarType.GIFT, R.id.ly_home_main)
+        //툴바 생성(선물모양)
+        setToolbarType(ToolbarType.GIFT)
     }
 
     private fun initSearchInputPopUp() {
@@ -66,14 +71,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             val popUpMessage = Balloon.Builder(this)
                 .setWidth(BalloonSizeSpec.WRAP)
                 .setHeight(BalloonSizeSpec.WRAP)
-                .setText("찾으시는 선물이 있나요?")
+                .setText(getString(R.string.content_home_search_popup))
                 .setTextColorResource(R.color.solitude_2)
                 .setTextTypeface(ResourcesCompat.getFont(this, R.font.pretendard_medium)!!)
                 .setTextSize(13f)
                 .setIconHeight(20)
                 .setMarginBottom(6)
                 .setIconWidth(20)
-                .setIconDrawableResource(R.drawable.ic_launcher_background)
+                .setIconDrawableResource(R.drawable.ic_popup_gift)
                 .setArrowSize(12)
                 .setArrowPosition(0.5f)
                 .setPaddingTop(8)
@@ -102,7 +107,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         }
     }
 
-    private fun initMoreItemList(){
+    private fun initMoreItemList() {
         //test input data
         val list = mutableListOf<ItemResponse>()
         for (idx in 1..8) {
@@ -117,7 +122,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             )
         }
         binding.rcvMoreGiftList.apply {
-            layoutManager = GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
+            layoutManager =
+                GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
             adapter = HomeMoreGiftAdapter(this@HomeActivity, list)
         }
     }
@@ -158,15 +164,16 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         }
     }
 
-    private fun initMostSearchedList(){
+    private fun initMostSearchedList() {
         //test input data
         val list = mutableListOf<String>()
-        for(idx in 1..10){
+        for (idx in 1..10) {
             list.add("키워드$idx")
         }
 
         binding.rcvMostSearchedGiftList.apply {
-            layoutManager = GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.VERTICAL, false)
+            layoutManager =
+                GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.VERTICAL, false)
             adapter = HomeMostSearchedListAdapter(this@HomeActivity, list)
         }
     }
@@ -215,6 +222,23 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
                 binding.tvBannerCount.text = "${(position % bannerSize) + 1} / $bannerSize"
             }
         })
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun initTopScrollEvent() {
+        binding.lyMain.setOnTouchListener { view, _ ->
+            if (view?.canScrollVertically(-1) == true) {
+                binding.btnTopScroll.visibility = View.VISIBLE
+            } else {
+                binding.btnTopScroll.visibility = View.GONE
+            }
+            false
+        }
+
+        binding.btnTopScroll.setOnClickListener {
+            binding.lyMain.fullScroll(ScrollView.FOCUS_UP)
+            it.visibility = View.GONE
+        }
     }
 
     override fun onRestart() {

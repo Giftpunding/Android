@@ -39,6 +39,9 @@ class HomeLuxuryListAdapter(
         holder.bind(homeLuxuryList[position])
     }
 
-    override fun getItemCount() = 12
+    override fun getItemCount() = LUXURY_LIST_ITEM_COUNT
 
+    companion object {
+        private const val LUXURY_LIST_ITEM_COUNT = 12
+    }
 }

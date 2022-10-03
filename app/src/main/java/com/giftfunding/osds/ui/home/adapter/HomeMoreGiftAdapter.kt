@@ -36,5 +36,9 @@ class HomeMoreGiftAdapter(val context: Context, val itemList: List<ItemResponse>
         holder.bind(itemList[position])
     }
 
-    override fun getItemCount() = 6
+    override fun getItemCount() = MORE_GIFT_LIST_COUNT
+
+    companion object {
+        private const val MORE_GIFT_LIST_COUNT = 6
+    }
 }

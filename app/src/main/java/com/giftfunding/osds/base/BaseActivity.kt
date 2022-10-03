@@ -17,7 +17,7 @@ import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.enum.VisibleState
 
 abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :
-    AppCompatActivity(){
+    AppCompatActivity() {
 
     private var _binding: B? = null
     protected val binding get() = _binding!!
@@ -44,14 +44,14 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         _binding = null
     }
 
-    protected fun setToolbarType(type: ToolbarType, existTopLayout: Int = -1) {
+    protected fun setToolbarType(type: ToolbarType) {
         when (type) {
             ToolbarType.NORMAL -> {
                 normalToolbarType()
             }
 
             ToolbarType.GIFT -> {
-                giftToolbarType(existTopLayout)
+                giftToolbarType()
             }
         }
     }
@@ -64,13 +64,8 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         closeButton = normalToolbarBinding.ivClose
     }
 
-    private fun giftToolbarType(existTopLayout: Int) {
-        giftToolbarBinding = if(existTopLayout != -1){
-            ContentGiftToolbarBinding.bind(binding.root.findViewById(existTopLayout))
-        } else{
-            ContentGiftToolbarBinding.bind(binding.root)
-        }
-        //input view
+    private fun giftToolbarType(){
+        giftToolbarBinding = ContentGiftToolbarBinding.bind(binding.root)
     }
 
 

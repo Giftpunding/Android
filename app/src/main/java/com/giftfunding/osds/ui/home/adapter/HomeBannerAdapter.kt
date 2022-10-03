@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.giftfunding.osds.databinding.ContentBannerBinding
 
-//임시로 list의 형태는 Int
+//배너 이미지는 drawable을 임시로 사용
 class HomeBannerAdapter(val context: Context, private val bannerList: List<Int>) :
     RecyclerView.Adapter<HomeBannerAdapter.HomeBannerHolder>() {
 

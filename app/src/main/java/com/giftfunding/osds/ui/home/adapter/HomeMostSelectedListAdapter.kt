@@ -41,5 +41,9 @@ class HomeMostSelectedListAdapter(val context : Context, val itemList : List<Ite
         holder.bind(itemList[position])
     }
 
-    override fun getItemCount() = 5
+    override fun getItemCount() = MOST_SELECTED_ITEM_COUNT
+
+    companion object{
+        private const val MOST_SELECTED_ITEM_COUNT = 5
+    }
 }
