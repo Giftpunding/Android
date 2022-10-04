@@ -18,7 +18,6 @@ import com.giftfunding.osds.databinding.ActivityAddressDetailBinding
 import com.giftfunding.osds.enum.BackButton
 import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.enum.VisibleState
-import com.giftfunding.osds.ui.home.HomeActivity
 
 
 class AddressDetailActivity :
@@ -56,7 +55,7 @@ class AddressDetailActivity :
     private fun initAddressViewModel(){
         viewModel.userResponse.observe(this){
             finishAffinity()
-            startActivity(Intent(this,HomeActivity::class.java))
+//            startActivity(Intent(this,HomeActivity::class.java))
         }
     }
 

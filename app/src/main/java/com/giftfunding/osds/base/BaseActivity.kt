@@ -17,7 +17,7 @@ import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.enum.VisibleState
 
 abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :
-    AppCompatActivity(){
+    AppCompatActivity() {
 
     private var _binding: B? = null
     protected val binding get() = _binding!!
@@ -64,9 +64,8 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         closeButton = normalToolbarBinding.ivClose
     }
 
-    private fun giftToolbarType() {
+    private fun giftToolbarType(){
         giftToolbarBinding = ContentGiftToolbarBinding.bind(binding.root)
-        //input view
     }
 
 

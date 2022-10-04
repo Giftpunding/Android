@@ -174,7 +174,7 @@
                         android:paddingEnd="22dp"
                         android:paddingBottom="11dp"
                         android:text="@string/category_funding_price_all"
-                        android:textColor="@drawable/bg_sc_color_solitude_2_color_raven"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
                         android:textSize="14sp" />
 
                     <RadioButton
@@ -192,7 +192,7 @@
                         android:paddingEnd="25dp"
                         android:paddingBottom="8dp"
                         android:text="@string/category_ten_thousand"
-                        android:textColor="@drawable/bg_sc_color_solitude_2_color_raven"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
                         android:textSize="16sp" />
 
                     <RadioButton
@@ -210,7 +210,7 @@
                         android:paddingEnd="30dp"
                         android:paddingBottom="8dp"
                         android:text="@string/category_five_thousand"
-                        android:textColor="@drawable/bg_sc_color_solitude_2_color_raven"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
                         android:textSize="16sp" />
                 </RadioGroup>
 
@@ -445,7 +445,7 @@
                 android:paddingTop="16dp"
                 android:paddingBottom="17dp"
                 android:text="@string/category_payment_card"
-                android:textColor="@drawable/bg_sc_color_white_color_midnight_express"
+                android:textColor="@drawable/sc_color_white_color_midnight_express"
                 android:textSize="14sp" />
 
             <RadioButton
@@ -461,7 +461,7 @@
                 android:paddingTop="16dp"
                 android:paddingBottom="17dp"
                 android:text="@string/category_payment_phone"
-                android:textColor="@drawable/bg_sc_color_white_color_midnight_express"
+                android:textColor="@drawable/sc_color_white_color_midnight_express"
                 android:textSize="14sp" />
 
         </RadioGroup>

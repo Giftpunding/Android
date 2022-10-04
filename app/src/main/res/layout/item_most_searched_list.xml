@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginEnd="18dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_list_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_medium"
+            android:includeFontPadding="false"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_most_searched_keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:includeFontPadding="false"
+            android:text="검색어"
+            android:textColor="@color/midnight_express"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_list_num"
+            app:layout_constraintStart_toEndOf="@id/tv_list_num"
+            app:layout_constraintTop_toTopOf="@id/tv_list_num" />
+
+        <View
+            android:id="@+id/div_most_searched_keyword"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/solitude_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_most_searched_keyword" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
