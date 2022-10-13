@@ -1,339 +1,275 @@
 package com.giftfunding.osds.ui.home
 
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
+import android.widget.ScrollView
+import androidx.core.content.res.ResourcesCompat
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
-import com.giftfunding.osds.ui.merchandise.OrderMerchandiseBottomSheetDialog
-import com.giftfunding.osds.data.response.home.luxuryGift.LuxuryGiftResponse
-import com.giftfunding.osds.data.response.home.merchandise.MerchandiseResponse
-import com.giftfunding.osds.data.response.home.popualrGift.PopularGiftCategoryResponse
-import com.giftfunding.osds.data.response.home.popualrGift.PopularGiftResponse
+import com.giftfunding.osds.data.response.home.item.ItemCategoryResponse
+import com.giftfunding.osds.data.response.home.item.ItemLuxuryResponse
+import com.giftfunding.osds.data.response.home.item.ItemResponse
 import com.giftfunding.osds.databinding.ActivityHomeBinding
-import com.giftfunding.osds.ui.home.adpater.LuxuryAdapter
-import com.giftfunding.osds.ui.home.adpater.RecommendAdapter
-import com.giftfunding.osds.ui.merchandise.adapter.MerchandiseAdapter
-import com.giftfunding.osds.ui.home.ranking.RankingActivity
-import com.giftfunding.osds.ui.home.popular.adapter.PopularGiftCategoryAdapter
-import com.giftfunding.osds.ui.home.popular.adapter.PopularGiftPagerAdapter
-import com.giftfunding.osds.ui.merchandise.MerchandiseActivity
-import kotlin.math.ceil
+import com.giftfunding.osds.enum.ToolbarType
+import com.giftfunding.osds.ui.home.adapter.*
+import com.skydoves.balloon.Balloon
+import com.skydoves.balloon.BalloonSizeSpec
+import com.skydoves.balloon.showAlignTop
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 
-class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate),
-    View.OnClickListener {
+class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate) {
 
+    private var bannerPosition = 0
+    private val autoBannerSlider by lazy { initAutoBanner() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+
         init()
         initEvent()
     }
 
-    /**
-     * 액티비티 실행 시 초기화 작업,
-     * 서버 작업 요구 됨
-     */
     override fun init() {
-        //서버 통신 작업 필요함, 임시로 어댑터 연결
-        binding.apply {
-            /* 임시 더미 데이터 */
-            val mList = mutableListOf<MerchandiseResponse>()
-            val lList = mutableListOf<LuxuryGiftResponse>()
-            val sList = mutableListOf<PopularGiftResponse>()
-            val cList = mutableListOf<PopularGiftCategoryResponse>()
-
-            for (idx in 1..13) {
-                mList.add(
-                    MerchandiseResponse(
-                        brand = "브랜드${idx}",
-                        name = "상품 이름",
-                        price = 10000,
-                        img = "http://www.selphone.co.kr/homepage/img/team/3.jpg"
-                    )
-                )
-            }
-            for (idx in 1..13) {
-                sList.add(
-                    PopularGiftResponse(
-                        brand = "브랜드${idx}",
-                        name = "상품 이름",
-                        price = 10000,
-                        img = "http://www.selphone.co.kr/homepage/img/team/3.jpg"
-                    )
-                )
-            }
-            for (idx in 1..5) {
-                lList.add(
-                    LuxuryGiftResponse(
-                        brand = "브랜드${idx}",
-                        name = "상품 이름",
-                        price = 10000,
-                        img = "http://www.selphone.co.kr/homepage/img/team/3.jpg"
-                    )
-                )
-            }
-            for (idx in 1..15) {
-                cList.add(
-                    PopularGiftCategoryResponse(
-                        img = "http://www.selphone.co.kr/homepage/img/team/3.jpg",
-                        category = "카테고리$idx",
-                        check = false
-                    )
-                )
-            }
-
-            itemGiftRankingCategoryAll.apply {
-                setCategoryName(resources.getString(R.string.category_all))
-                setFirstSelectItem()
-                setOnClickListener {
-                    clickCategory(
-                        itemGiftRankingCategoryOneToTwo,
-                        itemGiftRankingCategoryFiveToNine,
-                        itemGiftRankingCategoryThreeToFour,
-                        itemGiftRankingCategoryOverTen,
-                        itemGiftRankingCategoryAll
-                    )
-                }
-            }
-
-            itemGiftRankingCategoryOneToTwo.apply {
-                setCategoryName(context.getString(R.string.category_one_to_two))
-                setOnClickListener {
-                    clickCategory(
-                        itemGiftRankingCategoryAll,
-                        itemGiftRankingCategoryFiveToNine,
-                        itemGiftRankingCategoryThreeToFour,
-                        itemGiftRankingCategoryOverTen,
-                        itemGiftRankingCategoryOneToTwo
-                    )
-                }
-            }
-
-            itemGiftRankingCategoryThreeToFour.apply {
-                setCategoryName(context.getString(R.string.category_three_to_four))
-                setOnClickListener {
-                    clickCategory(
-                        itemGiftRankingCategoryAll,
-                        itemGiftRankingCategoryOneToTwo,
-                        itemGiftRankingCategoryFiveToNine,
-                        itemGiftRankingCategoryOverTen,
-                        itemGiftRankingCategoryThreeToFour
-                    )
-                }
-            }
-
-            itemGiftRankingCategoryFiveToNine.apply {
-                setCategoryName(context.getString(R.string.category_five_to_nine))
-                setOnClickListener {
-                    clickCategory(
-                        itemGiftRankingCategoryAll,
-                        itemGiftRankingCategoryOneToTwo,
-                        itemGiftRankingCategoryThreeToFour,
-                        itemGiftRankingCategoryOverTen,
-                        itemGiftRankingCategoryFiveToNine
-                    )
-                }
-            }
-
-            itemGiftRankingCategoryOverTen.apply {
-                setCategoryName(context.getString(R.string.category_over_ten))
-                setOnClickListener {
-                    clickCategory(
-                        itemGiftRankingCategoryAll,
-                        itemGiftRankingCategoryOneToTwo,
-                        itemGiftRankingCategoryThreeToFour,
-                        itemGiftRankingCategoryFiveToNine,
-                        itemGiftRankingCategoryOverTen
-                    )
-                }
-            }
-
-            itemPopularGiftCategoryAll.apply {
-                setCategoryName(context.getString(R.string.category_all))
-                setFirstSelectItem()
-                setOnClickListener {
-                    clickCategory(
-                        itemPopularGiftCategoryFiveToNine,
-                        itemPopularGiftCategoryAroundTen,
-                        itemPopularGiftCategoryAroundTwenty,
-                        itemPopularGiftCategoryOverThirty,
-                        itemPopularGiftCategoryAll
-                    )
-                }
-            }
-            itemPopularGiftCategoryFiveToNine.apply {
-                setCategoryName(context.getString(R.string.category_five_to_nine))
-                setOnClickListener {
-                    clickCategory(
-                        itemPopularGiftCategoryAll,
-                        itemPopularGiftCategoryAroundTen,
-                        itemPopularGiftCategoryAroundTwenty,
-                        itemPopularGiftCategoryOverThirty,
-                        itemPopularGiftCategoryFiveToNine
-                    )
-                }
-            }
-            itemPopularGiftCategoryAroundTen.apply {
-                setCategoryName(context.getString(R.string.category_around_ten))
-                setOnClickListener {
-                    clickCategory(
-                        itemPopularGiftCategoryFiveToNine,
-                        itemPopularGiftCategoryAll,
-                        itemPopularGiftCategoryAroundTwenty,
-                        itemPopularGiftCategoryOverThirty,
-                        itemPopularGiftCategoryAroundTen
-                    )
-                }
-            }
-            itemPopularGiftCategoryAroundTwenty.apply {
-                setCategoryName(context.getString(R.string.category_around_twenty))
-                setOnClickListener {
-                    clickCategory(
-                        itemPopularGiftCategoryFiveToNine,
-                        itemPopularGiftCategoryAroundTen,
-                        itemPopularGiftCategoryAll,
-                        itemPopularGiftCategoryOverThirty,
-                        itemPopularGiftCategoryAroundTwenty
-                    )
-                }
-            }
-            itemPopularGiftCategoryOverThirty.apply {
-                setCategoryName(context.getString(R.string.category_over_thirty))
-                setOnClickListener {
-                    clickCategory(
-                        itemPopularGiftCategoryFiveToNine,
-                        itemPopularGiftCategoryAroundTen,
-                        itemPopularGiftCategoryAroundTwenty,
-                        itemPopularGiftCategoryAll,
-                        itemPopularGiftCategoryOverThirty
-                    )
-                }
-            }
-
-            //카테고리 연결
-            rvHomeSoughtAfterGiftCategory.apply {
-                val soughtAfterAdapter = PopularGiftCategoryAdapter(this@HomeActivity)
-                layoutManager =
-                    LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
-                adapter =
-                    soughtAfterAdapter
-                soughtAfterAdapter.addItemList(cList)
-            }
-
-            //상품 리스트 연결
-            rvHomeGiftMerchandise.apply {
-                val merchandiseAdapter = MerchandiseAdapter({
-                    showBottomSheetDialog()
-                },{
-                    moveActivity()
-                })
-                layoutManager =
-                    LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
-                adapter = merchandiseAdapter
-                merchandiseAdapter.addItemList(mList)
-            }
-
-            //명품 연결
-            rvLuxuryList.apply {
-                val luxuryAdapter = LuxuryAdapter(this@HomeActivity)
-                layoutManager =
-                    LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
-                adapter = luxuryAdapter
-                luxuryAdapter.addItemList(lList)
-            }
-
-            //추천 리스트 연결
-            rvRecommendList.apply {
-                /* 임시 더미 데이터 */
-                val list = mutableListOf<MerchandiseResponse>()
-                for (idx in 1..5) {
-                    list.add(
-                        MerchandiseResponse(
-                            brand = "브랜드${idx}",
-                            name = "상품 이름",
-                            price = 10000,
-                            img = "http://www.selphone.co.kr/homepage/img/team/3.jpg"
-                        )
-                    )
-                }
-                val recommendAdapter = RecommendAdapter(this@HomeActivity)
-                layoutManager =
-                    LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
-                adapter = recommendAdapter
-                recommendAdapter.addItemList(list)
-            }
-
-            //많이 찾는 선물 페이지 크기
-            val fragmentSize = ceil(mList.size.toDouble().div(4)).toInt()
-
-            //많이 찾는 선물 뷰페이저 연결
-            vpSoughtAfterGift.apply {
-                adapter =
-                    PopularGiftPagerAdapter(this@HomeActivity, fragmentSize, sList)
-
-                registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                    override fun onPageSelected(position: Int) {
-                        tvSoughtAfterCategoryPagePrevious.text = position.plus(1).toString()
-                    }
-                })
-            }
-            tvSoughtAfterCategoryPageAfter.text = fragmentSize.toString()
-        }
+        initToolbar()
+        initSearchInputPopUp()
+        initBanner()
+        initMainCategoryList()
+        initMostSelectedGiftList()
+        initLuxuryList()
+        initMoreItemList()
+        initMostSearchedList()
     }
 
-    /**
-     * 상황에 맞는 View 이벤트 등록,
-     * 현재는 글자 폰트만 변경됩니다.
-     */
     override fun initEvent() {
-        binding.apply {
-            lyMerchandiseMoreInfo.setOnClickListener(this@HomeActivity)
-            btnSoughtAfterBack.setOnClickListener(this@HomeActivity)
-            btnSoughtAfterAfter.setOnClickListener(this@HomeActivity)
-        }
-
+        initTopScrollEvent()
     }
 
-    override fun onClick(view: View?) {
-        when (view) {
-            binding.lyMerchandiseMoreInfo -> {
-                startActivity(Intent(this, RankingActivity::class.java))
-            }
-            //페이지 버튼 이벤트
-            binding.btnSoughtAfterAfter -> {
-                if (!binding.tvSoughtAfterCategoryPageAfter.text.equals(binding.vpSoughtAfterGift.currentItem + 1)) {
-                    binding.btnSoughtAfterAfter.isEnabled = true
-                    binding.vpSoughtAfterGift.currentItem =
-                        binding.vpSoughtAfterGift.currentItem.plus(1)
-                    binding.tvSoughtAfterCategoryPagePrevious.text =
-                        binding.vpSoughtAfterGift.currentItem.plus(1).toString()
-                } else {
-                    binding.btnSoughtAfterAfter.isEnabled = false
-                }
-            }
-            binding.btnSoughtAfterBack -> {
-                if (!binding.tvSoughtAfterCategoryPagePrevious.text.equals(binding.vpSoughtAfterGift.currentItem + 1)) {
-                    binding.btnSoughtAfterBack.isEnabled = true
-                    binding.vpSoughtAfterGift.currentItem =
-                        binding.vpSoughtAfterGift.currentItem.minus(1)
-                    binding.tvSoughtAfterCategoryPagePrevious.text =
-                        binding.vpSoughtAfterGift.currentItem.plus(1).toString()
-                } else {
-                    binding.btnSoughtAfterBack.isEnabled = false
-                }
-            }
+    private fun initAutoBanner(): Job {
+        //뷰페이저 자동 스크롤(4초 간격)
+        return lifecycleScope.launchWhenResumed {
+            delay(4000)
+            binding.vp2HomeBanner.currentItem = ++bannerPosition
         }
     }
 
-    private fun showBottomSheetDialog() {
-        val modalBottomSheet = OrderMerchandiseBottomSheetDialog()
-        modalBottomSheet.show(supportFragmentManager, OrderMerchandiseBottomSheetDialog.TAG)
+    private fun initToolbar() {
+        //툴바 생성(선물모양)
+        setToolbarType(ToolbarType.GIFT)
     }
 
-    private fun moveActivity() {
-        startActivity(Intent(this@HomeActivity, MerchandiseActivity::class.java))
+    private fun initSearchInputPopUp() {
+        //말풍선 생성 -> 최상위 함수로 뺄 예정
+        fun makeBalloon(): Balloon {
+            val popUpMessage = Balloon.Builder(this)
+                .setWidth(BalloonSizeSpec.WRAP)
+                .setHeight(BalloonSizeSpec.WRAP)
+                .setText(getString(R.string.content_home_search_popup))
+                .setTextColorResource(R.color.solitude_2)
+                .setTextTypeface(ResourcesCompat.getFont(this, R.font.pretendard_medium)!!)
+                .setTextSize(13f)
+                .setIconHeight(20)
+                .setMarginBottom(6)
+                .setIconWidth(20)
+                .setIconDrawableResource(R.drawable.ic_popup_gift)
+                .setArrowSize(12)
+                .setArrowPosition(0.5f)
+                .setPaddingTop(8)
+                .setPaddingLeft(13)
+                .setPaddingRight(13)
+                .setPaddingBottom(8)
+                .setCornerRadius(10f)
+                .setBackgroundColorResource(R.color.midnight_express)
+
+            return popUpMessage.build()
+        }
+        binding.editSearchGift.showAlignTop(makeBalloon())
+    }
+
+    private fun initBanner() {
+        //test input data
+        val list = listOf(
+            R.drawable.ic_launcher_background,
+            R.drawable.ic_launcher_background,
+            R.drawable.ic_launcher_background
+        )
+
+        val bannerAdapter = HomeBannerAdapter()
+        bannerAdapter.addBannerItemList(list)
+
+        binding.vp2HomeBanner.apply {
+            adapter = bannerAdapter
+            setAutoBanner(list.size)
+        }
+    }
+
+    private fun initMoreItemList() {
+        //test input data
+        val list = mutableListOf<ItemResponse>()
+        for (idx in 1..8) {
+            list.add(
+                ItemResponse(
+                    idx = idx,
+                    name = "상품$idx",
+                    price = 40000,
+                    brand = "브랜드$idx",
+                    img = R.drawable.ic_launcher_background
+                )
+            )
+        }
+
+        val moreGiftAdapter = HomeMoreGiftAdapter()
+        moreGiftAdapter.addItemList(list)
+        binding.rcvMoreGiftList.apply {
+            layoutManager =
+                GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
+            adapter = moreGiftAdapter
+        }
+    }
+
+    private fun initMainCategoryList() {
+        //test input data
+        val list = mutableListOf<ItemCategoryResponse>()
+        for (idx in 1..8) {
+            list.add(ItemCategoryResponse(R.drawable.ic_launcher_background, "카테고리$idx"))
+        }
+
+        val mainCategoryAdapter =  HomeMainCategoryAdapter()
+        mainCategoryAdapter.addItemLIST(list)
+
+        binding.rcvMainCategory.apply {
+            layoutManager =
+                GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.HORIZONTAL, false)
+            adapter = mainCategoryAdapter
+        }
+    }
+
+    private fun initMostSelectedGiftList() {
+        //test input data
+        val list = mutableListOf<ItemResponse>()
+        for (idx in 1..8) {
+            list.add(
+                ItemResponse(
+                    idx = idx,
+                    name = "상품$idx",
+                    price = 40000,
+                    brand = "브랜드$idx",
+                    img = R.drawable.ic_launcher_background
+                )
+            )
+        }
+
+        val mostSelectedListAdapter = HomeMostSelectedListAdapter()
+        mostSelectedListAdapter.addItemList(list)
+
+        binding.rcvAnotherPeopleSelectedGiftList.apply {
+            layoutManager =
+                LinearLayoutManager(this@HomeActivity, LinearLayoutManager.VERTICAL, false)
+            adapter = mostSelectedListAdapter
+        }
+    }
+
+    private fun initMostSearchedList() {
+        //test input data
+        val list = mutableListOf<String>()
+        for (idx in 1..10) {
+            list.add("키워드$idx")
+        }
+
+        val mostSearchedListAdapter = HomeMostSearchedListAdapter()
+        mostSearchedListAdapter.addKeywordList(list)
+
+        binding.rcvMostSearchedGiftList.apply {
+            layoutManager =
+                GridLayoutManager(this@HomeActivity, 2, GridLayoutManager.VERTICAL, false)
+            adapter = mostSearchedListAdapter
+        }
+    }
+
+    private fun initLuxuryList() {
+        //test input data
+        val list = mutableListOf<ItemLuxuryResponse>()
+        for (idx in 1..12) {
+            list.add(
+                ItemLuxuryResponse(
+                    brandImg = R.drawable.ic_launcher_background,
+                    idx = idx,
+                    name = "상품$idx",
+                    price = 40000,
+                    brand = "브랜드$idx",
+                    img = R.drawable.ic_launcher_background
+                )
+            )
+        }
+
+        val homeLuxuryListAdapter = HomeLuxuryListAdapter()
+        homeLuxuryListAdapter.addItemList(list)
+
+        binding.rcvLuxuryList.apply {
+            layoutManager =
+                LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = homeLuxuryListAdapter
+        }
+    }
+
+    private fun ViewPager2.setAutoBanner(bannerSize: Int) {
+
+        this.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+
+            override fun onPageScrollStateChanged(state: Int) {
+                super.onPageScrollStateChanged(state)
+                when (state) {
+                    ViewPager2.SCROLL_STATE_IDLE -> {
+                        if (!autoBannerSlider.isActive) autoBannerSlider.start()
+                    }
+                    ViewPager2.SCROLL_STATE_DRAGGING -> autoBannerSlider.cancel()
+                    ViewPager2.SCROLL_STATE_SETTLING -> {}
+                }
+            }
+
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.tvBannerCount.text = "${(position % bannerSize) + 1} / $bannerSize"
+            }
+        })
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun initTopScrollEvent() {
+        binding.lyMain.setOnTouchListener { view, _ ->
+            if (view?.canScrollVertically(-1) == true) {
+                binding.btnTopScroll.visibility = View.VISIBLE
+            } else {
+                binding.btnTopScroll.visibility = View.GONE
+            }
+            false
+        }
+
+        binding.btnTopScroll.setOnClickListener {
+            binding.lyMain.fullScroll(ScrollView.FOCUS_UP)
+            it.visibility = View.GONE
+        }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        autoBannerSlider.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        autoBannerSlider.cancel()
+    }
+
+    companion object {
+        private const val TAG = "HomeActivity..."
     }
 }

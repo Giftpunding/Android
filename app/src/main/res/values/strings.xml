@@ -114,4 +114,26 @@
 
     <!-- 선물담기 -->
     <string name="content_put_gift">선물 담기</string>
+
+    <string name="category_luxury">명품 패션</string>
+    <string name="category_beauty">뷰티</string>
+    <string name="category_living">리빙/인테리어</string>
+    <string name="category_fashion">패션</string>
+    <string name="category_digital">디지털/가전</string>
+
+    <string name="category_food">식품</string>
+    <string name="category_gifticon">교환권</string>
+    <string name="category_kitchen">주방</string>
+    <string name="category_sport">스포츠</string>
+    <string name="category_flower">꽃배달</string>
+    <string name="category_baby">출산/유아</string>
+    <string name="category_pet">반려동물</string>
+
+    <string name="content_home_search_hint">찾으시는 선물을 검색해 보세요.</string>
+    <string name="title_home_main_category">어떤 선물을 찾나요?</string>
+    <string name="title_home_luxury_gift">힘을 합치면, 받을 수 있어!</string>
+    <string name="title_home_most_searched_gift">많이 검색하는 선물</string>
+    <string name="title_home_more_gift">선물로 담을만한 것이 뭐가 있더라?</string>
+    <string name="title_home_most_selected_gift">고민될 땐, 남이 많이 담은 선물!</string>
+    <string name="content_home_search_popup">찾으시는 선물이 있나요?</string>
 </resources>

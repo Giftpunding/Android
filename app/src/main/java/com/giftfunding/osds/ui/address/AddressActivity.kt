@@ -8,7 +8,6 @@ import com.giftfunding.osds.databinding.ActivityAddressBinding
 import com.giftfunding.osds.enum.BackButton
 import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.enum.VisibleState
-import com.giftfunding.osds.ui.home.HomeActivity
 
 class AddressActivity : BaseActivity<ActivityAddressBinding>(ActivityAddressBinding::inflate) {
 
@@ -35,7 +34,7 @@ class AddressActivity : BaseActivity<ActivityAddressBinding>(ActivityAddressBind
         backButton.setOnClickListener { finish() }
 
         binding.btnNextTodo.setOnClickListener {
-            startActivity(Intent(this,HomeActivity::class.java))
+//            startActivity(Intent(this,HomeActivity::class.java))
         }
     }
 }

@@ -5,19 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.giftfunding.osds.databinding.ContentLoginBannerBinding
-
+import com.giftfunding.osds.databinding.ContentBannerBinding
 class LoginBannerFragment : Fragment() {
 
     private val bannerImg by lazy { arguments?.getInt("img") }
-    private lateinit var binding: ContentLoginBannerBinding
+    private lateinit var binding: ContentBannerBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = ContentLoginBannerBinding.inflate(inflater, container, false)
+        binding = ContentBannerBinding.inflate(inflater, container, false)
         init()
         return binding.root
     }

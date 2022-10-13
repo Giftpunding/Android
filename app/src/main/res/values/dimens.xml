@@ -15,4 +15,6 @@
 
     <!-- 바텀 네비게이션 아이콘과 텍스트 사이 마진 -->
     <!--<dimen name="design_bottom_navigation_margin" tools:override="true">7dp</dimen>-->
+
+    <dimen name="design_fab_image_size" tools:override="true">20dp</dimen>
 </resources>
