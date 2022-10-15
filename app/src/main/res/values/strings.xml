@@ -55,7 +55,6 @@
     <string name="category_ten_thousand">10,000</string>
     <string name="category_five_thousand">5,000</string>
     <string name="category_direct_input">직접 입력</string>
-
     <string name="content_more_info">더보기</string>
     <string name="content_search"> 받고 싶은 선물을 찾아보세요!</string>
     <string name="content_merchandise_add">선물에 추가</string>
@@ -120,7 +119,6 @@
     <string name="category_living">리빙/인테리어</string>
     <string name="category_fashion">패션</string>
     <string name="category_digital">디지털/가전</string>
-
     <string name="category_food">식품</string>
     <string name="category_gifticon">교환권</string>
     <string name="category_kitchen">주방</string>

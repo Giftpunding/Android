@@ -50,6 +50,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
 
     override fun initEvent() {
         initTopScrollEvent()
+
+        binding.tvRankingMoreInfo.setOnClickListener {
+
+        }
     }
 
     private fun initAutoBanner(): Job {
