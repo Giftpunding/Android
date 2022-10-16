@@ -3,7 +3,7 @@ package com.giftfunding.osds.data.response.address
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class RoadAaddress(
+data class RoadAddress(
     @SerializedName("address_name")
     var addressName: String?,
     @SerializedName("region_1depth_name")

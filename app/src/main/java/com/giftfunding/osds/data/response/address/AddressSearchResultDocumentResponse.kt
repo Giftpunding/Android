@@ -20,5 +20,5 @@ data class AddressSearchResultDocumentResponse(
     var address: Address?,
 
     @SerializedName("road_address")
-    var roadAddress: RoadAaddress?
+    var roadAddress: RoadAddress?
 ) : Serializable

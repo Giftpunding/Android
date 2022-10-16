@@ -1,5 +1,6 @@
 package com.giftfunding.osds.repository.remote.service
 
+import com.giftfunding.osds.data.response.address.AddressKeywordSearchResultResponse
 import com.giftfunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftfunding.osds.data.response.user.User
 import retrofit2.Response
@@ -20,6 +21,13 @@ interface AddressService {
         @Query("x") x: String,
         @Query("y") y: String,
     ): AddressSearchResultResponse
+
+    // 키워드로 주소명 검색
+    @GET("/v2/local/search/keyword.json")
+    suspend fun getAddressFromKeyword(
+        @Header("Authorization") token: String,
+        @Query("query") query: String
+    ): AddressKeywordSearchResultResponse
 
     @PATCH("api/user/me")
     suspend fun postAddress(
