@@ -197,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/pretendard_medium"
-                tools:text="test"
+                tools:text="전체 가격대"
                 android:textColor="@color/tomato"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@id/slider_price_range"
@@ -205,12 +205,23 @@
                 app:layout_constraintTop_toBottomOf="@id/sv_all_category" />
 
 
-            <com.google.android.material.slider.RangeSlider
+            <com.giftfunding.osds.util.customView.LabeledRangeSlider
                 android:id="@+id/slider_price_range"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_dimens"
                 android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+                android:valueFrom="0.0"
+                android:valueTo="5.0"
+                android:stepSize="1.0"
+                app:tickVisible="false"
+                app:trackHeight="2dp"
+                app:trackColorActive="@color/tomato"
+                app:trackColorInactive="@color/hawkes_blue"
+                app:thumbRadius="12dp"
+                app:thumbColor="@color/white"
+                app:thumbStrokeColor="@color/tomato"
+                app:thumbStrokeWidth="1.5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_slider_price" />

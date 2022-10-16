@@ -46,10 +46,23 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         initLuxuryList()
         initMoreItemList()
         initMostSearchedList()
+        initSliderPriceRange()
     }
 
     override fun initEvent() {
         initTopScrollEvent()
+    }
+
+    private fun initSliderPriceRange(){
+        binding.sliderPriceRange.apply{
+            this.setValues(1f, 2f)
+            labelList = ArrayList<String>()
+            labelList.add("1만원")
+            labelList.add("5만원")
+            labelList.add("10만원")
+            labelList.add("20만원")
+            setLabels(labelList)
+        }
     }
 
     private fun initAutoBanner(): Job {
