@@ -16,7 +16,7 @@ abstract class BaseFragment<T : ViewBinding>() : Fragment() {
     private var _binding : T? = null
     val binding : T get() = _binding!!
 
-    lateinit var navController : NavController
+    private lateinit var navController : NavController
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,8 +28,10 @@ abstract class BaseFragment<T : ViewBinding>() : Fragment() {
         return binding.root
     }
 
+    //viewbinding을 위한 binding정보 가져오기
     abstract fun getFragmentBinding(inflater: LayoutInflater, container : ViewGroup?) : T
 
+    //navigate로 프래그먼트 변경
     fun navigate(direction : NavDirections){
         navController.navigate(direction)
     }

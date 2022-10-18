@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
-import com.giftfunding.osds.databinding.FragmentAnniversarySelectBinding
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectDateBinding
 import com.giftfunding.osds.enum.AnniversaryType
 import com.giftfunding.osds.ui.address.AddressActivity
@@ -45,6 +44,7 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
         addAnniversaryTypeButtonEvent()
     }
 
+    //args로 받은 기념일 타입 가져오기
     private fun setAnniversaryType(type: AnniversaryType, userInput: String) {
         when (type) {
             AnniversaryType.BIRTHDAY -> {
@@ -72,6 +72,7 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
         }
     }
 
+    //radio button이 가운데로 옮기게 설정
     private fun setSelectedAnniversary(radioButton: RadioButton) {
         radioButton.viewTreeObserver.addOnGlobalLayoutListener {
             binding.svEventCategory.scrollTo(radioButton.left, 0)
@@ -79,6 +80,7 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
         radioButton.isChecked = true
     }
 
+    //date picker 초기화
     private fun initCalender() {
         binding.npEventDatePicker.apply {
             npMonth.minValue = MIN_MONTH
@@ -106,6 +108,7 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
         }
     }
 
+    //기념일 라디오 버튼 이벤트 추가
     private fun addAnniversaryTypeButtonEvent() {
         binding.rBtnBirthday.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) setAnniversary(AnniversaryType.BIRTHDAY)

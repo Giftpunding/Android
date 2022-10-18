@@ -30,6 +30,7 @@ class AnniversarySelectFragment : BaseFragment<FragmentAnniversarySelectBinding>
         return binding.editUserInput.text.toString() != ""
     }
 
+    //기념일 선택 이벤트 추가
     private fun addAnniversaryEvent(){
         binding.apply {
             tvBirthday.setOnClickListener{navigate(AnniversarySelectFragmentDirections.actionAnniversarySelectFragmentToAnniversaryDateSelectFragment(AnniversaryType.BIRTHDAY))}
