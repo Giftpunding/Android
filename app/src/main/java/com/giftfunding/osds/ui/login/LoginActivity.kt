@@ -11,10 +11,10 @@ import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
 import com.giftfunding.osds.application.Application.Companion.loginRepository
-import com.giftfunding.osds.ui.anniversary.AnniversarySelectActivity
 import com.giftfunding.osds.ui.login.adapter.LoginBannerAdapter
 import com.skydoves.balloon.*
 import com.giftfunding.osds.R
+import com.giftfunding.osds.ui.main.MainActivity
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 
@@ -83,7 +83,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                 Log.i(TAG, "카카오계정으로 로그인 성공 ${token.accessToken}")
 
                 finish()
-                startActivity(Intent(this, AnniversarySelectActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
             }
         }
 
@@ -102,7 +102,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                         Log.i(TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
 
                         finish()
-                        startActivity(Intent(this, AnniversarySelectActivity::class.java))
+                        startActivity(Intent(this, MainActivity::class.java))
                     }
                 }
             } else {

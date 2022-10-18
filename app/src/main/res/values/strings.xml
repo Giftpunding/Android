@@ -136,4 +136,11 @@
     <string name="title_home_more_gift">선물로 담을만한 것이 뭐가 있더라?</string>
     <string name="title_home_most_selected_gift">고민될 땐, 남이 많이 담은 선물!</string>
     <string name="content_home_search_popup">찾으시는 선물이 있나요?</string>
+
+    <!-- 기념일 선택 -->
+    <string name="category_anniversary_wedding_type">wedding</string>
+    <string name="category_anniversary_pregnancy_type">pregnancy</string>
+    <string name="category_anniversary_housewarming_type">housewarming</string>
+    <string name="category_anniversary_birthday_type">birthday</string>
+
 </resources>

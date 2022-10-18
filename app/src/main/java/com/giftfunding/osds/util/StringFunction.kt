@@ -1,13 +1,19 @@
 package com.giftfunding.osds.util
 
+import android.content.Context
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import com.giftfunding.osds.R
 import com.giftfunding.osds.application.Application
 import java.util.*
+
+fun showLongToast(message : String){
+    Toast.makeText(Application.mApp.applicationContext, message, Toast.LENGTH_LONG).show()
+}
 
 fun TextView.setAddressTextColor(address: String, keyword: String) {
     this.text = ""
