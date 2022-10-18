@@ -32,8 +32,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     private fun addNavigationChangedListener(){
-        navController.addOnDestinationChangedListener { controller, destination, _ ->
+        navController.addOnDestinationChangedListener { controller, _, _ ->
             when ((controller.currentDestination as FragmentNavigator.Destination).className){
+                //클래스 이름으로 어떤 fragment인지 찾음
                 "com.giftfunding.osds.ui.anniversary.AnniversarySelectFragment" -> {
                     setToolbarType(ToolbarType.NORMAL)
                     setBackButtonVisible(VisibleState.VISIBLE)
@@ -50,7 +51,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     override fun initEvent() {
-        TODO("Not yet implemented")
+
     }
 
     companion object{

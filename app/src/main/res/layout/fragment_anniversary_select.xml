@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginTop="39dp"
-        android:text="질문 영역입니다."
+        android:text="@string/title_anniversary_question"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

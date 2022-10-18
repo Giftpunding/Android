@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginTop="39dp"
-        android:text="질문 영역입니다."
+        android:text="@string/title_anniversary_question"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -143,7 +143,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_register_anniversary"
-        style="@style/pretendard_medium_16_white"
+        style="@style/base_font_medium_16_white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"

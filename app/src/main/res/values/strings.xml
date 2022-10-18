@@ -82,7 +82,6 @@
     <string name="content_login_tutorial">가입하여 선물 전달하기</string>
     <string name="content_login_description">선물을 펀딩으로 받아보세요!</string>
 
-    <string name="content_next_step">다음</string>
     <string name="content_empty_user_input_anniversary">기념일을 입력해주세요.</string>
 
     <!-- 배송지 입력화면 -->
@@ -101,16 +100,6 @@
     <string name="content_building_name_example">예) 동신아파트</string>
     <string name="content_address_detail_hint">상세 주소를 입력해주세요. 예) A동 101호</string>
     <string name="content_no_address_result">검색 결과가 없습니다.\n도로명, 지번, 건물명, 아파트 명으로\n재 검색해주세요.</string>
-
-    <!-- 로그인 이벤트 선택 -->
-    <string name="category_anniversary_birthday">&#127874; 생일</string>
-    <string name="category_anniversary_pregnancy">&#129328; 임신 / 출산</string>
-    <string name="category_anniversary_housewarming">&#127968; 이사 / 집들이</string>
-    <string name="category_anniversary_wedding">&#128141; 결혼</string>
-    <string name="category_anniversary_user_input">&#x270F;&#xFE0F; 직접 입력</string>
-    <string name="content_month">월</string>
-    <string name="content_day_of_month">일</string>
-    <string name="title_event_type">이벤트 종류</string>
 
     <!-- 선물담기 -->
     <string name="content_put_gift">선물 담기</string>
@@ -138,9 +127,21 @@
     <string name="content_home_search_popup">찾으시는 선물이 있나요?</string>
 
     <!-- 기념일 선택 -->
+    <string name="title_event_type">이벤트 종류</string>
+    <string name="title_anniversary_question">질문 영역입니다.</string>
+
+    <string name="content_month">월</string>
+    <string name="content_day_of_month">일</string>
+    <string name="content_next_step">다음</string>
+
     <string name="category_anniversary_wedding_type">wedding</string>
     <string name="category_anniversary_pregnancy_type">pregnancy</string>
     <string name="category_anniversary_housewarming_type">housewarming</string>
     <string name="category_anniversary_birthday_type">birthday</string>
+    <string name="category_anniversary_birthday">&#127874; 생일</string>
+    <string name="category_anniversary_pregnancy">&#129328; 임신 / 출산</string>
+    <string name="category_anniversary_housewarming">&#127968; 이사 / 집들이</string>
+    <string name="category_anniversary_wedding">&#128141; 결혼</string>
+    <string name="category_anniversary_user_input">&#x270F;&#xFE0F; 직접 입력</string>
 
 </resources>
