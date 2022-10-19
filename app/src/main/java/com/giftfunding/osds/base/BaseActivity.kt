@@ -4,12 +4,16 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.viewbinding.ViewBinding
 import com.giftfunding.osds.R
+import com.giftfunding.osds.databinding.ContentGiftBadgeBinding
 import com.giftfunding.osds.databinding.ContentGiftToolbarBinding
 import com.giftfunding.osds.databinding.ContentToolbarBinding
 import com.giftfunding.osds.enum.BackButton
@@ -28,6 +32,7 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
     protected lateinit var backButton: ImageView
     protected lateinit var activityTitle: TextView
     protected lateinit var closeButton: ImageView
+    protected lateinit var badge: ConstraintLayout
 
     abstract fun init()
     abstract fun initEvent()
@@ -62,6 +67,7 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         backButton = normalToolbarBinding.ivBack
         activityTitle = normalToolbarBinding.tvToolbarTitle
         closeButton = normalToolbarBinding.ivClose
+        badge = normalToolbarBinding.contentGiftBadge.root
     }
 
     private fun giftToolbarType(){
@@ -112,6 +118,19 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         }
     }
 
+    protected fun setBadge(state: VisibleState){
+        when(state){
+            VisibleState.VISIBLE -> {
+                badge.visibility = View.VISIBLE
+                closeButton.visibility = View.GONE
+            }
+
+            VisibleState.INVISIBLE ->{
+                badge.visibility = View.GONE
+                closeButton.visibility = View.VISIBLE
+            }
+        }
+    }
 
     fun hideKeyboard(view: View) {
         val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

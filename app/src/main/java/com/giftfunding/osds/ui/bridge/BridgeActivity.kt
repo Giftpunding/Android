@@ -4,7 +4,6 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.giftfunding.osds.ui.main.MainActivity
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityBridgeBinding
@@ -15,6 +14,7 @@ import com.giftfunding.osds.ui.funding.FundingGiftListActivity
 import com.giftfunding.osds.ui.home.HomeActivity
 import com.giftfunding.osds.ui.keyhash.KeyHashActivity
 import com.giftfunding.osds.ui.login.LoginActivity
+import com.giftfunding.osds.ui.ranking.GiftRankingActivity
 import com.giftfunding.osds.ui.search.SearchActivity
 
 class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding::inflate) {
@@ -50,6 +50,7 @@ class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding:
                 FundingGiftListActivity::class.java,
                 AddressActivity::class.java,
                 AnniversarySelectActivity::class.java,
+                GiftRankingActivity::class.java,
                 KeyHashActivity::class.java
             )
 

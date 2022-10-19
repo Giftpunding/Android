@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
+        android:layout_marginTop="2dp"
         android:fontFamily="@font/pretendard_bold"
         android:includeFontPadding="false"
         android:textColor="@color/black"
@@ -49,7 +50,7 @@
         android:id="@+id/tv_merchandise_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/pretendard_medium"
         android:includeFontPadding="false"
@@ -73,11 +74,27 @@
         app:layout_constraintTop_toBottomOf="@id/tv_merchandise_name"
         tools:text="63,000" />
 
+    <!-- 해당 텍스트뷰는 sytle로 뺄 필요가있음 -->
+    <TextView
+        android:id="@+id/tv_user_shopping_basket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/link_water"
+        android:fontFamily="@font/pretendard_medium"
+        android:includeFontPadding="false"
+        android:textSize="12sp"
+        android:text="1251명 담음"
+        app:layout_constraintTop_toBottomOf="@+id/tv_merchandise_price"
+        app:layout_constraintStart_toEndOf="@+id/iv_merchandise_img"/>
 
     <android.widget.Button
         android:id="@+id/btn_merchandise_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="1dp"
         android:background="@drawable/bg_rect_hawkes_blue_trans100_radius4_stoke1"
         android:fontFamily="@font/helveticanene_regular"
         android:minWidth="0dp"
@@ -90,7 +107,7 @@
         android:textColor="@color/midnight_express"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@id/iv_merchandise_img"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_merchandise_price" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
