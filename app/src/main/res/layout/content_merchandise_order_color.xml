@@ -6,13 +6,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_half_rect_hawkes_blue_trans100_radius4_stoke1">
+        android:background="@drawable/bg_top_half_rect_hawkes_blue_trans100_radius4_stoke1">
 
         <View
             android:id="@+id/v_merchandise_color"
             android:layout_height="12dp"
-            android:layout_marginStart="15dp"
             android:layout_width="12dp"
+            android:layout_marginStart="15dp"
             android:visibility="gone"
             android:background="@drawable/bg_oval_trans100_white_smoke_radius360_stroke0"
             app:layout_constraintBottom_toBottomOf="@+id/tv_merchandise_color_title"

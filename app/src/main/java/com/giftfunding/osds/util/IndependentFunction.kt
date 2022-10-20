@@ -2,6 +2,7 @@ package com.giftfunding.osds.util
 
 import android.content.Context
 import android.util.TypedValue
+import java.text.DecimalFormat
 
 fun dpToPx(context: Context, dp: Float) =
     TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics)
@@ -33,4 +34,9 @@ fun addComma(number: Int): String = if (number >= 0) {
     "%,d".format(number)
 } else {
     "- "
+}
+
+fun convertWon(price: Int): String {
+    val format = DecimalFormat("+#,###")
+    return format.format(price)
 }
