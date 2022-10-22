@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.RadioButton
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -18,18 +19,13 @@ import com.giftfunding.osds.ui.anniversary.viewmodel.AnniversaryViewModel
 
 class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDateBinding>() {
 
+    override fun layoutResId(): Int = R.layout.fragment_anniversary_select_date
+
     private val args: AnniversaryDateSelectFragmentArgs by navArgs()
     private val anniversaryViewModel: AnniversaryViewModel by viewModels()
 
     private lateinit var anniversaryType: String
     private lateinit var saveUserInput: String
-
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentAnniversarySelectDateBinding {
-        return FragmentAnniversarySelectDateBinding.inflate(inflater, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -74,9 +70,7 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
 
     //radio button이 가운데로 옮기게 설정
     private fun setSelectedAnniversary(radioButton: RadioButton) {
-        radioButton.viewTreeObserver.addOnGlobalLayoutListener {
-            binding.svEventCategory.scrollTo(radioButton.left, 0)
-        }
+
         radioButton.isChecked = true
     }
 

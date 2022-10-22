@@ -14,12 +14,7 @@ import com.giftfunding.osds.util.showLongToast
 
 class AnniversarySelectFragment : BaseFragment<FragmentAnniversarySelectBinding>() {
 
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentAnniversarySelectBinding {
-        return FragmentAnniversarySelectBinding.inflate(inflater, container, false)
-    }
+    override fun layoutResId(): Int = R.layout.fragment_anniversary_select
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
