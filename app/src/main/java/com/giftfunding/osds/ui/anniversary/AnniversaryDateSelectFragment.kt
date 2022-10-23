@@ -147,7 +147,8 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
     override fun initObserverEvent() {
         //옵저빙하여 변화가 있으면 실행
         anniversaryViewModel.anniversaryResponse.observe(viewLifecycleOwner) {
-            startActivity(Intent(requireContext(), AddressActivity::class.java))
+            navigate(AnniversaryDateSelectFragmentDirections
+                .actionAnniversaryDateSelectFragmentToAddressFragment())
         }
     }
 
@@ -161,7 +162,10 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
     }
 
     private fun addRegisterAnniversary(anniversaryDay: String) {
-        anniversaryViewModel.addAnniversary(anniversaryDay, anniversary)
+        //추후 initObserverEvent 안에 anniversaryResponse 에서 처리
+        navigate(AnniversaryDateSelectFragmentDirections
+            .actionAnniversaryDateSelectFragmentToAddressFragment())
+//        anniversaryViewModel.addAnniversary(anniversaryDay, anniversary)
     }
 
     companion object {

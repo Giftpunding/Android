@@ -27,5 +27,15 @@
             android:name="user_input"
             android:defaultValue=""
             app:argType="string" />
+        <action
+            android:id="@+id/action_anniversaryDateSelectFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.giftfunding.osds.ui.address.AddressFragment"
+        android:label="addressFragment"
+        tools:layout="@layout/fragment_address">
+
     </fragment>
 </navigation>
