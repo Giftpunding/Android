@@ -24,14 +24,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        init()
+        initEvent()
+    }
+
+    override fun init() {
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
         navController = navHostFragment.findNavController()
-
-        addNavigationChangedListener()
     }
 
-    private fun addNavigationChangedListener(){
+    override fun initEvent() {
         navController.addOnDestinationChangedListener { controller, _, _ ->
             when ((controller.currentDestination as FragmentNavigator.Destination).className){
                 //클래스 이름으로 어떤 fragment인지 찾음
@@ -42,16 +45,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     setCloseButton(VisibleState.INVISIBLE)
                     setTitle("타이틀")
                 }
+
+                "com.giftfunding.osds.ui.address.AddressFragment" -> {
+                    setToolbarType(ToolbarType.NORMAL)
+                    setBackButtonVisible(VisibleState.VISIBLE)
+                    setBackButton(BackButton.BACK)
+                    setCloseButton(VisibleState.VISIBLE)
+                    setTitle(resources.getString(R.string.title_setting_address))
+                }
             }
         }
-    }
-
-    override fun init() {
-
-    }
-
-    override fun initEvent() {
-
     }
 
     companion object{
