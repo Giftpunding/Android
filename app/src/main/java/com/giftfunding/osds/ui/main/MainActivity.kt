@@ -24,14 +24,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
-        navController = navHostFragment.findNavController()
-
+        init()
+        initEvent()
     }
 
     override fun init() {
-
+        navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
+        navController = navHostFragment.findNavController()
     }
 
     override fun initEvent() {
