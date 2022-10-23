@@ -40,6 +40,7 @@
                     android:scheme="@string/kakao_native_app_key" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.main.MainActivity"/>
         <activity android:name="com.giftfunding.osds.ui.login.LoginActivity" />
         <activity android:name=".ui.home.HomeActivity"/>
         <activity android:name="com.giftfunding.osds.ui.search.SearchActivity" />
@@ -58,7 +59,6 @@
         <activity
             android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
             android:exported="true" />
-        <activity android:name="com.giftfunding.osds.ui.anniversary.AnniversarySelectActivity" />
         <activity android:name="com.giftfunding.osds.ui.funding.FundingGiftListActivity"/>
         <activity android:name="com.giftfunding.osds.ui.funding.FundingMyListInfoActivity"/>
         <activity android:name="com.giftfunding.osds.ui.funding.FundingResultActivity"/>

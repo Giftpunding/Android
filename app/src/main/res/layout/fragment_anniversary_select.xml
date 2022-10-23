@@ -1,150 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:background="@color/white"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_event_category"
-            style="@style/noto_sans_kr_medium_14_midnight_express_padding0"
+            android:id="@+id/tv_login_event_select_content"
+            style="@style/noto_sans_kr_medium_20_black_padding0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="27dp"
-            android:text="@string/title_event_type"
+            android:layout_marginTop="39dp"
+            android:text="@string/title_anniversary_question"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <HorizontalScrollView
-            android:id="@+id/sv_event_category"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_birthday"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="27dp"
-            android:layout_marginTop="20dp"
-            android:scrollbars="none"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+            android:paddingHorizontal="36dp"
+            android:paddingVertical="13dp"
+            android:text="@string/category_anniversary_birthday"
+            android:textColor="@color/black_marlin"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_event_category">
+            app:layout_constraintTop_toBottomOf="@id/tv_login_event_select_content" />
 
-            <RadioGroup
-                android:id="@+id/rg_category_event_type"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/r_btn_birthday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
-                    android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
-                    android:button="@null"
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:paddingHorizontal="36dp"
-                    android:paddingVertical="12dp"
-                    android:text="@string/category_anniversary_birthday"
-                    android:textColor="@drawable/sc_color_white_color_midnight_express"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/r_btn_pregnancy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
-                    android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
-                    android:button="@null"
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:paddingHorizontal="36dp"
-                    android:paddingVertical="12dp"
-                    android:text="@string/category_anniversary_pregnancy"
-                    android:textColor="@drawable/sc_color_white_color_midnight_express"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/r_btn_housewarming"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
-                    android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
-                    android:button="@null"
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:paddingHorizontal="36dp"
-                    android:paddingVertical="12dp"
-                    android:text="@string/category_anniversary_housewarming"
-                    android:textColor="@drawable/sc_color_white_color_midnight_express"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/r_btn_marry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
-                    android:button="@null"
-                    android:layout_marginEnd="6dp"
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:paddingHorizontal="36dp"
-                    android:paddingVertical="12dp"
-                    android:text="@string/category_anniversary_wedding"
-                    android:textColor="@drawable/sc_color_white_color_midnight_express"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/r_btn_user_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="27dp"
-                    android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
-                    android:button="@null"
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:text="@string/category_anniversary_user_input"
-                    android:paddingHorizontal="36dp"
-                    android:paddingVertical="12dp"
-                    android:textColor="@drawable/sc_color_white_color_midnight_express"
-                    android:textSize="16sp" />
-
-            </RadioGroup>
-        </HorizontalScrollView>
-
-        <include
-            android:id="@+id/np_event_date_picker"
-            layout="@layout/content_custom_date_picker"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/tv_pregnancy"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="75dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginBottom="139dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_move_page"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+            android:paddingHorizontal="36dp"
+            android:paddingVertical="13dp"
+            android:text="@string/category_anniversary_pregnancy"
+            android:textColor="@color/black_marlin"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tv_birthday"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_event_select_content" />
+
+        <TextView
+            android:id="@+id/tv_housewarming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+            android:paddingHorizontal="36dp"
+            android:paddingVertical="13dp"
+            android:text="@string/category_anniversary_housewarming"
+            android:textColor="@color/black_marlin"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sv_event_category" />
+            app:layout_constraintTop_toBottomOf="@id/tv_birthday" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_move_page"
-            style="@style/pretendard_medium_16_white"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/tv_wedding"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginBottom="66dp"
-            android:text="@string/content_next_step"
-            android:background="@drawable/bg_rect_trans_100_midnight_express_radius4_stroke0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+            android:paddingHorizontal="36dp"
+            android:paddingVertical="13dp"
+            android:text="@string/category_anniversary_wedding"
+            android:textColor="@color/black_marlin"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tv_housewarming"
+            app:layout_constraintTop_toBottomOf="@id/tv_pregnancy" />
+
+        <EditText
+            android:id="@+id/edit_user_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_sc_rect_tranparent_solitude2_radius16_stroke0_rect_transparent_midnight_express_radius16_stroke0"
+            android:gravity="center"
+            android:hint="@string/category_anniversary_user_input"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:paddingHorizontal="36dp"
+            android:paddingVertical="13dp"
+            android:textColor="@color/black_marlin"
+            android:textColorHint="@color/black_marlin"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_housewarming" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

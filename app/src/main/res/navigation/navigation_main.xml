@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/anniversarySelectFragment">
+
+    <fragment
+        android:id="@+id/anniversarySelectFragment"
+        android:name="com.giftfunding.osds.ui.anniversary.AnniversarySelectFragment"
+        android:label="AnniversarySelectFragment"
+        tools:layout="@layout/fragment_anniversary_select">
+        <action
+            android:id="@+id/action_anniversarySelectFragment_to_anniversaryDateSelectFragment"
+            app:destination="@id/anniversaryDateSelectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/anniversaryDateSelectFragment"
+        android:name="com.giftfunding.osds.ui.anniversary.AnniversaryDateSelectFragment"
+        android:label="AnniversaryDateSelectFragment"
+        tools:layout="@layout/fragment_anniversary_select_date">
+        <argument
+            android:name="anniversary_type"
+            app:argType="com.giftfunding.osds.enum.AnniversaryType"
+            app:nullable="false" />
+        <argument
+            android:name="user_input"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+</navigation>

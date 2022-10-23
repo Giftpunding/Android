@@ -1,4 +1,4 @@
-package com.giftfunding.osds.ui.anniversary
+package com.giftfunding.osds.ui.anniversary.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -9,7 +9,7 @@ import com.giftfunding.osds.application.Application
 import com.giftfunding.osds.data.response.anniversary.AnniversaryResponse
 import kotlinx.coroutines.launch
 
-class AnniversaryFragmentViewModel : ViewModel() {
+class AnniversaryViewModel : ViewModel() {
 
     //임시로 Anniversary response, request를 만들었음, 후에 User로 통합할 예정
     private val _anniversaryResponse = MutableLiveData<AnniversaryResponse>()

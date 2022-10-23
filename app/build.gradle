@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -95,4 +96,8 @@ dependencies {
     implementation 'com.github.amarjain07:StickyScrollView:1.0.2'
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+
+    // navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 }

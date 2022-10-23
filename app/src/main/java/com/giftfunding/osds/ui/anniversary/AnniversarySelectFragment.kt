@@ -1,145 +1,67 @@
 package com.giftfunding.osds.ui.anniversary
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.RadioButton
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import android.view.inputmethod.EditorInfo
+import com.giftfunding.osds.R
+import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectBinding
-import com.giftfunding.osds.ui.address.AddressActivity
+import com.giftfunding.osds.enum.AnniversaryType
+import com.giftfunding.osds.util.Util
 
-class AnniversarySelectFragment : Fragment() {
+class AnniversarySelectFragment : BaseFragment<FragmentAnniversarySelectBinding>() {
 
-    private lateinit var binding: FragmentAnniversarySelectBinding
-    private val viewModel: AnniversaryFragmentViewModel by viewModels()
-    private lateinit var anniversary: String
+    override fun layoutResId(): Int = R.layout.fragment_anniversary_select
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentAnniversarySelectBinding.inflate(inflater, container, false)
-        init()
-        initCalender()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initEvent()
-        initAnniversaryViewModel()
-        return binding.root
     }
 
-    fun init() {
-        when (val anniversaryType = requireArguments().getString(AnniversarySelectActivity.ANNIVERSARY_TYPE)!!) {
-            AnniversarySelectActivity.BIRTHDAY -> {
-                anniversary = AnniversarySelectActivity.BIRTHDAY
-                setSelectedAnniversary(binding.rBtnBirthday)
+    override fun initEvent() {
+        binding.apply {
+            tvBirthday.setOnClickListener {
+                changeFragment(AnniversaryType.BIRTHDAY)
             }
-            AnniversarySelectActivity.PREGNANCY -> {
-                anniversary = AnniversarySelectActivity.PREGNANCY
-                setSelectedAnniversary(binding.rBtnPregnancy)
+            tvPregnancy.setOnClickListener {
+                changeFragment(AnniversaryType.PREGNANCY)
             }
-            AnniversarySelectActivity.HOUSEWARMING -> {
-                anniversary = AnniversarySelectActivity.HOUSEWARMING
-                setSelectedAnniversary(binding.rBtnHousewarming)
+            tvHousewarming.setOnClickListener {
+                changeFragment(AnniversaryType.HOUSEWARMING)
             }
-            AnniversarySelectActivity.WEDDING -> {
-                anniversary = AnniversarySelectActivity.WEDDING
-                setSelectedAnniversary(binding.rBtnMarry)
+            tvWedding.setOnClickListener {
+                changeFragment(AnniversaryType.WEDDING)
             }
-            else -> {
-                anniversary = anniversaryType
-                binding.rBtnUserInput.text = anniversaryType
-                setSelectedAnniversary(binding.rBtnUserInput)
+
+            editUserInput.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    if (validateUserInput()) {
+                        changeFragment(AnniversaryType.USER_INPUT)
+                    } else {
+                        Util.showLongToast(
+                            requireContext(),
+                            getString(R.string.content_empty_user_input_anniversary)
+                        )
+                    }
+                }
+                false
             }
         }
     }
 
-    private fun setSelectedAnniversary(view: RadioButton) {
-        view.viewTreeObserver.addOnGlobalLayoutListener {
-            binding.svEventCategory.scrollTo(view.left, 0)
-        }
-        view.isChecked = true
+    private fun validateUserInput(): Boolean = binding.editUserInput.text.toString() != ""
+
+
+    override fun initObserverEvent() {
+
     }
 
-    private fun initCalender() {
-        binding.npEventDatePicker.run {
-            npMonth.minValue = minMonth
-            npMonth.maxValue = maxMonth
-            npDayOfMonth.minValue = minDay
-        }
-
-        initDayOfMonth(minMonth)
-    }
-
-    private fun initAnniversaryViewModel() {
-        //옵저빙하여 변화가 있으면 실행
-        viewModel.anniversaryResponse.observe(viewLifecycleOwner) {
-            startActivity(Intent(requireContext(), AddressActivity::class.java))
-        }
-    }
-
-    fun initEvent() {
-        changeDayOfMonthMaxValue()
-
-        binding.btnMovePage.setOnClickListener {
-            val month = binding.npEventDatePicker.npMonth.value.toString()
-            val day = binding.npEventDatePicker.npDayOfMonth.value.toString()
-            // 해당 형태로 전달
-            val anniversaryDay = (month + "월" + day + "일")
-
-            Log.d("Test anniversary", "$anniversaryDay , $anniversary")
-            viewModel.addAnniversary(anniversaryDay, anniversary)
-        }
-
-        // 서버에 영어 형태로 전달
-        binding.rBtnBirthday.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) setAnniversary("birthday")
-        }
-
-        binding.rBtnPregnancy.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) setAnniversary("pregnancy")
-        }
-
-        binding.rBtnHousewarming.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) setAnniversary("housewarming")
-        }
-
-        binding.rBtnMarry.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) setAnniversary("marry")
-        }
-        binding.rBtnUserInput.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) setAnniversary(anniversary)
-        }
-    }
-
-    private fun changeDayOfMonthMaxValue() {
-        binding.npEventDatePicker.npMonth.setOnValueChangedListener { _, _, selectMonth ->
-            initDayOfMonth(selectMonth)
-        }
-    }
-
-    private fun initDayOfMonth(month: Int) {
-        when (month) {
-            1, 3, 5, 7, 8, 10, 12 ->
-                binding.npEventDatePicker.npDayOfMonth.maxValue = oddMonthMaxDay
-            2 -> binding.npEventDatePicker.npDayOfMonth.maxValue = FebruaryMonthMaxDay
-            4, 6, 9, 11 -> binding.npEventDatePicker.npDayOfMonth.maxValue = evenMonthMaxDay
-        }
-    }
-
-    private fun setAnniversary(anniversary: String) {
-        this.anniversary = anniversary
-    }
-
-    companion object {
-        const val minMonth = 1
-        const val maxMonth = 12
-        const val minDay = 1
-        const val evenMonthMaxDay = 30
-        const val oddMonthMaxDay = 31
-        const val FebruaryMonthMaxDay = 28
+    private fun changeFragment(anniversary: AnniversaryType) {
+        navigate(
+            AnniversarySelectFragmentDirections.actionAnniversarySelectFragmentToAnniversaryDateSelectFragment(
+                anniversary,
+                binding.editUserInput.text.toString()
+            )
+        )
     }
 }
