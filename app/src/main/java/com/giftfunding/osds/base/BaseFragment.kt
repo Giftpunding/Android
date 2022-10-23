@@ -12,15 +12,15 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<T : ViewBinding>() : Fragment() {
+abstract class BaseFragment<T : ViewBinding> : Fragment() {
 
     @LayoutRes
     abstract fun layoutResId(): Int
 
-    private var _binding : T? = null
-    val binding : T get() = _binding!!
+    private var _binding: T? = null
+    val binding: T get() = _binding!!
 
-    private lateinit var navController : NavController
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,11 +34,16 @@ abstract class BaseFragment<T : ViewBinding>() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
-
     }
 
+    //리스너 초기화
+    abstract fun initEvent()
+
+    // 라이브데이터 초기화
+    abstract fun initObserverEvent()
+
     //navigate로 프래그먼트 변경
-    fun navigate(direction : NavDirections){
+    fun navigate(direction: NavDirections) {
         navController.navigate(direction)
     }
 

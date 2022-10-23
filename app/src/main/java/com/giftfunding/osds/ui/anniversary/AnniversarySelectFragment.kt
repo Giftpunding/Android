@@ -1,16 +1,13 @@
 package com.giftfunding.osds.ui.anniversary
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectBinding
 import com.giftfunding.osds.enum.AnniversaryType
-import com.giftfunding.osds.ui.anniversary.AnniversarySelectFragmentDirections
-import com.giftfunding.osds.util.showLongToast
+import com.giftfunding.osds.util.Util
 
 class AnniversarySelectFragment : BaseFragment<FragmentAnniversarySelectBinding>() {
 
@@ -18,32 +15,53 @@ class AnniversarySelectFragment : BaseFragment<FragmentAnniversarySelectBinding>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        addAnniversaryEvent()
+        initEvent()
     }
 
-    private fun validateUserInput() : Boolean{
-        return binding.editUserInput.text.toString() != ""
-    }
-
-    //기념일 선택 이벤트 추가
-    private fun addAnniversaryEvent(){
+    override fun initEvent() {
         binding.apply {
-            tvBirthday.setOnClickListener{navigate(AnniversarySelectFragmentDirections.actionAnniversarySelectFragmentToAnniversaryDateSelectFragment(AnniversaryType.BIRTHDAY))}
-            tvPregnancy.setOnClickListener{navigate(AnniversarySelectFragmentDirections.actionAnniversarySelectFragmentToAnniversaryDateSelectFragment(AnniversaryType.PREGNANCY))}
-            tvHousewarming.setOnClickListener{navigate(AnniversarySelectFragmentDirections.actionAnniversarySelectFragmentToAnniversaryDateSelectFragment(AnniversaryType.HOUSEWARMING))}
-            tvWedding.setOnClickListener{navigate(AnniversarySelectFragmentDirections.actionAnniversarySelectFragmentToAnniversaryDateSelectFragment(AnniversaryType.WEDDING))}
+            tvBirthday.setOnClickListener {
+                changeFragment(AnniversaryType.BIRTHDAY)
+            }
+            tvPregnancy.setOnClickListener {
+                changeFragment(AnniversaryType.PREGNANCY)
+            }
+            tvHousewarming.setOnClickListener {
+                changeFragment(AnniversaryType.HOUSEWARMING)
+            }
+            tvWedding.setOnClickListener {
+                changeFragment(AnniversaryType.WEDDING)
+            }
 
             editUserInput.setOnEditorActionListener { _, actionId, _ ->
-                if(actionId == EditorInfo.IME_ACTION_DONE){
-                    if(validateUserInput()){
-                        val userInput = binding.editUserInput.text.toString()
-                        navigate(AnniversarySelectFragmentDirections.actionAnniversarySelectFragmentToAnniversaryDateSelectFragment(AnniversaryType.USER_INPUT,userInput))
-                    }else{
-                        showLongToast(getString(R.string.content_empty_user_input_anniversary))
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    if (validateUserInput()) {
+                        changeFragment(AnniversaryType.USER_INPUT)
+                    } else {
+                        Util.showLongToast(
+                            requireContext(),
+                            getString(R.string.content_empty_user_input_anniversary)
+                        )
                     }
                 }
                 false
             }
         }
+    }
+
+    private fun validateUserInput(): Boolean = binding.editUserInput.text.toString() != ""
+
+
+    override fun initObserverEvent() {
+
+    }
+
+    private fun changeFragment(anniversary: AnniversaryType) {
+        navigate(
+            AnniversarySelectFragmentDirections.actionAnniversarySelectFragmentToAnniversaryDateSelectFragment(
+                anniversary,
+                binding.editUserInput.text.toString()
+            )
+        )
     }
 }
