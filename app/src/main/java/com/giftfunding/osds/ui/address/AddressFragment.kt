@@ -18,7 +18,7 @@ class AddressFragment : BaseFragment<FragmentAddressBinding>(){
 
     override fun initEvent() {
         binding.btnAddressSearch.setOnClickListener {
-//            startActivity(Intent(this, AddressSearchActivity::class.java))
+            navigate(AddressFragmentDirections.actionAddressFragmentToAddressSearchFragment())
         }
 
         //백 버튼 클릭시 어떤 화면으로 이동해야하나?

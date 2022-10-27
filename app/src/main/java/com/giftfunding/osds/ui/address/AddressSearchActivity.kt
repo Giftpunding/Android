@@ -18,18 +18,19 @@ import com.giftfunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftfunding.osds.databinding.ActivityAddressSearchBinding
 import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.enum.VisibleState
-import com.giftfunding.osds.ui.address.adapter.AddressSearchAdapter
+import com.giftfunding.osds.ui.address.adapter.AddressSearchAdapter3
 import com.giftfunding.osds.ui.address.adapter.AddressSearchDetailAdapter
 
+//삭제 예정
 class AddressSearchActivity :
     BaseActivity<ActivityAddressSearchBinding>(ActivityAddressSearchBinding::inflate) {
 
     private val viewModel: AddressSearchViewModel by viewModels()
-    private val addressSearchAdapter = AddressSearchAdapter()
+    private val addressSearchAdapter3 = AddressSearchAdapter3()
     private val addressSearchDetailAdapter = AddressSearchDetailAdapter()
     private val itemClickListener = object : AddressSearchClickListener {
         override fun addressSearchClickable(addressName: AddressSearchResultDocumentResponse) {
-            getAddress(addressName)
+//            getAddress(addressName)
         }
     }
 
@@ -58,9 +59,9 @@ class AddressSearchActivity :
     }
 
     private fun initRecyclerView() {
-        addressSearchAdapter.setItemClickListener(itemClickListener)
+        addressSearchAdapter3.setItemClickListener(itemClickListener)
         binding.viewAddressSearchResult.rvAddressSearchResult.apply {
-            adapter = addressSearchAdapter
+            adapter = addressSearchAdapter3
             layoutManager =
                 LinearLayoutManager(this@AddressSearchActivity, LinearLayoutManager.VERTICAL, false)
         }
@@ -120,7 +121,7 @@ class AddressSearchActivity :
             ) {
                 updateEditAddressSearchBackground(address)
                 isShowAddressDeleteButton(address)
-                getAddress(address)
+//                getAddress(address)
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -169,20 +170,20 @@ class AddressSearchActivity :
     }
 
     // 주소 검색
-    private fun getAddress(address: CharSequence?) {
-        viewModel.getAddress(
-            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
-            address.toString()
-        )
-    }
-
-    //좌표값으로 주소지( 지번 또는 도로명) 가져오기
-    private fun getAddress(addressData: AddressSearchResultDocumentResponse) {
-        viewModel.getAddress(
-            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
-            addressData
-        )
-    }
+//    private fun getAddress(address: CharSequence?) {
+//        viewModel.getAddress(
+//            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
+//            address.toString()
+//        )
+//    }
+//
+//    //좌표값으로 주소지( 지번 또는 도로명) 가져오기
+//    private fun getAddress(addressData: AddressSearchResultDocumentResponse) {
+//        viewModel.getAddress(
+//            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
+//            addressData
+//        )
+//    }
 
     //응답 된 데이터 안에 주소 데이터의 존재 여부에 따라 뷰 업데이트
     private fun updateAddressSearchView(address: AddressSearchResultResponse) {
@@ -193,9 +194,9 @@ class AddressSearchActivity :
         }else{
             showAddressSearchResultView()
             // 검색 결과 보여주기 위해서 리사이클러 뷰 어뎁터에 데이터 넣어 줌
-            addressSearchAdapter.clearItems()
-            addressSearchAdapter.setKeyword(binding.editAddressSearch.text.toString())
-            address.documents?.let { addressSearchAdapter.addItems(it) }
+            addressSearchAdapter3.clearItems()
+            addressSearchAdapter3.setKeyword(binding.editAddressSearch.text.toString())
+            address.documents?.let { addressSearchAdapter3.addItems(it) }
         }
     }
 
@@ -226,14 +227,14 @@ class AddressSearchActivity :
 
     private fun initLiveData() {
         // 첫번째 주소 검색 결과
-        viewModel.isExistAddress.observe(this) { address ->
-            updateAddressSearchView(address)
-        }
+//        viewModel.isExistAddress.observe(this) { address ->
+//            updateAddressSearchView(address)
+//        }
 
         // 지번, 도로명 검색 결과
-        viewModel.isDetailAddress.observe(this){ address ->
-            updateAddressSearchDetailView(address)
-        }
+//        viewModel.isDetailAddress.observe(this){ address ->
+//            updateAddressSearchDetailView(address)
+//        }
     }
 
     /**

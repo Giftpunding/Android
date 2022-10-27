@@ -8,5 +8,7 @@ data class AddressSearchResultMetaResponse(
     @SerializedName("pageable_count")
     var pageableCount: Int?,
     @SerializedName("is_end")
-    var isEnd: Boolean?
+    var isEnd: Boolean?,
+    @SerializedName("same_name")
+    var sameName: RegionInfo
 )

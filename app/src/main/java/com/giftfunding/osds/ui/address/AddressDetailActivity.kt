@@ -19,7 +19,7 @@ import com.giftfunding.osds.enum.BackButton
 import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.enum.VisibleState
 
-
+//삭제예정
 class AddressDetailActivity :
     BaseActivity<ActivityAddressDetailBinding>(ActivityAddressDetailBinding::inflate) {
 
@@ -53,10 +53,10 @@ class AddressDetailActivity :
     }
 
     private fun initAddressViewModel(){
-        viewModel.userResponse.observe(this){
-            finishAffinity()
+//        viewModel.userResponse.observe(this){
+//            finishAffinity()
 //            startActivity(Intent(this,HomeActivity::class.java))
-        }
+//        }
     }
 
     private fun initAddressTextViews(addressData: AddressSearchResultDocumentResponse) {
@@ -99,7 +99,7 @@ class AddressDetailActivity :
         binding.btnComplete.setOnClickListener {
             // TODO 회원가입 완료(주소 저장) API 호출
             val address = "${binding.tvAddress.text} ${binding.editAddressDetail.text}"
-            viewModel.addAddress(address)
+//            viewModel.addAddress(address)
         }
 
         binding.btnTextDelete.setOnClickListener {
