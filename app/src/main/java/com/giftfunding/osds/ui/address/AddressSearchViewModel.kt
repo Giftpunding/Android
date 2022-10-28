@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.giftfunding.osds.application.Application
 import com.giftfunding.osds.data.response.address.AddressSearchResultResponse
-import com.giftfunding.osds.data.response.user.User
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
@@ -23,13 +22,14 @@ class AddressSearchViewModel : ViewModel() {
         get() = _addressErrorMessage
 
     private val _isUserInputText = MutableLiveData<Boolean>()
-    val isUserInputText : LiveData<Boolean>
+    val isUserInputText: LiveData<Boolean>
         get() = _isUserInputText
 
     // 주소 검색
     fun getAddress(apiKey: String, keyword: String, page: Int) {
         viewModelScope.launch(exceptionHandler) {
-            _isExistAddress.value = Application.addressRepository.getAddress(apiKey, keyword, page)
+            val result = Application.addressRepository.getAddress(apiKey, keyword, page)
+            _isExistAddress.value = result
         }
     }
 

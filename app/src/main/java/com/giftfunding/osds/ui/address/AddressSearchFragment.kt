@@ -218,7 +218,7 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
 
     //스낵바로 에러 보여주기
     private fun showSnackBar(errorMessage: String) {
-        Util.showSnackBar(requireView(), errorMessage)
+        showSnackBar(requireView(), errorMessage)
     }
 
     companion object {
