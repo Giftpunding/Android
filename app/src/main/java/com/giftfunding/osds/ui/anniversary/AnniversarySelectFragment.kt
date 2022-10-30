@@ -7,7 +7,7 @@ import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectBinding
 import com.giftfunding.osds.enum.AnniversaryType
-import com.giftfunding.osds.util.Util
+import com.giftfunding.osds.util.showLongToast
 
 class AnniversarySelectFragment : BaseFragment<FragmentAnniversarySelectBinding>() {
 
@@ -38,7 +38,7 @@ class AnniversarySelectFragment : BaseFragment<FragmentAnniversarySelectBinding>
                     if (validateUserInput()) {
                         changeFragment(AnniversaryType.USER_INPUT)
                     } else {
-                        Util.showLongToast(
+                        showLongToast(
                             requireContext(),
                             getString(R.string.content_empty_user_input_anniversary)
                         )

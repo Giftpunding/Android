@@ -9,6 +9,8 @@ import com.giftfunding.osds.enum.BackButton
 import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.enum.VisibleState
 
+
+//삭제예정
 class AddressActivity : BaseActivity<ActivityAddressBinding>(ActivityAddressBinding::inflate) {
 
     override fun onCreate(savedInstanceState: Bundle?) {

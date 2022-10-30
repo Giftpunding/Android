@@ -6,9 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.giftfunding.osds.application.Application
-import com.giftfunding.osds.data.response.address.AddressSearchResultDocumentResponse
 import com.giftfunding.osds.data.response.address.AddressSearchResultResponse
-import com.giftfunding.osds.data.response.user.User
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
@@ -19,47 +17,29 @@ class AddressSearchViewModel : ViewModel() {
     val isExistAddress: LiveData<AddressSearchResultResponse>
         get() = _isExistAddress
 
-    private val _isExistDetailAddress = MutableLiveData<AddressSearchResultResponse>()
-    val isDetailAddress: LiveData<AddressSearchResultResponse>
-        get() = _isExistDetailAddress
+    private val _addressErrorMessage = MutableLiveData<String>()
+    val addressErrorMessage: LiveData<String>
+        get() = _addressErrorMessage
 
-    private val _userResponse = MutableLiveData<User>()
-    val userResponse: LiveData<User>
-        get() = _userResponse
+    private val _isUserInputText = MutableLiveData<Boolean>()
+    val isUserInputText: LiveData<Boolean>
+        get() = _isUserInputText
 
-    fun addAddress(address : String){
-        viewModelScope.launch(exceptionHandler){
-            val response = Application.addressRepository.addAddress(address)
-            if(response.isSuccessful){
-                _userResponse.value = response.body()
-            }
-            else {
-                Log.e("AddressSearchViewModel", "err")
-            }
-        }
-    }
-
-    fun getAddress(apiKey: String, keyword: String) {
+    // 주소 검색
+    fun getAddress(apiKey: String, keyword: String, page: Int) {
         viewModelScope.launch(exceptionHandler) {
-            val result = Application.addressRepository.getAddress(apiKey, keyword)
+            val result = Application.addressRepository.getAddress(apiKey, keyword, page)
             _isExistAddress.value = result
         }
     }
 
-    //좌표값으로 주소지( 지번 또는 도로명) 가져오기
-    fun getAddress(apiKey: String, addressData: AddressSearchResultDocumentResponse) {
-        viewModelScope.launch(exceptionHandler) {
-            val result = Application.addressRepository.getAddress(
-                apiKey,
-                addressData.x.toString(),
-                addressData.y.toString()
-            )
-            _isExistDetailAddress.value = result
-        }
+    fun afterTextChange(text: String) {
+        _isUserInputText.value = text.isNotEmpty()
     }
 
     // 코루틴 예외처리
     private val exceptionHandler = CoroutineExceptionHandler { _, exception ->
+        _addressErrorMessage.value = exception.message.toString()
         Log.d(tag, exception.message.toString())
     }
 }

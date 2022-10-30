@@ -1,6 +1,5 @@
 package com.giftfunding.osds.ui.anniversary
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
@@ -10,7 +9,6 @@ import com.giftfunding.osds.*
 import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectDateBinding
 import com.giftfunding.osds.enum.AnniversaryType
-import com.giftfunding.osds.ui.address.AddressActivity
 import com.giftfunding.osds.ui.anniversary.viewmodel.AnniversaryViewModel
 import com.giftfunding.osds.util.initDay
 import com.giftfunding.osds.util.initMonth

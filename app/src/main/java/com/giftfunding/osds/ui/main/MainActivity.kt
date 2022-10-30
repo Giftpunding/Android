@@ -1,12 +1,7 @@
 package com.giftfunding.osds.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -50,8 +45,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     setToolbarType(ToolbarType.NORMAL)
                     setBackButtonVisible(VisibleState.VISIBLE)
                     setBackButton(BackButton.BACK)
-                    setCloseButton(VisibleState.VISIBLE)
+                    setCloseButton(VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_setting_address))
+                }
+
+                "com.giftfunding.osds.ui.address.AddressSearchFragment" -> {
+                    setToolbarType(ToolbarType.NORMAL)
+                    setBackButtonVisible(VisibleState.INVISIBLE)
+                    setCloseButton(VisibleState.VISIBLE)
+                    setTitle(resources.getString(R.string.title_address_search))
                 }
             }
         }
