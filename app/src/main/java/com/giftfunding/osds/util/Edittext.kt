@@ -7,10 +7,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.NonNull
 import androidx.appcompat.content.res.AppCompatResources
 
-fun EditText.textClear(){
-
-}
-
 fun EditText.changeBackgroundColor(
     @NonNull context: Context,
     @DrawableRes backgroundResId: Int,
@@ -50,9 +46,7 @@ fun EditText.setFocusAndShowKeyboard(context: Context) {
 
 fun EditText.clearFocusAndHideKeyboard(context: Context) {
     this.clearFocus()
-    this.postDelayed({
-        val inputMethodManager =
-            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(this.windowToken, 0)
-    }, 30)
+    val inputMethodManager =
+        context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(this.windowToken, 0)
 }

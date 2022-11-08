@@ -1,6 +1,10 @@
 package com.giftfunding.osds.ui.main
 
+import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
+import android.view.MotionEvent
+import android.widget.EditText
 import androidx.navigation.NavController
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
@@ -11,6 +15,7 @@ import com.giftfunding.osds.databinding.ActivityMainBinding
 import com.giftfunding.osds.enum.BackButton
 import com.giftfunding.osds.enum.ToolbarType
 import com.giftfunding.osds.enum.VisibleState
+import com.giftfunding.osds.util.clearFocusAndHideKeyboard
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
 
@@ -55,8 +60,33 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     setCloseButton(VisibleState.VISIBLE)
                     setTitle(resources.getString(R.string.title_address_search))
                 }
+
+                "com.giftfunding.osds.ui.address.AddressDetailFragment" -> {
+                    setToolbarType(ToolbarType.NORMAL)
+                    setBackButtonVisible(VisibleState.VISIBLE)
+                    setBackButton(BackButton.BACK)
+                    setCloseButton(VisibleState.VISIBLE)
+                    setTitle(resources.getString(R.string.title_address_detail))
+                }
             }
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        val currentView = currentFocus
+
+        if(currentView is EditText){
+            if(ev?.action == MotionEvent.ACTION_DOWN){
+                val outRect = Rect()
+                currentView.getGlobalVisibleRect(outRect)
+                if (!outRect.contains(ev.rawX.toInt(), ev.rawY.toInt())) {
+                    currentView.clearFocusAndHideKeyboard(context = this)
+                    Log.d(TAG, "MotionEvent.ACTION_DOWN")
+                }
+            }
+        }
+
+        return super.dispatchTouchEvent(ev)
     }
 
     companion object{

@@ -9,7 +9,6 @@ import com.giftfunding.osds.*
 import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectDateBinding
 import com.giftfunding.osds.enum.AnniversaryType
-import com.giftfunding.osds.ui.anniversary.viewmodel.AnniversaryViewModel
 import com.giftfunding.osds.util.initDay
 import com.giftfunding.osds.util.initMonth
 import com.giftfunding.osds.util.setDayOfMonth

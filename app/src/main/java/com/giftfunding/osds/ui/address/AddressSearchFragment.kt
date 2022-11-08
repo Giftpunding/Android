@@ -14,6 +14,7 @@ import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.data.response.address.AddressSearchResultResponse
 import com.giftfunding.osds.databinding.FragmentAddressSearchBinding
 import com.giftfunding.osds.ui.address.adapter.AddressSearchAdapter
+import com.giftfunding.osds.ui.model.AddressUiModel
 import com.giftfunding.osds.util.*
 
 class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
@@ -21,7 +22,10 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
     override fun layoutResId(): Int = R.layout.fragment_address_search
 
     private val viewModel: AddressSearchViewModel by viewModels()
-    private val addressSearchAdapter = AddressSearchAdapter()
+    private val addressSearchAdapter = AddressSearchAdapter { address ->
+        changeFragment(address)
+    }
+
     private var page = DEFAULT_PAGE
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,6 +55,7 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
+        addressSearchAdapter.clearItems()
     }
 
     override fun initObserverEvent() {
@@ -219,6 +224,14 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
     //스낵바로 에러 보여주기
     private fun showSnackBar(errorMessage: String) {
         showSnackBar(requireView(), errorMessage)
+    }
+
+    private fun changeFragment(address: AddressUiModel) {
+        navigate(
+            AddressSearchFragmentDirections.actionAddressSearchFragmentToAddressDetailFragment(
+                address = address
+            )
+        )
     }
 
     companion object {
