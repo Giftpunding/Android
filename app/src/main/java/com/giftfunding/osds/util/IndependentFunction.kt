@@ -36,7 +36,9 @@ fun addComma(number: Int): String = if (number >= 0) {
     "- "
 }
 
+// 뒤에 원화로 표시
 fun convertWon(price: Int): String {
     val format = DecimalFormat("+#,###")
     return format.format(price)
 }
+

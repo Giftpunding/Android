@@ -1,4 +1,4 @@
-package com.giftfunding.osds.ui.anniversary.viewmodel
+package com.giftfunding.osds.ui.anniversary
 
 import android.util.Log
 import androidx.lifecycle.LiveData

@@ -3,6 +3,7 @@
     <!-- 공용 -->
     <dimen name="activity_vertical_dimens">28dp</dimen>
     <dimen name="activity_horizontal_dimens">28dp</dimen>
+    <dimen name="default_margin">0dp</dimen>
 
     <!--홈 화면-->
     <dimen name="home_sub_title_size">16sp</dimen>
@@ -13,6 +14,7 @@
     <dimen name="home_gift_box_padding">20dp</dimen>
     <dimen name="home_gift_ranking_title_margin">24dp</dimen>
 
+    <dimen name="button_bottom_margin">46dp</dimen>
     <!-- 바텀 네비게이션 아이콘과 텍스트 사이 마진 -->
     <!--<dimen name="design_bottom_navigation_margin" tools:override="true">7dp</dimen>-->
 

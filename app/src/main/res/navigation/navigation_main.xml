@@ -38,7 +38,6 @@
         android:name="com.giftfunding.osds.ui.address.AddressFragment"
         android:label="AddressFragment"
         tools:layout="@layout/fragment_address">
-
         <action
             android:id="@+id/action_addressFragment_to_addressSearchFragment"
             app:destination="@id/addressSearchFragment" />
@@ -48,5 +47,21 @@
         android:id="@+id/addressSearchFragment"
         android:name="com.giftfunding.osds.ui.address.AddressSearchFragment"
         android:label="AddressSearchFragment"
-        tools:layout="@layout/fragment_address_search"/>
+        tools:layout="@layout/fragment_address_search">
+        <action
+            android:id="@+id/action_addressSearchFragment_to_addressDetailFragment"
+            app:destination="@id/addressDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addressDetailFragment"
+        android:name="com.giftfunding.osds.ui.address.AddressDetailFragment"
+        android:label="AddressFragment"
+        tools:layout="@layout/fragment_address_detail">
+
+        <argument
+            android:name="address"
+            app:argType="com.giftfunding.osds.ui.model.AddressUiModel"
+            app:nullable="false" />
+    </fragment>
 </navigation>

@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:layout_marginTop="18dp"
-        android:text="@string/content_road_name"
+        android:text="@string/content_sample_road_name"
         app:layout_constraintStart_toEndOf="@id/iv_road_name_bullet_point"
         app:layout_constraintTop_toBottomOf="@id/tv_guide_title" />
 
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:layout_marginTop="18dp"
-        android:text="@string/content_land_lot_number"
+        android:text="@string/content_sample_land_lot_number"
         app:layout_constraintStart_toEndOf="@id/iv_land_lot_number_bullet_point"
         app:layout_constraintTop_toBottomOf="@id/tv_road_name_example" />
 

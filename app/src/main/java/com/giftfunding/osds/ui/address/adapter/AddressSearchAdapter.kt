@@ -1,15 +1,16 @@
 package com.giftfunding.osds.ui.address.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.giftfunding.osds.data.response.address.AddressSearchResultDocumentResponse
 import com.giftfunding.osds.databinding.ItemAddressSearchBinding
+import com.giftfunding.osds.ui.model.AddressUiModel
 
-class AddressSearchAdapter :
-    RecyclerView.Adapter<AddressSearchAdapter.AddressSearchViewHolder>() {
+class AddressSearchAdapter(
+    private val itemClick: (address: AddressUiModel) -> Unit
+) : RecyclerView.Adapter<AddressSearchAdapter.AddressSearchViewHolder>() {
 
     private val addressItems = mutableListOf<AddressSearchResultDocumentResponse>()
 
@@ -24,14 +25,13 @@ class AddressSearchAdapter :
         )
 
     override fun onBindViewHolder(holder: AddressSearchViewHolder, position: Int) {
-        holder.onBind(addressItems[position])
+        holder.onBind(addressItems[position], itemClick)
     }
 
     override fun getItemCount(): Int = addressItems.size
 
     @SuppressLint("NotifyDataSetChanged")
     fun addItems(address: List<AddressSearchResultDocumentResponse>) {
-        Log.d("addItems", " TEST ")
         addressItems.addAll(address)
         notifyDataSetChanged()
     }
@@ -44,7 +44,10 @@ class AddressSearchAdapter :
 
     class AddressSearchViewHolder(private val binding: ItemAddressSearchBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(item: AddressSearchResultDocumentResponse) {
+        fun onBind(
+            item: AddressSearchResultDocumentResponse,
+            itemClick: (address: AddressUiModel) -> Unit
+        ) {
 
             when (item.addressType) {
                 "REGION" -> {
@@ -72,6 +75,15 @@ class AddressSearchAdapter :
                 }
             }
 
+            itemView.setOnClickListener {
+                itemClick(
+                    AddressUiModel(
+                        keywordAddress = binding.lAddressResult.tvSearchKeyword.text.toString(),
+                        addressName = binding.lAddressResult.tvAddress.text.toString(),
+                        addressType = item.addressType!!
+                    )
+                )
+            }
         }
 
         // 빌딩 이름이 존재 하면 빌딩이름으로 보여주기
