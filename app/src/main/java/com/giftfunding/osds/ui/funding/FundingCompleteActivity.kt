@@ -6,8 +6,8 @@ import android.view.View
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityFundingCompleteBinding
-import com.giftfunding.osds.enum.ToolbarType
-import com.giftfunding.osds.enum.VisibleState
+import com.giftfunding.osds.ui.enum.ToolbarType
+import com.giftfunding.osds.ui.enum.VisibleState
 
 class FundingCompleteActivity :
     BaseActivity<ActivityFundingCompleteBinding>(ActivityFundingCompleteBinding::inflate),

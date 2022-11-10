@@ -12,9 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityMainBinding
-import com.giftfunding.osds.enum.BackButton
-import com.giftfunding.osds.enum.ToolbarType
-import com.giftfunding.osds.enum.VisibleState
+import com.giftfunding.osds.ui.enum.BackButton
+import com.giftfunding.osds.ui.enum.ToolbarType
+import com.giftfunding.osds.ui.enum.VisibleState
 import com.giftfunding.osds.util.clearFocusAndHideKeyboard
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {

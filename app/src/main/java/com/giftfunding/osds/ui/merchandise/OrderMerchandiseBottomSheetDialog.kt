@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftfunding.osds.R
-import com.giftfunding.osds.data.response.merchandise.ColorInfo
-import com.giftfunding.osds.data.response.merchandise.Merchandise
-import com.giftfunding.osds.data.response.merchandise.SizeInfo
+import com.giftfunding.osds.data.repository.remote.datasource.dto.merchandise.ColorInfo
+import com.giftfunding.osds.data.repository.remote.datasource.dto.merchandise.Merchandise
+import com.giftfunding.osds.data.repository.remote.datasource.dto.merchandise.SizeInfo
 import com.giftfunding.osds.databinding.FragmentMerchandiseOrderBinding
 import com.giftfunding.osds.ui.merchandise.adapter.MerchandiseColorAdapter
 import com.giftfunding.osds.ui.merchandise.adapter.MerchandiseReceiptAdapter
@@ -46,11 +46,31 @@ class OrderMerchandiseBottomSheetDialog : BottomSheetDialogFragment() {
 
         val productColorInfo = ArrayList<ColorInfo>()
         // dummy
-        val green = ColorInfo("#27AE60", "DeepGreen")
-        val lightBlue = ColorInfo("#329DFF", "LightBlue")
-        val red = ColorInfo("#FF0000", "red")
-        val yellow = ColorInfo("#FFFF00", "yellow")
-        val black = ColorInfo("#000000", "black")
+        val green =
+            ColorInfo(
+                "#27AE60",
+                "DeepGreen"
+            )
+        val lightBlue =
+            ColorInfo(
+                "#329DFF",
+                "LightBlue"
+            )
+        val red =
+            ColorInfo(
+                "#FF0000",
+                "red"
+            )
+        val yellow =
+            ColorInfo(
+                "#FFFF00",
+                "yellow"
+            )
+        val black =
+            ColorInfo(
+                "#000000",
+                "black"
+            )
 
         productColorInfo.add(green)
         productColorInfo.add(lightBlue)
@@ -71,9 +91,21 @@ class OrderMerchandiseBottomSheetDialog : BottomSheetDialogFragment() {
 
         val productSizeInfo = ArrayList<SizeInfo>()
 //        val large = SizeInfo("L", "+10,000")
-        val large = SizeInfo("L", 10000)
-        val medium = SizeInfo("M", 5000)
-        val small = SizeInfo("S", 3000)
+        val large =
+            SizeInfo(
+                "L",
+                10000
+            )
+        val medium =
+            SizeInfo(
+                "M",
+                5000
+            )
+        val small =
+            SizeInfo(
+                "S",
+                3000
+            )
 
         productSizeInfo.add(large)
         productSizeInfo.add(medium)
@@ -125,10 +157,11 @@ class OrderMerchandiseBottomSheetDialog : BottomSheetDialogFragment() {
 
         binding.includeOrderMerchandiseReceipt.root.visibility = View.VISIBLE
 
-        val orderMerchandises = Merchandise(
-            colorInfo = colorInfo,
-            sizeInfo = sizeInfo
-        )
+        val orderMerchandises =
+            Merchandise(
+                colorInfo = colorInfo,
+                sizeInfo = sizeInfo
+            )
 
         test.add(orderMerchandises)
         receiptAdapter.addItems(test)

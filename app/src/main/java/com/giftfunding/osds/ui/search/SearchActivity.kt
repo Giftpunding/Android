@@ -14,7 +14,7 @@ import com.giftfunding.osds.R
 import com.giftfunding.osds.application.Application.Companion.searchRepository
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivitySearchBinding
-import com.giftfunding.osds.repository.local.pref.KeywordSharedPreference
+import com.giftfunding.osds.data.repository.local.pref.KeywordSharedPreference
 import com.giftfunding.osds.ui.search.adapter.*
 import com.giftfunding.osds.util.GridRecyclerViewDeco
 

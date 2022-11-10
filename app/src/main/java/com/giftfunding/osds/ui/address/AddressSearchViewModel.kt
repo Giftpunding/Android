@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.giftfunding.osds.application.Application
-import com.giftfunding.osds.data.response.address.AddressSearchResultResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.address.AddressSearchResultResponse
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 

@@ -12,9 +12,9 @@ import androidx.viewbinding.ViewBinding
 import com.giftfunding.osds.R
 import com.giftfunding.osds.databinding.ContentGiftToolbarBinding
 import com.giftfunding.osds.databinding.ContentToolbarBinding
-import com.giftfunding.osds.enum.BackButton
-import com.giftfunding.osds.enum.ToolbarType
-import com.giftfunding.osds.enum.VisibleState
+import com.giftfunding.osds.ui.enum.BackButton
+import com.giftfunding.osds.ui.enum.ToolbarType
+import com.giftfunding.osds.ui.enum.VisibleState
 
 abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :
     AppCompatActivity() {

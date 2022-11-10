@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.giftfunding.osds.data.response.funding.FundingCompleteResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.funding.FundingCompleteResponse
 import com.giftfunding.osds.databinding.ItemFundingListBinding
 import com.giftfunding.osds.ui.funding.FundingResultActivity
 import com.giftfunding.osds.util.addComma

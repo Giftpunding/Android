@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
@@ -14,8 +13,10 @@ import androidx.navigation.fragment.navArgs
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentAddressDetailBinding
-import com.giftfunding.osds.ui.model.AddressUiModel
+import com.giftfunding.osds.ui.address.model.AddressUiModel
 import com.giftfunding.osds.util.*
+import com.giftfunding.osds.util.keyboard.Keyboard
+import com.giftfunding.osds.util.keyboard.KeyboardImpl
 
 
 class AddressDetailFragment : BaseFragment<FragmentAddressDetailBinding>() {

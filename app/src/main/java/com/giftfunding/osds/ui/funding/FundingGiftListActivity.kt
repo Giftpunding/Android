@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
-import com.giftfunding.osds.data.response.funding.FundingResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.funding.FundingResponse
 import com.giftfunding.osds.databinding.ActivityFundingGiftListBinding
 import com.giftfunding.osds.ui.funding.adapter.FundingListAdapter
 

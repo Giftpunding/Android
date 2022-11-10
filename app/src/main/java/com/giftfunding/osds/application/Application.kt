@@ -8,16 +8,17 @@ import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.giftfunding.osds.BuildConfig
 import com.giftfunding.osds.R
-import com.giftfunding.osds.repository.AddressRepository
-import com.giftfunding.osds.repository.AnniversaryRepository
-import com.giftfunding.osds.repository.LoginRepository
-import com.giftfunding.osds.repository.SearchRepository
-import com.giftfunding.osds.repository.local.pref.KeywordSharedPreference
-import com.giftfunding.osds.repository.local.pref.KeywordSharedPreferenceImpl
-import com.giftfunding.osds.repository.local.pref.LoginSharedPreference
-import com.giftfunding.osds.repository.remote.datasource.AddressDataSource
-import com.giftfunding.osds.repository.remote.datasource.AnniversaryDataSource
-import com.giftfunding.osds.repository.remote.datasource.LoginRemoteDataSource
+import com.giftfunding.osds.data.repository.AddressRepository
+import com.giftfunding.osds.data.repository.AnniversaryRepository
+import com.giftfunding.osds.data.repository.LoginRepository
+import com.giftfunding.osds.data.repository.SearchRepository
+import com.giftfunding.osds.data.repository.local.pref.KeywordSharedPreference
+import com.giftfunding.osds.data.repository.local.pref.KeywordSharedPreferenceImpl
+import com.giftfunding.osds.data.repository.local.pref.LoginSharedPreference
+import com.giftfunding.osds.data.repository.remote.datasource.AddressDataSource
+import com.giftfunding.osds.data.repository.remote.datasource.AnniversaryDataSource
+import com.giftfunding.osds.data.repository.remote.datasource.LoginRemoteDataSource
+import com.giftfunding.osds.domain.login.LoginUseCase
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.kakao.sdk.common.KakaoSdk
@@ -97,6 +98,7 @@ class Application: Application() {
 
         addressDataSource = AddressDataSource(kakaoAddressRetrofit, retrofit)
         addressRepository = AddressRepository(addressDataSource)
+
     }
 
     private fun initFlipper() {
@@ -120,5 +122,6 @@ class Application: Application() {
         lateinit var searchRepository: SearchRepository
         lateinit var anniversaryRepository: AnniversaryRepository
         lateinit var addressRepository: AddressRepository
+        lateinit var loginUseCase: LoginUseCase
     }
 }

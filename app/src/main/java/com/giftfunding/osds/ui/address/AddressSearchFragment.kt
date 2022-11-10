@@ -11,10 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
-import com.giftfunding.osds.data.response.address.AddressSearchResultResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.address.AddressSearchResultResponse
 import com.giftfunding.osds.databinding.FragmentAddressSearchBinding
 import com.giftfunding.osds.ui.address.adapter.AddressSearchAdapter
-import com.giftfunding.osds.ui.model.AddressUiModel
+import com.giftfunding.osds.ui.address.model.AddressUiModel
 import com.giftfunding.osds.util.*
 
 class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {

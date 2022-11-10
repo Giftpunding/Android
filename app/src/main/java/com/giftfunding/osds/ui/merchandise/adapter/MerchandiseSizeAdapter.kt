@@ -3,7 +3,7 @@ package com.giftfunding.osds.ui.merchandise.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.giftfunding.osds.data.response.merchandise.SizeInfo
+import com.giftfunding.osds.data.repository.remote.datasource.dto.merchandise.SizeInfo
 import com.giftfunding.osds.databinding.ItemMerchandiseSizeBinding
 import com.giftfunding.osds.util.convertWon
 

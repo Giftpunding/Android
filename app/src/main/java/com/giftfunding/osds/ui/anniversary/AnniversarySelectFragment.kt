@@ -6,7 +6,7 @@ import android.view.inputmethod.EditorInfo
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectBinding
-import com.giftfunding.osds.enum.AnniversaryType
+import com.giftfunding.osds.ui.enum.AnniversaryType
 import com.giftfunding.osds.util.showLongToast
 
 class AnniversarySelectFragment : BaseFragment<FragmentAnniversarySelectBinding>() {

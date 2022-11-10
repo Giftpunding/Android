@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.giftfunding.osds.data.response.merchandise.ColorInfo
+import com.giftfunding.osds.data.repository.remote.datasource.dto.merchandise.ColorInfo
 import com.giftfunding.osds.databinding.ItemMerchandiseColorBinding
 
 class MerchandiseColorAdapter(

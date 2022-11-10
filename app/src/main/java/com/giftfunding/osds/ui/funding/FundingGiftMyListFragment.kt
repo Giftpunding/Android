@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.giftfunding.osds.data.response.funding.FundingCompleteResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.funding.FundingCompleteResponse
 import com.giftfunding.osds.databinding.FragmentFundingListBinding
 import com.giftfunding.osds.ui.funding.adapter.FundingListMyItemAdapter
 
@@ -25,7 +25,12 @@ class FundingGiftMyListFragment : Fragment() {
 
     fun init() {
         val tempList = listOf<FundingCompleteResponse>(
-            FundingCompleteResponse("img1", "brand1", "name1", 13000)
+            FundingCompleteResponse(
+                "img1",
+                "brand1",
+                "name1",
+                13000
+            )
         )
 
         binding.apply {

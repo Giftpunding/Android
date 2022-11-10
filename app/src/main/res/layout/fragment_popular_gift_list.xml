@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/white">
 
-    <com.giftfunding.osds.component.VerticalGiftItem
+    <com.giftfunding.osds.ui.component.VerticalGiftItem
         android:id="@+id/item_first_gift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.giftfunding.osds.component.VerticalGiftItem
+    <com.giftfunding.osds.ui.component.VerticalGiftItem
         android:id="@+id/item_second_gift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toEndOf="@id/item_first_gift"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.giftfunding.osds.component.VerticalGiftItem
+    <com.giftfunding.osds.ui.component.VerticalGiftItem
         android:id="@+id/item_third_gift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/item_first_gift" />
 
-    <com.giftfunding.osds.component.VerticalGiftItem
+    <com.giftfunding.osds.ui.component.VerticalGiftItem
         android:id="@+id/item_fourth_gift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

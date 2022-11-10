@@ -2,7 +2,6 @@ package com.giftfunding.osds.ui.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.MotionEvent
 import android.view.View
 import android.widget.ScrollView
 import androidx.core.content.res.ResourcesCompat
@@ -12,11 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
-import com.giftfunding.osds.data.response.home.item.ItemCategoryResponse
-import com.giftfunding.osds.data.response.home.item.ItemLuxuryResponse
-import com.giftfunding.osds.data.response.home.item.ItemResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.home.item.ItemCategoryResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.home.item.ItemLuxuryResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.home.item.ItemResponse
 import com.giftfunding.osds.databinding.ActivityHomeBinding
-import com.giftfunding.osds.enum.ToolbarType
+import com.giftfunding.osds.ui.enum.ToolbarType
 import com.giftfunding.osds.ui.home.adapter.*
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonSizeSpec
@@ -138,7 +137,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         //test input data
         val list = mutableListOf<ItemCategoryResponse>()
         for (idx in 1..8) {
-            list.add(ItemCategoryResponse(R.drawable.ic_launcher_background, "카테고리$idx"))
+            list.add(
+                ItemCategoryResponse(
+                    R.drawable.ic_launcher_background,
+                    "카테고리$idx"
+                )
+            )
         }
 
         val mainCategoryAdapter =  HomeMainCategoryAdapter()

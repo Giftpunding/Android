@@ -5,8 +5,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityFundingMyListInfoBinding
-import com.giftfunding.osds.enum.ToolbarType
-import com.giftfunding.osds.enum.VisibleState
+import com.giftfunding.osds.ui.enum.ToolbarType
+import com.giftfunding.osds.ui.enum.VisibleState
 import com.giftfunding.osds.ui.funding.adapter.FundingListViewPagerAdapter
 
 class FundingMyListInfoActivity :

@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityBridgeBinding
-import com.giftfunding.osds.ui.address.AddressActivity
 import com.giftfunding.osds.ui.bridge.adapter.BridgeAdapter
 import com.giftfunding.osds.ui.funding.FundingGiftListActivity
 import com.giftfunding.osds.ui.home.HomeActivity

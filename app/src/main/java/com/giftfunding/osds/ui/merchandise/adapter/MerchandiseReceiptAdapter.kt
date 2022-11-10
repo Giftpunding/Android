@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.giftfunding.osds.data.response.merchandise.Merchandise
+import com.giftfunding.osds.data.repository.remote.datasource.dto.merchandise.Merchandise
 import com.giftfunding.osds.databinding.ItemMerchandiseReceiptBinding
 
 class MerchandiseReceiptAdapter: RecyclerView.Adapter<MerchandiseReceiptAdapter.MerchandiseReceiptHolder>() {

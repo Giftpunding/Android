@@ -1,11 +1,10 @@
 package com.giftfunding.osds.ui.home.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.giftfunding.osds.data.response.home.item.ItemCategoryResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.home.item.ItemCategoryResponse
 import com.giftfunding.osds.databinding.ItemHomeMainCategoryBinding
 
 

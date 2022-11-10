@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.giftfunding.osds.data.response.address.AddressSearchResultDocumentResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.address.AddressSearchResultDocumentResponse
 import com.giftfunding.osds.databinding.ItemAddressSearchBinding
-import com.giftfunding.osds.ui.model.AddressUiModel
+import com.giftfunding.osds.ui.address.model.AddressUiModel
 
 class AddressSearchAdapter(
     private val itemClick: (address: AddressUiModel) -> Unit
