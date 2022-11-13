@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.giftfunding.osds.data.repository.remote.datasource.dto.funding.FundingCompleteResponse
 import com.giftfunding.osds.databinding.ItemFundingListBinding
-import com.giftfunding.osds.ui.funding.FundingResultActivity
 import com.giftfunding.osds.util.addComma
 
 class FundingListMyItemAdapter(val context: Context, val list: List<FundingCompleteResponse>) :
@@ -41,7 +40,7 @@ class FundingListMyItemAdapter(val context: Context, val list: List<FundingCompl
                     .into(ivMerchandiseImg)
 
                 btnDetailInfo.setOnClickListener {
-                    ivMerchandiseImg.context.startActivity(Intent(ivMerchandiseImg.context, FundingResultActivity::class.java))
+//                    ivMerchandiseImg.context.startActivity(Intent(ivMerchandiseImg.context, FundingResultActivity::class.java))
                 }
             }
         }

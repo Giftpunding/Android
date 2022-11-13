@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.giftfunding.osds.data.repository.remote.datasource.dto.funding.FundingResponse
 import com.giftfunding.osds.databinding.ItemFundingGiftListBinding
-import com.giftfunding.osds.ui.funding.FundingActivity
 import com.giftfunding.osds.util.addComma
 
 class FundingListAdapter(val context: Context) : RecyclerView.Adapter<FundingListAdapter.FundingHolder>() {
@@ -38,7 +37,7 @@ class FundingListAdapter(val context: Context) : RecyclerView.Adapter<FundingLis
                 binding.tvTotalFundingPrice.text = addComma(totalPrice)
                 binding.pgFunding.progress = (progress * 100).toInt()
                 binding.btnGiftTogether.setOnClickListener {
-                    context.startActivity(Intent(context, FundingActivity::class.java))
+//                    context.startActivity(Intent(context, FundingActivity::class.java))
                 }
             }
         }

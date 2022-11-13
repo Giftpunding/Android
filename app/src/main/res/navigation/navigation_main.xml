@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_anniversary_select_date">
         <argument
             android:name="anniversary_type"
-            app:argType="com.giftfunding.osds.enum.AnniversaryType"
+            app:argType="com.giftfunding.osds.ui.enum.AnniversaryType"
             app:nullable="false" />
         <argument
             android:name="user_input"
@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_addressFragment_to_addressSearchFragment"
             app:destination="@id/addressSearchFragment" />
+        <action
+            android:id="@+id/action_addressFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 
     <fragment
@@ -56,12 +59,23 @@
     <fragment
         android:id="@+id/addressDetailFragment"
         android:name="com.giftfunding.osds.ui.address.AddressDetailFragment"
-        android:label="AddressFragment"
+        android:label="AddressDetailFragment"
         tools:layout="@layout/fragment_address_detail">
 
         <argument
             android:name="address"
-            app:argType="com.giftfunding.osds.ui.model.AddressUiModel"
+            app:argType="com.giftfunding.osds.ui.address.model.AddressUiModel"
             app:nullable="false" />
+        <action
+            android:id="@+id/action_addressDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/addressFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.giftfunding.osds.ui.home.HomeFragment"
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home"/>
 </navigation>

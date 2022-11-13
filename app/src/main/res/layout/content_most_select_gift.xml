@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tv_another_people_selected_gift"
@@ -24,6 +24,7 @@
             android:layout_marginTop="14dp"
             android:paddingHorizontal="@dimen/activity_horizontal_dimens"
             android:paddingVertical="14dp"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_another_people_selected_gift">
@@ -46,8 +47,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_all"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -63,8 +65,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_luxury"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -80,8 +83,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_beauty"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -97,8 +101,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_living"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -114,8 +119,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_fashion"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -131,8 +137,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_digital"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -148,8 +155,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_food"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -165,8 +173,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_gifticon"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -182,8 +191,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_kitchen"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -199,8 +209,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_sport"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -216,8 +227,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_flower"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -233,8 +245,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_baby"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -250,8 +263,9 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:minHeight="0dp"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="9dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="6dp"
                     android:text="@string/category_pet"
                     android:textColor="@drawable/sc_color_solitude_2_color_raven"
                     android:textSize="14sp" />
@@ -289,19 +303,17 @@
 
         <TextView
             android:id="@+id/tv_ranking_more_info"
+            style="@style/base_font_medium_14_echo_blue_2_padding0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="42dp"
             android:background="@drawable/bg_rect_hawkes_blue_trans100_radius8_stroke1"
             android:drawablePadding="5dp"
-            android:fontFamily="@font/pretendard_medium"
-            android:includeFontPadding="false"
             android:paddingHorizontal="30dp"
             android:paddingVertical="10dp"
-            tools:text="랭킹 더보기"
-            android:textColor="@color/echo_blue_2"
-            android:textSize="14sp"
+            android:text="@string/category_more_rank"
             app:drawableEndCompat="@drawable/ic_arrow_more_info"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_most_select_gift_list" />

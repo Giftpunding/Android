@@ -8,12 +8,9 @@ import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityBridgeBinding
 import com.giftfunding.osds.ui.bridge.adapter.BridgeAdapter
-import com.giftfunding.osds.ui.funding.FundingGiftListActivity
-import com.giftfunding.osds.ui.home.HomeActivity
 import com.giftfunding.osds.ui.keyhash.KeyHashActivity
 import com.giftfunding.osds.ui.login.LoginActivity
 import com.giftfunding.osds.ui.main.MainActivity
-import com.giftfunding.osds.ui.search.SearchActivity
 
 class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding::inflate) {
 
@@ -43,10 +40,8 @@ class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding:
 
             val mActivityList: ArrayList<Class<out Activity>> = arrayListOf(
                 LoginActivity::class.java,
-                HomeActivity::class.java,
-                SearchActivity::class.java,
-                FundingGiftListActivity::class.java,
-                AddressActivity::class.java,
+//                SearchActivity::class.java,
+//                FundingGiftListActivity::class.java,
                 KeyHashActivity::class.java,
                 MainActivity::class.java
             )

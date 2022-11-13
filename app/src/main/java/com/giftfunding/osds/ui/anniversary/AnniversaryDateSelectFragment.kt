@@ -6,8 +6,6 @@ import android.widget.RadioButton
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.giftfunding.osds.*
-import com.giftfunding.osds.application.Application
-import com.giftfunding.osds.application.Application.Companion.loginUseCase
 import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectDateBinding
 import com.giftfunding.osds.ui.enum.AnniversaryType
@@ -34,8 +32,6 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
         initEvent()
         initObserverEvent()
         initCalender()
-
-        anniversaryViewModel.init(loginUseCase)
     }
 
 

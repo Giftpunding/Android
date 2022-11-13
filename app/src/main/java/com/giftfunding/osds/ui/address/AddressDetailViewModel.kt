@@ -17,7 +17,11 @@ class AddressDetailViewModel : ViewModel() {
     val isExistText: LiveData<Boolean>
         get() = _isExistText
 
-    fun setKeyboardHeight(keyboardHeight: Int){
+    private val _isEnableButton = MutableLiveData<Boolean>()
+    val isEnableButton: LiveData<Boolean>
+        get() = _isEnableButton
+
+    fun setKeyboardHeight(keyboardHeight: Int) {
         this.keyboardHeight = keyboardHeight
     }
 
@@ -25,11 +29,13 @@ class AddressDetailViewModel : ViewModel() {
         if (detailAddress.isEmpty()) {
             _isVisibleDeleteButton.value = false
             _isExistText.value = false
+            _isEnableButton.value = false
             return
         }
 
         _isVisibleDeleteButton.value = true
         _isExistText.value = true
+        _isEnableButton.value = true
     }
 
 }
