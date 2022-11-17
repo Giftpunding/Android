@@ -10,7 +10,7 @@ import com.giftfunding.osds.BuildConfig
 import com.giftfunding.osds.R
 import com.giftfunding.osds.data.repository.AddressRepository
 import com.giftfunding.osds.data.repository.AnniversaryRepository
-import com.giftfunding.osds.data.repository.LoginRepository
+import com.giftfunding.osds.data.repository.LoginRepositoryImpl
 import com.giftfunding.osds.data.repository.SearchRepository
 import com.giftfunding.osds.data.repository.local.pref.KeywordSharedPreference
 import com.giftfunding.osds.data.repository.local.pref.KeywordSharedPreferenceImpl
@@ -88,9 +88,10 @@ class Application: Application() {
     private fun initDependency() {
         loginSharedPreference = LoginSharedPreference(this@Application)
         loginRemoteDataSource = LoginRemoteDataSource(retrofit)
+
         keywordSharedPreference = KeywordSharedPreferenceImpl(this@Application)
 
-        loginRepository = LoginRepository(loginSharedPreference, loginRemoteDataSource)
+        loginRepositoryImpl = LoginRepositoryImpl(loginSharedPreference, loginRemoteDataSource)
         searchRepository = SearchRepository(keywordSharedPreference)
 
         anniversaryDataSource = AnniversaryDataSource(retrofit)
@@ -98,6 +99,8 @@ class Application: Application() {
 
         addressDataSource = AddressDataSource(kakaoAddressRetrofit, retrofit)
         addressRepository = AddressRepository(addressDataSource)
+
+        loginUseCase = LoginUseCase(loginRepositoryImpl)
 
     }
 
@@ -118,7 +121,8 @@ class Application: Application() {
         const val baseUrl: String = "http://3.36.251.242:8080"
         const val kakaoBaseUrl : String = "https://dapi.kakao.com"
         lateinit var mApp: Application
-        lateinit var loginRepository: LoginRepository
+        // 임시 DI 작업
+        lateinit var loginRepositoryImpl: LoginRepositoryImpl
         lateinit var searchRepository: SearchRepository
         lateinit var anniversaryRepository: AnniversaryRepository
         lateinit var addressRepository: AddressRepository

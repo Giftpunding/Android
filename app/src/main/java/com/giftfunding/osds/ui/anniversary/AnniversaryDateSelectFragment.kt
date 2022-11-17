@@ -35,7 +35,6 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
         initObserverEvent()
         initCalender()
 
-        anniversaryViewModel.init(loginUseCase)
     }
 
 
