@@ -10,6 +10,7 @@ import com.giftfunding.osds.databinding.FragmentHomeBinding
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun layoutResId(): Int = R.layout.fragment_home
+    private val labelList = ArrayList<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -17,8 +18,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         savedInstanceState: Bundle?
     ): View {
         return super.onCreateView(inflater, container, savedInstanceState)
+        binding.contentMostSelectGift.osdsRangeSlider.apply {
+            labelList.add("1만원")
+            labelList.add("5만원")
+            labelList.add("10만원")
+            labelList.add("20만원")
+            setLabels(labelList)
+        }
+        init()
         initEvent()
         initObserverEvent()
+    }
+
+    private fun init(){
+
     }
 
     override fun initEvent() {

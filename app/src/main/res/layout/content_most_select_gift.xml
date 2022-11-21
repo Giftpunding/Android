@@ -272,11 +272,13 @@
             </RadioGroup>
         </HorizontalScrollView>
 
-        <com.google.android.material.slider.RangeSlider
-            android:id="@+id/slider_price_range"
+        <com.giftfunding.osds.ui.component.OsdsRangeSlider
+            android:id="@+id/osds_range_slider"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="28dp"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sv_all_category" />
@@ -288,7 +290,7 @@
             android:background="@color/solitude_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/slider_price_range" />
+            app:layout_constraintTop_toBottomOf="@id/osds_range_slider" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_most_select_gift_list"
