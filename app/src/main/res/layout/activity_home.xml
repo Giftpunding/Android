@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,7 +21,7 @@
 
             <include
                 android:id="@+id/content_gift_appbar"
-                layout="@layout/content_gift_toolbar"
+                layout="@layout/content_gift_icon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -238,18 +239,14 @@
 
             <TextView
                 android:id="@+id/tv_ranking_more_info"
+                style="@style/base_font_medium_14_echo_blue_2_padding0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="42dp"
                 android:background="@drawable/bg_rect_hawkes_blue_trans100_radius8_stroke1"
                 android:drawablePadding="5dp"
-                android:fontFamily="@font/pretendard_medium"
-                android:includeFontPadding="false"
                 android:paddingHorizontal="30dp"
                 android:paddingVertical="10dp"
-                tools:text="랭킹 더보기"
-                android:textColor="@color/echo_blue_2"
-                android:textSize="14sp"
                 app:drawableEndCompat="@drawable/ic_arrow_more_info"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -257,15 +254,12 @@
 
             <TextView
                 android:id="@+id/tv_luxury_title"
+                style="@style/base_font_bold_18_midnight_express_padding0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_dimens"
                 android:layout_marginTop="66dp"
-                android:fontFamily="@font/pretendard_bold"
-                android:includeFontPadding="false"
                 android:text="@string/title_home_luxury_gift"
-                android:textColor="@color/midnight_express"
-                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_ranking_more_info" />
 

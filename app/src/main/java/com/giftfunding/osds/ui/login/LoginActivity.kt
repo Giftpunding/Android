@@ -18,15 +18,6 @@ import com.giftfunding.osds.ui.main.MainActivity
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-
-        init()
-        initEvent()
-
-    }
-
     override fun init() {
         val list = listOf(
             R.drawable.ic_launcher_background,

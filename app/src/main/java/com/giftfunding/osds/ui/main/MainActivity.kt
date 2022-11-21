@@ -4,6 +4,7 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
+import android.view.View
 import android.widget.EditText
 import androidx.navigation.NavController
 import androidx.navigation.fragment.FragmentNavigator
@@ -12,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityMainBinding
-import com.giftfunding.osds.ui.enum.BackButton
+import com.giftfunding.osds.databinding.ContentToolbarBinding
 import com.giftfunding.osds.ui.enum.ToolbarType
 import com.giftfunding.osds.ui.enum.VisibleState
 import com.giftfunding.osds.util.clearFocusAndHideKeyboard
@@ -39,38 +40,75 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             when ((controller.currentDestination as FragmentNavigator.Destination).className){
                 //클래스 이름으로 어떤 fragment인지 찾음
                 "com.giftfunding.osds.ui.anniversary.AnniversarySelectFragment" -> {
-                    setToolbarType(ToolbarType.NORMAL)
-                    setBackButtonVisible(VisibleState.VISIBLE)
-                    setBackButton(BackButton.BACK)
-                    setCloseButton(VisibleState.INVISIBLE)
+                    setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle("타이틀")
                 }
 
                 "com.giftfunding.osds.ui.address.AddressFragment" -> {
-                    setToolbarType(ToolbarType.NORMAL)
-                    setBackButtonVisible(VisibleState.VISIBLE)
-                    setBackButton(BackButton.BACK)
-                    setCloseButton(VisibleState.INVISIBLE)
+                    setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_setting_address))
                 }
 
                 "com.giftfunding.osds.ui.address.AddressSearchFragment" -> {
-                    setToolbarType(ToolbarType.NORMAL)
-                    setBackButtonVisible(VisibleState.INVISIBLE)
-                    setCloseButton(VisibleState.VISIBLE)
+                    setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_address_search))
                 }
 
                 "com.giftfunding.osds.ui.address.AddressDetailFragment" -> {
-                    setToolbarType(ToolbarType.NORMAL)
-                    setBackButtonVisible(VisibleState.VISIBLE)
-                    setBackButton(BackButton.BACK)
-                    setCloseButton(VisibleState.VISIBLE)
+                    setToolbarType(ToolbarType.NORMAL, VisibleState.VISIBLE)
                     setTitle(resources.getString(R.string.title_address_detail))
+                }
+
+                "com.giftfunding.osds.ui.home.HomeFragment" -> {
+                    setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
                 }
             }
         }
     }
+
+    private fun setToolbarType(type: ToolbarType, isShowClose: VisibleState){
+        when(type){
+            ToolbarType.NORMAL -> {
+                normalToolbarType(isShowClose)
+            }
+            ToolbarType.GIFT -> {
+                giftToolbarType()
+            }
+        }
+    }
+
+    private fun normalToolbarType(isShowClose: VisibleState) {
+        binding.contentToolbar.contentToolbarHead.apply {
+            ivBack.visibility = View.VISIBLE
+            ivLogo.visibility = View.GONE
+        }
+
+        binding.contentToolbar.contentToolbarTail.apply {
+            when (isShowClose) {
+                VisibleState.VISIBLE -> ivClose.visibility = View.VISIBLE
+                VisibleState.INVISIBLE -> ivClose.visibility = View.GONE
+            }
+            contentGiftIcon.root.visibility = View.GONE
+        }
+    }
+
+    private fun giftToolbarType() {
+        binding.contentToolbar.contentToolbarHead.apply {
+            ivBack.visibility = View.GONE
+            ivLogo.visibility = View.VISIBLE
+        }
+
+        binding.contentToolbar.contentToolbarTail.apply {
+            ivClose.visibility = View.GONE
+            contentGiftIcon.root.visibility = View.VISIBLE
+        }
+    }
+
+    private fun setTitle(title: String){
+        binding.contentToolbar.tvToolbarTitle.text = title
+    }
+
+
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         val currentView = currentFocus

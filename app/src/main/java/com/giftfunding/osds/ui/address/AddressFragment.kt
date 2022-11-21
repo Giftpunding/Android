@@ -25,7 +25,7 @@ class AddressFragment : BaseFragment<FragmentAddressBinding>(){
 //        backButton.setOnClickListener { finish() }
 
         binding.btnNextTodo.setOnClickListener {
-//            startActivity(Intent(this,HomeActivity::class.java))
+            navigate(AddressFragmentDirections.actionAddressFragmentToHomeFragment())
         }
     }
 

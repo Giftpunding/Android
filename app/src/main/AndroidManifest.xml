@@ -42,15 +42,7 @@
         </activity>
         <activity android:name=".ui.main.MainActivity"/>
         <activity android:name="com.giftfunding.osds.ui.login.LoginActivity" />
-        <activity android:name=".ui.home.HomeActivity"/>
-        <activity android:name="com.giftfunding.osds.ui.search.SearchActivity" />
-        <activity android:name="com.giftfunding.osds.ui.address.AddressActivity" />
-        <activity
-            android:name="com.giftfunding.osds.ui.address.AddressSearchActivity"
-            android:windowSoftInputMode="stateVisible" />
-        <activity
-            android:name="com.giftfunding.osds.ui.address.AddressDetailActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize" />
+
         <activity android:name="com.giftfunding.osds.ui.merchandise.MerchandiseActivity" />
         <activity
             android:name="com.giftfunding.osds.ui.funding.FundingActivity"

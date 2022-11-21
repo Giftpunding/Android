@@ -106,13 +106,11 @@
 
     <!-- 선물담기 -->
     <string name="content_put_gift">선물 담기</string>
-
     <string name="category_luxury">명품 패션</string>
     <string name="category_beauty">뷰티</string>
     <string name="category_living">리빙/인테리어</string>
     <string name="category_fashion">패션</string>
     <string name="category_digital">디지털/가전</string>
-
     <string name="category_food">식품</string>
     <string name="category_gifticon">교환권</string>
     <string name="category_kitchen">주방</string>
@@ -120,6 +118,8 @@
     <string name="category_flower">꽃배달</string>
     <string name="category_baby">출산/유아</string>
     <string name="category_pet">반려동물</string>
+    <string name="category_more_rank">랭킹 더보기</string>
+    <string name="category_luxury_rank">명품 더보기</string>
 
     <string name="content_home_search_hint">찾으시는 선물을 검색해 보세요.</string>
     <string name="title_home_main_category">어떤 선물을 찾나요?</string>
@@ -146,5 +146,9 @@
     <string name="category_anniversary_housewarming">&#127968; 이사 / 집들이</string>
     <string name="category_anniversary_wedding">&#128141; 결혼</string>
     <string name="category_anniversary_user_input">&#x270F;&#xFE0F; 직접 입력</string>
+
+    <!-- 회사정보 -->
+    <string name="title_company_name">오손도손</string>
+    <string name="title_company_Info">이운기 | 95641234 \n 22 \n 경기 용인시 기흥구 신갈로 96번길 11-54 \n mynamewoon@gmail.com | 010-8631-0498</string>
 
 </resources>
