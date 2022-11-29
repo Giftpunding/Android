@@ -7,7 +7,7 @@ class LoginUseCase(
     private val loginRepository: LoginRepository
 ) {
     //프레젠테이션 레이어에서 데이터를 요청
-    fun getUserJwtWithKakao(accessToken: String) : LoginJwtDto{
+    suspend fun getUserJwtWithKakao(accessToken: String) : LoginJwtDto{
         return loginRepository.getUserJWTWithKakao(accessToken)
     }
 }

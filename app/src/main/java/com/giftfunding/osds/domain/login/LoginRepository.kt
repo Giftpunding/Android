@@ -7,5 +7,5 @@ import com.giftfunding.osds.domain.login.dto.LoginJwtDto
 
 interface LoginRepository {
     fun refreshAccessToken(token : LoginRefreshTokenDto) : LoginJwtResponseDto
-    fun getUserJWTWithKakao(token : String) : LoginJwtDto
+    suspend fun getUserJWTWithKakao(token : String) : LoginJwtDto
 }

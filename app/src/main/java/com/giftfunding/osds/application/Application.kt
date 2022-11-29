@@ -116,9 +116,8 @@ class Application: Application() {
 
 
 
-
     companion object {
-        const val baseUrl: String = "http://3.36.251.242:8080"
+        const val baseUrl: String = "http://dev.taxijjang.site"
         const val kakaoBaseUrl : String = "https://dapi.kakao.com"
         lateinit var mApp: Application
         // 임시 DI 작업
