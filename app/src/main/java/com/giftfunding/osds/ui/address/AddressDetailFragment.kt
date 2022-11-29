@@ -20,7 +20,6 @@ import com.giftfunding.osds.util.keyboard.KeyboardImpl
 
 
 class AddressDetailFragment : BaseFragment<FragmentAddressDetailBinding>() {
-
     private val args: AddressDetailFragmentArgs by navArgs()
     private val viewModel: AddressDetailViewModel by viewModels()
     private var keyboard = KeyboardImpl()
@@ -70,6 +69,10 @@ class AddressDetailFragment : BaseFragment<FragmentAddressDetailBinding>() {
         binding.btnTextDelete.setOnClickListener {
             binding.editAddressDetail.text?.clear()
         }
+
+        binding.btnComplete.setOnClickListener {
+            navigate(AddressDetailFragmentDirections.actionAddressDetailFragmentToHomeFragment())
+        }
     }
 
     override fun initObserverEvent() {
@@ -92,6 +95,11 @@ class AddressDetailFragment : BaseFragment<FragmentAddressDetailBinding>() {
                     updateDisabledButton()
                 }
             }
+        }
+
+        //버튼 활성화
+        viewModel.isEnableButton.observe(viewLifecycleOwner){ isEnable ->
+            binding.btnComplete.isEnabled = isEnable
         }
     }
 

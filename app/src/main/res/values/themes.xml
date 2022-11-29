@@ -34,22 +34,6 @@
         <item name="android:fontFamily">@font/pretendard_black</item>
     </style>
 
-    <style name="base_font_bold" parent="Widget.AppCompat.TextView">
-        <item name="android:fontFamily">@font/pretendard_bold</item>
-    </style>
-
-    <style name="base_font_light" parent="Widget.AppCompat.TextView">
-        <item name="android:fontFamily">@font/pretendard_light</item>
-    </style>
-
-    <style name="base_font_medium" parent="Widget.AppCompat.TextView">
-        <item name="android:fontFamily">@font/pretendard_medium</item>
-    </style>
-
-    <style name="base_font_regular" parent="Widget.AppCompat.TextView">
-        <item name="android:fontFamily">@font/pretendard_regular</item>
-    </style>
-
     <style name="noto_sans_kr_regular" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/notosanskr_regular</item>
     </style>
@@ -229,9 +213,33 @@
 
     <!-- pretendard font -->
 
+    <style name="base_font_bold" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+    </style>
+
+    <style name="base_font_light" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/pretendard_light</item>
+    </style>
+
+    <style name="base_font_medium" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+
+    <style name="base_font_regular" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
     <!--medium size-->
+    <style name="base_font_medium_12" parent="base_font_medium">
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="base_font_medium_13" parent="base_font_medium">
         <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="base_font_medium_14" parent="base_font_medium">
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="base_font_medium_15" parent="base_font_medium">
@@ -246,9 +254,25 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="base_font_bold_18" parent="base_font_bold">
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <!--medium size cololr-->
+    <style name="base_font_medium_12_raven" parent="base_font_medium_12">
+        <item name="android:textColor">@color/raven</item>
+    </style>
+
+    <style name="base_font_medium_12_echo_blue_2" parent="base_font_medium_12">
+        <item name="android:textColor">@color/echo_blue_2</item>
+    </style>
+
     <style name="base_font_medium_13_hawkes_blue" parent="base_font_medium_13">
         <item name="android:textColor">@color/hawkes_blue</item>
+    </style>
+
+    <style name="base_font_medium_14_echo_blue_2" parent="base_font_medium_14">
+        <item name="android:textColor">@color/echo_blue_2</item>
     </style>
 
     <style name="base_font_medium_15_midnight_express" parent="base_font_medium_15">
@@ -263,8 +287,34 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <!--medium size cololr padding-->
+    <!--bold size color-->
+    <style name="base_font_bold_18_midnight_express" parent="base_font_bold">
+        <item name="android:textColor">@color/midnight_express</item>
+    </style>
+
+    <!--medium size color padding-->
+    <style name="base_font_medium_12_raven_padding0" parent="base_font_medium_12_raven">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="base_font_medium_12_echo_blue_2_padding0" parent="base_font_medium_12_echo_blue_2">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="base_font_medium_15_midnight_express_padding0" parent="base_font_medium_15_midnight_express">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="base_font_medium_14_padding0" parent="base_font_medium_14">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="base_font_medium_14_echo_blue_2_padding0" parent="base_font_medium_14_echo_blue_2">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!--bold size cololr padding-->
+    <style name="base_font_bold_18_midnight_express_padding0" parent="base_font_bold_18_midnight_express">
         <item name="android:includeFontPadding">false</item>
     </style>
 
