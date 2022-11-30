@@ -2,7 +2,7 @@ package com.giftfunding.osds.data.repository.remote.datasource.dto.user
 
 import com.google.gson.annotations.SerializedName
 
-data class User(
+data class TempUser(
     @SerializedName("account")
     var account: String?,
     @SerializedName("address")

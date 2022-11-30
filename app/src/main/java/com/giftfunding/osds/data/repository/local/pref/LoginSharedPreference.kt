@@ -15,7 +15,15 @@ class LoginSharedPreference(private val context: Context) {
         }
     }
 
+    fun setRefreshToken(refreshToken : String){
+        loginSharedPreference.edit(commit = false){
+            putString("refresh", refreshToken)
+        }
+    }
+
     fun getUserToken():String? = loginSharedPreference.getString("jwt", "")
+
+    fun getRefreshToken() : String? = loginSharedPreference.getString("refresh", "")
 
     companion object{
         private const val TAG: String = "LoginSharedPreference"

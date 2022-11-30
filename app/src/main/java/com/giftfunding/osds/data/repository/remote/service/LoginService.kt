@@ -1,15 +1,22 @@
 package com.giftfunding.osds.data.repository.remote.service
 
-import com.giftfunding.osds.data.repository.remote.datasource.dto.login.LoginResponse
-import retrofit2.Call
+import com.giftfunding.osds.data.repository.remote.datasource.dto.BaseResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.login.LoginJwtResponseDto
+import com.giftfunding.osds.data.repository.remote.datasource.dto.login.LoginJwtRequestDto
+import com.giftfunding.osds.data.repository.remote.datasource.dto.login.LoginRefreshTokenDto
+import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.Query
+
 
 interface LoginService {
+    @POST("/api/login/kakao")
+    suspend fun loginWithKakao(
+        @Body kakaoToken: LoginJwtRequestDto
+    ): LoginJwtResponseDto
 
-    @POST("/api/user/login/token")
-    fun postLoginToken(
-        @Query("kakaoToken") kakaoToken: String
-    ): Call<LoginResponse>
 
+    @POST("/api/token/refresh")
+    fun refreshAccessToken(
+        @Body refreshToken : LoginRefreshTokenDto
+    ): LoginJwtResponseDto
 }

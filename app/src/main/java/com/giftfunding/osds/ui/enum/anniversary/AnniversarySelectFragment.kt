@@ -1,4 +1,4 @@
-package com.giftfunding.osds.ui.anniversary
+package com.giftfunding.osds.ui.enum.anniversary
 
 import android.os.Bundle
 import android.view.View
