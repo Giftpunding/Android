@@ -1,12 +1,14 @@
-package com.giftfunding.osds.ui.enum.anniversary
+package com.giftfunding.osds.ui.anniversary
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.RadioButton
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.giftfunding.osds.*
 import com.giftfunding.osds.base.BaseFragment
+import com.giftfunding.osds.base.ViewState
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectDateBinding
 import com.giftfunding.osds.ui.enum.AnniversaryType
 import com.giftfunding.osds.util.initDay
@@ -97,8 +99,8 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
         binding.btnRegisterAnniversary.setOnClickListener {
             val month = binding.npEventDatePicker.npMonth.value.toString()
             val day = binding.npEventDatePicker.npDayOfMonth.value.toString()
-            // 해당 형태로 전달
-            val anniversaryDay = (month + "월" + day + "일")
+            // 임시로 년도 입력 해당 형태로 전달
+            val anniversaryDay = ("1992-$month-$day")
             addRegisterAnniversary(anniversaryDay)
         }
 
@@ -143,9 +145,24 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
 
     override fun initObserverEvent() {
         //옵저빙하여 변화가 있으면 실행
-        anniversaryViewModel.anniversaryResponse.observe(viewLifecycleOwner) {
-            navigate(AnniversaryDateSelectFragmentDirections
-                .actionAnniversaryDateSelectFragmentToAddressFragment())
+        anniversaryViewModel.anniversaryResponse.observe(viewLifecycleOwner) { response ->
+            when(response){
+                is ViewState.Loading -> {
+                    //로딩 다이얼로그 show
+                    Log.d("TEST!!!!","Loading")
+
+                }
+                is ViewState.Success -> {
+                    navigate(AnniversaryDateSelectFragmentDirections
+                        .actionAnniversaryDateSelectFragmentToAddressFragment())
+                    Log.d("TEST!!!!","success")
+
+                }
+                is ViewState.Error -> {
+                    // 로딩 다이얼로그 dismiss
+                    Log.d("TEST!!!!","fail")
+                }
+            }
         }
     }
 
@@ -159,10 +176,7 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
     }
 
     private fun addRegisterAnniversary(anniversaryDay: String) {
-        //추후 initObserverEvent 안에 anniversaryResponse 에서 처리
-        navigate(AnniversaryDateSelectFragmentDirections
-            .actionAnniversaryDateSelectFragmentToAddressFragment())
-//        anniversaryViewModel.addAnniversary(anniversaryDay, anniversary)
+        anniversaryViewModel.addAnniversary(anniversaryDay, anniversary)
     }
 
     companion object {

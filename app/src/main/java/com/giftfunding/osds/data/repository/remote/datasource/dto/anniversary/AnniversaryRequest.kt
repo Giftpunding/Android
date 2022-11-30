@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class AnniversaryRequest(
+    @SerializedName("name")
+    var name: String,
     @SerializedName("date")
-    var date: String,
-    @SerializedName("type")
-    var type: String
+    var date: String
 ) : Serializable
