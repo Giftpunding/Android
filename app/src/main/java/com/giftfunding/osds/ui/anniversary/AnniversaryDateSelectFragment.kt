@@ -163,8 +163,10 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
                     )
                 }
                 is ViewState.Error -> {
-                    // 로딩 다이얼로그 dismiss
-                    Log.d("TEST!!!!", "fail")
+                    // 로딩 다이얼로그 dismiss, 서버에 message 전달해달라고해야할듯
+                    response.message?.let {
+                        showSnackBar(requireView(), response.message)
+                    }
                 }
             }
         }
