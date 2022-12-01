@@ -11,9 +11,7 @@ import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.base.ViewState
 import com.giftfunding.osds.databinding.FragmentAnniversarySelectDateBinding
 import com.giftfunding.osds.ui.enum.AnniversaryType
-import com.giftfunding.osds.util.initDay
-import com.giftfunding.osds.util.initMonth
-import com.giftfunding.osds.util.setDayOfMonth
+import com.giftfunding.osds.util.*
 
 
 class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDateBinding>() {
@@ -87,6 +85,7 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
     }
 
     private fun updateAnniversaryView(radioButton: RadioButton) {
+        // 위치 조절 하는건 추후에 다시 조절해야할듯... 아이디어가 떠오르지않음
         radioButton.isChecked = true
         binding.svEventCategory.smoothScrollTo(radioButton.left, 0)
     }
@@ -100,12 +99,17 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
             val month = binding.npEventDatePicker.npMonth.value.toString()
             val day = binding.npEventDatePicker.npDayOfMonth.value.toString()
             // 임시로 년도 입력 해당 형태로 전달
-            val anniversaryDay = ("1992-$month-$day")
-            addRegisterAnniversary(anniversaryDay)
+            val date = buildAnniversaryDate(month, day)
+            addRegisterAnniversary(date)
         }
 
         //기념일 라디오 버튼 이벤트 추가
         addAnniversaryTypeButtonEvent()
+    }
+
+    private fun buildAnniversaryDate(month: String, day: String): String {
+        // 현재 서버에서 년도도 입력받게 되어있는 상태라 default 값으로 1900 주입
+        return "1900" + month.convertMonth() + day.convertDay()
     }
 
     private fun addAnniversaryTypeButtonEvent() {
@@ -146,21 +150,21 @@ class AnniversaryDateSelectFragment : BaseFragment<FragmentAnniversarySelectDate
     override fun initObserverEvent() {
         //옵저빙하여 변화가 있으면 실행
         anniversaryViewModel.anniversaryResponse.observe(viewLifecycleOwner) { response ->
-            when(response){
+            when (response) {
                 is ViewState.Loading -> {
                     //로딩 다이얼로그 show
-                    Log.d("TEST!!!!","Loading")
+                    Log.d("TEST!!!!", "Loading")
 
                 }
                 is ViewState.Success -> {
-                    navigate(AnniversaryDateSelectFragmentDirections
-                        .actionAnniversaryDateSelectFragmentToAddressFragment())
-                    Log.d("TEST!!!!","success")
-
+                    navigate(
+                        AnniversaryDateSelectFragmentDirections
+                            .actionAnniversaryDateSelectFragmentToAddressFragment()
+                    )
                 }
                 is ViewState.Error -> {
                     // 로딩 다이얼로그 dismiss
-                    Log.d("TEST!!!!","fail")
+                    Log.d("TEST!!!!", "fail")
                 }
             }
         }
