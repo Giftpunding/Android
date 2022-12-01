@@ -4,28 +4,17 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
 
-class LoginSharedPreference(private val context: Context) {
+class LoginSharedPreference(context: Context) {
 
-    private val loginSharedPreference: SharedPreferences =
+    private val loginPrefs: SharedPreferences =
         context.getSharedPreferences("login", Context.MODE_PRIVATE)
 
-    fun setUserToken(userToken: String){
-        loginSharedPreference.edit(commit = false){
-            putString("jwt", userToken)
-        }
-    }
+    var accessToken: String?
+        get() = loginPrefs.getString("accessToken", null)
+        set(value) = loginPrefs.edit().putString("accessToken", value).apply()
 
-    fun setRefreshToken(refreshToken : String){
-        loginSharedPreference.edit(commit = false){
-            putString("refresh", refreshToken)
-        }
-    }
+    var refreshToken: String?
+        get() = loginPrefs.getString("refreshToken", null)
+        set(value) = loginPrefs.edit().putString("refreshToken", value).apply()
 
-    fun getUserToken():String? = loginSharedPreference.getString("jwt", "")
-
-    fun getRefreshToken() : String? = loginSharedPreference.getString("refresh", "")
-
-    companion object{
-        private const val TAG: String = "LoginSharedPreference"
-    }
 }

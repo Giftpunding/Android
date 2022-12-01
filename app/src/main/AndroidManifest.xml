@@ -42,19 +42,11 @@
         </activity>
         <activity android:name=".ui.main.MainActivity"/>
         <activity android:name="com.giftfunding.osds.ui.login.LoginActivity" />
-
-        <activity android:name="com.giftfunding.osds.ui.merchandise.MerchandiseActivity" />
-        <activity
-            android:name="com.giftfunding.osds.ui.funding.FundingActivity"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name="com.giftfunding.osds.ui.funding.FundingCompleteActivity" />
         <activity
             android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
             android:exported="true" />
-        <activity android:name="com.giftfunding.osds.ui.funding.FundingGiftListActivity"/>
-        <activity android:name="com.giftfunding.osds.ui.funding.FundingMyListInfoActivity"/>
-        <activity android:name="com.giftfunding.osds.ui.funding.FundingResultActivity"/>
         <activity android:name="com.giftfunding.osds.ui.keyhash.KeyHashActivity"/>
+        <activity android:name=".ui.splash.SplashActivity"/>
     </application>
 
 </manifest>

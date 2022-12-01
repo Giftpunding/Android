@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/anniversarySelectFragment"
-        android:name="com.giftfunding.osds.ui.enum.anniversary.AnniversarySelectFragment"
+        android:name="com.giftfunding.osds.ui.anniversary.AnniversarySelectFragment"
         android:label="AnniversarySelectFragment"
         tools:layout="@layout/fragment_anniversary_select">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/anniversaryDateSelectFragment"
-        android:name="com.giftfunding.osds.ui.enum.anniversary.AnniversaryDateSelectFragment"
+        android:name="com.giftfunding.osds.ui.anniversary.AnniversaryDateSelectFragment"
         android:label="AnniversaryDateSelectFragment"
         tools:layout="@layout/fragment_anniversary_select_date">
         <argument

@@ -28,11 +28,10 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class Application: Application() {
+class Application : Application() {
 
-    private lateinit var retrofit:Retrofit
-    private lateinit var kakaoAddressRetrofit:Retrofit
-    private lateinit var loginSharedPreference: LoginSharedPreference
+    private lateinit var retrofit: Retrofit
+    private lateinit var kakaoAddressRetrofit: Retrofit
     private lateinit var loginRemoteDataSource: LoginRemoteDataSource
     private lateinit var keywordSharedPreference: KeywordSharedPreference
     private lateinit var anniversaryDataSource: AnniversaryDataSource
@@ -57,7 +56,7 @@ class Application: Application() {
                     request().newBuilder()
                         .addHeader(
                             "Authorization",
-                            LoginSharedPreference(context = this@Application).getUserToken() ?: ""
+                            loginSharedPreference.accessToken ?: ""
                         )
                         .build()
 
@@ -87,7 +86,7 @@ class Application: Application() {
     }
 
     private fun initDependency() {
-        loginSharedPreference = LoginSharedPreference(this@Application)
+        loginSharedPreference = LoginSharedPreference(this)
         loginRemoteDataSource = LoginRemoteDataSource(retrofit)
 
         keywordSharedPreference = KeywordSharedPreferenceImpl(this@Application)
@@ -116,16 +115,17 @@ class Application: Application() {
     }
 
 
-
     companion object {
         const val baseUrl: String = "http://dev.taxijjang.site"
-        const val kakaoBaseUrl : String = "https://dapi.kakao.com"
+        const val kakaoBaseUrl: String = "https://dapi.kakao.com"
         lateinit var mApp: Application
+
         // 임시 DI 작업
         lateinit var loginRepository: LoginRepository
         lateinit var searchRepository: SearchRepository
         lateinit var anniversaryRepository: AnniversaryRepository
         lateinit var addressRepository: AddressRepository
         lateinit var loginUseCase: LoginUseCase
+        lateinit var loginSharedPreference: LoginSharedPreference
     }
 }
