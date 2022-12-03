@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name = "bannerImage">
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_arrow_back</item>
+        <item>@drawable/ic_arrow_top_scroll</item>
+    </array>
+</resources>
