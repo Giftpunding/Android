@@ -1,26 +1,19 @@
 package com.giftfunding.osds.ui.home
 
-import android.annotation.SuppressLint
-import android.content.res.TypedArray
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentHomeBinding
 import com.giftfunding.osds.ui.home.adapter.BannerAdapter
+import com.giftfunding.osds.util.infinityBanner
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun layoutResId(): Int = R.layout.fragment_home
     private val labelList = ArrayList<String>()
+    private var bannerSize : Int = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,33 +22,50 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         initObserverEvent()
     }
 
-    private fun init(){
+    private fun init() {
         initBanner()
-
+        initBannerCountTextView()
     }
 
-    @SuppressLint("Recycle")
     private fun initBanner() {
-        val bannerAdapter = BannerAdapter()
+        val list = listOf(
+            R.drawable.ic_launcher_background,
+            R.drawable.ic_arrow_back,
+            R.drawable.ic_arrow_top_scroll,
+        )
+        bannerSize = list.size
+
+        val bannerAdapter = BannerAdapter(requireActivity())
         binding.vpHomeBanner.apply {
             adapter = bannerAdapter
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
+        bannerAdapter.setBannerItems(list)
+    }
 
-        val bannerImages: TypedArray = resources.obtainTypedArray(R.array.bannerImage)
-        bannerAdapter.setBannerItems(bannerImages)
+    private fun initBannerCountTextView() {
+        val bannerCountText = "$DEFAULT_PAGE / $bannerSize"
+        binding.tvBannerCount.text = bannerCountText
     }
 
     override fun initEvent() {
-        binding.vpHomeBanner.registerOnPageChangeCallback(object : OnPageChangeCallback(){
-            override fun onPageScrollStateChanged(state: Int) {
-                super.onPageScrollStateChanged(state)
-                Log.d("TEST!!!!", "onPageScrollStateChanged")
-
+        binding.vpHomeBanner.registerOnPageChangeCallback(object : OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                updateBannerPosition(position.infinityBanner(bannerSize))
             }
         })
     }
 
+    private fun updateBannerPosition(position: Int) {
+        val bannerCountText = "${position+1} / $bannerSize"
+        binding.tvBannerCount.text = bannerCountText
+    }
+
     override fun initObserverEvent() {
+    }
+
+    companion object{
+        const val DEFAULT_PAGE = 1
     }
 }

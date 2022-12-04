@@ -59,11 +59,11 @@
                     android:includeFontPadding="false"
                     android:paddingHorizontal="6dp"
                     android:paddingVertical="2dp"
-                    android:text="1 / 3"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/vp_home_banner"
-                    app:layout_constraintEnd_toEndOf="@id/vp_home_banner" />
+                    app:layout_constraintEnd_toEndOf="@id/vp_home_banner"
+                    tools:text="1/3"/>
 
                 <include
                     android:id="@+id/content_search_gift"

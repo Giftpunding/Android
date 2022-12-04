@@ -7,30 +7,32 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.giftfunding.osds.databinding.ItemBannerBinding
 
-class HomeBannerFragment : Fragment(){
+class HomeBannerFragment : Fragment() {
+
     private lateinit var binding: ItemBannerBinding
+    private val bannerImg by lazy { arguments?.getInt("img") }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = ItemBannerBinding.inflate(inflater, container, false)
-        return view
+        return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        homeBannerFragment = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.ivBanner.setImageResource(bannerImg!!)
     }
 
-    companion object{
-        private lateinit var homeBannerFragment : HomeBannerFragment
+    companion object {
 
-        fun getFragmentInstance() : Fragment{
-            if(homeBannerFragment == null){
-               homeBannerFragment = HomeBannerFragment()
-            }
+        fun newInstance(bannerItems: Int): Fragment {
+            val homeBannerFragment = HomeBannerFragment()
+            val args = Bundle()
+            args.putInt("img", bannerItems)
+            homeBannerFragment.arguments = args
 
             return homeBannerFragment
         }
