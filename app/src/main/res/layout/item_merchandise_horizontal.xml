@@ -19,67 +19,55 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        style="@style/base_font_bold_20_black_padding0"
         android:id="@+id/tv_merchandise_idx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:fontFamily="@font/pretendard_bold"
-        android:includeFontPadding="false"
-        android:textColor="@color/black"
-        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/iv_merchandise_img"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="1" />
 
     <TextView
+        style="@style/base_font_medium_12_link_water_padding0"
         android:id="@+id/tv_merchandise_brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/pretendard_medium"
-        android:includeFontPadding="false"
-        android:textColor="@color/link_water"
-        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/iv_merchandise_img"
         app:layout_constraintTop_toBottomOf="@id/tv_merchandise_idx"
         tools:text="브랜드" />
 
     <TextView
+        style="@style/base_font_medium_14_midnight_express_padding0"
         android:id="@+id/tv_merchandise_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="2dp"
-        android:fontFamily="@font/pretendard_medium"
-        android:includeFontPadding="false"
-        android:textColor="@color/midnight_express"
-        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/iv_merchandise_img"
         app:layout_constraintTop_toBottomOf="@id/tv_merchandise_brand"
         tools:text="상품명" />
 
     <TextView
+        style="@style/base_font_bold_16_black_padding0"
         android:id="@+id/tv_merchandise_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="6dp"
-        android:fontFamily="@font/pretendard_bold"
-        android:includeFontPadding="false"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/iv_merchandise_img"
         app:layout_constraintTop_toBottomOf="@id/tv_merchandise_name"
         tools:text="63,000" />
 
 
     <android.widget.Button
+        style="@style/base_font_medium_12_midnight_express_padding0"
         android:id="@+id/btn_merchandise_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_rect_hawkes_blue_trans100_radius4_stoke1"
-        android:fontFamily="@font/helveticanene_regular"
         android:minWidth="0dp"
         android:minHeight="0dp"
         android:paddingStart="8dp"
@@ -87,8 +75,6 @@
         android:paddingEnd="8dp"
         android:paddingBottom="7dp"
         android:text="@string/content_merchandise_add"
-        android:textColor="@color/midnight_express"
-        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@id/iv_merchandise_img"
         app:layout_constraintEnd_toEndOf="parent" />
 

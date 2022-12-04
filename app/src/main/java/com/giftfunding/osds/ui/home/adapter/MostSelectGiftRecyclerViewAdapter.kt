@@ -1,0 +1,54 @@
+package com.giftfunding.osds.ui.home.adapter
+
+import android.annotation.SuppressLint
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.giftfunding.osds.data.repository.remote.datasource.dto.home.item.ItemResponse
+import com.giftfunding.osds.databinding.ItemMerchandiseHorizontalBinding
+import com.giftfunding.osds.util.addComma
+
+class MostSelectGiftRecyclerViewAdapter :
+    RecyclerView.Adapter<MostSelectGiftRecyclerViewAdapter.ViewHolder>() {
+    private var mostSelectGiftItems = mutableListOf<ItemResponse>()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = ItemMerchandiseHorizontalBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.onBind(mostSelectGiftItems[position])
+    }
+
+    override fun getItemCount(): Int = MOST_SELECTED_ITEM_COUNT
+
+    fun setItems(list: List<ItemResponse>) {
+        mostSelectGiftItems = list as MutableList<ItemResponse>
+    }
+
+    class ViewHolder(private val binding: ItemMerchandiseHorizontalBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("CheckResult")
+        fun onBind(item: ItemResponse) {
+            Glide.with(binding.ivMerchandiseImg.context)
+                .load(item.img)
+                .override(300,300)
+                .centerCrop()
+
+            binding.tvMerchandiseIdx.text = item.idx.toString()
+            binding.tvMerchandiseBrand.text = item.brand
+            binding.tvMerchandiseName.text = item.name
+            binding.tvMerchandisePrice.text = addComma(item.price)
+        }
+    }
+
+    companion object{
+        private const val MOST_SELECTED_ITEM_COUNT = 5
+    }
+}
