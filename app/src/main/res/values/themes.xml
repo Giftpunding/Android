@@ -259,6 +259,10 @@
     </style>
 
     <!--bold size-->
+    <style name="base_font_bold_14" parent="base_font_bold">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="base_font_bold_18" parent="base_font_bold">
         <item name="android:textSize">18sp</item>
     </style>
@@ -288,6 +292,10 @@
         <item name="android:textColor">@color/hawkes_blue</item>
     </style>
 
+    <style name="base_font_medium_13_midnight_express" parent="base_font_medium_13">
+        <item name="android:textColor">@color/midnight_express</item>
+    </style>
+
     <style name="base_font_medium_14_echo_blue_2" parent="base_font_medium_14">
         <item name="android:textColor">@color/echo_blue_2</item>
     </style>
@@ -309,6 +317,10 @@
     </style>
 
     <!--bold size color-->
+    <style name="base_font_bold_14_midnight_express" parent="base_font_bold_14">
+        <item name="android:textColor">@color/midnight_express</item>
+    </style>
+
     <style name="base_font_bold_16_black" parent="base_font_bold_16">
         <item name="android:textColor">@color/black</item>
     </style>
@@ -346,6 +358,10 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="base_font_medium_13_midnight_express_padding0" parent="base_font_medium_13_midnight_express">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="base_font_medium_14_midnight_express_padding0" parent="base_font_medium_14_midnight_express">
         <item name="android:includeFontPadding">false</item>
     </style>
@@ -356,6 +372,10 @@
 
 
     <!--bold size cololr padding-->
+    <style name="base_font_bold_14_midnight_express_padding0" parent="base_font_bold_14_midnight_express">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="base_font_bold_16_black_padding0" parent="base_font_bold_16_black">
         <item name="android:includeFontPadding">false</item>
     </style>

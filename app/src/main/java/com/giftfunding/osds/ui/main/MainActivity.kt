@@ -61,6 +61,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
                 "com.giftfunding.osds.ui.home.HomeFragment" -> {
                     setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
+                    setTitle("")
                 }
             }
         }

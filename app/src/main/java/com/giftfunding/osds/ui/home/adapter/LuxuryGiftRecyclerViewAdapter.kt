@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.giftfunding.osds.data.repository.remote.datasource.dto.home.item.ItemResponse
-import com.giftfunding.osds.databinding.ItemHomeLuxuryListBinding
+import com.giftfunding.osds.databinding.ItemMerchandiseLuxuryBinding
 import com.giftfunding.osds.util.addComma
 
 class LuxuryGiftRecyclerViewAdapter :
@@ -15,7 +15,7 @@ class LuxuryGiftRecyclerViewAdapter :
     private var luxuryGiftItems = mutableListOf<ItemResponse>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
-            ItemHomeLuxuryListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemMerchandiseLuxuryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 
@@ -29,7 +29,7 @@ class LuxuryGiftRecyclerViewAdapter :
         luxuryGiftItems = list as MutableList<ItemResponse>
     }
 
-    class ViewHolder(private val binding: ItemHomeLuxuryListBinding) :
+    class ViewHolder(private val binding: ItemMerchandiseLuxuryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("CheckResult")
         fun onBind(item: ItemResponse) {
