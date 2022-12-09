@@ -21,34 +21,44 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        splashViewModel.getUserAccessToken()
+
+        init()
+    }
+
+    private fun init() {
+        initAccessTokenObserver()
+        initRefreshTokenObserver()
+        initUserTokenObserver()
 
         val handler = Handler(mainLooper)
-        handler.postDelayed({ tokenInvalidate() }, 1000)
+        handler.postDelayed({ splashViewModel.getUserAccessToken() }, 1000)
     }
 
-    private fun tokenInvalidate() {
+    private fun initAccessTokenObserver() {
         splashViewModel.userAccessToken.observe(this) { accessToken ->
-            if (accessToken.isEmpty()) {
-                val intent = Intent(this, LoginActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                }
-                startActivity(intent)
-            } else {
-                getTokenWithRefreshToken()
-                splashViewModel.getUserRefreshToken()
-            }
+            tokenValidate(accessToken)
         }
     }
 
-    private fun getTokenWithRefreshToken() {
+    /** 토큰 검증 */
+    private fun tokenValidate(token: String) {
+        if (token.isEmpty()) {
+            val intent = Intent(this, LoginActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            startActivity(intent)
+        } else {
+            splashViewModel.getUserRefreshToken()
+        }
+    }
+
+    private fun initRefreshTokenObserver() {
         splashViewModel.userRefreshToken.observe(this) { refreshToken ->
             splashViewModel.getTokenWithRefreshToken(refreshToken)
-            startObserveToken()
         }
     }
 
-    private fun startObserveToken(){
+    private fun initUserTokenObserver() {
         //에러 핸들링은 추후에 적용
         splashViewModel.userToken.observe(this) { response ->
             when (response) {
