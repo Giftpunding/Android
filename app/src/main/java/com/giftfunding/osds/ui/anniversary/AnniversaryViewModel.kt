@@ -1,30 +1,30 @@
 package com.giftfunding.osds.ui.anniversary
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.giftfunding.osds.application.Application
-import com.giftfunding.osds.data.repository.remote.datasource.dto.anniversary.AnniversaryResponse
+import com.giftfunding.osds.base.ViewState
 import kotlinx.coroutines.launch
 
-class AnniversaryViewModel: ViewModel() {
+class AnniversaryViewModel : ViewModel() {
 
-    //임시로 Anniversary response, request를 만들었음, 후에 User로 통합할 예정
-    private val _anniversaryResponse = MutableLiveData<AnniversaryResponse>()
-    val anniversaryResponse: LiveData<AnniversaryResponse>
+    // 성공, 에러에 관해서 서버에서 내려주는 code 값에 대한 관리는 정해지지 않음
+    // 현재 int 형으로 내려오기 때문에 정해지기 전까지 int 타입으로 관리
+    private val _anniversaryResponse = MutableLiveData<ViewState<Int>>()
+    val anniversaryResponse: LiveData<ViewState<Int>>
         get() = _anniversaryResponse
 
     fun addAnniversary(anniversaryDay: String, anniversary: String) {
         viewModelScope.launch {
-            //Callback이 아닌 Response를 반환
+            _anniversaryResponse.value = ViewState.Loading()
             val response =
-                Application.anniversaryRepository.addAnniversary(anniversaryDay, anniversary)
-            if (response.isSuccessful) {
-                _anniversaryResponse.value = response.body()
+                Application.anniversaryUseCase.addAnniversary(anniversary, anniversaryDay)
+            if (response.code == 204) {
+                _anniversaryResponse.value = ViewState.Success(response.code)
             } else {
-                Log.e("AnniversaryViewModel", "err")
+                _anniversaryResponse.value = ViewState.Error(response.message, response.code)
             }
         }
     }

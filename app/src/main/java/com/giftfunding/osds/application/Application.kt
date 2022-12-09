@@ -20,59 +20,36 @@ import com.giftfunding.osds.data.repository.remote.datasource.AnniversaryDataSou
 import com.giftfunding.osds.data.repository.remote.datasource.LoginRemoteDataSource
 import com.giftfunding.osds.domain.login.LoginRepository
 import com.giftfunding.osds.domain.login.LoginUseCase
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.kakao.sdk.common.KakaoSdk
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class Application : Application() {
+class Application: Application() {
 
-    private lateinit var retrofit: Retrofit
-    private lateinit var kakaoAddressRetrofit: Retrofit
+    private lateinit var retrofit:Retrofit
+    private lateinit var kakaoAddressRetrofit:Retrofit
+    private lateinit var loginSharedPreference: LoginSharedPreference
     private lateinit var loginRemoteDataSource: LoginRemoteDataSource
     private lateinit var keywordSharedPreference: KeywordSharedPreference
     private lateinit var anniversaryDataSource: AnniversaryDataSource
+    private lateinit var anniversaryRepository: AnniversaryRepositoryImpl
     private lateinit var addressDataSource: AddressDataSource
-    private lateinit var gsonConvert: Gson
+    private lateinit var networkModule: NetworkModule
+    private lateinit var tokenInterceptor: TokenInterceptor
+//    private lateinit var gsonConvert: Gson
 
     override fun onCreate() {
         super.onCreate()
         mApp = this
 
-        initNetworkModule()
-        initGson()
+        initKakaoNetworkModule()
         initDependency()
         initFlipper()
         KakaoSdk.init(this, getString(R.string.native_app_key))
     }
 
-    private fun initNetworkModule() {
-        val interceptor = Interceptor {
-            with(it) {
-                val newRequest =
-                    request().newBuilder()
-                        .addHeader(
-                            "Authorization",
-                            loginSharedPreference.accessToken ?: ""
-                        )
-                        .build()
-
-                proceed(newRequest)
-            }
-        }
-
-        val httpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
-
-        retrofit =
-            Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .client(httpClient)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-
+    private fun initKakaoNetworkModule() {
         kakaoAddressRetrofit =
             Retrofit.Builder()
                 .baseUrl(kakaoBaseUrl)
@@ -81,26 +58,27 @@ class Application : Application() {
                 .build()
     }
 
-    private fun initGson() {
-        gsonConvert = GsonBuilder().create()
-    }
-
     private fun initDependency() {
-        loginSharedPreference = LoginSharedPreference(this)
+        loginSharedPreference = LoginSharedPreference(this@Application)
+
+        tokenInterceptor = TokenInterceptor(loginSharedPreference)
+        networkModule = NetworkModule(tokenInterceptor)
+        retrofit = networkModule.retrofit
+
         loginRemoteDataSource = LoginRemoteDataSource(retrofit)
+        loginRepository = LoginRepositoryImpl(loginSharedPreference, loginRemoteDataSource)
+        loginUseCase = LoginUseCase(loginRepository)
 
         keywordSharedPreference = KeywordSharedPreferenceImpl(this@Application)
 
-        loginRepository = LoginRepositoryImpl(loginSharedPreference, loginRemoteDataSource)
         searchRepository = SearchRepository(keywordSharedPreference)
 
         anniversaryDataSource = AnniversaryDataSource(retrofit)
-        anniversaryRepository = AnniversaryRepository(anniversaryDataSource)
+        anniversaryRepository = AnniversaryRepositoryImpl(anniversaryDataSource)
+        anniversaryUseCase = AnniversaryUseCase(anniversaryRepository)
 
         addressDataSource = AddressDataSource(kakaoAddressRetrofit, retrofit)
         addressRepository = AddressRepository(addressDataSource)
-
-        loginUseCase = LoginUseCase(loginRepository)
 
     }
 
@@ -115,17 +93,16 @@ class Application : Application() {
     }
 
 
-    companion object {
-        const val baseUrl: String = "http://dev.taxijjang.site"
-        const val kakaoBaseUrl: String = "https://dapi.kakao.com"
-        lateinit var mApp: Application
 
+    companion object {
+//        const val baseUrl: String = "http://dev.taxijjang.site"
+        const val kakaoBaseUrl : String = "https://dapi.kakao.com"
+        lateinit var mApp: Application
         // 임시 DI 작업
         lateinit var loginRepository: LoginRepository
         lateinit var searchRepository: SearchRepository
-        lateinit var anniversaryRepository: AnniversaryRepository
         lateinit var addressRepository: AddressRepository
         lateinit var loginUseCase: LoginUseCase
-        lateinit var loginSharedPreference: LoginSharedPreference
+        lateinit var anniversaryUseCase: AnniversaryUseCase
     }
 }
