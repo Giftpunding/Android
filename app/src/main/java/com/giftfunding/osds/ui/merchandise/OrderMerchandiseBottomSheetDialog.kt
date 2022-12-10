@@ -126,7 +126,7 @@ class OrderMerchandiseBottomSheetDialog : BottomSheetDialogFragment() {
         binding.includeOrderMerchandiseReceipt.rvMerchandiseReceipt.apply {
             adapter = receiptAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            addItemDecoration(RecyclerViewDeco(space))
+            addItemDecoration(RecyclerViewDeco(0f, space, 0f, 0f))
         }
     }
 
