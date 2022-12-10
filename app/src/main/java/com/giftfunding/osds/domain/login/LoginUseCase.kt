@@ -10,4 +10,16 @@ class LoginUseCase(
     suspend fun getUserJwtWithKakao(accessToken: String) : LoginJwtDto{
         return loginRepository.getUserJWTWithKakao(accessToken)
     }
+
+    suspend fun getUserJwtWithRefreshToken(refreshToken : String) : LoginJwtDto{
+        return loginRepository.getUserJWTWithRefreshToken(refreshToken)
+    }
+
+    fun getUserAccessToken() : String{
+        return loginRepository.getUserAccessToken()
+    }
+
+    fun getUserRefreshToken() : String{
+        return loginRepository.getUserRefreshToken()
+    }
 }

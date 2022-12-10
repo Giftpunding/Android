@@ -19,7 +19,6 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
     protected val binding get() = _binding!!
 
     private lateinit var toolbar: ContentToolbarBinding
-//    private lateinit var activityTitle: TextView
 
     abstract fun init()
     abstract fun initEvent()

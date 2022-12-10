@@ -89,7 +89,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                 }
                 is ViewState.Success -> {
                     //로딩 다이얼로그 dismiss
-                    if (response.value == true) {
+                    if (response.value?.isEmpty() == false) {
                         val intent = Intent(this, MainActivity::class.java).apply {
                             flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         }
