@@ -12,21 +12,18 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/bg_oval_hawkes_blue_solitude_2_radius360_stroke1"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/tv_category_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            style="@style/noto_sans_kr_regular_14_black"
+            style="@style/base_font_medium_14_black_padding0"
             android:id="@+id/tv_category_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="5dp"
             android:text="test"
-            android:includeFontPadding="false"
             app:layout_constraintTop_toBottomOf="@+id/iv_category"
             app:layout_constraintStart_toStartOf="@+id/iv_category"
             app:layout_constraintEnd_toEndOf="@+id/iv_category"

@@ -16,5 +16,4 @@ class LoginSharedPreference(context: Context) {
     var refreshToken: String?
         get() = loginPrefs.getString("refreshToken", null)
         set(value) = loginPrefs.edit().putString("refreshToken", value).apply()
-
 }

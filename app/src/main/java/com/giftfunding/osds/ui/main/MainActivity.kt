@@ -63,6 +63,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
                     setTitle("")
                 }
+
+                "com.giftfunding.osds.ui.search.SearchFragment" -> {
+                    setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
+                    setTitle(resources.getString(R.string.title_search))
+                }
             }
         }
     }
