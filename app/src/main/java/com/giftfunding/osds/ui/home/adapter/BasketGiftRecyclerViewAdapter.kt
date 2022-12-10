@@ -10,7 +10,7 @@ import com.giftfunding.osds.databinding.ItemMerchandiseBasketGiftBinding
 import com.giftfunding.osds.util.addComma
 
 class BasketGiftRecyclerViewAdapter : RecyclerView.Adapter<BasketGiftRecyclerViewAdapter.ViewHolder>() {
-    private var basketGiftItems = mutableListOf<ItemResponse>()
+    private val basketGiftItems = mutableListOf<ItemResponse>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
@@ -25,7 +25,7 @@ class BasketGiftRecyclerViewAdapter : RecyclerView.Adapter<BasketGiftRecyclerVie
     override fun getItemCount(): Int = basketGiftItems.size
 
     fun setItems(list: List<ItemResponse>) {
-        basketGiftItems = list as MutableList<ItemResponse>
+        basketGiftItems.addAll(list)
     }
 
     class ViewHolder(private val binding: ItemMerchandiseBasketGiftBinding) : RecyclerView.ViewHolder(binding.root) {

@@ -12,7 +12,7 @@ import com.giftfunding.osds.util.addComma
 class LuxuryGiftRecyclerViewAdapter :
     RecyclerView.Adapter<LuxuryGiftRecyclerViewAdapter.ViewHolder>() {
 
-    private var luxuryGiftItems = mutableListOf<ItemResponse>()
+    private val luxuryGiftItems = mutableListOf<ItemResponse>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             ItemMerchandiseLuxuryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -26,7 +26,7 @@ class LuxuryGiftRecyclerViewAdapter :
     override fun getItemCount(): Int = LUXURY_LIST_ITEM_COUNT
 
     fun setItems(list: List<ItemResponse>) {
-        luxuryGiftItems = list as MutableList<ItemResponse>
+        luxuryGiftItems.addAll(list)
     }
 
     class ViewHolder(private val binding: ItemMerchandiseLuxuryBinding) :

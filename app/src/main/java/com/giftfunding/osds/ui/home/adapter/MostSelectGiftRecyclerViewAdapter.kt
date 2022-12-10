@@ -11,7 +11,7 @@ import com.giftfunding.osds.util.addComma
 
 class MostSelectGiftRecyclerViewAdapter :
     RecyclerView.Adapter<MostSelectGiftRecyclerViewAdapter.ViewHolder>() {
-    private var mostSelectGiftItems = mutableListOf<ItemResponse>()
+    private val mostSelectGiftItems = mutableListOf<ItemResponse>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemMerchandiseHorizontalBinding.inflate(
@@ -29,7 +29,7 @@ class MostSelectGiftRecyclerViewAdapter :
     override fun getItemCount(): Int = MOST_SELECTED_ITEM_COUNT
 
     fun setItems(list: List<ItemResponse>) {
-        mostSelectGiftItems = list as MutableList<ItemResponse>
+        mostSelectGiftItems.addAll(list)
     }
 
     class ViewHolder(private val binding: ItemMerchandiseHorizontalBinding) :

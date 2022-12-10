@@ -9,7 +9,7 @@ import com.giftfunding.osds.ui.model.MostSearchKeyword
 
 class MostKeywordGiftRecyclerViewAdapter :
     RecyclerView.Adapter<MostKeywordGiftRecyclerViewAdapter.ViewHolder>() {
-    private var keywordItems = mutableListOf<MostSearchKeyword>()
+    private val keywordItems = mutableListOf<MostSearchKeyword>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =

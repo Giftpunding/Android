@@ -29,11 +29,11 @@ class HomeBannerFragment : Fragment() {
     companion object {
 
         fun newInstance(bannerItems: Int): Fragment {
-            val homeBannerFragment = HomeBannerFragment()
-            val args = Bundle()
-            args.putInt("img", bannerItems)
-            homeBannerFragment.arguments = args
-
+            val homeBannerFragment = HomeBannerFragment().apply {
+               arguments = Bundle().apply {
+                   putInt("img", bannerItems)
+               }
+            }
             return homeBannerFragment
         }
     }

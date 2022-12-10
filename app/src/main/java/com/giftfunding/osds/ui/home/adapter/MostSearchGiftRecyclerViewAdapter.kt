@@ -8,7 +8,7 @@ import com.giftfunding.osds.databinding.ItemMostSearchGiftBinding
 class MostSearchGiftRecyclerViewAdapter :
     RecyclerView.Adapter<MostSearchGiftRecyclerViewAdapter.ViewHolder>() {
 
-    private var mostSearchGiftItems = mutableListOf<Int>()
+    private val mostSearchGiftItems = mutableListOf<Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
@@ -23,7 +23,7 @@ class MostSearchGiftRecyclerViewAdapter :
     override fun getItemCount(): Int = mostSearchGiftItems.size
 
     fun setItems(list: List<Int>) {
-        mostSearchGiftItems = list as MutableList<Int>
+        mostSearchGiftItems.addAll(list)
     }
 
     class ViewHolder(private val binding: ItemMostSearchGiftBinding) :

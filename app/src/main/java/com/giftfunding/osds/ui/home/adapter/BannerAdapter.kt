@@ -7,7 +7,7 @@ import com.giftfunding.osds.ui.home.HomeBannerFragment
 import com.giftfunding.osds.util.infinityBanner
 
 class BannerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
-    private var bannerItems = mutableListOf<Int>()
+    private val bannerItems = mutableListOf<Int>()
 
     override fun getItemCount(): Int = Int.MAX_VALUE
 
@@ -17,6 +17,6 @@ class BannerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
     }
 
     fun setBannerItems(bannerImages: List<Int>) {
-        this.bannerItems = bannerImages as MutableList<Int>
+        bannerItems.addAll(bannerImages)
     }
 }
