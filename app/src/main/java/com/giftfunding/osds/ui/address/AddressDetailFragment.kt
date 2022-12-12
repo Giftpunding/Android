@@ -115,7 +115,6 @@ class AddressDetailFragment : BaseFragment<FragmentAddressDetailBinding>() {
 
             override fun keyboardHide(height: Int) {
                 Log.d(TAG, "keyboardHide")
-
                 viewModel.setKeyboardHeight(height)
                 viewModel.addressDetailTextChanged(binding.editAddressDetail.text.toString())
             }

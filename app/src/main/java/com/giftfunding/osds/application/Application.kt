@@ -8,8 +8,8 @@ import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.giftfunding.osds.BuildConfig
 import com.giftfunding.osds.R
-import com.giftfunding.osds.data.repository.AddressRepository
-import com.giftfunding.osds.data.repository.AnniversaryRepository
+import com.giftfunding.osds.data.repository.AddressRepositoryImpl
+import com.giftfunding.osds.data.repository.AnniversaryRepositoryImpl
 import com.giftfunding.osds.data.repository.LoginRepositoryImpl
 import com.giftfunding.osds.data.repository.SearchRepository
 import com.giftfunding.osds.data.repository.local.pref.KeywordSharedPreference
@@ -18,6 +18,9 @@ import com.giftfunding.osds.data.repository.local.pref.LoginSharedPreference
 import com.giftfunding.osds.data.repository.remote.datasource.AddressDataSource
 import com.giftfunding.osds.data.repository.remote.datasource.AnniversaryDataSource
 import com.giftfunding.osds.data.repository.remote.datasource.LoginRemoteDataSource
+import com.giftfunding.osds.data.repository.remote.network.NetworkModule
+import com.giftfunding.osds.data.repository.remote.network.TokenInterceptor
+import com.giftfunding.osds.domain.anniversary.AnniversaryUseCase
 import com.giftfunding.osds.domain.login.LoginRepository
 import com.giftfunding.osds.domain.login.LoginUseCase
 import com.kakao.sdk.common.KakaoSdk
@@ -37,7 +40,6 @@ class Application: Application() {
     private lateinit var addressDataSource: AddressDataSource
     private lateinit var networkModule: NetworkModule
     private lateinit var tokenInterceptor: TokenInterceptor
-//    private lateinit var gsonConvert: Gson
 
     override fun onCreate() {
         super.onCreate()
@@ -78,7 +80,7 @@ class Application: Application() {
         anniversaryUseCase = AnniversaryUseCase(anniversaryRepository)
 
         addressDataSource = AddressDataSource(kakaoAddressRetrofit, retrofit)
-        addressRepository = AddressRepository(addressDataSource)
+        addressRepository = AddressRepositoryImpl(addressDataSource)
 
     }
 
@@ -95,13 +97,13 @@ class Application: Application() {
 
 
     companion object {
-//        const val baseUrl: String = "http://dev.taxijjang.site"
+        const val baseUrl: String = "http://dev.taxijjang.site"
         const val kakaoBaseUrl : String = "https://dapi.kakao.com"
         lateinit var mApp: Application
         // 임시 DI 작업
         lateinit var loginRepository: LoginRepository
         lateinit var searchRepository: SearchRepository
-        lateinit var addressRepository: AddressRepository
+        lateinit var addressRepository: AddressRepositoryImpl
         lateinit var loginUseCase: LoginUseCase
         lateinit var anniversaryUseCase: AnniversaryUseCase
     }

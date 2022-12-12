@@ -17,12 +17,11 @@ class AddressFragment : BaseFragment<FragmentAddressBinding>(){
     }
 
     override fun initEvent() {
+        //TODO 백버튼 관련 처리 필요
+
         binding.btnAddressSearch.setOnClickListener {
             navigate(AddressFragmentDirections.actionAddressFragmentToAddressSearchFragment())
         }
-
-        //백 버튼 클릭시 어떤 화면으로 이동해야하나?
-//        backButton.setOnClickListener { finish() }
 
         binding.btnNextTodo.setOnClickListener {
             navigate(AddressFragmentDirections.actionAddressFragmentToHomeFragment())

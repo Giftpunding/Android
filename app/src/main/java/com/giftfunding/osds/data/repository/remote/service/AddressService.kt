@@ -14,9 +14,4 @@ interface AddressService {
         @Query("query") query: String,
         @Query("page") page: Int
     ): AddressSearchResultResponse
-
-    @PATCH("api/user/me")
-    suspend fun postAddress(
-        @Query("address") address: String
-    ): Response<TempUser>
 }

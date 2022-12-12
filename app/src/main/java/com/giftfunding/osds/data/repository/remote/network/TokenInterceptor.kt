@@ -13,7 +13,7 @@ class TokenInterceptor(
         val request = chain.request()
         val requestBuilder: Request.Builder = request.newBuilder()
 
-        val jwt = loginSharedPreference.getUserToken()
+        val jwt = loginSharedPreference.accessToken
         if (jwt!!.isNotEmpty()) {
             Log.d("TokenInterceptor", jwt)
             requestBuilder.header("Authorization", "Bearer $jwt")
