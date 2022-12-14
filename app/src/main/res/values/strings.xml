@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">osds</string>
 
+    <!--바텀네비게이션-->
+    <string name="title_bottom_navigation_home">홈</string>
+    <string name="title_bottom_navigation_search">검색</string>
+    <string name="title_bottom_navigation_gift">선물 리스트</string>
+    <string name="title_bottom_navigation_my">마이</string>
+
     <string name="title_gift_box">선물 장바구니</string>
     <string name="title_gift_ranking">선물 랭킹</string>
     <string name="title_category"> 카테고리 </string>

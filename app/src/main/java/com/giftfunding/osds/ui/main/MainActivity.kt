@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityMainBinding
@@ -33,6 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
         navController = navHostFragment.findNavController()
+        binding.navBottom.setupWithNavController(navController)
     }
 
     override fun initEvent() {
@@ -42,31 +44,37 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 "com.giftfunding.osds.ui.anniversary.AnniversarySelectFragment" -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle("타이틀")
+                    bottomNavigationShow()
                 }
 
                 "com.giftfunding.osds.ui.address.AddressFragment" -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_setting_address))
+                    bottomNavigationGone()
                 }
 
                 "com.giftfunding.osds.ui.address.AddressSearchFragment" -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_address_search))
+                    bottomNavigationGone()
                 }
 
                 "com.giftfunding.osds.ui.address.AddressDetailFragment" -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.VISIBLE)
                     setTitle(resources.getString(R.string.title_address_detail))
+                    bottomNavigationGone()
                 }
 
                 "com.giftfunding.osds.ui.home.HomeFragment" -> {
                     setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
                     setTitle("")
+                    bottomNavigationShow()
                 }
 
                 "com.giftfunding.osds.ui.search.SearchFragment" -> {
                     setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
-                    setTitle(resources.getString(R.string.title_search))
+                    setTitle(resources.getString(R.string.title_bottom_navigation_search))
+                    bottomNavigationShow()
                 }
             }
         }
@@ -115,6 +123,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
 
+    private fun bottomNavigationGone(){
+        binding.navBottom.visibility = View.GONE
+    }
+
+    private fun bottomNavigationShow(){
+        binding.navBottom.visibility = View.VISIBLE
+    }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         val currentView = currentFocus
