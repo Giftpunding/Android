@@ -12,6 +12,7 @@ import com.giftfunding.osds.util.addComma
 class MostSelectGiftRecyclerViewAdapter :
     RecyclerView.Adapter<MostSelectGiftRecyclerViewAdapter.ViewHolder>() {
     private val mostSelectGiftItems = mutableListOf<ItemResponse>()
+    private var listSize = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemMerchandiseHorizontalBinding.inflate(
@@ -26,7 +27,11 @@ class MostSelectGiftRecyclerViewAdapter :
         holder.onBind(mostSelectGiftItems[position])
     }
 
-    override fun getItemCount(): Int = MOST_SELECTED_ITEM_COUNT
+    override fun getItemCount(): Int = listSize
+
+    fun setFullSize(fullSize: Boolean) {
+        listSize = if (fullSize) mostSelectGiftItems.size else 5
+    }
 
     fun setItems(list: List<ItemResponse>) {
         mostSelectGiftItems.addAll(list)
@@ -34,21 +39,17 @@ class MostSelectGiftRecyclerViewAdapter :
 
     class ViewHolder(private val binding: ItemMerchandiseHorizontalBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("CheckResult")
         fun onBind(item: ItemResponse) {
             Glide.with(binding.ivMerchandiseImg.context)
                 .load(item.img)
-                .override(300,300)
+                .override(300, 300)
                 .centerCrop()
+                .into(binding.ivMerchandiseImg)
 
             binding.tvMerchandiseIdx.text = item.idx.toString()
             binding.tvMerchandiseBrand.text = item.brand
             binding.tvMerchandiseName.text = item.name
             binding.tvMerchandisePrice.text = addComma(item.price)
         }
-    }
-
-    companion object{
-        private const val MOST_SELECTED_ITEM_COUNT = 5
     }
 }

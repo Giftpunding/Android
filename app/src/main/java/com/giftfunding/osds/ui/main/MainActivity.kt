@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
@@ -14,8 +15,14 @@ import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityMainBinding
 import com.giftfunding.osds.databinding.ContentToolbarBinding
+import com.giftfunding.osds.ui.address.AddressDetailFragment
+import com.giftfunding.osds.ui.address.AddressFragment
+import com.giftfunding.osds.ui.address.AddressSearchFragment
+import com.giftfunding.osds.ui.anniversary.AnniversarySelectFragment
 import com.giftfunding.osds.ui.enum.ToolbarType
 import com.giftfunding.osds.ui.enum.VisibleState
+import com.giftfunding.osds.ui.home.HomeFragment
+import com.giftfunding.osds.ui.ranking.GiftRankingFragment
 import com.giftfunding.osds.util.clearFocusAndHideKeyboard
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
@@ -36,32 +43,36 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     override fun initEvent() {
-        navController.addOnDestinationChangedListener { controller, _, _ ->
-            when ((controller.currentDestination as FragmentNavigator.Destination).className){
-                //클래스 이름으로 어떤 fragment인지 찾음
-                "com.giftfunding.osds.ui.anniversary.AnniversarySelectFragment" -> {
+        navController.addOnDestinationChangedListener { _, _, _ ->
+            when (getCurrentFragment()){
+                 is AnniversarySelectFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle("타이틀")
                 }
 
-                "com.giftfunding.osds.ui.address.AddressFragment" -> {
+                is AddressFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_setting_address))
                 }
 
-                "com.giftfunding.osds.ui.address.AddressSearchFragment" -> {
+                is AddressSearchFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_address_search))
                 }
 
-                "com.giftfunding.osds.ui.address.AddressDetailFragment" -> {
+                is AddressDetailFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.VISIBLE)
                     setTitle(resources.getString(R.string.title_address_detail))
                 }
 
-                "com.giftfunding.osds.ui.home.HomeFragment" -> {
+                is HomeFragment -> {
                     setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
                     setTitle("")
+                }
+
+                is GiftRankingFragment -> {
+                    setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
+                    setTitle(R.string.title_gift_ranking)
                 }
             }
         }
@@ -126,6 +137,28 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         }
 
         return super.dispatchTouchEvent(ev)
+    }
+
+    //현재 프래그먼트 찾기
+    private fun getCurrentFragment(): Fragment? {
+//        val currentFragmentContainer = supportFragmentManager.findFragmentById(R.id.fcv_main)
+//        val currentFragmentClassName =
+//            (navController.currentDestination as FragmentNavigator.Destination).className
+//
+//        Log.d(TAG, "getCurrentFragment: ${currentFragmentContainer?.childFragmentManager?.fragments}")
+//
+//        return currentFragmentContainer?.childFragmentManager?.fragments?.filterNotNull()?.find {
+//            it.javaClass.name == currentFragmentClassName
+//        }
+        val currentFragmentContainer = supportFragmentManager.findFragmentById(R.id.fcv_main)
+        val currentFragmentClassName =
+            (navController.currentDestination)?.
+
+        Log.d(TAG, "getCurrentFragment: ${currentFragmentContainer?.childFragmentManager?.fragments}")
+
+        return currentFragmentContainer?.childFragmentManager?.fragments?.filterNotNull()?.find {
+            it.javaClass.name == currentFragmentClassName
+        }
     }
 
     companion object{

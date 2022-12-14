@@ -145,6 +145,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
 
         mostSelectGiftAdapter.setItems(list)
+        mostSelectGiftAdapter.setFullSize(false)
     }
 
     //힘을 모으면 살 수 있어 (명품)
@@ -269,6 +270,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         binding.contentBasketGift.rBtnForthMoreGift.setOnClickListener {
             changeBasketGiftButtonName(binding.contentBasketGift.rBtnForthMoreGift.text.toString())
+        }
+
+        binding.contentMostSelectGift.tvRankingMoreInfo.setOnClickListener {
+            val selectedGiftType = binding.contentMostSelectGift.rgAllCategory.checkedRadioButtonId
+            navigate(HomeFragmentDirections.actionHomeFragmentToGiftRankingFragment(selectedGiftType))
         }
     }
 
