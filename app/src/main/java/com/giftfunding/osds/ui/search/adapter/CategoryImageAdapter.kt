@@ -45,6 +45,7 @@ class CategoryImageAdapter :
         fun onBind(image: Drawable) {
             Glide.with(binding.ivCategory.context).load(image).circleCrop().centerInside()
                 .into(binding.ivCategory)
+            binding.tvCategoryTitle.text = "test"
         }
     }
 }

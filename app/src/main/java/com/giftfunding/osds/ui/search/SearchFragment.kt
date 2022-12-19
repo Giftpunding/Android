@@ -2,9 +2,7 @@ package com.giftfunding.osds.ui.search
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.giftfunding.osds.R
@@ -54,8 +52,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         val categoryImageAdapter = CategoryImageAdapter()
         binding.rvGiftCategory.apply {
             adapter = categoryImageAdapter
-            layoutManager = GridLayoutManager(requireContext(), 3, GridLayoutManager.VERTICAL, false)
-            addItemDecoration(RecyclerViewDeco(0f,44f,0f,13f))
+            layoutManager = GridLayoutManager(requireContext(), SPAN_COUNT, GridLayoutManager.VERTICAL, false)
+            addItemDecoration(RecyclerViewDeco(0f,44f,13f,13f))
         }
         categoryImageAdapter.setItems(categoryImages)
     }
@@ -66,5 +64,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     override fun initObserverEvent() {
 
+    }
+
+    companion object{
+        private const val SPAN_COUNT: Int = 4
     }
 }
