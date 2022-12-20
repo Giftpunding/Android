@@ -6,23 +6,14 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityMainBinding
-import com.giftfunding.osds.databinding.ContentToolbarBinding
-import com.giftfunding.osds.ui.address.AddressDetailFragment
-import com.giftfunding.osds.ui.address.AddressFragment
-import com.giftfunding.osds.ui.address.AddressSearchFragment
-import com.giftfunding.osds.ui.anniversary.AnniversarySelectFragment
 import com.giftfunding.osds.ui.enum.ToolbarType
 import com.giftfunding.osds.ui.enum.VisibleState
-import com.giftfunding.osds.ui.home.HomeFragment
-import com.giftfunding.osds.ui.ranking.GiftRankingFragment
 import com.giftfunding.osds.util.clearFocusAndHideKeyboard
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
@@ -44,47 +35,47 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun initEvent() {
         navController.addOnDestinationChangedListener { _, _, _ ->
-            when (getCurrentFragment()){
-                 is AnniversarySelectFragment -> {
+            when (navController.currentDestination?.id){
+                 R.id.anniversarySelectFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle("타이틀")
                 }
 
-                is AddressFragment -> {
+                R.id.addressFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_setting_address))
                 }
 
-                is AddressSearchFragment -> {
+                R.id.addressSearchFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_address_search))
                 }
 
-                is AddressDetailFragment -> {
+                R.id.addressDetailFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.VISIBLE)
                     setTitle(resources.getString(R.string.title_address_detail))
                 }
 
-                is HomeFragment -> {
+                R.id.homeFragment -> {
                     setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
                     setTitle("")
                 }
 
-                is GiftRankingFragment -> {
-                    setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
-                    setTitle(R.string.title_gift_ranking)
+                R.id.giftRankingFragment -> {
+                    setToolbarType(ToolbarType.GIFT, VisibleState.INVISIBLE)
+                    setTitle(resources.getString(R.string.title_gift_ranking))
                 }
             }
         }
     }
 
-    private fun setToolbarType(type: ToolbarType, isShowClose: VisibleState){
+    private fun setToolbarType(type: ToolbarType, visibleState: VisibleState){
         when(type){
             ToolbarType.NORMAL -> {
-                normalToolbarType(isShowClose)
+                normalToolbarType(visibleState)
             }
             ToolbarType.GIFT -> {
-                giftToolbarType()
+                giftToolbarType(visibleState)
             }
         }
     }
@@ -104,10 +95,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         }
     }
 
-    private fun giftToolbarType() {
+    private fun giftToolbarType(isShowLogo: VisibleState) {
         binding.contentToolbar.contentToolbarHead.apply {
-            ivBack.visibility = View.GONE
-            ivLogo.visibility = View.VISIBLE
+            when(isShowLogo){
+                VisibleState.VISIBLE -> {
+                    ivBack.visibility = View.GONE
+                    ivLogo.visibility = View.VISIBLE
+                }
+                VisibleState.INVISIBLE -> {
+                    ivBack.visibility = View.VISIBLE
+                    ivLogo.visibility = View.GONE
+                }
+            }
         }
 
         binding.contentToolbar.contentToolbarTail.apply {
@@ -119,7 +118,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private fun setTitle(title: String){
         binding.contentToolbar.tvToolbarTitle.text = title
     }
-
 
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
@@ -137,28 +135,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         }
 
         return super.dispatchTouchEvent(ev)
-    }
-
-    //현재 프래그먼트 찾기
-    private fun getCurrentFragment(): Fragment? {
-//        val currentFragmentContainer = supportFragmentManager.findFragmentById(R.id.fcv_main)
-//        val currentFragmentClassName =
-//            (navController.currentDestination as FragmentNavigator.Destination).className
-//
-//        Log.d(TAG, "getCurrentFragment: ${currentFragmentContainer?.childFragmentManager?.fragments}")
-//
-//        return currentFragmentContainer?.childFragmentManager?.fragments?.filterNotNull()?.find {
-//            it.javaClass.name == currentFragmentClassName
-//        }
-        val currentFragmentContainer = supportFragmentManager.findFragmentById(R.id.fcv_main)
-        val currentFragmentClassName =
-            (navController.currentDestination)?.
-
-        Log.d(TAG, "getCurrentFragment: ${currentFragmentContainer?.childFragmentManager?.fragments}")
-
-        return currentFragmentContainer?.childFragmentManager?.fragments?.filterNotNull()?.find {
-            it.javaClass.name == currentFragmentClassName
-        }
     }
 
     companion object{
