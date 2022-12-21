@@ -270,6 +270,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.contentBasketGift.rBtnForthMoreGift.setOnClickListener {
             changeBasketGiftButtonName(binding.contentBasketGift.rBtnForthMoreGift.text.toString())
         }
+
+        binding.contentMostSelectGift.tvRankingMoreInfo.setOnClickListener {
+            val selectedGiftType = binding.contentMostSelectGift.rgAllCategory.checkedRadioButtonId
+            navigate(HomeFragmentDirections.actionHomeFragmentToGiftRankingFragment(selectedGiftType))
+        }
     }
 
     private fun updateBannerPosition(position: Int) {

@@ -26,7 +26,7 @@ class MostSelectGiftRecyclerViewAdapter :
         holder.onBind(mostSelectGiftItems[position])
     }
 
-    override fun getItemCount(): Int = MOST_SELECTED_ITEM_COUNT
+    override fun getItemCount(): Int = mostSelectGiftItems.size
 
     fun setItems(list: List<ItemResponse>) {
         mostSelectGiftItems.addAll(list)
@@ -34,21 +34,17 @@ class MostSelectGiftRecyclerViewAdapter :
 
     class ViewHolder(private val binding: ItemMerchandiseHorizontalBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("CheckResult")
         fun onBind(item: ItemResponse) {
             Glide.with(binding.ivMerchandiseImg.context)
                 .load(item.img)
-                .override(300,300)
+                .override(300, 300)
                 .centerCrop()
+                .into(binding.ivMerchandiseImg)
 
             binding.tvMerchandiseIdx.text = item.idx.toString()
             binding.tvMerchandiseBrand.text = item.brand
             binding.tvMerchandiseName.text = item.name
             binding.tvMerchandisePrice.text = addComma(item.price)
         }
-    }
-
-    companion object{
-        private const val MOST_SELECTED_ITEM_COUNT = 5
     }
 }
