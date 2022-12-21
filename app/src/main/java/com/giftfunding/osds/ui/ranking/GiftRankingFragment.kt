@@ -62,7 +62,6 @@ class GiftRankingFragment : BaseFragment<FragmentGiftRankingBinding>() {
         }
 
         mostSelectGiftAdapter.setItems(list)
-        mostSelectGiftAdapter.setFullSize(true)
     }
 
     companion object{

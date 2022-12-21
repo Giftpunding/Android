@@ -145,7 +145,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
 
         mostSelectGiftAdapter.setItems(list)
-        mostSelectGiftAdapter.setFullSize(false)
     }
 
     //힘을 모으면 살 수 있어 (명품)
