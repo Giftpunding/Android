@@ -7,14 +7,12 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import androidx.navigation.NavController
-import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityMainBinding
-import com.giftfunding.osds.databinding.ContentToolbarBinding
 import com.giftfunding.osds.ui.enum.ToolbarType
 import com.giftfunding.osds.ui.enum.VisibleState
 import com.giftfunding.osds.util.clearFocusAndHideKeyboard
@@ -35,58 +33,69 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
         navController = navHostFragment.findNavController()
         binding.navBottom.setupWithNavController(navController)
+
+        val isTokenExist = intent.getBooleanExtra("TOKEN_EXITS", false)
+        if(isTokenExist){
+            val navGraph = navController.navInflater.inflate(R.navigation.navigation_main)
+            navGraph.setStartDestination(R.id.homeFragment)
+            navController.graph = navGraph
+        }
     }
 
     override fun initEvent() {
-        navController.addOnDestinationChangedListener { controller, _, _ ->
-            when ((controller.currentDestination as FragmentNavigator.Destination).className){
-                //클래스 이름으로 어떤 fragment인지 찾음
-                "com.giftfunding.osds.ui.anniversary.AnniversarySelectFragment" -> {
+        navController.addOnDestinationChangedListener { _, _, _ ->
+            when (navController.currentDestination?.id){
+                 R.id.anniversarySelectFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle("타이틀")
                     bottomNavigationShow()
                 }
 
-                "com.giftfunding.osds.ui.address.AddressFragment" -> {
+                R.id.addressFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_setting_address))
                     bottomNavigationGone()
                 }
 
-                "com.giftfunding.osds.ui.address.AddressSearchFragment" -> {
+                R.id.addressSearchFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_address_search))
                     bottomNavigationGone()
                 }
 
-                "com.giftfunding.osds.ui.address.AddressDetailFragment" -> {
+                R.id.addressDetailFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.VISIBLE)
                     setTitle(resources.getString(R.string.title_address_detail))
                     bottomNavigationGone()
                 }
 
-                "com.giftfunding.osds.ui.home.HomeFragment" -> {
+                R.id.homeFragment -> {
                     setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
                     setTitle("")
                     bottomNavigationShow()
                 }
 
-                "com.giftfunding.osds.ui.search.SearchFragment" -> {
+                R.id.searchFragment -> {
                     setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
                     setTitle(resources.getString(R.string.title_bottom_navigation_search))
                     bottomNavigationShow()
+                }
+
+                R.id.giftRankingFragment -> {
+                    setToolbarType(ToolbarType.GIFT, VisibleState.INVISIBLE)
+                    setTitle(resources.getString(R.string.title_gift_ranking))
                 }
             }
         }
     }
 
-    private fun setToolbarType(type: ToolbarType, isShowClose: VisibleState){
+    private fun setToolbarType(type: ToolbarType, visibleState: VisibleState){
         when(type){
             ToolbarType.NORMAL -> {
-                normalToolbarType(isShowClose)
+                normalToolbarType(visibleState)
             }
             ToolbarType.GIFT -> {
-                giftToolbarType()
+                giftToolbarType(visibleState)
             }
         }
     }
@@ -106,10 +115,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         }
     }
 
-    private fun giftToolbarType() {
+    private fun giftToolbarType(isShowLogo: VisibleState) {
         binding.contentToolbar.contentToolbarHead.apply {
-            ivBack.visibility = View.GONE
-            ivLogo.visibility = View.VISIBLE
+            when(isShowLogo){
+                VisibleState.VISIBLE -> {
+                    ivBack.visibility = View.GONE
+                    ivLogo.visibility = View.VISIBLE
+                }
+                VisibleState.INVISIBLE -> {
+                    ivBack.visibility = View.VISIBLE
+                    ivLogo.visibility = View.GONE
+                }
+            }
         }
 
         binding.contentToolbar.contentToolbarTail.apply {

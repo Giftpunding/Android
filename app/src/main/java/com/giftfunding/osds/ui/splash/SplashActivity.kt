@@ -66,8 +66,10 @@ class SplashActivity : AppCompatActivity() {
 
                 }
                 is ViewState.Success -> {
+                    // 토큰이 존재하면 바로 홈으로 가짐
                     val intent = Intent(this, MainActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        putExtra("TOKEN_EXITS", true)
                     }
                     startActivity(intent)
                 }

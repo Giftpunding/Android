@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_another_people_selected_gift"
+                style="@style/base_font_bold_18_midnight_express_padding0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:text="@string/title_home_most_selected_gift"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/sv_all_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:paddingHorizontal="@dimen/activity_horizontal_dimens"
+                android:paddingVertical="14dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_another_people_selected_gift">
+
+                <RadioGroup
+                    android:id="@+id/rg_all_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/r_btn_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:checked="true"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_all"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_luxury"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_luxury"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_beauty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_beauty"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_living"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_living"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_fashion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_fashion"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_digital"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_digital"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_food"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_gifticon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_gifticon"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_kitchen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_kitchen"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_sport"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_sport"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_flower"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_flower"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_baby"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_baby"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/r_btn_pet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_sc_oval_tranparent_tomato_radius_999_stroke_0_oval_hawkes_blue_tranparent_radius_999_stroke0"
+                        android:button="@null"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/category_pet"
+                        android:textColor="@drawable/sc_color_solitude_2_color_raven"
+                        android:textSize="14sp" />
+                </RadioGroup>
+            </HorizontalScrollView>
+
+            <com.giftfunding.osds.ui.component.OsdsRangeSlider
+                android:id="@+id/osds_range_slider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="28dp"
+                android:valueFrom="0.0"
+                android:valueTo="100.0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sv_all_category" />
+
+            <View
+                android:id="@+id/div_slider_bottom"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/solitude_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/osds_range_slider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_most_select_gift_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="22dp"
+                android:nestedScrollingEnabled="true"
+                android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div_slider_bottom" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

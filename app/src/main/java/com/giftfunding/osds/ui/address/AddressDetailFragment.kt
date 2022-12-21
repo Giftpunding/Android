@@ -43,14 +43,12 @@ class AddressDetailFragment : BaseFragment<FragmentAddressDetailBinding>() {
 
         binding.tvSearchKeyword.text = address.keywordAddress
         binding.tvAddress.text = address.addressName
-        binding.tvAddressType.text.apply {
-            when (address.addressType) {
-                "REGION", "REGION_ADDR" -> {
-                    getString(R.string.content_address_name)
-                }
-                "ROAD", "ROAD_ADDR" -> {
-                    getString(R.string.content_road_name)
-                }
+        binding.tvAddressType.text = when (address.addressType) {
+            "ROAD", "ROAD_ADDR" -> {
+                getString(R.string.content_road_name)
+            }
+            else -> {
+                getString(R.string.content_address_name)
             }
         }
     }
@@ -98,7 +96,7 @@ class AddressDetailFragment : BaseFragment<FragmentAddressDetailBinding>() {
         }
 
         //버튼 활성화
-        viewModel.isEnableButton.observe(viewLifecycleOwner){ isEnable ->
+        viewModel.isEnableButton.observe(viewLifecycleOwner) { isEnable ->
             binding.btnComplete.isEnabled = isEnable
         }
     }
