@@ -9,4 +9,6 @@ interface LoginRepository {
 
     fun getUserAccessToken() : String
     fun getUserRefreshToken() : String
+    fun deleteUserAccessToken()
+    fun deleteUserRefreshToken()
 }
