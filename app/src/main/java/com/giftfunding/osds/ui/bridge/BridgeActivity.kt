@@ -12,6 +12,7 @@ import com.giftfunding.osds.ui.keyhash.KeyHashActivity
 import com.giftfunding.osds.ui.login.LoginActivity
 import com.giftfunding.osds.ui.main.MainActivity
 import com.giftfunding.osds.ui.splash.SplashActivity
+import com.giftfunding.osds.ui.token.DeleteTokenActivity
 
 class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding::inflate) {
 
@@ -45,7 +46,8 @@ class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding:
 //                SearchActivity::class.java,
 //                FundingGiftListActivity::class.java,
                 KeyHashActivity::class.java,
-                MainActivity::class.java
+                MainActivity::class.java,
+                DeleteTokenActivity::class.java
             )
 
             adapter = bridgeAdapter
