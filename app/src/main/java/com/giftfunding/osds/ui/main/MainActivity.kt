@@ -7,6 +7,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -33,6 +34,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
         navController = navHostFragment.findNavController()
+
+        val isTokenExist = intent.getBooleanExtra("TOKEN_EXITS", false)
+        if(isTokenExist){
+            val navGraph = navController.navInflater.inflate(R.navigation.navigation_main)
+            navGraph.setStartDestination(R.id.homeFragment)
+            navController.graph = navGraph
+        }
     }
 
     override fun initEvent() {

@@ -41,12 +41,7 @@ class BridgeActivity: BaseActivity<ActivityBridgeBinding>(ActivityBridgeBinding:
             val bridgeAdapter = BridgeAdapter(this@BridgeActivity)
 
             val mActivityList: ArrayList<Class<out Activity>> = arrayListOf(
-                LoginActivity::class.java,
                 SplashActivity::class.java,
-//                SearchActivity::class.java,
-//                FundingGiftListActivity::class.java,
-                KeyHashActivity::class.java,
-                MainActivity::class.java,
                 DeleteTokenActivity::class.java
             )
 
