@@ -7,8 +7,8 @@ import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 
 //토스트 메세지
-fun showLongToast(context: Context, message: String) {
-    Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+fun Context.showLongToast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }
 
 //스낵바

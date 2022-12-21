@@ -38,4 +38,12 @@ class LoginRepositoryImpl(
     override fun getUserRefreshToken(): String {
         return loginSharedPreference.refreshToken ?: ""
     }
+
+    override fun deleteUserAccessToken() {
+        loginSharedPreference.accessToken = ""
+    }
+
+    override fun deleteUserRefreshToken() {
+        loginSharedPreference.refreshToken = ""
+    }
 }
