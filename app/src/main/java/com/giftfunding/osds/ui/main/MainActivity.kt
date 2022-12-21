@@ -9,6 +9,7 @@ import android.widget.EditText
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseActivity
 import com.giftfunding.osds.databinding.ActivityMainBinding
@@ -31,6 +32,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
         navController = navHostFragment.findNavController()
+        binding.navBottom.setupWithNavController(navController)
 
         val isTokenExist = intent.getBooleanExtra("TOKEN_EXITS", false)
         if(isTokenExist){
@@ -46,26 +48,37 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                  R.id.anniversarySelectFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle("타이틀")
+                    bottomNavigationShow()
                 }
 
                 R.id.addressFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_setting_address))
+                    bottomNavigationGone()
                 }
 
                 R.id.addressSearchFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_address_search))
+                    bottomNavigationGone()
                 }
 
                 R.id.addressDetailFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.VISIBLE)
                     setTitle(resources.getString(R.string.title_address_detail))
+                    bottomNavigationGone()
                 }
 
                 R.id.homeFragment -> {
                     setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
                     setTitle("")
+                    bottomNavigationShow()
+                }
+
+                R.id.searchFragment -> {
+                    setToolbarType(ToolbarType.GIFT, VisibleState.VISIBLE)
+                    setTitle(resources.getString(R.string.title_bottom_navigation_search))
+                    bottomNavigationShow()
                 }
 
                 R.id.giftRankingFragment -> {
@@ -126,6 +139,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         binding.contentToolbar.tvToolbarTitle.text = title
     }
 
+
+    private fun bottomNavigationGone(){
+        binding.navBottom.visibility = View.GONE
+    }
+
+    private fun bottomNavigationShow(){
+        binding.navBottom.visibility = View.VISIBLE
+    }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         val currentView = currentFocus

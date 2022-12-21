@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -9,28 +9,25 @@
 
         <ImageView
             android:id="@+id/iv_category"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@drawable/bg_oval_hawkes_blue_solitude_2_radius360_stroke1"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/tv_category_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            style="@style/noto_sans_kr_regular_14_black"
+            style="@style/base_font_medium_14_black_padding0"
             android:id="@+id/tv_category_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="test"
-            android:includeFontPadding="false"
+            android:layout_marginTop="5dp"
             app:layout_constraintTop_toBottomOf="@+id/iv_category"
             app:layout_constraintStart_toStartOf="@+id/iv_category"
             app:layout_constraintEnd_toEndOf="@+id/iv_category"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text = "test"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

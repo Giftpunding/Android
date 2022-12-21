@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">osds</string>
 
+    <!--바텀네비게이션-->
+    <string name="title_bottom_navigation_home">홈</string>
+    <string name="title_bottom_navigation_search">검색</string>
+    <string name="title_bottom_navigation_gift">선물 리스트</string>
+    <string name="title_bottom_navigation_my">마이</string>
+
     <string name="title_gift_box">선물 장바구니</string>
     <string name="title_gift_ranking">선물 랭킹</string>
     <string name="title_category"> 카테고리 </string>
@@ -147,6 +153,8 @@
     <string name="category_anniversary_wedding">&#128141; 결혼</string>
     <string name="category_anniversary_user_input">&#x270F;&#xFE0F; 직접 입력</string>
 
+    <!-- 선물 검색 -->
+    <string name="title_search">검색</string>
     <!-- 회사정보 -->
     <string name="title_company_name">오손도손</string>
     <string name="title_company_Info">이운기 | 95641234 \n 22 \n 경기 용인시 기흥구 신갈로 96번길 11-54 \n mynamewoon@gmail.com | 010-8631-0498</string>
