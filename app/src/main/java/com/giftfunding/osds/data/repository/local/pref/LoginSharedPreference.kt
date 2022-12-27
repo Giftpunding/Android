@@ -10,11 +10,10 @@ class LoginSharedPreference(context: Context) {
         context.getSharedPreferences("login", Context.MODE_PRIVATE)
 
     var accessToken: String?
-        get() = loginPrefs.getString("accessToken", null)
+        get() = loginPrefs.getString("accessToken", "")
         set(value) = loginPrefs.edit().putString("accessToken", value).apply()
 
     var refreshToken: String?
-        get() = loginPrefs.getString("refreshToken", null)
+        get() = loginPrefs.getString("refreshToken", "")
         set(value) = loginPrefs.edit().putString("refreshToken", value).apply()
-
 }

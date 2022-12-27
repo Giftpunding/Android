@@ -2,16 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="10dp"
-    android:layout_marginBottom="@dimen/activity_horizontal_dimens"
+    android:layout_width="100dp"
+    android:layout_height="183dp"
     android:background="@color/white">
 
     <ImageView
         android:id="@+id/iv_merchandise_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:adjustViewBounds="true"
         android:background="@drawable/bg_rect_hawkes_blue_solitude_radius0_stroke1"
         android:scaleType="centerCrop"
@@ -21,41 +19,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        style="@style/base_font_medium_12_link_water_padding0"
         android:id="@+id/tv_brand_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:fontFamily="@font/pretendard_medium"
-        android:textColor="@color/link_water"
-        android:textSize="12sp"
+        android:maxLines="1"
+        android:ellipsize="end"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_merchandise_img"
-        tools:text="브랜드" />
+        tools:text="디올디올디올디올디올" />
 
     <TextView
+        style="@style/base_font_medium_13_midnight_express_padding0"
         android:id="@+id/tv_merchandise_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
+        android:maxLines="2"
         android:ellipsize="end"
-        android:fontFamily="@font/pretendard_medium"
-        android:includeFontPadding="false"
-        android:maxEms="20"
-        android:textColor="@color/midnight_express"
-        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_brand_name"
-        tools:text="상품명" />
+        tools:text="랄프로렌 폴로 블루 맨 오 드 뚜왈렛 40/75/125ml" />
 
     <TextView
+        style="@style/base_font_bold_14_midnight_express_padding0"
         android:id="@+id/tv_item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:fontFamily="@font/pretendard_bold"
-        android:textColor="@color/midnight_express"
-        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_merchandise_name" />
+        app:layout_constraintTop_toBottomOf="@id/tv_merchandise_name"
+        tools:text="100,000"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

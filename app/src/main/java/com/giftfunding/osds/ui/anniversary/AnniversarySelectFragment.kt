@@ -38,10 +38,7 @@ class AnniversarySelectFragment : BaseFragment<FragmentAnniversarySelectBinding>
                     if (validateUserInput()) {
                         changeFragment(AnniversaryType.USER_INPUT)
                     } else {
-                        showLongToast(
-                            requireContext(),
-                            getString(R.string.content_empty_user_input_anniversary)
-                        )
+                        requireContext().showLongToast(getString(R.string.content_empty_user_input_anniversary))
                     }
                 }
                 false

@@ -12,7 +12,7 @@ import com.giftfunding.osds.databinding.ItemCategoryImageBinding
 class CategoryImageAdapter :
     RecyclerView.Adapter<CategoryImageAdapter.CategoryImageViewHolder>() {
 
-    private val categoryImageItems = ArrayList<Drawable>()
+    private val categoryImageItems = mutableListOf<Drawable>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -27,14 +27,14 @@ class CategoryImageAdapter :
     )
 
     override fun onBindViewHolder(holder: CategoryImageViewHolder, position: Int) {
-        categoryImageItems[position].let { holder.bind(it) }
+        holder.onBind(categoryImageItems[position])
     }
 
     override fun getItemCount(): Int {
         return this.categoryImageItems.size
     }
 
-    fun addItems(items: List<Drawable>) {
+    fun setItems(items: List<Drawable>) {
         categoryImageItems.addAll(items)
     }
 
@@ -42,9 +42,10 @@ class CategoryImageAdapter :
         private val binding: ItemCategoryImageBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(image: Drawable) {
+        fun onBind(image: Drawable) {
             Glide.with(binding.ivCategory.context).load(image).circleCrop().centerInside()
                 .into(binding.ivCategory)
+            binding.tvCategoryTitle.text = "test"
         }
     }
 }

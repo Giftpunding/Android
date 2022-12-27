@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="gift_category">
+        <item>명품 패션</item>
+        <item>뷰티</item>
+        <item>리빙/인테리어</item>
+        <item>패션</item>
+        <item>디지털/가전</item>
+        <item>식품</item>
+        <item>교환권</item>
+        <item>주방</item>
+        <item>스포츠</item>
+        <item>꽃배달</item>
+        <item>출산/유아</item>
+        <item>반려동물</item>
+    </array>
+</resources>
