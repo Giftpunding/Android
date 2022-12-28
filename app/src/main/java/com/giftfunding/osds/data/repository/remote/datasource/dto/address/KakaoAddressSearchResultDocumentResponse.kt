@@ -3,7 +3,7 @@ package com.giftfunding.osds.data.repository.remote.datasource.dto.address
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class AddressSearchResultDocumentResponse(
+data class KakaoAddressSearchResultDocumentResponse(
     @SerializedName("id")
     var id: String?,
     @SerializedName("place_name")
@@ -34,7 +34,7 @@ data class AddressSearchResultDocumentResponse(
 
 
     @SerializedName("address")
-    var address: Address?,
+    var kakaoAddressResponse: KakaoAddressResponse?,
     @SerializedName("road_address")
-    var roadAddress: RoadAaddress?
+    var roadAddress: KakaoRoadAaddressReseponse?
 ) : Serializable

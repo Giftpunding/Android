@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
+import com.giftfunding.osds.base.ViewState
 import com.giftfunding.osds.databinding.FragmentAddressDetailBinding
 import com.giftfunding.osds.ui.address.model.AddressUiModel
 import com.giftfunding.osds.util.*
@@ -69,7 +70,11 @@ class AddressDetailFragment : BaseFragment<FragmentAddressDetailBinding>() {
         }
 
         binding.btnComplete.setOnClickListener {
-            navigate(AddressDetailFragmentDirections.actionAddressDetailFragmentToHomeFragment())
+            viewModel.addUserAddress(
+                binding.tvSearchKeyword.text.toString(),
+                binding.tvAddress.text.toString(),
+                binding.editAddressDetail.text.toString()
+            )
         }
     }
 
@@ -98,6 +103,20 @@ class AddressDetailFragment : BaseFragment<FragmentAddressDetailBinding>() {
         //버튼 활성화
         viewModel.isEnableButton.observe(viewLifecycleOwner) { isEnable ->
             binding.btnComplete.isEnabled = isEnable
+        }
+
+        viewModel.addAddressResponse.observe(viewLifecycleOwner) { response ->
+            when(response){
+                is ViewState.Loading -> {
+
+                }
+                is ViewState.Success -> {
+                    navigate(AddressDetailFragmentDirections.actionAddressDetailFragmentToHomeFragment())
+                }
+                is ViewState.Error -> {
+                    Log.e(TAG, "initObserverEvent: ${response.message}")
+                }
+            }
         }
     }
 

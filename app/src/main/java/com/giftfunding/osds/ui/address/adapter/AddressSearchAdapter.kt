@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.giftfunding.osds.data.repository.remote.datasource.dto.address.AddressSearchResultDocumentResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.address.KakaoAddressSearchResultDocumentResponse
 import com.giftfunding.osds.databinding.ItemAddressSearchBinding
 import com.giftfunding.osds.ui.address.model.AddressUiModel
 
@@ -12,7 +12,7 @@ class AddressSearchAdapter(
     private val itemClick: (address: AddressUiModel) -> Unit
 ) : RecyclerView.Adapter<AddressSearchAdapter.AddressSearchViewHolder>() {
 
-    private val addressItems = mutableListOf<AddressSearchResultDocumentResponse>()
+    private val addressItems = mutableListOf<KakaoAddressSearchResultDocumentResponse>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -31,7 +31,7 @@ class AddressSearchAdapter(
     override fun getItemCount(): Int = addressItems.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addItems(address: List<AddressSearchResultDocumentResponse>) {
+    fun addItems(address: List<KakaoAddressSearchResultDocumentResponse>) {
         addressItems.addAll(address)
         notifyDataSetChanged()
     }
@@ -45,20 +45,20 @@ class AddressSearchAdapter(
     class AddressSearchViewHolder(private val binding: ItemAddressSearchBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(
-            item: AddressSearchResultDocumentResponse,
+            item: KakaoAddressSearchResultDocumentResponse,
             itemClick: (address: AddressUiModel) -> Unit
         ) {
 
             when (item.addressType) {
                 "REGION" -> {
                     binding.lAddressResult.tvSearchKeyword.text = item.addressName
-                    binding.lAddressResult.tvAddress.text = item.address!!.addressName
+                    binding.lAddressResult.tvAddress.text = item.kakaoAddressResponse!!.addressName
                     binding.lAddressResult.tvAddressType.text = "지번"
                 }
 
                 "REGION_ADDR" -> {
                     binding.lAddressResult.tvSearchKeyword.text = item.addressName
-                    binding.lAddressResult.tvAddress.text = item.address!!.addressName
+                    binding.lAddressResult.tvAddress.text = item.kakaoAddressResponse!!.addressName
                     binding.lAddressResult.tvAddressType.text = "지번"
                 }
 
@@ -87,7 +87,7 @@ class AddressSearchAdapter(
         }
 
         // 빌딩 이름이 존재 하면 빌딩이름으로 보여주기
-        private fun isExistBuildingName(item: AddressSearchResultDocumentResponse) {
+        private fun isExistBuildingName(item: KakaoAddressSearchResultDocumentResponse) {
             if (item.roadAddress!!.buildingName.isNullOrEmpty()) {
                 binding.lAddressResult.tvSearchKeyword.text = item.addressName
             } else {

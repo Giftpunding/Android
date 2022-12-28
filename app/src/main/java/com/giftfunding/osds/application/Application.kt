@@ -21,6 +21,7 @@ import com.giftfunding.osds.data.repository.remote.datasource.LoginRemoteDataSou
 import com.giftfunding.osds.data.repository.remote.network.KakaoTokenInterceptor
 import com.giftfunding.osds.data.repository.remote.network.NetworkModule
 import com.giftfunding.osds.data.repository.remote.network.TokenInterceptor
+import com.giftfunding.osds.domain.address.AddressUseCase
 import com.giftfunding.osds.domain.anniversary.AnniversaryUseCase
 import com.giftfunding.osds.domain.login.LoginRepository
 import com.giftfunding.osds.domain.login.LoginUseCase
@@ -76,6 +77,7 @@ class Application: Application() {
 
         addressDataSource = AddressDataSource(kakaoAddressRetrofit, retrofit)
         addressRepository = AddressRepositoryImpl(addressDataSource)
+        addressUseCase = AddressUseCase(addressRepository)
 
     }
 
@@ -99,5 +101,6 @@ class Application: Application() {
         lateinit var addressRepository: AddressRepositoryImpl
         lateinit var loginUseCase: LoginUseCase
         lateinit var anniversaryUseCase: AnniversaryUseCase
+        lateinit var addressUseCase: AddressUseCase
     }
 }

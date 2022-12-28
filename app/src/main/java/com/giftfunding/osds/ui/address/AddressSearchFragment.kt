@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
-import com.giftfunding.osds.data.repository.remote.datasource.dto.address.AddressSearchResultResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.address.KakaoAddressSearchResultResponse
 import com.giftfunding.osds.databinding.FragmentAddressSearchBinding
 import com.giftfunding.osds.ui.address.adapter.AddressSearchAdapter
 import com.giftfunding.osds.ui.address.model.AddressUiModel
@@ -128,10 +128,10 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
     }
 
     // 검색 결과가 더 이상 없는지 확인하기
-    private fun isEndPage(address: AddressSearchResultResponse): Boolean? = address.meta!!.isEnd
+    private fun isEndPage(address: KakaoAddressSearchResultResponse): Boolean? = address.meta!!.isEnd
 
     //주소 검색 결과값이 있는지 없는지 판별
-    private fun isExistAddressInformation(address: AddressSearchResultResponse) {
+    private fun isExistAddressInformation(address: KakaoAddressSearchResultResponse) {
         if (address.documents.isNullOrEmpty()) {
             showAddressSearchNoResultView()
         } else {
