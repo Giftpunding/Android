@@ -26,9 +26,9 @@ class AddressSearchViewModel : ViewModel() {
         get() = _isUserInputText
 
     // 주소 검색
-    fun getAddress(apiKey: String, keyword: String, page: Int) {
+    fun getAddress(keyword: String, page: Int) {
         viewModelScope.launch(exceptionHandler) {
-            val result = Application.addressRepository.getAddress(apiKey, keyword, page)
+            val result = Application.addressRepository.getAddress(keyword, page)
             _isExistAddress.value = result
         }
     }

@@ -6,10 +6,9 @@ import com.giftfunding.osds.domain.address.AddressRepository
 
 class AddressRepositoryImpl(private val addressDataSource: AddressDataSource) : AddressRepository {
     override suspend fun getAddress(
-        apiKey: String,
         keyword: String,
         page: Int
     ): AddressSearchResultResponse =
-        addressDataSource.getKakaoAddressService().getAddress(apiKey, keyword, page)
+        addressDataSource.getKakaoAddressService().getAddress(keyword, page)
 
 }

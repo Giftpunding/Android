@@ -18,6 +18,7 @@ import com.giftfunding.osds.data.repository.local.pref.LoginSharedPreference
 import com.giftfunding.osds.data.repository.remote.datasource.AddressDataSource
 import com.giftfunding.osds.data.repository.remote.datasource.AnniversaryDataSource
 import com.giftfunding.osds.data.repository.remote.datasource.LoginRemoteDataSource
+import com.giftfunding.osds.data.repository.remote.network.KakaoTokenInterceptor
 import com.giftfunding.osds.data.repository.remote.network.NetworkModule
 import com.giftfunding.osds.data.repository.remote.network.TokenInterceptor
 import com.giftfunding.osds.domain.anniversary.AnniversaryUseCase
@@ -40,32 +41,26 @@ class Application: Application() {
     private lateinit var addressDataSource: AddressDataSource
     private lateinit var networkModule: NetworkModule
     private lateinit var tokenInterceptor: TokenInterceptor
+    private lateinit var kakaoTokenInterceptor: KakaoTokenInterceptor
 
     override fun onCreate() {
         super.onCreate()
         mApp = this
 
-        initKakaoNetworkModule()
         initDependency()
         initFlipper()
         KakaoSdk.init(this, getString(R.string.native_app_key))
-    }
-
-    private fun initKakaoNetworkModule() {
-        kakaoAddressRetrofit =
-            Retrofit.Builder()
-                .baseUrl(kakaoBaseUrl)
-                .client(OkHttpClient())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
     }
 
     private fun initDependency() {
         loginSharedPreference = LoginSharedPreference(this@Application)
 
         tokenInterceptor = TokenInterceptor(loginSharedPreference)
-        networkModule = NetworkModule(tokenInterceptor)
+        kakaoTokenInterceptor = KakaoTokenInterceptor(getString(R.string.rest_api_key))
+
+        networkModule = NetworkModule(tokenInterceptor, kakaoTokenInterceptor)
         retrofit = networkModule.retrofit
+        kakaoAddressRetrofit = networkModule.kakaoRetrofit
 
         loginRemoteDataSource = LoginRemoteDataSource(retrofit)
         loginRepository = LoginRepositoryImpl(loginSharedPreference, loginRemoteDataSource)
@@ -97,8 +92,6 @@ class Application: Application() {
 
 
     companion object {
-        const val baseUrl: String = "http://dev.taxijjang.site"
-        const val kakaoBaseUrl : String = "https://dapi.kakao.com"
         lateinit var mApp: Application
         // 임시 DI 작업
         lateinit var loginRepository: LoginRepository

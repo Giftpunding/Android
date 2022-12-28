@@ -122,7 +122,6 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
     //키워드로 주소 검색하기
     private fun getAddress() {
         viewModel.getAddress(
-            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
             binding.editAddressSearch.text.toString(),
             page
         )

@@ -31,7 +31,7 @@ class SplashActivity : AppCompatActivity() {
         initUserTokenObserver()
 
         val handler = Handler(mainLooper)
-        handler.postDelayed({ splashViewModel.getUserAccessToken() }, 1000)
+        handler.postDelayed({ splashViewModel.getUserAccessToken() }, 500)
     }
 
     private fun initAccessTokenObserver() {

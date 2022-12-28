@@ -1,6 +1,5 @@
 package com.giftfunding.osds.ui.address.model
 
-import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
@@ -10,4 +9,4 @@ data class AddressUiModel(
     val keywordAddress: String,
     val addressName: String,
     val addressType: String
-): Parcelable
+) : Parcelable

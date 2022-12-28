@@ -10,7 +10,6 @@ interface AddressService {
 
     @GET("/v2/local/search/address.json")
     suspend fun getAddress(
-        @Header("Authorization") token: String,
         @Query("query") query: String,
         @Query("page") page: Int
     ): AddressSearchResultResponse
