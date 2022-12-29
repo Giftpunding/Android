@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.giftfunding.osds.application.Application
 import com.giftfunding.osds.base.ViewState
+import com.giftfunding.osds.domain.base.dto.UnitDto
 import kotlinx.coroutines.launch
 
 class AddressDetailViewModel : ViewModel() {
@@ -22,8 +23,8 @@ class AddressDetailViewModel : ViewModel() {
     private val _isEnableButton = MutableLiveData<Boolean>()
     val isEnableButton: LiveData<Boolean> get() = _isEnableButton
 
-    private val _addAddressResponse = MutableLiveData<ViewState<String>>()
-    val addAddressResponse: LiveData<ViewState<String>> get() = _addAddressResponse
+    private val _addAddressResponse = MutableLiveData<ViewState<UnitDto>>()
+    val addAddressResponse: LiveData<ViewState<UnitDto>> get() = _addAddressResponse
 
     fun setKeyboardHeight(keyboardHeight: Int) {
         this.keyboardHeight = keyboardHeight
