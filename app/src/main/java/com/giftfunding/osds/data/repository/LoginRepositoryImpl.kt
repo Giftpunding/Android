@@ -5,6 +5,7 @@ import com.giftfunding.osds.data.repository.remote.datasource.LoginRemoteDataSou
 import com.giftfunding.osds.data.repository.remote.datasource.dto.login.LoginJwtResponseDto
 import com.giftfunding.osds.data.repository.remote.datasource.dto.login.LoginJwtRequestDto
 import com.giftfunding.osds.data.repository.remote.datasource.dto.login.LoginJwtWithRefreshTokenDto
+import com.giftfunding.osds.data.repository.remote.datasource.dto.login.mapper.toDomain
 import com.giftfunding.osds.domain.login.LoginRepository
 import com.giftfunding.osds.domain.login.dto.LoginJwtDto
 
@@ -19,7 +20,7 @@ class LoginRepositoryImpl(
 
         loginSharedPreference.refreshToken = response.refreshToken!!
         loginSharedPreference.accessToken = response.accessToken!!
-        return response.toDomainModel()
+        return response.toDomain()
     }
 
     override suspend fun getUserJWTWithKakao(kakaoAccessToken: String): LoginJwtDto {
@@ -28,7 +29,7 @@ class LoginRepositoryImpl(
 
         loginSharedPreference.refreshToken = response.refreshToken!!
         loginSharedPreference.accessToken = response.accessToken!!
-        return response.toDomainModel()
+        return response.toDomain()
     }
 
     override fun getUserAccessToken(): String {

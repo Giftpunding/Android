@@ -15,11 +15,4 @@ data class LoginJwtResponseDto(
     var refreshToken: String?,
     @SerializedName("refreshTokenExpireTime")
     var refreshTokenExpireTime: String?,
-) : DataToDomainMapper<LoginJwtDto> {
-    // 도메인에서 사용할 dto로 변경
-    override fun toDomainModel(): LoginJwtDto {
-        return LoginJwtDto(
-            accessToken = accessToken ?: ""
-        )
-    }
-}
+)
