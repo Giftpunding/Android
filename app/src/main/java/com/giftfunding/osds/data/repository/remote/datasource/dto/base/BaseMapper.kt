@@ -1,4 +1,4 @@
-package com.giftfunding.osds.data.repository.remote.datasource.dto
+package com.giftfunding.osds.data.repository.remote.datasource.dto.base
 
 import com.giftfunding.osds.domain.base.dto.UnitDto
 import retrofit2.Response

@@ -12,8 +12,8 @@ fun Context.showLongToast(message: String) {
 }
 
 //스낵바
-fun showSnackBar(view: View, message: String) {
-    val snackBar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+fun View.showSnackBar(message: String) {
+    val snackBar = Snackbar.make(this, message, Snackbar.LENGTH_LONG)
     snackBar.show()
 }
 

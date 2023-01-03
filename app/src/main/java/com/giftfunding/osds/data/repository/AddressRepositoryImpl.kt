@@ -3,10 +3,9 @@ package com.giftfunding.osds.data.repository
 import com.giftfunding.osds.data.repository.remote.datasource.AddressDataSource
 import com.giftfunding.osds.data.repository.remote.datasource.dto.address.AddressRequestDto
 import com.giftfunding.osds.data.repository.remote.datasource.dto.address.KakaoAddressSearchResultResponse
-import com.giftfunding.osds.data.repository.remote.datasource.dto.toDomain
+import com.giftfunding.osds.data.repository.remote.datasource.dto.base.toDomain
 import com.giftfunding.osds.domain.address.AddressRepository
 import com.giftfunding.osds.domain.base.dto.UnitDto
-import retrofit2.Response
 
 
 class AddressRepositoryImpl(private val addressDataSource: AddressDataSource) : AddressRepository {

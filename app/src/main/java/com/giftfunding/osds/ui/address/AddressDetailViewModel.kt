@@ -45,12 +45,11 @@ class AddressDetailViewModel : ViewModel() {
 
     fun addUserAddress(value: String, detail: String, memo: String) = viewModelScope.launch {
         _addAddressResponse.value = ViewState.Loading()
-        try {
-            val response = Application.addressUseCase.addUserAddress(value, detail, memo)
+        val response = Application.addressUseCase.addUserAddress(value, detail, memo)
+        if(response.code in 200..204){
             _addAddressResponse.value = ViewState.Success(response)
-        } catch (e: Exception) {
-            _addAddressResponse.value = ViewState.Error(e.message)
+        } else{
+            _addAddressResponse.value = ViewState.Error(response.message)
         }
     }
-
 }

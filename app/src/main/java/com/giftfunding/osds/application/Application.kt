@@ -21,6 +21,7 @@ import com.giftfunding.osds.data.repository.remote.datasource.LoginRemoteDataSou
 import com.giftfunding.osds.data.repository.remote.network.KakaoTokenInterceptor
 import com.giftfunding.osds.data.repository.remote.network.NetworkModule
 import com.giftfunding.osds.data.repository.remote.network.TokenInterceptor
+import com.giftfunding.osds.domain.address.AddressRepository
 import com.giftfunding.osds.domain.address.AddressUseCase
 import com.giftfunding.osds.domain.anniversary.AnniversaryUseCase
 import com.giftfunding.osds.domain.login.LoginRepository
@@ -43,6 +44,9 @@ class Application: Application() {
     private lateinit var networkModule: NetworkModule
     private lateinit var tokenInterceptor: TokenInterceptor
     private lateinit var kakaoTokenInterceptor: KakaoTokenInterceptor
+    private lateinit var loginRepository: LoginRepository
+    private lateinit var searchRepository: SearchRepository
+    private lateinit var addressRepository: AddressRepository
 
     override fun onCreate() {
         super.onCreate()
@@ -96,9 +100,6 @@ class Application: Application() {
     companion object {
         lateinit var mApp: Application
         // 임시 DI 작업
-        lateinit var loginRepository: LoginRepository
-        lateinit var searchRepository: SearchRepository
-        lateinit var addressRepository: AddressRepositoryImpl
         lateinit var loginUseCase: LoginUseCase
         lateinit var anniversaryUseCase: AnniversaryUseCase
         lateinit var addressUseCase: AddressUseCase

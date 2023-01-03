@@ -30,9 +30,6 @@ data class KakaoAddressSearchResultDocumentResponse(
     var placeUrl: String?,
     @SerializedName("distance")
     var distance: String?,
-
-
-
     @SerializedName("address")
     var kakaoAddressResponse: KakaoAddressResponse?,
     @SerializedName("road_address")
