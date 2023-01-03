@@ -6,29 +6,29 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.giftfunding.osds.application.Application
-import com.giftfunding.osds.data.repository.remote.datasource.dto.address.AddressSearchResultResponse
+import com.giftfunding.osds.application.Application.Companion.addressUseCase
+import com.giftfunding.osds.base.ViewState
+import com.giftfunding.osds.data.repository.remote.datasource.dto.address.KakaoAddressSearchResultResponse
+import com.giftfunding.osds.domain.address.AddressUseCase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
 class AddressSearchViewModel : ViewModel() {
     private val tag: String = "AddressSearchViewModel"
 
-    private val _isExistAddress = MutableLiveData<AddressSearchResultResponse>()
-    val isExistAddress: LiveData<AddressSearchResultResponse>
-        get() = _isExistAddress
+    private val _isExistAddress = MutableLiveData<KakaoAddressSearchResultResponse>()
+    val isExistAddress: LiveData<KakaoAddressSearchResultResponse> get() = _isExistAddress
 
     private val _addressErrorMessage = MutableLiveData<String>()
-    val addressErrorMessage: LiveData<String>
-        get() = _addressErrorMessage
+    val addressErrorMessage: LiveData<String> get() = _addressErrorMessage
 
     private val _isUserInputText = MutableLiveData<Boolean>()
-    val isUserInputText: LiveData<Boolean>
-        get() = _isUserInputText
+    val isUserInputText: LiveData<Boolean> get() = _isUserInputText
 
     // 주소 검색
-    fun getAddress(apiKey: String, keyword: String, page: Int) {
+    fun getAddress(keyword: String, page: Int) {
         viewModelScope.launch(exceptionHandler) {
-            val result = Application.addressRepository.getAddress(apiKey, keyword, page)
+            val result = addressUseCase.getAddressWithKakao(keyword, page)
             _isExistAddress.value = result
         }
     }

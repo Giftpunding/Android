@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
-import com.giftfunding.osds.data.repository.remote.datasource.dto.address.AddressSearchResultResponse
+import com.giftfunding.osds.data.repository.remote.datasource.dto.address.KakaoAddressSearchResultResponse
 import com.giftfunding.osds.databinding.FragmentAddressSearchBinding
 import com.giftfunding.osds.ui.address.adapter.AddressSearchAdapter
 import com.giftfunding.osds.ui.address.model.AddressUiModel
@@ -66,7 +66,7 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
 
         // 주소 검색시 카카오 api 에서 주는 errorMessage ... 테스트 필요
         viewModel.addressErrorMessage.observe(viewLifecycleOwner) { errorMessage ->
-            showSnackBar(errorMessage)
+            binding.root.showSnackBar(errorMessage)
         }
 
         // editText에 텍스트가 입력되었을 떄, x 표시 보여주기
@@ -100,7 +100,7 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
     // editText에 주소지 검색했는지 확인하기
     private fun isSearchAddress(address: String) {
         if (address.isEmpty()) {
-            showSnackBar(getString(R.string.content_empty_address))
+            binding.root.showSnackBar(getString(R.string.content_empty_address))
             return
         }
 
@@ -122,17 +122,16 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
     //키워드로 주소 검색하기
     private fun getAddress() {
         viewModel.getAddress(
-            "KakaoAK ${resources.getString(R.string.rest_api_key)}",
             binding.editAddressSearch.text.toString(),
             page
         )
     }
 
     // 검색 결과가 더 이상 없는지 확인하기
-    private fun isEndPage(address: AddressSearchResultResponse): Boolean? = address.meta!!.isEnd
+    private fun isEndPage(address: KakaoAddressSearchResultResponse): Boolean? = address.meta!!.isEnd
 
     //주소 검색 결과값이 있는지 없는지 판별
-    private fun isExistAddressInformation(address: AddressSearchResultResponse) {
+    private fun isExistAddressInformation(address: KakaoAddressSearchResultResponse) {
         if (address.documents.isNullOrEmpty()) {
             showAddressSearchNoResultView()
         } else {
@@ -219,11 +218,6 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
         binding.editAddressSearch.clearFocusAndHideKeyboard(
             binding.editAddressSearch.context
         )
-    }
-
-    //스낵바로 에러 보여주기
-    private fun showSnackBar(errorMessage: String) {
-        showSnackBar(requireView(), errorMessage)
     }
 
     private fun changeFragment(address: AddressUiModel) {

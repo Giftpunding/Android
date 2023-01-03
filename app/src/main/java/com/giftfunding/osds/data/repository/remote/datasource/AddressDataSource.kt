@@ -9,7 +9,7 @@ class AddressDataSource(private val kakaoRetrofit: Retrofit, private val retrofi
         return kakaoRetrofit.create(AddressService::class.java)
     }
 
-    fun getAddress(): AddressService {
+    fun getAddressService(): AddressService {
         return retrofit.create(AddressService::class.java)
     }
 }

@@ -3,7 +3,7 @@ package com.giftfunding.osds.data.repository.remote.datasource.dto.address
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class Address(
+data class KakaoRoadAaddressReseponse(
     @SerializedName("address_name")
     var addressName: String?,
     @SerializedName("region_1depth_name")
@@ -12,18 +12,18 @@ data class Address(
     var region2depthName: String?,
     @SerializedName("region_3depth_name")
     var region3depthName: String?,
-    @SerializedName("region_3depth_h_name")
-    var region3depthHName: String?,
-    @SerializedName("h_code")
-    var hCode: String?,
-    @SerializedName("b_code")
-    var bCode: String?,
+    @SerializedName("road_name")
+    var roadName: String?,
     @SerializedName("underground_yn")
     var undergroundYn: String?,
-    @SerializedName("main_address_no")
-    var mainAddressNo: String?,
-    @SerializedName("sub_address_no")
-    var subAddressNo: String?,
+    @SerializedName("main_building_no")
+    var mainBuildingNo: String?,
+    @SerializedName("sub_building_no")
+    var subBuildingNo: String?,
+    @SerializedName("building_name")
+    var buildingName: String?,
+    @SerializedName("zone_no")
+    var zoneNo: String?,
     @SerializedName("x")
     var x: String?,
     @SerializedName("y")

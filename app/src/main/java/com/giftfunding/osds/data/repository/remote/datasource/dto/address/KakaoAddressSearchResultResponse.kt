@@ -3,9 +3,9 @@ package com.giftfunding.osds.data.repository.remote.datasource.dto.address
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class AddressSearchResultResponse(
+data class KakaoAddressSearchResultResponse(
     @SerializedName("meta")
-    var meta : AddressSearchResultMetaResponse?,
+    var meta : KakaoAddressSearchResultMetaResponse?,
     @SerializedName("documents")
-    var documents : List<AddressSearchResultDocumentResponse>?
+    var documents : List<KakaoAddressSearchResultDocumentResponse>?
 ):Serializable

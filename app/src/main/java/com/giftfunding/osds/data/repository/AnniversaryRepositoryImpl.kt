@@ -2,6 +2,7 @@ package com.giftfunding.osds.data.repository
 
 import com.giftfunding.osds.data.repository.remote.datasource.AnniversaryDataSource
 import com.giftfunding.osds.data.repository.remote.datasource.dto.anniversary.AnniversaryRequest
+import com.giftfunding.osds.data.repository.remote.datasource.dto.base.toDomain
 import com.giftfunding.osds.domain.anniversary.AnniversaryRepository
 import com.giftfunding.osds.domain.base.dto.UnitDto
 import retrofit2.Response
@@ -19,16 +20,8 @@ class AnniversaryRepositoryImpl(
         val response = anniversaryDataSource.getAnniversaryService()
             .postAnniversary(anniversaryRequest = AnniversaryRequest(name, date))
 
-        return unitToDomainMapper(response)
+        return response.toDomain()
     }
-
-    private fun unitToDomainMapper(response: Response<Unit>) : UnitDto {
-        return UnitDto(
-            code = response.code(),
-            message = response.message()
-        )
-    }
-
 }
 
 
