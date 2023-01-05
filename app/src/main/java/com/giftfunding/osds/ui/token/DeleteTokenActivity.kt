@@ -17,8 +17,8 @@ class DeleteTokenActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_delete_token)
 
         binding.btnDeleteToken.setOnClickListener {
-            Application.loginRepository.deleteUserAccessToken()
-            Application.loginRepository.deleteUserRefreshToken()
+            Application.tokenDeleteRepo.deleteUserAccessToken()
+            Application.tokenDeleteRepo.deleteUserRefreshToken()
             showLongToast("토큰 삭제 완료")
         }
     }

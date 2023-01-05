@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp2_merchandise_img"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TableLayout
+                android:id="@+id/ly_merchandise_scroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/vp2_merchandise_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_brand"
+                style="@style/base_font_medium_14_raven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp2_merchandise_img"
+                tools:text="브랜드" />
+
+            <TextView
+                android:id="@+id/tv_merchandise_title"
+                style="@style/base_font_medium_18_midnight_express"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_brand"
+                tools:text="상품 제목 영역 입니다." />
+
+            <ImageButton
+                android:id="@+id/btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_horizontal_dimens"
+                android:background="@color/transparent"
+                android:src="@drawable/ic_share"
+                app:layout_constraintBottom_toBottomOf="@id/tv_brand"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                style="@style/base_font_bold_26_midnight_express"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_merchandise_title"
+                tools:text="100,000" />
+
+            <TextView
+                style="@style/base_font_medium_16_midnight_express"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/tv_price"
+                app:layout_constraintStart_toEndOf="@id/tv_price"
+                app:layout_constraintTop_toTopOf="@id/tv_price"
+                tools:text="원" />
+
+            <View
+                android:id="@+id/div_base_info"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/solitude"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_price" />
+
+            <TextView
+                android:id="@+id/tv_delivery_fee_title"
+                style="@style/base_font_medium_12_echo_blue_2_padding0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div_base_info"
+                tools:text="배송비" />
+
+            <TextView
+                android:id="@+id/tv_origin_title"
+                style="@style/base_font_medium_12_echo_blue_2_padding0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="44dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_delivery_fee_title"
+                tools:text="원산지" />
+
+            <TextView
+                android:id="@+id/tv_delivery_fee"
+                style="@style/base_font_medium_14_raven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_delivery_fee_title"
+                app:layout_constraintStart_toEndOf="@id/tv_delivery_fee_title"
+                app:layout_constraintTop_toTopOf="@id/tv_delivery_fee_title"
+                tools:text="3,000원" />
+
+            <TextView
+                android:id="@+id/tv_origin"
+                android:layout_marginStart="36dp"
+                style="@style/base_font_medium_14_raven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/tv_origin_title"
+                app:layout_constraintStart_toEndOf="@id/tv_origin_title"
+                app:layout_constraintTop_toTopOf="@id/tv_origin_title"
+                tools:text="국내산" />
+
+            <View
+                android:id="@+id/div_delivery_info"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="31dp"
+                android:background="@color/hawkes_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_origin"/>
+
+            <View
+                android:id="@+id/div_origin"
+                android:layout_width="match_parent"
+                android:layout_height="11dp"
+                android:background="@color/solitude_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div_delivery_info"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/ly_merchandise_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div_origin"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_mechandise_info"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ly_merchandise_tab"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

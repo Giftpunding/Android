@@ -83,6 +83,8 @@ class Application: Application() {
         addressRepository = AddressRepositoryImpl(addressDataSource)
         addressUseCase = AddressUseCase(addressRepository)
 
+
+        tokenDeleteRepo = LoginRepositoryImpl(loginSharedPreference, loginRemoteDataSource)
     }
 
     private fun initFlipper() {
@@ -103,5 +105,7 @@ class Application: Application() {
         lateinit var loginUseCase: LoginUseCase
         lateinit var anniversaryUseCase: AnniversaryUseCase
         lateinit var addressUseCase: AddressUseCase
+        // 토큰 삭제 repo
+        lateinit var tokenDeleteRepo : LoginRepository
     }
 }
