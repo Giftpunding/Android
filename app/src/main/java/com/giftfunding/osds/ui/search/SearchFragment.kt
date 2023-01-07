@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.giftfunding.osds.R
 import com.giftfunding.osds.base.BaseFragment
 import com.giftfunding.osds.databinding.FragmentSearchBinding
+import com.giftfunding.osds.ui.anniversary.AnniversarySelectFragmentDirections
 import com.giftfunding.osds.ui.search.adapter.CategoryImageAdapter
 import com.giftfunding.osds.util.RecyclerViewDeco
 
@@ -49,7 +50,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
             )
         }
 
-        val categoryImageAdapter = CategoryImageAdapter()
+        val categoryImageAdapter = CategoryImageAdapter{
+            changeFragment()
+        }
         binding.rvGiftCategory.apply {
             adapter = categoryImageAdapter
             layoutManager = GridLayoutManager(requireContext(), SPAN_COUNT, GridLayoutManager.VERTICAL, false)
@@ -64,6 +67,16 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     override fun initObserverEvent() {
 
+    }
+
+    private fun changeFragment() {
+        navigate(
+            SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment()
+//            AnniversarySelectFragmentDirections.actionAnniversarySelectFragmentToAnniversaryDateSelectFragment(
+//                anniversary,
+//                binding.editUserInput.text.toString()
+//            )
+        )
     }
 
     companion object{

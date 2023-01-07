@@ -9,7 +9,9 @@ import com.bumptech.glide.Glide
 import com.giftfunding.osds.R
 import com.giftfunding.osds.databinding.ItemCategoryImageBinding
 
-class CategoryImageAdapter :
+class CategoryImageAdapter(
+    private val moveFragment: () -> Unit
+) :
     RecyclerView.Adapter<CategoryImageAdapter.CategoryImageViewHolder>() {
 
     private val categoryImageItems = mutableListOf<Drawable>()
@@ -27,7 +29,7 @@ class CategoryImageAdapter :
     )
 
     override fun onBindViewHolder(holder: CategoryImageViewHolder, position: Int) {
-        holder.onBind(categoryImageItems[position])
+        holder.onBind(categoryImageItems[position], moveFragment)
     }
 
     override fun getItemCount(): Int {
@@ -42,10 +44,14 @@ class CategoryImageAdapter :
         private val binding: ItemCategoryImageBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(image: Drawable) {
+        fun onBind(image: Drawable, moveFragment: () -> Unit) {
             Glide.with(binding.ivCategory.context).load(image).circleCrop().centerInside()
                 .into(binding.ivCategory)
             binding.tvCategoryTitle.text = "test"
+            binding.root.setOnClickListener {
+                moveFragment()
+            }
+
         }
     }
 }

@@ -14,4 +14,147 @@
         <item>출산/유아</item>
         <item>반려동물</item>
     </array>
+
+    <array name="gift_luxury_sub_category">
+        <item>지갑</item>
+        <item>악세사리</item>
+        <item>신발</item>
+        <item>가방</item>
+        <item>시계</item>
+        <item>패션소품</item>
+    </array>
+
+    <array name="gift_fashion_sub_category">
+        <item>패션 잡화</item>
+        <item>가방</item>
+        <item>지갑</item>
+        <item>주얼리/시계</item>
+        <item>신발</item>
+        <item>브랜드 의류</item>
+        <item>파자마</item>
+        <item>언더웨어</item>
+    </array>
+
+    <array name="gift_beauty_sub_category">
+        <item>스킨케어</item>
+        <item>색조 메이크업</item>
+        <item>헤어케어</item>
+        <item>바디케어</item>
+        <item>향수</item>
+        <item>명품 화장품</item>
+        <item>미용기기/소품</item>
+        <item>로드샵 브랜드</item>
+        <item>남성 화장품</item>
+    </array>
+
+    <array name="gift_digital_sub_category">
+        <item>미용가전</item>
+        <item>생활가전</item>
+        <item>주방가전</item>
+        <item>디지털/음향기기</item>
+        <item>디지털 악세사리</item>
+        <item>프리미엄 가전</item>
+        <item>건강용품/가전</item>
+        <item>계절가전</item>
+        <item>컴퓨터/노트북/태블릿</item>
+    </array>
+
+    <array name="gift_sport_sub_category">
+        <item>스포츠 슈즈</item>
+        <item>스포츠 의류/용품</item>
+        <item>캠핑/낚시 용품</item>
+        <item>등산/아웃도어</item>
+        <item>골프 의류/용품</item>
+        <item>요가/헬스</item>
+        <item>수영/수상레저</item>
+        <item>스키/보드</item>
+        <item>라켓스포츠</item>
+    </array>
+
+    <array name="gift_gifticon_sub_category">
+        <item>카페</item>
+        <item>치킨</item>
+        <item>버거/피자</item>
+        <item>구이/족발</item>
+        <item>편의점</item>
+        <item>한식/중식/일식</item>
+        <item>펍</item>
+        <item>분식/죽/도시락</item>
+        <item>레스토랑/뷔페</item>
+        <item>디저트</item>
+    </array>
+
+    <array name="gift_food_sub_category">
+        <item>수산/축산</item>
+        <item>건강식품</item>
+        <item>가공/즉석식품</item>
+        <item>커피/차/음료</item>
+        <item>주류</item>
+        <item>케이크/파이/떡</item>
+        <item>디저트</item>
+        <item>과일/견과/채소</item>
+        <item>다이어트 식품</item>
+    </array>
+
+
+    <array name="gift_living_sub_category">
+        <item>가구</item>
+        <item>조명</item>
+        <item>침구/패브릭</item>
+        <item>명품리빙</item>
+        <item>생필품</item>
+        <item>캔들/디퓨저</item>
+        <item>인테리어</item>
+    </array>
+
+    <array name="gift_baby_sub_category">
+        <item>연령별 추천</item>
+        <item>임산부 선물</item>
+        <item>신생아 선물</item>
+        <item>장난감/인형</item>
+        <item>아기 의류</item>
+        <item>유아 의류</item>
+        <item>기저귀/물티슈</item>
+        <item>유아 교육</item>
+        <item>분유/시유식</item>
+    </array>
+
+    <array name="gift_category_pet_sub_category">
+        <item>강아지 사료</item>
+        <item>강아지 간식</item>
+        <item>강아지 의류</item>
+        <item>강아지 큐션/집</item>
+        <item>강아지 용품</item>
+        <item>고양이 사료</item>
+        <item>고양이 간식</item>
+        <item>고양이 의류</item>
+        <item>고양이 타워/집</item>
+        <item>고양이 용품</item>
+        <item>고양이 모래</item>
+    </array>
+
+    <array name="gift_category_kitchen_sub_category">
+        <item>명품 주방 용품</item>
+        <item>접시/컵</item>
+        <item>주방 용품</item>
+        <item>커트러리</item>
+    </array>
+
+    <array name="gift_category_flower_sub_category">
+        <item>식물</item>
+        <item>꽃다발</item>
+    </array>
+
+    <array name="price_luxury_category">
+        <item>~20만원</item>
+        <item>20~40만원</item>
+        <item>40만원 이상</item>
+    </array>
+
+    <array name="price_merchandise_category">
+        <item>1~2만원</item>
+        <item>3~4만원</item>
+        <item>5~9만원</item>
+        <item>10만원 이상</item>
+    </array>
 </resources>

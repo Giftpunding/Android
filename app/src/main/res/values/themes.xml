@@ -325,6 +325,10 @@
         <item name="android:textColor">@color/midnight_express</item>
     </style>
 
+    <style name="base_font_bold_14_echo_blue_2" parent="base_font_bold_14">
+        <item name="android:textColor">@color/echo_blue_2</item>
+    </style>
+
     <style name="base_font_bold_16_black" parent="base_font_bold_16">
         <item name="android:textColor">@color/black</item>
     </style>
@@ -379,8 +383,12 @@
     </style>
 
 
-    <!--bold size cololr padding-->
+    <!--bold size color padding-->
     <style name="base_font_bold_14_midnight_express_padding0" parent="base_font_bold_14_midnight_express">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="base_font_bold_14_echo_blue_2_padding0" parent="base_font_bold_14_echo_blue_2">
         <item name="android:includeFontPadding">false</item>
     </style>
 
