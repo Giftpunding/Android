@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_homeFragment_to_giftRankingFragment"
             app:destination="@id/giftRankingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_merchandiseDetailFragment"
+            app:destination="@id/merchandiseDetailFragment" />
 
     </fragment>
 
@@ -101,4 +104,11 @@
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search">
     </fragment>
+
+    <fragment
+        android:id="@+id/merchandiseDetailFragment"
+        android:name="com.giftfunding.osds.ui.merchandise.MerchandiseDetailFragment"
+        android:label="MerchandiseDetailFragment"
+        tools:layout="@layout/fragment_merchandise_detail"/>
+
 </navigation>

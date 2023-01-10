@@ -128,10 +128,10 @@
 
             <TextView
                 android:id="@+id/tv_origin"
-                android:layout_marginStart="36dp"
                 style="@style/base_font_medium_14_raven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_origin_title"
                 app:layout_constraintStart_toEndOf="@id/tv_origin_title"
                 app:layout_constraintTop_toTopOf="@id/tv_origin_title"
@@ -143,35 +143,94 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="31dp"
                 android:background="@color/hawkes_blue"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_origin"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_origin" />
 
             <View
                 android:id="@+id/div_origin"
                 android:layout_width="match_parent"
                 android:layout_height="11dp"
                 android:background="@color/solitude_2"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/div_delivery_info"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div_delivery_info" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/ly_merchandise_tab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/div_origin"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div_origin" />
 
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_mechandise_info"
+                android:id="@+id/vp_merchandise_info"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ly_merchandise_tab"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ly_merchandise_tab" />
 
+            <TextView
+                android:id="@+id/tv_more_gift_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_rect_link_water_white_radius4_stroke1"
+                android:drawablePadding="12dp"
+                android:paddingHorizontal="26dp"
+                android:paddingVertical="16dp"
+                android:text="상품설명 더보기"
+                app:drawableEndCompat="@drawable/ic_sort_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_merchandise_info" />
+
+            <TextView
+                android:id="@+id/tv_recommend_gift_title"
+                style="@style/base_font_medium_16_midnight_express"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="75dp"
+                android:text="연관 추천 선물"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_more_gift_info" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recommend_gift"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="20dp"
+                android:paddingEnd="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_recommend_gift_title" />
+
+            <TextView
+                android:id="@+id/tv_recommend_gift_for_same_gift_title"
+                style="@style/base_font_medium_16_midnight_express"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="63dp"
+                android:text="동일 선물을 본 사람들이 추가한 선물"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_recommend_gift" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recommend_gift_for_same_gift"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_dimens"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="100dp"
+                android:paddingEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_recommend_gift_for_same_gift_title"
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

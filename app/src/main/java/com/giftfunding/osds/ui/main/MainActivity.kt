@@ -48,7 +48,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                  R.id.anniversarySelectFragment -> {
                     setToolbarType(ToolbarType.NORMAL, VisibleState.INVISIBLE)
                     setTitle("타이틀")
-                    bottomNavigationShow()
+                    bottomNavigationGone()
                 }
 
                 R.id.addressFragment -> {
@@ -85,6 +85,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     setToolbarType(ToolbarType.GIFT, VisibleState.INVISIBLE)
                     setTitle(resources.getString(R.string.title_gift_ranking))
                 }
+
+                R.id.merchandiseDetailFragment -> {
+                    setToolbarType(ToolbarType.GIFT, VisibleState.INVISIBLE)
+                    setTitle("상품상세")
+                }
             }
         }
     }
@@ -92,10 +97,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private fun setToolbarType(type: ToolbarType, visibleState: VisibleState){
         when(type){
             ToolbarType.NORMAL -> {
-                normalToolbarType(visibleState)
+                normalToolbarType(isShowClose = visibleState)
             }
             ToolbarType.GIFT -> {
-                giftToolbarType(visibleState)
+                giftToolbarType(isShowLogo = visibleState)
             }
         }
     }

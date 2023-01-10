@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.giftfunding.osds.data.repository.remote.datasource.dto.address.KakaoAddressSearchResultDocumentResponse
 import com.giftfunding.osds.databinding.ItemAddressSearchBinding
+import com.giftfunding.osds.domain.merchandise.dto.Merchandise
 import com.giftfunding.osds.ui.address.model.AddressUiModel
 
 class AddressSearchAdapter(
